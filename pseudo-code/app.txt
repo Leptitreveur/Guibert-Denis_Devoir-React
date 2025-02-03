@@ -8,21 +8,7 @@ import Realisations from './pages/realisations';
 import MentionsLegales from './pages/mentions-legales';
 import Modale from './pages/modale';
 
-// import Brush from "/public/icons-svg/brush.svg"
-// import Close from "../src/assets/icons-svg/close.svg"
-// import Code from "../src/assets/icons-svg/code.svg"
-// import Cube from "../src/assets/icons-svg/cube.svg"
-// import Description from "../src/assets/icons-svg/description.svg"
-// import Email from "../src/assets/icons-svg/email.svg"
-// import Github from "../src/assets/icons-svg/github.svg"
-// import Linkedin from "../src/assets/icons-svg/linkedin.svg"
-// import Mapnavigation from "../src/assets/icons-svg/map-navigation.svg"
-// import Menuburger from "../src/assets/icons-svg/menu-burger.svg"
-// import Research from "../src/assets/icons-svg/Research.svg"
-// import Smartphone from "../src/assets/icons-svg/smartphone.svg"
-// import Twitter from "../src/assets/icons-svg/twitter.svg"
-// import User from "../src/assets/icons-svg/user.svg"
-// import Users from "../src/assets/icons-svg/users.svg"
+
 
 export default class App extends React.Component {
   render() {

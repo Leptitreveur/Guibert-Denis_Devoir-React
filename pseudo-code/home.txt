@@ -1,22 +1,56 @@
-{/* <header>
+// import React from "react";
+// import {Routes, Route, Link} from "react-router-dom";
+
+
+// import Services from "./pages/services"
+// import Realisations from "./pages/realistaions"
+// import Contact from "./pages/contact"
+// import Mentionslegales from "./pages/mentions-legales"
+// import Modale from "./pages/modale"
+
+ import Github from "/src/assets/icons-svg/github.svg"
+ import Linkedin from "/src/assets/icons-svg/linkedin.svg"
+ import Twitter from "/src/assets/icons-svg/twitter.svg"
+ 
+// import Brush from "/public/icons-svg/brush.svg"
+// import Close from "../src/assets/icons-svg/close.svg"
+// import Code from "../src/assets/icons-svg/code.svg"
+// import Cube from "../src/assets/icons-svg/cube.svg"
+// import Description from "../src/assets/icons-svg/description.svg"
+// import Email from "../src/assets/icons-svg/email.svg"
+// import Github from "../src/assets/icons-svg/github.svg"
+// import Globe from "../src/assets/icons-svg/globe.svg"
+// import Linkedin from "../src/assets/icons-svg/linkedin.svg"
+// import Localisation from "../src/assets/icons-svg/localisation.svg"
+// import Mapnavigation from "../src/assets/icons-svg/map-navigation.svg"
+// import Menuburger from "../src/assets/icons-svg/menu-burger.svg"
+// import Research from "../src/assets/icons-svg/Research.svg"
+// import Smartphone from "../src/assets/icons-svg/smartphone.svg"
+// import Twitter from "../src/assets/icons-svg/twitter.svg"
+// import User from "../src/assets/icons-svg/user.svg"
+// import Users from "../src/assets/icons-svg/users.svg"
+
+
+ export default function App() {
+    return(
+      <div className="App">
+        <header>
           <nav className="Nav">
             <ul >
-              <li ><a href="/">Home</a></li>
-              <li ><a href="/services" >Services</a></li>
-              <li ><a href="/realisations" >Portofolio</a></li>
-              <li ><a href="/contact" >Contact</a></li>
-              <li ><a href="/mentions-légales" >Mentions légales</a></li>
+              {/* <li ><Link to="/">Accueil</Link></li> */}
+              {/* <li ><Link to="/services" >Services</Link></li> */}
+              {/* <li ><Link to="/realisations" >Portofolio</Link></li>
+              <li ><Link to="/contact" >Contact</Link></li>
+              <li ><Link to="/mentions-legales" >Mentions légales</Link></li> */}
             </ul>
           </nav>
-        </header> */}
-  
-        {/* <main>
+        </header>
+
+        <main>
           <div>
             <h1 className="Title">Bonjour, je suis Jhon Doe</h1>
             <h2 className="SubTitle">Developpeur web full stack</h2>
-            <Link to="../public/pages/modale.jsx">
-            <button className="btn">En savoir plus</button>
-            </Link>
+            {/* <button className="btn"><Link to="/pages/modale.jsx">En savoir plus</Link></button> */}
           </div>
   
           <section className="About">
@@ -57,34 +91,35 @@
               <h4>react</h4>
               <progress value = "50" max ="100"/>
           </section> 
+        </main>
 
-        </main> */}
+        <footer className="#">
   
-         <footer className="#">
-{/*   
            <div className="Contactme">
-             Créer un composant à reutiliser. Chaque ligne doit être identifiable pour ajouter des icône suivant les pages
+             {/* Créer un composant à reutiliser. Chaque ligne doit être identifiable pour ajouter des icône suivant les pages */}
              <p>Jhon Doe</p>
              <p>40 rue laure Diebold</p>
              <p>69009 Lyon, France</p>
              <p>10 20 30 40 50</p>
              <p>jhon.doe@gmail.com</p>
-           </div> */}
-  
-           <div className="Social-Link">
-            <img src={Github} alt="GitHub" ></img>
-            <img src={Twitter} alt="Twitter" ></img>
-            <img src={Linkedin} alt="Linkedin" ></img>
            </div>
   
-           {/* <div className="Usefull-Link">
-               <h4 >Liens Utiles</h4>
-               <a href="/" >Home</a>
-               <a href="/services.jsx" >Services</a>
-               <a href="/realisations.jsx" >Portofolio</a>
-               <a href="/contact.jsx" >Contact</a>
-               <a href="/mentions-legales.jsx" >Mentions légales</a>
-           </div> */}
+           <div className="Social-Link">
+            <img src={Github} alt="GitHub" width={24}></img>
+            <img src={Twitter} alt="Twitter" width={24}></img>
+            <img src={Linkedin} alt="Linkedin" width={24}></img>
+           </div>
+  
+           <div className="Usefull-Link">
+              <h4 >Liens Utiles</h4>
+              <ul >
+                {/* <li ><Link to="/">Accueil</Link></li> */}
+                {/* <li ><Link to="/services" >Services</Link></li> */}
+                {/* <li ><Link to="/realisations" >Portofolio</Link></li> */}
+                {/* <li ><Link to="/contact" >Contact</Link></li> */}
+                {/* <li ><Link to="/mentions-legales" >Mentions légales</Link></li> */}
+              </ul>
+           </div>
   
            <div className="Project">
                {/* Link to project 1 Link
@@ -95,13 +130,15 @@
                Link to project 6 Link */}
            </div>
          </footer>
+          {/* <Routes> */}
+            {/* <Route path ="/" element = {<App/>}></Route> */}
+            {/* <Route path = "/services" element = {<Services/>}></Route> */}
+            {/* <Route path = "/realisations" element = {<Realisations/>}></Route> */}
+            {/* <Route path = "/contact" element = {<Contact/>}></Route> */}
+            {/* <Route path = "/mentions-legales" element = {<Mentionslegales/>}></Route> */}
+            {/* <Route path = "/modale" element = {<Modale/>}></Route> */}
+          {/* </Routes> */}
+        </div>
+  )
   
-      {/* <Routes>
-        <Route path = "/" element = {<App/>}></Route>
-        <Route path = "/services" element = {<Services/>}></Route>
-        <Route path = "/realisations" element = {<Realisations/>}></Route>
-        <Route path = "/contact" element = {<Contact/>}></Route>
-        <Route path = "/mentions-legales" element = {<Mentionslegales/>}></Route>
-        <Route path = "/modale" element = {<Modale/>}></Route>
-      </Routes> */}
-      </div>
+};
