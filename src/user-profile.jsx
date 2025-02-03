@@ -3,6 +3,7 @@ import User from "../src/assets/icons-svg/user.svg"
 import Description from "../src/assets/icons-svg/description.svg"
 import Cube from "../src/assets/icons-svg/cube.svg"
 import Localisation from "../src/assets/icons-svg/localisation.svg"
+import Users from "../src/assets/icons-svg/users.svg"
 
 function UserProfile() {
   const [user, setUser] = useState(null);
@@ -37,8 +38,8 @@ function UserProfile() {
       <p><img src = {Localisation} alt ="Localisation" width={16}></img></p>
       <p><img src={Description} alt="Description" width={16}></img>{user.bio || 'Aucune bio disponible'}</p>
       <p><img src ={Cube} alt = "Cube" width={16}></img>{user.public_repos}</p>
-      <p>Followers : {user.followers}</p>
-      <p>Following : {user.following}</p>
+      <p><img src={Users} alt="Users" width={16}></img> Followers :{user.followers}</p>
+      <p><img src={Users} alt="Users" width={16}></img>Following : {user.following}</p>
     </div>
   );
 }
