@@ -1,0 +1,12 @@
+export default function Modale(){
+    return(
+        <div className="Modale">
+                <h1>Mon profil GitHub</h1>
+            <div>
+            {/* https://api.github.com/users/github-john-doe
+            // Carte de visite avec informations.
+            // Trouver un moyen d'extraire ses infos */}
+            </div>
+        </div>
+    )
+}
