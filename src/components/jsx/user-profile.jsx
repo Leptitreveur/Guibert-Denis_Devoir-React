@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import User from "../src/assets/icons-svg/user.svg"
-import Description from "../src/assets/icons-svg/description.svg"
-import Cube from "../src/assets/icons-svg/cube.svg"
-import Localisation from "../src/assets/icons-svg/localisation.svg"
-import Users from "../src/assets/icons-svg/users.svg"
+
+import Cube from "../../assets/icons-svg/cube.svg"
+import Description from "../../assets/icons-svg/description.svg"
+import Localisation from "../../assets/icons-svg/localisation.svg"
+import User from "../../assets/icons-svg/user.svg"
+import Users from "../../assets/icons-svg/users.svg"
 
 function UserProfile() {
   const [user, setUser] = useState(null);
