@@ -6,18 +6,20 @@ import Close from "../assets/icons-svg/close.svg"
 function Modale()
 {
   return(
-      <div>
+      <div className="#">
           <h1>Mon profil GitHub</h1>
 
           <div>
             <Link to = "/">
-              <img src={Close} alt="Close modal" width={24}></img>
+              <img className="#" src={Close} alt="Close modal" width={24}></img>
             </Link>
             <UserProfile/>
           </div>
 
           <div>
-            <button type="button">Fermé</button>
+            <Link to="/">
+              <button className="#" type="button">Fermé</button>
+            </Link>
           </div>
       </div>
   )

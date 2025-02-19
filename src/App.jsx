@@ -9,9 +9,9 @@ import Twitter from "./assets/icons-svg/twitter.svg"
 
 export default function App() {
    return(
-     <div>
+     <div className="#">
       <header>
-        <nav>
+        <nav className="#">
           <ul >
             <li ><Link to="/">Accueil</Link></li>
             <li ><Link to="/services" >Services</Link></li>
@@ -49,10 +49,10 @@ export default function App() {
           <h4 >Liens Utiles</h4>
           <ul >
             <li ><Link to="/">Accueil</Link></li>
-            <li ><Link to="/services" >Services</Link></li>
-            <li ><Link to="/realisations" >Portofolio</Link></li>
-            <li ><Link to="/contact" >Contact</Link></li>
-            <li ><Link to="/mentions-legales" >Mentions légales</Link></li>
+            <li ><Link to="services" >Services</Link></li>
+            <li ><Link to="realisations" >Portofolio</Link></li>
+            <li ><Link to="contact" >Contact</Link></li>
+            <li ><Link to="mentions-legales" >Mentions légales</Link></li>
           </ul>
         </div>
 

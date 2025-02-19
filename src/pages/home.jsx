@@ -11,7 +11,7 @@ export default function Homepage() {
                     En savoir plus
            </Link>
          </div>
- 
+
          <section className="About">
            <h3>A propos</h3>
            <img src="/assets/images/john-doe-about.jpg" alt="Jhon Doe working"></img>
@@ -35,10 +35,10 @@ export default function Homepage() {
              Fusce sed justo in erat pulvinar eleifend vel sed quam.
            </p>
          </section>
- 
-         <section className= "Myskills">
+
+         <section className= "#">
            <h3 className="#">Mes Compétences</h3>
-           Composants fonctionnel à créer = titre + progress bar avec des valeurs asynchrones!! ne pas oublier les HOOK
+           {/* Composants fonctionnel à créer = titre + progress bar avec des valeurs asynchrones!! ne pas oublier les HOOK */}
              <h4>html</h4>
              <progress value = "90" max = "100" />
              <h4>css</h4>
@@ -49,12 +49,11 @@ export default function Homepage() {
              <progress value = "60" max = "100" />
              <h4>react</h4>
              <progress value = "50" max ="100"/>
-         </section> 
-              
+         </section>
+
        <Routes>
           <Route path="/modale" element={<Modale/>}></Route>
        </Routes>
        </div>
  )
- 
 };
