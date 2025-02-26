@@ -4,10 +4,10 @@ import Modale from "../pages/modale"
 export default function Homepage() {
    return(
      <div>
-         <div>
+         <div className="presentation">
            <h1 className="Title">Bonjour, je suis Jhon Doe</h1>
            <h2 className="SubTitle">Developpeur web full stack</h2>
-           <Link to="/modale">
+           <Link to="/modale" className="link">
                     En savoir plus
            </Link>
          </div>

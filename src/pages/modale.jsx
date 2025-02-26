@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-import UserProfile from '../components/jsx/user-profile';
+import UserProfile from '../components/jsx/user-profile.jsx';
 import Close from "../assets/icons-svg/close.svg"
 
 function Modale()
