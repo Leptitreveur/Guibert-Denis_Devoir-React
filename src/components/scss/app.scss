@@ -1,0 +1,118 @@
+*{
+  font-family: Arial, sans-serif;
+  box-sizing : border-box;
+}
+body{
+  width: 100vw;
+  height: 100dvh; //dvh prevent an unwilling positionning on smartphone screen
+}
+
+.header-container *,
+.footer-container *{
+  margin: 0;
+  padding: 0;
+
+}
+
+.header-container,
+.footer-container{
+  padding-left : 1rem;
+  padding-right: 1rem;
+  color: white;
+  background-color: #212529;
+}
+
+.link{
+  text-decoration: none;
+  color : white;
+}
+
+.iconsetting{
+  width: 2rem;
+  height : 2rem;
+  filter: invert(50%);
+}
+
+.listsetting{
+  list-style-type: none;
+}
+
+// ########################################################################################
+
+.header-container{
+  position : relative;
+  display: flex;
+  align-items: center;
+  height : 56px;
+}
+
+// ########################################################################################
+.header-container__mobile{
+  display : flex;
+  justify-content: space-between;
+  align-items: center;
+  width : 100%;
+
+  .logo-container{
+    color: white;
+    text-transform: uppercase;
+  }
+  .menu-burger{
+    width: 2.75rem;
+    padding-left : 0.6rem;
+    padding-right : 0.6rem;
+    border : 0.15rem solid black; //filtre invert() appliqué sur les icones
+    border-radius : 20%;
+    cursor: pointer;
+  }
+}
+// ########################################################################################
+
+.nav-container{
+  display : none;
+  position : absolute;
+  top: 56px;
+  left: 0;
+  width:100%;
+  background-color: black;
+  .listsetting{
+    padding-left: 1rem;
+  }
+}
+
+
+// ########################################################################################
+
+
+
+main{
+  .presentation{
+    width: 100%;
+    height: auto;
+    text-align: center;
+    background-image: url(../../assets/images/hero-bg.jpg);
+    color : white;
+  }
+}
+// ########################################################################################
+
+.footer-container{
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  gap: 1rem;
+  .strong{
+    margin-bottom: 0.5rem;
+  }
+  .sociallink-container{
+    display : flex;
+    justify-content: space-between;
+    width: 7rem;
+    margin-top: 1rem;
+    opacity: 30%;
+  }
+}
+
+// ########################################################################################
+// ########################################################################################

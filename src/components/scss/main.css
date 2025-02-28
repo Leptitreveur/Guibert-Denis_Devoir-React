@@ -1,0 +1,8 @@
+@import url(/node_modules/bootstrap/scss/bootstrap.scss);
+@import url("../scss/app.scss");
+@font-face {
+  font-family: NunitoSans;
+  src: url("../../font/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf") format("Truetype");
+}
+
+/*# sourceMappingURL=main.css.map */
