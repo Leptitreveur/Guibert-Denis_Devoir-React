@@ -21,7 +21,6 @@ export default function Homepage() {
 
         <div className="about-container shadow">
           <section className="about">
-            {/* <Jdabout className="about__image"/> */}
             <Profil className="about__profil" />
           </section>
 
