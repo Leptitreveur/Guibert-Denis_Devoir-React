@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
 
-import { BrushIcon, CodeIcon, ResearchIcon } from "./images";
+import { BsBrush, BsSearch, BsCodeSlash } from 'react-icons/bs'
 import { Desgintext, Devwebtext, Reftext } from "./text";
 
 export function Design ({title}) {
     return(
-        <div className="">
-            <BrushIcon/>
-            <h2 className="Service-type">{title}</h2>
+        <div className="card-body d-flex flex-column justify-content-center align-items-center gap-2 border border-grey rounded">
+            <BsBrush style={{fontSize : '1.6rem', color:'blue'}} className="card-img-top m-4"/>
+            <h2 className="card-title fw-bold">{title}</h2>
             <Desgintext/>
         </div>
     )
@@ -19,9 +19,9 @@ Design.propTypes = {
 
 export function Developpement ({title}) {
     return(
-        <div className="">
-            <CodeIcon/>
-            <h2 className="Service-type">{title}</h2>
+        <div className="card-body d-flex flex-column justify-content-center align-items-center gap-2 border border-grey rounded">
+            <BsCodeSlash style={{fontSize : '1.6rem', color : 'blue'}} className="card-img-top m-4"/>
+            <h2 className="card-title fw-bold">{title}</h2>
             <Devwebtext/>
         </div>
     )
@@ -33,9 +33,9 @@ Developpement.propTypes = {
 
 export function Referencement ({title}) {
     return(
-        <div className="">
-            <ResearchIcon/>
-            <h2 className="Service-type">{title}</h2>
+        <div className="card-body d-flex flex-column justify-content-center align-items-center gap-2 border border-grey rounded">
+            <BsSearch style={{fontSize : '1.6rem', color : 'blue'}} className="card-img-top m-4"/>
+            <h2 className="card-title fw-bold">{title}</h2>
             <Reftext/>
         </div>
     )

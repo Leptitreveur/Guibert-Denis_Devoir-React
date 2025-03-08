@@ -1,0 +1,27 @@
+.main-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.banner{
+    width: 100%;
+    height: 3.5rem;
+    transform: scale(1.1);
+    overflow: hidden;
+}
+.subcontainer{
+    text-align: center;
+}
+
+.line-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.line{
+    width : 7rem;
+    height: 0.4rem;
+    background-color: blue;
+    opacity: 100%;
+}

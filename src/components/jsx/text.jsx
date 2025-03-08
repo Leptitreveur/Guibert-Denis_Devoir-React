@@ -38,15 +38,15 @@ export  function Realisation06() {
 
 export function Desgintext () {
     const text = ["L'UX design est une discipline qui consiste à concevoir des produits ( site web, application mobiles, logiciels, objets connectés, etc.) en plaçant l'utilisateur au centre des préoccupations. L'objectif est de rendre l'experience utilisateur la plus fluide et la plus agreable possible."];
-    return(<div>{text.map((msg,index)=>(<p key={index}>{msg}</p>))}</div>);
+    return(<div>{text.map((msg,index)=>(<p key={index} className="card-text text-center">{msg}</p>))}</div>);
 }
 
 export function Devwebtext () {
     const text = ["Le développement de site web consiste à créer des sites internet en utilisant des langages de programmation (HTML, CSS, JavaScript, PHP, etc.) et des frameworks (Bootstrap, React, Angular, etc.)"];
-    return(<div>{text.map((msg,index)=>(<p key={index}>{msg}</p>))}</div>);
+    return(<div>{text.map((msg,index)=>(<p key={index} className="card-text text-center">{msg}</p>))}</div>);
 }
 
 export function Reftext () {
     const text = ["Le référencement naturel (SEO) est une technique qui consiste à optimiser un site web pour le faire remonter dans les moteurs de recherche (Google, Bing, Yahoo, etc.). L'objectif est d'attirer un maximum de visiteurs qualifiés sur le site."];
-    return(<div>{text.map((msg,index)=>(<p key={index}>{msg}</p>))}</div>);
+    return(<div>{text.map((msg,index)=>(<p key={index} className="card-text text-center">{msg}</p>))}</div>);
 }
