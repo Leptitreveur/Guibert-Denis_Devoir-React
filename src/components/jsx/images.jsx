@@ -1,14 +1,21 @@
+import Jdabout from "../../assets/images/john-doe-about.jpg"
 import Herobg from "../../assets/images/hero-bg.jpg"
-import Jhondoeabout from "../../assets/images/john-doe-about.jpg"
+import Banner from "../../assets/images/banner.jpg"
+
+export default function About(){
+    return(
+        <img src ={Jdabout} alt="About jhon doe" />
+    )
+}
 
 export function Herobground(){
     return(
-        <img src ={Herobg} alt="Jhon Doe working" />
-    )
-}
-export default function Jdabout(){
-    return (
-        <img src={Jhondoeabout} alt="About jhon Doe" className="img-about"/>
+        <img src={Herobg} alt="Hero background" />
     )
 }
 
+export function Bannerbg() {
+    return(
+        <img src={Banner} alt="Banner background" className="banner"/>
+    )
+}
