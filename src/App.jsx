@@ -24,7 +24,7 @@ export default function App() {
           <ul className="listsetting">
             <li ><Link className="link" to="/">Accueil</Link></li>
             <li ><Link className="link" to="/services" >Services</Link></li>
-            <li ><Link className="link" to="/realisations" >Portofolio</Link></li>
+            <li ><Link className="link" to="/realisations" >Portfolio</Link></li>
             <li ><Link className="link" to="/contact" >Contact</Link></li>
             <li ><Link className="link" to="/mentions-legales" >Mentions légales</Link></li>
           </ul>
@@ -61,7 +61,7 @@ export default function App() {
           <ul className="listsetting">
             <li ><Link className="link" to="/">Accueil</Link></li>
             <li ><Link className="link" to="services" >Services</Link></li>
-            <li ><Link className="link" to="realisations" >Portofolio</Link></li>
+            <li ><Link className="link" to="realisations" >Portfolio</Link></li>
             <li ><Link className="link" to="contact" >Contact</Link></li>
             <li ><Link className="link" to="mentions-legales" >Mentions légales</Link></li>
           </ul>

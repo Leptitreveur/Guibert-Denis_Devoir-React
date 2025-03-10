@@ -1,15 +1,16 @@
+import { Bannerbg } from "$/jsx/images"
+import { Cardlist } from "$/jsx/elements"
+
 export default function Projectpage() {
   return(
-      <div>
-        <h1>Portofolio</h1>
-        <p>Voici quelques unes de mes réalisations</p>
-        {/* Composant à créer */}
-        {/* Card du projet 1 Fresh Food => site de vente de produits frais en ligne*/}
-        {/* Card du projet 2 Restaurant Akira => Site de produits frais en ligne*/}
-        {/* Card du projet 3 Espace de bien être => site de vente de produits frais en ligne*/}
-        {/* Card du projet 4 Seo => Amélioration de référencement d'un site e-commerce*/}
-        {/* Card du projet 5 Création d'une API => création d'une API RESTFULL publique*/}
-        {/* Card du projet 6 Maquette d'un site web => Création du prototype d'un site*/}
+      <div className="mb-5">
+        <Bannerbg/>
+        <div className="d-flex flex-column justify-content-center align-items-center m-5">
+          <h1>Portfolio</h1>
+          <p>Voici quelques unes de mes réalisations</p>
+          <hr className="m-0 p-0 bg-primary opacity-100" style={{height : '0.4rem', width :'8rem'}} />
+        </div>
+        <Cardlist/>
       </div>
   )
 }

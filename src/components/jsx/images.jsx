@@ -1,6 +1,11 @@
+// From images
+// ======================================================================================
+
 import Jdabout from "../../assets/images/john-doe-about.jpg"
 import Herobg from "../../assets/images/hero-bg.jpg"
 import Banner from "../../assets/images/banner.jpg"
+
+// ======================================================================================
 
 export default function About(){
     return(
@@ -19,3 +24,5 @@ export function Bannerbg() {
         <img src={Banner} alt="Banner background" className="banner"/>
     )
 }
+
+

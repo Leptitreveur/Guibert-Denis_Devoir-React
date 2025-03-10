@@ -50,3 +50,4 @@ export function Reftext () {
     const text = ["Le référencement naturel (SEO) est une technique qui consiste à optimiser un site web pour le faire remonter dans les moteurs de recherche (Google, Bing, Yahoo, etc.). L'objectif est d'attirer un maximum de visiteurs qualifiés sur le site."];
     return(<div>{text.map((msg,index)=>(<p key={index} className="card-text text-center">{msg}</p>))}</div>);
 }
+

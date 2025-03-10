@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { BsBrush, BsSearch, BsCodeSlash } from 'react-icons/bs'
 import { Desgintext, Devwebtext, Reftext } from "./text";
 
+
 export function Design ({title}) {
     return(
         <div className="card-body d-flex flex-column justify-content-center align-items-center gap-2 border border-grey rounded">
@@ -44,3 +45,4 @@ export function Referencement ({title}) {
 Referencement.propTypes = {
     title : PropTypes.string.isRequired,
 }
+
