@@ -1,10 +1,11 @@
-import {Routes, Route, Link} from "react-router-dom"
+import { Routes, Route, Link } from "react-router-dom"
 import Modale from "../pages/modale"
 
-import {Progressbar} from "../components/jsx/progressbar"
-import {Herobground} from "../components/jsx/images"
-import {Profil} from "../components/jsx/text"
+import { Progressbar } from "$/jsx/progressbar"
+import { Herobground } from "$/jsx/images"
+import { Profil } from "$/jsx/text"
 
+import { Sectiontitle } from "$/jsx/elements"
 export default function Homepage() {
    return(
      <div>
@@ -24,14 +25,16 @@ export default function Homepage() {
             <Profil className="about__profil" />
           </section>
 
-          <div >
-            <h3>Mes compétences</h3>
-              <Progressbar title="html5" percentage={90} color="bg-danger"/>
-              <Progressbar title="css3" percentage={80} color="bg-warning"/>
-              <Progressbar title="javascript" percentage={70} color="bg-success"/>
-              <Progressbar title="react" percentage={60} color="bg-primary"/>
-              <Progressbar title="php" percentage={50} color="bg-info"/>
-          </div>
+          <section>
+            <Sectiontitle title = "Mes competences"/>
+
+            <Progressbar title="html5" percentage={90} color="bg-danger"/>
+            <Progressbar title="css3" percentage={80} color="bg-warning"/>
+            <Progressbar title="javascript" percentage={70} color="bg-success"/>
+            <Progressbar title="react" percentage={60} color="bg-primary"/>
+            <Progressbar title="php" percentage={50} color="bg-info"/>
+
+          </section>
         </div>
 
        <Routes>

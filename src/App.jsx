@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 
-import { Realisation01, Realisation02, Realisation03, Realisation04, Realisation05, Realisation06} from "./components/jsx/text"
+import { Realisation01, Realisation02, Realisation03, Realisation04, Realisation05, Realisation06} from "$/jsx/text"
+import { Coordonate } from "$/jsx/elements"
 
 import Github from "./assets/icons-svg/github.svg"
 import Linkedin from "./assets/icons-svg/linkedin.svg"
@@ -40,14 +41,7 @@ export default function App() {
       <footer className ="footer-container">
 
         <div className = "id-container">
-          <div>
-            {/* Créer un composant à reutiliser. Chaque ligne doit être identifiable pour ajouter des icône suivant les pages */}
-            <h4 className="strong">Jhon Doe</h4>
-            <p>40 rue laure Diebold</p>
-            <p>69009 Lyon, France</p>
-            <p>10 20 30 40 50</p>
-            <p>jhon.doe@gmail.com</p>
-          </div>
+          <Coordonate showicon={false} />
 
           <div className="sociallink-container">
             <img src={Github} alt="GitHub" className="iconsetting"></img>
