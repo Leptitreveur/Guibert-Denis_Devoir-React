@@ -37,6 +37,8 @@ export  function Realisation06() {
     return ( <p>{message}</p> )
 };
 
+// ===========================================================================================================================================
+
 export function Desgintext () {
     const text = ["L'UX design est une discipline qui consiste à concevoir des produits ( site web, application mobiles, logiciels, objets connectés, etc.) en plaçant l'utilisateur au centre des préoccupations. L'objectif est de rendre l'experience utilisateur la plus fluide et la plus agreable possible."];
     return(<div>{text.map((msg,index)=>(<p key={index} className="card-text text-center">{msg}</p>))}</div>);
@@ -50,5 +52,36 @@ export function Devwebtext () {
 export function Reftext () {
     const text = ["Le référencement naturel (SEO) est une technique qui consiste à optimiser un site web pour le faire remonter dans les moteurs de recherche (Google, Bing, Yahoo, etc.). L'objectif est d'attirer un maximum de visiteurs qualifiés sur le site."];
     return(<div>{text.map((msg,index)=>(<p key={index} className="card-text text-center">{msg}</p>))}</div>);
+}
+
+// ===========================================================================================================================================
+
+export function Credittext () {
+    const text = [
+    <>
+        Ce site a été réalisé par Jhon Doe, étudiant au {" "}
+        <a href="https:www.centre-europeen-formation.fr/" target="_blank"> Centre Européen de formation</a>
+    </>,
+    <>
+        Les images utilisées sur ce site sont libres de droit et ont été obtenues sur le site {" "}
+        <a href="https:pixabay.com/fr/" rel="noreferrer" target="_blank">Pixabay</a>
+    </>,
+    <>
+        La favicon de ce site a été fournie par {" "}
+        <a href="https:www.flaticon.com/de/kostenlose-icons/john-doe" rel="noreferrer" target="_blank">Jhon Doe icons erstellt von Freepik - Flaticon </a>
+        et la conversion des images sur {" "}
+        <a href="{https:favicon.io/favicon-converter/}" target="_blank"> favicon.io</a>
+        .
+    </>
+    ];
+    return(
+        <div>
+            {text.map((msg,index)=>(
+                <div key={index} className="">
+                    <p>{msg}</p>
+                    <br/>
+                </div>
+            ))}
+        </div>);
 }
 

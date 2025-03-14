@@ -1,5 +1,4 @@
-import { Routes, Route, Link } from "react-router-dom"
-import Modale from "../pages/modale"
+import { Link } from "react-router-dom"
 
 import { Progressbar } from "$/jsx/progressbar"
 import { Herobground } from "$/jsx/images"
@@ -37,9 +36,7 @@ export default function Homepage() {
           </section>
         </div>
 
-       <Routes>
-          <Route path="/modale" element={<Modale/>}></Route>
-       </Routes>
+
        </div>
  )
 };

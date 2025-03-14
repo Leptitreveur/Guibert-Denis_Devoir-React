@@ -5,13 +5,13 @@
     src: url('../../assets/font/NunitoSans-VariableFont_YTLC\,opsz\,wdth\,wght.ttf') format('truetype');
 }
 
-@import url('../scss/app.scss');
-@import url('../scss/home.scss');
+@import url('./app.scss');
+@import url('./home.scss');
 // @import url(modal.scss)
-@import url('../scss/services.scss')
-// @import url(contact.scss)
-// @import url(realisations.scss)
-// @import url(legal-notice.scss)
+@import url('./services.scss');
+// @import url(contact.scss);
+// @import url(realisations.scss);
+@import url('./legalnotice.scss');
 
 
 // @include media-breakpoint-up(sm){

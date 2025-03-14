@@ -2,6 +2,9 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom"
 
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import './components/scss/main.css';
+
 import App from "./App.jsx"
 import Home from "./pages/home.jsx"
 import Services from  "./pages/services.jsx"
@@ -24,5 +27,5 @@ createRoot(document.getElementById('root')).render(
         </Route>
       </Routes>
     </Router>
-  </StrictMode>,
+  </StrictMode>
 )
