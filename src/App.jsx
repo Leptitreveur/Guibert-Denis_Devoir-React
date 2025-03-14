@@ -29,7 +29,6 @@ export default function App() {
             <li ><Link className="link" to="/contact" >Contact</Link></li>
             <li ><Link className="link" to="/mentions-legales" >Mentions légales</Link></li>
           </ul>
-
         </nav>
 
       </header>

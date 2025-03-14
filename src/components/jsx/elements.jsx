@@ -14,6 +14,7 @@ import { CiMap } from "react-icons/ci"
 import { CgSmartphone } from "react-icons/cg";
 import { BsEnvelopeAt } from "react-icons/bs";
 import { SlLocationPin } from "react-icons/sl";
+import { TfiWorld } from "react-icons/tfi";
 // Selecteur de carte partielement prérempli
 // =======================================================================================================
 export function Cardselector ({selector}){
@@ -78,9 +79,9 @@ export function Cardselector ({selector}){
                                 }
                             }
                             const {src, alt, title, description, donewith} = getCards (selector);
-                            
-                            return(
-                                <div className="m-3">
+
+    return(
+        <div className="m-3">
             <div className="d-flex flex-column justify-content-center align-items-center m-0 p-0 border border-bottom-0 rounded-top overflow-hidden">
                 <img src = {src} alt = {alt} className="w-100"/>
 
@@ -98,10 +99,12 @@ export function Cardselector ({selector}){
         </div>
     )
 }
+
 Cardselector.propTypes ={
     selector : PropTypes.number.isRequired
 }
 
+// ======================================================================================================
 export function Cardlist() {
     
     const selectors = [1, 2, 3, 4, 5, 6];
@@ -114,21 +117,21 @@ export function Cardlist() {
         </div>
     )
 }
-// =======================================================================================================
+// ======================================================================================================
 
 export function Presentation({title, description}) {
     return(
         <div className="d-flex flex-column justify-content-center align-items-center m-5">
             <h1 className="fw-bold">{title}</h1>
-            <p className = "mb-4">{description}</p>
-            <hr className="m-0 p-0 bg-primary opacity-100" style={{height : '0.4rem', width :'8rem'}} />
+            {description && <p>{description}</p>}
+            <span className="m-0 mt-3 p-0 bg-primary opacity-100" style={{height : '0.4rem', width :'8rem'}} />
         </div>
     )
 }
 
 Presentation.propTypes ={
     title : PropTypes.string.isRequired,
-    description : PropTypes.string.isRequired
+    description : PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
 }
 
 // =======================================================================================================
@@ -137,7 +140,7 @@ export function Sectiontitle({title}) {
     return(
         <div className="d-flex flex-column justify-content-center align-items-start mb-4">
             <h2 className="fw-bold mb-3">{title}</h2>
-            <hr className="m-0 p-0 bg-primary opacity-100 w-100" style={{height : '5px'}} />
+            <span className="m-0 p-0 bg-primary opacity-100 w-100" style={{height : '5px'}} />
         </div>
     )
 }
@@ -162,3 +165,54 @@ export function Coordonate({showicon}) {
 Coordonate.propTypes = {
     showicon : PropTypes.bool.isRequired
 }
+// =======================================================================================================
+export function Coordonatehost({showicon}) {
+    return(
+        <div className = "mb-3">
+            <h4 className="strong">alwaysdata</h4>
+            <p className = "m-0 p-0"> 91 rue du Faubourg Saint-Honoré</p>
+            <p className = "m-0 p-0"> 75008 Paris</p>
+            <p className = "m-0 p-0"> {showicon && <TfiWorld />} www.alwaysdata.com</p>
+        </div>
+    )
+}
+Coordonatehost.propTypes = {
+    showicon : PropTypes.bool.isRequired
+}
+// =======================================================================================================
+
+
+
+
+
+export function Detailsaccordion({ title, text, id }){
+    return(
+        <div className = "accordion " id = "legalnotice">
+            <div className ="accordion-item ">
+                <h2 className="accordion-header ">
+                    <button 
+                            className="accordion-button"
+                            type = "button"
+                            data-bs-toggle = "collapse"
+                            data-bs-target = {`#collapse${id}`}
+                            aria-expanded = "true"
+                            aria-controls = {`collapse${id}`}
+                    >
+                        {title}
+                    </button>
+                </h2>
+                <div id = {`collapse${id}`} className="accordion-collapse collapse show" data-bs-parent ="#legalnotice" >
+                    <div className="accordion-body">
+                       {text}
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+Detailsaccordion.propTypes = {
+    title : PropTypes.string.isRequired,
+    text : PropTypes.node.isRequired,
+    id : PropTypes.string.isRequired
+}
+

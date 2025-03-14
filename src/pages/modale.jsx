@@ -18,7 +18,7 @@ function Modale()
 
           <div>
             <Link to="/">
-              <button className="#" type="button">Fermé</button>
+              <button className="btn bg-primary" type="button">Fermé</button>
             </Link>
           </div>
       </div>
