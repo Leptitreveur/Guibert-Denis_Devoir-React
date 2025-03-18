@@ -1,6 +1,7 @@
 @import url(/node_modules/bootstrap/scss/bootstrap.scss);
 @import url("./app.scss");
 @import url("./home.scss");
+@import url("./modale.scss");
 @import url("./services.scss");
 @import url("./legalnotice.scss");
 @font-face {
