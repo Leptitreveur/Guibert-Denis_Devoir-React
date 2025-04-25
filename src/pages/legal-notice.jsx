@@ -1,7 +1,8 @@
-import { Presentation, Detailsaccordion, Coordonate, Coordonatehost } from "$/jsx/elements"
-import { Credittext } from "$/jsx/text"
+import { Presentation, DetailsAccordion } from "jsx/components"
+import { CreditText } from "jsx/text"
+import { ContactList } from "jsx/contact-card"
 
-export default function Legalnoticepage() {
+export default function LegalNoticePage() {
   return(
     <div className = "m-4">
         <Presentation
@@ -9,25 +10,25 @@ export default function Legalnoticepage() {
             description = {false}
         />
         <section className="accordion-container">
-            <Detailsaccordion
+            <DetailsAccordion
                 title = "Editeur du site"
-                text = {<Coordonate showicon = {true} />}
+                text = {<ContactList selectedIds={["editor"]} showicon={true} />}
                 id = "editor"
             />
 
-            <Detailsaccordion
+            <DetailsAccordion
                 title = "Hébergeur"
-                text = {<Coordonatehost showicon = {true} />}
+                text = {<ContactList selectedIds={["host"]} showicon={true}/>}
                 id = "host"
             />
 
-            <Detailsaccordion
+            <DetailsAccordion
                 title = "Crédit"
-                text = {<Credittext />}
+                text = {<CreditText />}
                 id = "credit"
             />
         </section>
     </div>
   )
-};
+}
 // dynamiser le rendu des border radius sur le 1er et le dernier element de l'accordéon et dynamiser l'ouverture et la faermeture des accordéons via les hooks

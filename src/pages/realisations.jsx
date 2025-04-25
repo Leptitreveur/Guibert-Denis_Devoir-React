@@ -1,12 +1,30 @@
-import { Bannerbg } from "$/jsx/images"
-import { Cardlist, Presentation } from "$/jsx/elements"
+import { BannerBg } from "jsx/images"
+import { Presentation } from "jsx/components"
+import { useEffect } from "react"
+import { useLocation } from "react-router-dom"
+import { RealisationsList } from "jsx/realisation-card"
 
-export default function Projectpage() {
-  return(
-      <div className="mb-5">
-        <Bannerbg/>
-        <Presentation title = "Portfolio" description = "Voici quelques unes de mes réalisations."/>
-        <Cardlist/>
-      </div>
-  )
+// //*Scroll vers la realisation sélectionnéee ================================================
+const RealisationsPage = () => {
+    const  { hash } = useLocation();
+
+    useEffect(() => {
+        if (hash){
+            const element = document.getElementById(hash.replace(`#`, ``));
+            if (element){
+                element.scrollIntoView({ behavior :'smooth'});
+            }
+            else {
+                console.error("Element non trouvé pour le hash : ", hash)
+            }
+        }
+    }, [ hash ]);
+    return (
+        <div className="mb-5">
+            <BannerBg/>
+            <Presentation title = "Portfolio" description = "Voici quelques unes de mes réalisations."/>
+            <RealisationsList selectedIds ={['coder', 'bienetre', 'freshfood', 'restaujap', 'screens','seo']}/>
+        </div>
+    )
 }
+export default RealisationsPage;

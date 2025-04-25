@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react'
 import React from 'react'
-import { Progressbar } from "$/jsx/progressbar"
-import { Herobground } from "$/jsx/images"
-import { Profil } from "$/jsx/text"
+import { Link } from 'react-router-dom'
+import { HeroBg } from "jsx/images"
+import { Profil } from "jsx/text"
+import { SkillsToShow } from 'jsx/skill-section';
 
-import { Sectiontitle } from "$/jsx/elements"
+// import { SectionTitle } from "jsx/components"
 
-//          Modal          ===========================================================
+// !         Modal          ===========================================================
 export function UserProfile() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -34,55 +35,75 @@ export function UserProfile() {
   if (error) return <p>Erreur : {error}</p>;
 
   const paragraphs = [
-    <p key="1"><i className="bi bi-person"></i><a href={user.html_url} target="_blank" rel="noopener noreferrer">{user.name}</a></p>,
-    <p key="2"><i className="bi bi-geo-alt"></i></p>,
-    <p key="3"><i className="bi bi-card-text"></i>{user.bio || 'Aucune bio disponible'}</p>,
-    <p key="4"><i className="bi bi-box"></i> Repository : {user.public_repos}</p>,
-    <p key="5"><i className="bi bi-people"></i> Followers : {user.followers}</p>,
-    <p key="6"><i className="bi bi-people"></i> Following : {user.following}</p>
+    <div key="1">
+      <i className="bi bi-person"></i>
+      <Link to={user.html_url} target="_blank" rel="noopener noreferrer" className="app_link">
+        <p>{user.name}</p>
+      </Link>
+    </div>,
+    <div key="2">
+      <i className="bi bi-geo-alt"></i>
+      </div>,
+    <div key="3">
+      <i className="bi bi-card-text"></i>
+      <p>{user.bio || 'Aucune bio disponible'}</p>
+    </div>,
+    <div key="4">
+      <i className="bi bi-box"></i>
+      <p>Repository : {user.public_repos}</p>
+    </div>,
+    <div key="5">
+      <i className="bi bi-people"></i>
+      <p>Followers : {user.followers}</p>
+    </div>,
+    <div key="6">
+      <i className="bi bi-people"></i>
+      <p>Following : {user.following}</p>
+    </div>
   ]
 
   return (
     <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div className="modal-dialog modal-dialog-centered">
-        <div className="modal-content  d-flex flex-column align-items-start justify-content-center bg-dark">
+        <div className="modal-content app_modal-content">
 
-          <div className="modal-header d-flex flex-row justify-content-between w-100">
+          <div className="modal-header app_modal-header">
             <h5 className="modal-title" id='staticBackdropLabel'>Mon profil GitHub</h5>
               <button type="button" className="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
 
-            <div className="modal-body custom-modal">
-              <div className=''>
-                <img src={user.avatar_url} alt={user.login} className="w-100" />
-              </div>
+          <div className="modal-body app_modal-body">
+            <div className="app_imageBox">
+              <img src={user.avatar_url} alt={user.login} className="w-100" />
+            </div>
+            <div className="app_infoBox">
               {paragraphs.map((item, index) => (
                 <React.Fragment key={index}>
                   {item}
-                  {index !== paragraphs.length - 1 && <hr className='w-100 m-1'/>}
+                  {index !== paragraphs.length - 1 && <hr className='w-100'/>}
                 </React.Fragment>
               ))}
             </div>
+          </div>
 
-        <div className='modal-footer w-100'>
-          <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close"> Fermer </button>
+          <div className='modal-footer app_modal-footer'>
+            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close"> Fermer </button>
+          </div>
         </div>
-        </div>
-
       </div>
     </div>
   );
 }
 
-//          Home page             ==========================================================================================================
-export default function Homepage() {
+// !        Home page             ==========================================================================================================
+export default function HomePage() {
    return(
      <div>
-         <div className="d-flex flex-row justify-content-center align-items-center overflow-hidden" style={{height:'40rem'}}>
-            <Herobground/>
-            <div className="position-absolute text-center text-light">
-              <h1 className="Title">Bonjour, je suis Jhon Doe</h1>
-              <h2 className="SubTitle">Developpeur web full stack</h2>
+         <div className="app_introductionContainer">
+            <HeroBg/>
+            <div className="app_introductionContainer-box">
+              <h1 className="app_title-1">Bonjour, je suis Jhon Doe</h1>
+              <h2 className="app_title-2">Développeur web full stack</h2>
               <button className="btn btn-danger" type="button" data-bs-toggle= "modal" data-bs-target="#staticBackdrop">
                 En savoir plus
               </button>
@@ -94,21 +115,22 @@ export default function Homepage() {
             </div>
          </div>
 
-        <div className="about-container shadow">
-          <section className="about">
-            <Profil className="about__profil" />
-          </section>
-
+        <div className="app_aboutContainer shadow">
           <section>
-            <Sectiontitle title = "Mes competences"/>
-
-            <Progressbar title="html5" percentage={90} color="bg-danger"/>
-            <Progressbar title="css3" percentage={80} color="bg-warning"/>
-            <Progressbar title="javascript" percentage={70} color="bg-success"/>
-            <Progressbar title="react" percentage={60} color="bg-primary"/>
-            <Progressbar title="php" percentage={50} color="bg-info"/>
-
+            <Profil/>
           </section>
+
+          <SkillsToShow/>
+          {/* <section>
+            <SectionTitle title = "Mes compétences"/>
+
+            <ProgressBar title="html5" percentage={90} color="bg-danger"/>
+            <ProgressBar title="css3" percentage={80} color="bg-info"/>
+            <ProgressBar title="javascript" percentage={70} color="bg-warning"/>
+            <ProgressBar title="php" percentage={60} color="bg-success"/>
+            <ProgressBar title="react" percentage={50} color="bg-primary"/>
+
+          </section> */}
         </div>
        </div>
  )

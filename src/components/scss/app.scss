@@ -1,105 +1,113 @@
-*{
-  font-family: Arial, sans-serif;
-  box-sizing : border-box;
-}
 
-body{
-  width: 100vw;
-  height: 100dvh; //dvh prevent an unwilling positionning on smartphone screen
-}
-
-.header-container *,
-.footer-container *{
-  margin: 0;
-  padding: 0;
-}
-
-.header-container,
-.footer-container{
-  padding-left : 1rem;
-  padding-right: 1rem;
-  color: white;
-  background-color: #212529;
-}
-
-.link{
-  text-decoration: none;
-  color : white;
-}
-
-.iconsetting{
-  width: 2rem;
-  height : 2rem;
-  filter: invert(50%);
-}
-
-.listsetting{
-  list-style-type: none;
-}
-
-// ########################################################################################
-
-.header-container{
-  position : relative;
-  display: flex;
-  align-items: center;
-  height : 56px;
-}
-
-// ########################################################################################
-
-.header-container__mobile{
-  display : flex;
-  justify-content: space-between;
-  align-items: center;
-  width : 100%;
-
-  .logo-container{
-    color: white;
+// * HEADER ##############################################################################
+.app_headerContainer{
+  .app_navbarBox{
+    position : relative;
     text-transform: uppercase;
+    color : $light;
+    background-color: $dark;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+
+      .nav-brand{
+        margin : 0;
+        font-weight : 400;
+      }
+
+      .app_navbar-toggler{
+        &:hover{
+          border : 0.1rem solid $gray-400;
+        }
+        &:active,
+        &:focus{
+          box-shadow : none;
+          outline : none;
+        }
+      }
+
+      .app_collapse{
+        position : absolute;
+        width : 100vw;
+        height: auto;
+        top : 100%;
+        left : 0;
+        padding-left : 1.7rem;
+        z-index : 2;
+        background-color: $dark;
+
+
+        .nav-link{
+          padding : 0;
+          margin-bottom: 0.5rem;
+          color : $light;
+          text-decoration: none;
+          &:hover{
+            color :  $white;
+            text-decoration : underline;
+          }
+        }
+      }
   }
-  .menu-burger{
-    width: 2.75rem;
-    padding-left : 0.6rem;
-    padding-right : 0.6rem;
-    border : 0.15rem solid black; //filtre invert() appliqué sur les icones
-    border-radius : 20%;
-    cursor: pointer;
+}
+// *Main Global rule ##############################################################################
+.app_sectionTitleContainer{
+  margin-bottom : 2.5rem;
+  .app_title-underline{
+    display: block;
+    width: 100%;
+    height: 0.2rem;
+    margin : 0;
+    padding : 0;
+    margin-top : 1rem ;
+    background-color: $primary;
+    opacity: 100%;
   }
 }
 
-// ########################################################################################
+//* Footer ########################################################################################
 
-.nav-container{
-  display : none;
-  position : absolute;
-  top: 56px;
-  left: 0;
-  width:100%;
-  background-color: black;
-  .listsetting{
-    padding-left: 1rem;
-  }
-}
-
-// ########################################################################################
-
-.footer-container{
+.app_footerContainer{
   display: flex;
   flex-direction: column;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding : 3rem 2rem;
   gap: 1rem;
-  .strong{
-    margin-bottom: 0.5rem;
+  background-color: $dark;
+  
+  *{
+    margin: 0;
+    padding : 0;
+    color : $light !important;
+    text-decoration: none;
+    list-style-type: none;
   }
-  .sociallink-container{
+
+  .app_title-4{
+    margin-bottom : 0.5rem;
+  }
+  
+  .nav-link,
+  .app_toRealisationCard{
+
+      &:hover{
+        text-decoration : underline;
+    }
+  }
+  .app_toRealisationCard{
+    display : block;
+    font-weight: lighter;
+  }
+
+  .app_socialContainer{
     display : flex;
     justify-content: space-between;
-    width: 7rem;
-    margin-top: 1rem;
+    width: 5rem;
     opacity: 30%;
+
+    .app_icon-social{
+      display: block;
+      width: auto;
+      font-size: 1.5rem;
+      color : $gray-300;
+    }
   }
 }
-
-// ########################################################################################

@@ -1,77 +1,52 @@
-import { Link } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 
-import { Realisation01, Realisation02, Realisation03, Realisation04, Realisation05, Realisation06} from "$/jsx/text"
-import { Coordonate } from "$/jsx/elements"
-
-
-import Github from "./assets/icons-svg/github.svg"
-import Linkedin from "./assets/icons-svg/linkedin.svg"
-import Twitter from "./assets/icons-svg/twitter.svg"
-import Menu from "./assets/icons-svg/menu-burger.svg"
+import { NavbarItems } from 'jsx/dynamic-navbar'
+import { ContactList } from "jsx/contact-card"
+import { RealistaionItemsList } from "jsx/realisation-card"
 
 export default function App() {
-   return(
-     <div className="#">
+  return(
+    <div>
+      <header className="app_headerContainer">
+        <nav className="navbar navbar-expand-lg navbar-dark sticky-top app_navbarBox" >
+          <div className="container-fluid">
+            <p className="nav-brand"><strong>jhon doe</strong></p>
 
-      <header className="header-container">
+            <button type="button"
+              className="navbar-toggler app_navbar-toggler"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon app_icon-menu"></span>
+            </button>
 
-        <div className="header-container__mobile">
-          <h1 className="logo-container">jhon doe</h1>
+            <div className="collapse navbar-collapse app_collapse" id="navbarNav">
+              <NavbarItems/>
+            </div>
 
-          <img src={Menu} alt="menu" className="menu-burger iconsetting"/>
-        </div>
-
-        <nav className="nav-container">
-          <ul className="listsetting">
-            <li ><Link className="link" to="/">Accueil</Link></li>
-            <li ><Link className="link" to="/services" >Services</Link></li>
-            <li ><Link className="link" to="/realisations" >Portfolio</Link></li>
-            <li ><Link className="link" to="/contact" >Contact</Link></li>
-            <li ><Link className="link" to="/mentions-legales" >Mentions légales</Link></li>
-          </ul>
+          </div>
         </nav>
-
       </header>
 
-      <main>
+
+      <main className="app_mianContainer">
         <Outlet/>
       </main>
 
-      <footer className ="footer-container">
-
-        <div className = "id-container">
-          <Coordonate showicon={false} />
-
-          <div className="sociallink-container">
-            <img src={Github} alt="GitHub" className="iconsetting"></img>
-            <img src={Twitter} alt="Twitter" className="iconsetting"></img>
-            <img src={Linkedin} alt="Linkedin" className="iconsetting"></img>
-          </div>
+      <footer className ="app_footerContainer">
+        <ContactList selectedIds={["editor"]} showicon={false} />
+        <div className="app_socialContainer">
+          <a href="https://github.com/github-john-doe" target="_blank" rel="noopener noreferrer"><i className="bi bi-github app_icon-social"></i></a>
+          <a href="https://x.com/?lang=fr" target="_blank" rel="noopener noreferrer"><i className="bi bi-twitter app_icon-social"></i></a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i className="bi bi-linkedin app_icon-social"></i></a>
         </div>
+        <NavbarItems header={false}/>
 
-        <div className = "usefulllink-container">
-          <h4 className="strong" >Liens utiles</h4>
-          <ul className="listsetting">
-            <li ><Link className="link" to="/">Accueil</Link></li>
-            <li ><Link className="link" to="services" >Services</Link></li>
-            <li ><Link className="link" to="realisations" >Portfolio</Link></li>
-            <li ><Link className="link" to="contact" >Contact</Link></li>
-            <li ><Link className="link" to="mentions-legales" >Mentions légales</Link></li>
-          </ul>
-        </div>
-
-        <div className = "realisation-container">
-          <h4 className="strong">Mes dernières réalisations</h4>
-          <ul className="listsetting">
-            <li ><Link className="link" to="#" ><Realisation01/></Link></li>
-            <li ><Link className="link" to="#" ><Realisation02/></Link></li>
-            <li ><Link className="link" to="#" ><Realisation03/></Link></li>
-            <li ><Link className="link" to="#" ><Realisation04/></Link></li>
-            <li ><Link className="link" to="#" ><Realisation05/></Link></li>
-            <li ><Link className="link" to="#" ><Realisation06/></Link></li>
-          </ul>
-        </div>
+        <RealistaionItemsList/>
       </footer>
     </div>
   )
