@@ -1,69 +1,52 @@
-import { Link } from "react-router-dom"
-import { Outlet } from "react-router-dom"
+// import { NavLink } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
-
-
-import Github from "./assets/icons-svg/github.svg"
-import Linkedin from "./assets/icons-svg/linkedin.svg"
-import Twitter from "./assets/icons-svg/twitter.svg"
+import { NavbarItems } from 'jsx/dynamic-navbar'
+import { ContactList } from "jsx/contact-card"
+import { RealistaionItemsList } from "jsx/realisation-card"
 
 export default function App() {
-   return(
-     <div className="#">
-      <header>
-        <nav className="#">
-          <ul >
-            <li ><Link to="/">Accueil</Link></li>
-            <li ><Link to="/services" >Services</Link></li>
-            <li ><Link to="/realisations" >Portofolio</Link></li>
-            <li ><Link to="/contact" >Contact</Link></li>
-            <li ><Link to="/mentions-legales" >Mentions légales</Link></li>
-          </ul>
+  return(
+    <div>
+      <header className="app_headerContainer">
+        <nav className="navbar navbar-expand-lg navbar-dark sticky-top app_navbarBox" >
+          <div className="container-fluid">
+            <p className="nav-brand"><strong>jhon doe</strong></p>
+
+            <button type="button"
+              className="navbar-toggler app_navbar-toggler"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon app_icon-menu"></span>
+            </button>
+
+            <div className="collapse navbar-collapse app_collapse" id="navbarNav">
+              <NavbarItems/>
+            </div>
+
+          </div>
         </nav>
       </header>
 
-      <main>
+
+      <main className="app_mianContainer">
         <Outlet/>
       </main>
 
-      <footer>
-
-        <div className="Contactme">
-          {/* Créer un composant à reutiliser. Chaque ligne doit être identifiable pour ajouter des icône suivant les pages */}
-          <p>Jhon Doe</p>
-          <p>40 rue laure Diebold</p>
-          <p>69009 Lyon, France</p>
-          <p>10 20 30 40 50</p>
-          <p>jhon.doe@gmail.com</p>
+      <footer className ="app_footerContainer">
+        <ContactList selectedIds={["editor"]} showicon={false} />
+        <div className="app_socialContainer">
+          <a href="https://github.com/github-john-doe" target="_blank" rel="noopener noreferrer"><i className="bi bi-github app_icon-social"></i></a>
+          <a href="https://x.com/?lang=fr" target="_blank" rel="noopener noreferrer"><i className="bi bi-twitter app_icon-social"></i></a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i className="bi bi-linkedin app_icon-social"></i></a>
         </div>
+        <NavbarItems header={false}/>
 
-        <div className="Social-Link">
-          <a>
-        <img src={Github} alt="GitHub" width={24}></img>
-          </a>
-        <img src={Twitter} alt="Twitter" width={24}></img>
-        <img src={Linkedin} alt="Linkedin" width={24}></img>
-        </div>
-
-        <div className="Usefull-Link">
-          <h4 >Liens Utiles</h4>
-          <ul >
-            <li ><Link to="/">Accueil</Link></li>
-            <li ><Link to="services" >Services</Link></li>
-            <li ><Link to="realisations" >Portofolio</Link></li>
-            <li ><Link to="contact" >Contact</Link></li>
-            <li ><Link to="mentions-legales" >Mentions légales</Link></li>
-          </ul>
-        </div>
-
-        <div className="Project">
-            {/* Link to project 1 Link
-            Link to project 2 Link
-            Link to project 3 Link
-            Link to project 4 Link
-            Link to project 5 Link
-            Link to project 6 Link */}
-        </div>
+        <RealistaionItemsList/>
       </footer>
     </div>
   )

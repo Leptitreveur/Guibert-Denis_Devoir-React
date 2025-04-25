@@ -1,0 +1,24 @@
+@import url("scss/app.scss");
+@import url("scss/home.scss");
+@import url("scss/modale.scss");
+@import url("scss/services.scss");
+@import url("scss/realisations.scss");
+@import url("scss/contact.scss");
+@import url("scss/legalnotice.scss");
+@import url("scss/components.scss");
+@import url("scss/contact-card.scss");
+@font-face {
+  font-family: Nunitosans;
+  src: url("font/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf") format("truetype");
+}
+* {
+  font-family: Nunitosans, Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.app-fullScreen {
+  width: 100vw;
+  height: 100dvh;
+}
+
+/*# sourceMappingURL=global.css.map */

@@ -1,0 +1,40 @@
+//*Regroupement des images???
+
+.app_presentationContainer{
+    display : flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items : center;
+    margin: 3rem 0.5rem;
+    text-align: center;
+}
+.app_separator{
+    height: 0.4rem;
+    width : 8rem;
+    margin : 0;
+    padding : 0;
+    margin-top: 1rem;
+    background-color: $primary;
+    opacity: 100%;
+}
+
+.app_sectionTitleContainer{
+    display : flex;
+    flex-direction : column;
+    align-items: flex-start;
+    justify-content : center;
+    margin-bottom : 1.5rem;
+
+    span{
+        height : 5px;
+        width : 100%;
+        margin : 0;
+        padding : 0;
+        background-color: $primary;
+        opacity : 100%;
+    }
+}
+.app_progress-box{
+    height : 1rem;
+    margin-bottom : 1.5rem;
+}

@@ -1,0 +1,14 @@
+.accordion:first-of-type *{
+    border-bottom-left-radius: 0px !important ;
+    border-bottom-right-radius: 0px !important;
+}
+
+.accordion:not(:first-of-type):not(:last-of-type) *{
+    border-radius: 0px !important;
+}
+
+.accordion:last-of-type *{
+    overflow: hidden !important;
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+}

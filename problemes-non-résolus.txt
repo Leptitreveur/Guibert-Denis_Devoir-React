@@ -1,0 +1,6 @@
+- affichage favicon dans firefox uniquement
+- navbar de bootstrap a créer
+- utilisation des hook
+- penser a utiliser react.lazy ou  Suspense afin de charger les composant a la demande
+- attention carte dynamique formattage des donner et erreur à travailler
+- lien adresse e-mail inactif rediriger vers la boîte de message

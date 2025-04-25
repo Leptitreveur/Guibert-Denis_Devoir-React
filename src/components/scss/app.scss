@@ -1,0 +1,113 @@
+
+// * HEADER ##############################################################################
+.app_headerContainer{
+  .app_navbarBox{
+    position : relative;
+    text-transform: uppercase;
+    color : $light;
+    background-color: $dark;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+
+      .nav-brand{
+        margin : 0;
+        font-weight : 400;
+      }
+
+      .app_navbar-toggler{
+        &:hover{
+          border : 0.1rem solid $gray-400;
+        }
+        &:active,
+        &:focus{
+          box-shadow : none;
+          outline : none;
+        }
+      }
+
+      .app_collapse{
+        position : absolute;
+        width : 100vw;
+        height: auto;
+        top : 100%;
+        left : 0;
+        padding-left : 1.7rem;
+        z-index : 2;
+        background-color: $dark;
+
+
+        .nav-link{
+          padding : 0;
+          margin-bottom: 0.5rem;
+          color : $light;
+          text-decoration: none;
+          &:hover{
+            color :  $white;
+            text-decoration : underline;
+          }
+        }
+      }
+  }
+}
+// *Main Global rule ##############################################################################
+.app_sectionTitleContainer{
+  margin-bottom : 2.5rem;
+  .app_title-underline{
+    display: block;
+    width: 100%;
+    height: 0.2rem;
+    margin : 0;
+    padding : 0;
+    margin-top : 1rem ;
+    background-color: $primary;
+    opacity: 100%;
+  }
+}
+
+//* Footer ########################################################################################
+
+.app_footerContainer{
+  display: flex;
+  flex-direction: column;
+  padding : 3rem 2rem;
+  gap: 1rem;
+  background-color: $dark;
+  
+  *{
+    margin: 0;
+    padding : 0;
+    color : $light !important;
+    text-decoration: none;
+    list-style-type: none;
+  }
+
+  .app_title-4{
+    margin-bottom : 0.5rem;
+  }
+  
+  .nav-link,
+  .app_toRealisationCard{
+
+      &:hover{
+        text-decoration : underline;
+    }
+  }
+  .app_toRealisationCard{
+    display : block;
+    font-weight: lighter;
+  }
+
+  .app_socialContainer{
+    display : flex;
+    justify-content: space-between;
+    width: 5rem;
+    opacity: 30%;
+
+    .app_icon-social{
+      display: block;
+      width: auto;
+      font-size: 1.5rem;
+      color : $gray-300;
+    }
+  }
+}

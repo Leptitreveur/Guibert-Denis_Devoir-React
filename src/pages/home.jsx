@@ -1,59 +1,137 @@
-import {Routes, Route, Link} from "react-router-dom"
-import Modale from "../pages/modale"
+import { useState, useEffect } from 'react'
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { HeroBg } from "jsx/images"
+import { Profil } from "jsx/text"
+import { SkillsToShow } from 'jsx/skill-section';
 
-export default function Homepage() {
+// import { SectionTitle } from "jsx/components"
+
+// !         Modal          ===========================================================
+export function UserProfile() {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch('https://api.github.com/users/github-john-doe')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Utilisateur introuvable');
+        }
+        return response.json();
+      })
+      .then(data => {
+        setUser(data);
+        setLoading(false);
+      })
+      .catch(error => {
+        setError(error.message);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <p>Chargement...</p>;
+  if (error) return <p>Erreur : {error}</p>;
+
+  const paragraphs = [
+    <div key="1">
+      <i className="bi bi-person"></i>
+      <Link to={user.html_url} target="_blank" rel="noopener noreferrer" className="app_link">
+        <p>{user.name}</p>
+      </Link>
+    </div>,
+    <div key="2">
+      <i className="bi bi-geo-alt"></i>
+      </div>,
+    <div key="3">
+      <i className="bi bi-card-text"></i>
+      <p>{user.bio || 'Aucune bio disponible'}</p>
+    </div>,
+    <div key="4">
+      <i className="bi bi-box"></i>
+      <p>Repository : {user.public_repos}</p>
+    </div>,
+    <div key="5">
+      <i className="bi bi-people"></i>
+      <p>Followers : {user.followers}</p>
+    </div>,
+    <div key="6">
+      <i className="bi bi-people"></i>
+      <p>Following : {user.following}</p>
+    </div>
+  ]
+
+  return (
+    <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div className="modal-dialog modal-dialog-centered">
+        <div className="modal-content app_modal-content">
+
+          <div className="modal-header app_modal-header">
+            <h5 className="modal-title" id='staticBackdropLabel'>Mon profil GitHub</h5>
+              <button type="button" className="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div className="modal-body app_modal-body">
+            <div className="app_imageBox">
+              <img src={user.avatar_url} alt={user.login} className="w-100" />
+            </div>
+            <div className="app_infoBox">
+              {paragraphs.map((item, index) => (
+                <React.Fragment key={index}>
+                  {item}
+                  {index !== paragraphs.length - 1 && <hr className='w-100'/>}
+                </React.Fragment>
+              ))}
+            </div>
+          </div>
+
+          <div className='modal-footer app_modal-footer'>
+            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close"> Fermer </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// !        Home page             ==========================================================================================================
+export default function HomePage() {
    return(
      <div>
-         <div>
-           <h1 className="Title">Bonjour, je suis Jhon Doe</h1>
-           <h2 className="SubTitle">Developpeur web full stack</h2>
-           <Link to="/modale">
-                    En savoir plus
-           </Link>
+         <div className="app_introductionContainer">
+            <HeroBg/>
+            <div className="app_introductionContainer-box">
+              <h1 className="app_title-1">Bonjour, je suis Jhon Doe</h1>
+              <h2 className="app_title-2">Développeur web full stack</h2>
+              <button className="btn btn-danger" type="button" data-bs-toggle= "modal" data-bs-target="#staticBackdrop">
+                En savoir plus
+              </button>
+              <div className="modal-container">
+                <UserProfile/>
+              </div>
+
+
+            </div>
          </div>
 
-         <section className="About">
-           <h3>A propos</h3>
-           <img src="/assets/images/john-doe-about.jpg" alt="Jhon Doe working"></img>
-           <p className="About-text">
-             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec feugiat tortor. Proin ac tellus sit amet dolor fringilla elementum.
-             Nullam pharetra imperdiet augue ullamcorper pellentesque. Phasellus convallis, lorem at dictum ultricies, neque tortor posuere mauris, ac dignissim odio risus et nisl.
-             Curabitur molestie tempor tortor, faucibus efficitur massa dictum non. Donec eu tellus in nunc dapibus commodo. Sed ut quam mi. Curabitur suscipit at lorem a dapibus.
-             Nullam sed dapibus justo.
- 
-             Phasellus eu sapien in sapien aliquam interdum vel vel tellus. Vestibulum elementum malesuada dapibus. Aenean ultrices eget risus dictum faucibus.
-             Sed vulputate, justo nec auctor pharetra, massa neque posuere turpis, a posuere lacus libero non mauris. Curabitur ac odio consequat, porta risus non, rutrum odio.
-             Nulla facilisi. Ut tincidunt purus tellus, ac aliquet neque lobortis id. Nullam urna augue, efficitur vel massa in, aliquet sollicitudin augue.
-             Nam libero massa, blandit eget ex ut, pharetra fermentum est. Donec aliquam, tellus non volutpat vehicula, metus libero finibus tortor, at porta ligula felis vitae justo.
-             Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam tincidunt, dolor quis vehicula volutpat, est nisl interdum orci, ac auctor libero tortor sed urna.
-             Donec ut viverra mi, et efficitur nisi.
- 
-             Ut ac velit luctus, iaculis eros volutpat, suscipit quam. Aliquam erat volutpat. Nam in nulla urna. Duis nulla sem, pellentesque vitae diam sit amet, consectetur rhoncus tortor.
-             Donec convallis ipsum sed convallis bibendum. Praesent ut consectetur lorem. Curabitur lobortis bibendum tortor. Etiam id orci ac odio venenatis faucibus.
-             Etiam convallis tincidunt erat et sodales. Vivamus in urna quis lectus varius ornare ac sit amet lacus. Curabitur id dapibus nunc, sagittis tincidunt ipsum.
-             Vestibulum egestas consectetur tempor. Aliquam euismod luctus lectus sit amet vulputate. Etiam feugiat justo vel ipsum fermentum, sagittis auctor ex fermentum.
-             Fusce sed justo in erat pulvinar eleifend vel sed quam.
-           </p>
-         </section>
+        <div className="app_aboutContainer shadow">
+          <section>
+            <Profil/>
+          </section>
 
-         <section className= "#">
-           <h3 className="#">Mes Compétences</h3>
-           {/* Composants fonctionnel à créer = titre + progress bar avec des valeurs asynchrones!! ne pas oublier les HOOK */}
-             <h4>html</h4>
-             <progress value = "90" max = "100" />
-             <h4>css</h4>
-             <progress value = "80" max = "100" />
-             <h4>javascript</h4>
-             <progress value = "70" max = "100" />
-             <h4>php</h4>
-             <progress value = "60" max = "100" />
-             <h4>react</h4>
-             <progress value = "50" max ="100"/>
-         </section>
+          <SkillsToShow/>
+          {/* <section>
+            <SectionTitle title = "Mes compétences"/>
 
-       <Routes>
-          <Route path="/modale" element={<Modale/>}></Route>
-       </Routes>
+            <ProgressBar title="html5" percentage={90} color="bg-danger"/>
+            <ProgressBar title="css3" percentage={80} color="bg-info"/>
+            <ProgressBar title="javascript" percentage={70} color="bg-warning"/>
+            <ProgressBar title="php" percentage={60} color="bg-success"/>
+            <ProgressBar title="react" percentage={50} color="bg-primary"/>
+
+          </section> */}
+        </div>
        </div>
  )
-};
+}

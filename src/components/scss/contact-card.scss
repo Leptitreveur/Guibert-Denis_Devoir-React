@@ -1,0 +1,25 @@
+.app_contactCardContainer{
+    *{
+        margin :0;
+        padding : 0;
+    }
+    .bi {
+        padding-right :0.5rem
+        ;}
+    .app_title-4{
+        margin-bottom : 0.5rem;
+    }
+    .app_link{
+        display : flex;
+        color : $black;
+        text-decoration : none;
+    }
+    .app_link-website{
+        display : flex;
+        gap :0;
+        margin-top : 0.5rem;
+    }
+    .app_bi-globe2{
+        color : $black;
+    }
+}

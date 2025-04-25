@@ -1,15 +1,30 @@
-export default function Projectpage() {
-  return(
-      <div>
-        <h1>Portofolio</h1>
-        <p>Voici quelques unes de mes réalisations</p>
-        {/* Composant à créer */}
-        {/* Card du projet 1 Fresh Food => site de vente de produits frais en ligne*/}
-        {/* Card du projet 2 Restaurant Akira => Site de produits frais en ligne*/}
-        {/* Card du projet 3 Espace de bien être => site de vente de produits frais en ligne*/}
-        {/* Card du projet 4 Seo => Amélioration de référencement d'un site e-commerce*/}
-        {/* Card du projet 5 Création d'une API => création d'une API RESTFULL publique*/}
-        {/* Card du projet 6 Maquette d'un site web => Création du prototype d'un site*/}
-      </div>
-  )
+import { BannerBg } from "jsx/images"
+import { Presentation } from "jsx/components"
+import { useEffect } from "react"
+import { useLocation } from "react-router-dom"
+import { RealisationsList } from "jsx/realisation-card"
+
+// //*Scroll vers la realisation sélectionnéee ================================================
+const RealisationsPage = () => {
+    const  { hash } = useLocation();
+
+    useEffect(() => {
+        if (hash){
+            const element = document.getElementById(hash.replace(`#`, ``));
+            if (element){
+                element.scrollIntoView({ behavior :'smooth'});
+            }
+            else {
+                console.error("Element non trouvé pour le hash : ", hash)
+            }
+        }
+    }, [ hash ]);
+    return (
+        <div className="mb-5">
+            <BannerBg/>
+            <Presentation title = "Portfolio" description = "Voici quelques unes de mes réalisations."/>
+            <RealisationsList selectedIds ={['coder', 'bienetre', 'freshfood', 'restaujap', 'screens','seo']}/>
+        </div>
+    )
 }
+export default RealisationsPage;
