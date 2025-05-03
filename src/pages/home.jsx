@@ -5,8 +5,6 @@ import { HeroBg } from "jsx/images"
 import { Profil } from "jsx/text"
 import { SkillsToShow } from 'jsx/skill-section';
 
-// import { SectionTitle } from "jsx/components"
-
 // !         Modal          ===========================================================
 export function UserProfile() {
   const [user, setUser] = useState(null);
@@ -98,7 +96,7 @@ export function UserProfile() {
 // !        Home page             ==========================================================================================================
 export default function HomePage() {
    return(
-     <div>
+     <div className="app_mainContainer">
          <div className="app_introductionContainer">
             <HeroBg/>
             <div className="app_introductionContainer-box">
@@ -110,27 +108,12 @@ export default function HomePage() {
               <div className="modal-container">
                 <UserProfile/>
               </div>
-
-
             </div>
          </div>
 
         <div className="app_aboutContainer shadow">
-          <section>
-            <Profil/>
-          </section>
-
+          <Profil/>
           <SkillsToShow/>
-          {/* <section>
-            <SectionTitle title = "Mes compétences"/>
-
-            <ProgressBar title="html5" percentage={90} color="bg-danger"/>
-            <ProgressBar title="css3" percentage={80} color="bg-info"/>
-            <ProgressBar title="javascript" percentage={70} color="bg-warning"/>
-            <ProgressBar title="php" percentage={60} color="bg-success"/>
-            <ProgressBar title="react" percentage={50} color="bg-primary"/>
-
-          </section> */}
         </div>
        </div>
  )

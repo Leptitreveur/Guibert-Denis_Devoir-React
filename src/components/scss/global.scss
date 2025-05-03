@@ -1,19 +1,20 @@
+@import '_app.scss';
+@import '_home.scss';
+@import '_modale.scss';
+@import '_services.scss';
+@import '_realisations.scss';
+@import '_contact.scss';
+@import '_legalnotice.scss';
+
+@import '_components.scss';
+@import '_contact-card.scss';
+@import '_breakpoint-sm.scss';
+
 @font-face {
     font-family: Nunitosans;
-    src: url('font/NunitoSans-VariableFont_YTLC\,opsz\,wdth\,wght.ttf') 
+    src: url('font/NunitoSans-VariableFont_YTLC\,opsz\,wdth\,wght.ttf')
     format('truetype');
 }
-
-@import url('scss/app.scss');
-@import url('scss/home.scss');
-@import url('scss/modale.scss');
-@import url('scss/services.scss');
-@import url('scss/realisations.scss');
-@import url('scss/contact.scss');
-@import url('scss/legalnotice.scss');
-
-@import url('scss/components.scss');
-@import url('scss/contact-card.scss');
 
 *{
     font-family: Nunitosans, Arial, sans-serif;
@@ -21,6 +22,6 @@
 }
 
 .app-fullScreen{
-    width: 100vw;
-    height: 100dvh; //dvh(dynamic viewport height) prevent an unwilling positionning on smartphone screen
+    min-width: 100vw;
+    min-height: 100dvh; //dvh(dynamic viewport height) prevent an unwilling positionning on smartphone screen
 }

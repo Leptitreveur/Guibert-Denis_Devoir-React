@@ -1,5 +1,3 @@
-//*Regroupement des images???
-
 .app_presentationContainer{
     display : flex;
     flex-direction : column;
@@ -24,16 +22,18 @@
     align-items: flex-start;
     justify-content : center;
     margin-bottom : 1.5rem;
-
-    span{
-        height : 5px;
-        width : 100%;
-        margin : 0;
-        padding : 0;
-        background-color: $primary;
-        opacity : 100%;
+    
+    .app_title-underline{
+      display: block;
+      width: 100%;
+      height: 0.2rem;
+      margin : 0;
+      padding : 0;
+      background-color: $primary;
+      opacity: 100%;
     }
 }
+
 .app_progress-box{
     height : 1rem;
     margin-bottom : 1.5rem;

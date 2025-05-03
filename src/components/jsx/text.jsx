@@ -2,12 +2,12 @@ import AboutBg from "jsx/images.jsx"
 import { SectionTitle } from "jsx/components"
 
 // * PROFIL ===========================================================================================================================================
-// ! Modification moins de text si en version mobil
+
 export  function Profil() {
     const message = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec feugiat tortor. Proin ac tellus sit amet dolor fringilla elementum.Nullam pharetra imperdiet augue ullamcorper pellentesque.",
         "Vestibulum elementum malesuada dapibus. Aenean ultrices eget risus dictum faucibus. Sed vulputate, justo nec auctor pharetra, massa neque posuere turpis, a posuere lacus libero non mauris.",
         " Curabitur id dapibus nunc, sagittis tincidunt ipsum. Vestibulum egestas consectetur tempor. Aliquam euismod luctus lectus sit amet vulputate. Etiam feugiat justo vel ipsum fermentum."]
-    return ( <div className="mb-4">
+    return ( <div className="app_profilComponent">
                 <SectionTitle title = "A propos"/>
                 <AboutBg/>
                 <div>{message.map((msg,index)=>(<p key ={index}> {msg} </p>))}</div>
@@ -35,7 +35,7 @@ export function CreditText () {
     </>
     ];
     return(
-        <div>
+        <div className="app_credittextComponent">
             {text.map((msg,index)=>(
                 <div key={index}>
                     <p>{msg}</p>

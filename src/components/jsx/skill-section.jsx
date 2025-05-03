@@ -70,16 +70,14 @@ SkillBox.propTypes ={
 
 export const SkillsToShow = ({ selectedId }) => {
     return(
-        <div>
-            <section>
-                <SectionTitle title = "Mes compétences"/>
-                {skills
-                    .filter( skills => !selectedId || selectedId.includes(skills.id))
-                    .map(skill =>
-                        <SkillBox key={skill.id} skillId={skill.id}/>
-                    )
-                }
-            </section>
+        <div className="app_skillToShowComponent">
+            <SectionTitle title = "Mes compétences"/>
+            {skills
+                .filter( skills => !selectedId || selectedId.includes(skills.id))
+                .map(skill =>
+                    <SkillBox key={skill.id} skillId={skill.id}/>
+                )
+            }
         </div>
     )
 }

@@ -1,0 +1,75 @@
+
+// * HEADER ##############################################################################
+.app_headerContainer{
+  .app_navbarBox{
+    position : relative;
+    text-transform: uppercase;
+    color : $light;
+    background-color: $dark;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+
+    .nav-brand{
+      margin : 0;
+      font-weight : 400;
+    }
+
+    .app_navbar-toggler{
+      &:hover{
+        border : 0.1rem solid $gray-400;
+      }
+      &:active,
+      &:focus{
+        box-shadow : none;
+        outline : none;
+      }
+    }
+    .app_navbar-nav{
+      margin-bottom: 1rem;
+    }
+    .app_collapse{
+      background-color: $dark;
+    }
+  }
+}
+
+.app_nav-link{
+  padding : 0;
+  margin-bottom: 0.5rem;
+  color : $light;
+  opacity : 75%;
+  text-decoration: none;
+  &:hover{
+    opacity : 100%;
+    text-decoration : underline;
+  }
+}
+// *Main Global rule ##############################################################################
+
+
+//* Footer ########################################################################################
+
+.app_footerContainer{
+  display: flex;
+  flex-direction: column;
+  padding : 3rem 2rem;
+  gap: 1rem;
+  background-color: $dark;
+  
+  *{
+    margin: 0;
+    padding : 0;
+    color : $light !important;
+    text-decoration: none;
+    list-style-type: none;
+  }
+
+  .app_title-4{
+    margin-bottom : 0.5rem;
+  }
+
+  .app_toRealisationCard{
+    display : block;
+    font-weight: lighter;
+  }
+}

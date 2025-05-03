@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { PropTypes } from 'prop-types'
+import { PropTypes } from 'prop-types';
 
 const navbarLinks = [];
 
@@ -46,6 +46,9 @@ addLink({
 
 const getNavbarLink = (id) => navbarLinks.find(nav => nav.id === id);
 
+//! application d'un style suivant le context NON FONCTIONNEL!!!  ############################################################################################
+
+
 const NavbarBox = ({ navId }) => {
     const { id, path, name } = getNavbarLink(navId);
     return(
@@ -60,22 +63,27 @@ NavbarBox.propTypes = {
     navId : PropTypes.string.isRequired
 }
 
-export const NavbarItems = ({ selectedIds, header=true }) => {
-    const navClass = `${header ? "navbar-nav ms-auto app_navbar-nav" : ""}`;
+
+export const NavbarItems = ({ selectedIds, footer=false }) => {
+    const navbarClass = `${footer ? "app_footerBox": "collapse navbar-collapse app_collapse" }`;
+    const navbarId = `${footer ? "" : "navbarNav"}`;
+    const navClass = `${footer ? "app_navList" : "navbar-nav ms-auto app_navbar-nav"}`;
     
     return(
-        <ul className={navClass}>
-            {!header && <h4 className="app_title-4">Liens utiles</h4>}
-            {navbarLinks
-                .filter(nav => !selectedIds|| selectedIds.includes(nav.id))
-                .map(nav => (
-                    <NavbarBox key ={nav.id} navId={nav.id} />
-            ))
-            }
-        </ul>
+        <div className={navbarClass} id={navbarId}>
+            <ul className={navClass}>
+                {footer && <h4 className="app_title-4">Liens utiles</h4>}
+                {navbarLinks
+                    .filter(nav => !selectedIds|| selectedIds.includes(nav.id))
+                    .map(nav => (
+                        <NavbarBox key ={nav.id} navId={nav.id} />
+                ))
+                }
+            </ul>
+        </div>
     )
 }
 NavbarItems.propTypes = {
     selectedIds: PropTypes.arrayOf(PropTypes.string),
-    header : PropTypes.bool
+    footer : PropTypes.bool
 }

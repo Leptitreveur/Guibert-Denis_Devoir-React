@@ -1,24 +1,18 @@
-@import url("scss/app.scss");
-@import url("scss/home.scss");
-@import url("scss/modale.scss");
-@import url("scss/services.scss");
-@import url("scss/realisations.scss");
-@import url("scss/contact.scss");
-@import url("scss/legalnotice.scss");
-@import url("scss/components.scss");
-@import url("scss/contact-card.scss");
-@font-face {
-  font-family: Nunitosans;
-  src: url("font/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf") format("truetype");
-}
-* {
-  font-family: Nunitosans, Arial, sans-serif;
-  box-sizing: border-box;
-}
+/* Error: Undefined variable.
+ *   ,
+ * 7 |     color : $light;
+ *   |             ^^^^^^
+ *   '
+ *   _app.scss 7:13   @use
+ *   global.scss 1:1  root stylesheet */
 
-.app-fullScreen {
-  width: 100vw;
-  height: 100dvh;
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined variable.\a   \2577 \a 7 \2502      color : $light;\d\a   \2502              ^^^^^^\a   \2575 \a   _app.scss 7:13   @use\a   global.scss 1:1  root stylesheet";
 }
-
-/*# sourceMappingURL=global.css.map */

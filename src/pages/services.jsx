@@ -5,14 +5,9 @@ import { ServicesList } from "jsx/service-card"
 export default function ServicesPage() {
   return(
     <div className="app_serviceContainer">
-
       <BannerBg/>
-
-      <div className="">
-        <Presentation title = "Mon offre de services" description = "Voici les prestations sur lequelles je peux intervenir" />
-
-        <ServicesList selectedIds = {['uxdesign', 'dev', 'ref']}/>
-      </div>
+      <Presentation title = "Mon offre de services" description = "Voici les prestations sur lequelles je peux intervenir" />
+      <ServicesList selectedIds = {['uxdesign', 'dev', 'ref']}/>
     </div>
   )
 }

@@ -1,18 +1,20 @@
-import { PropTypes } from 'prop-types'
-import { validateId } from 'jsx/errors-management.jsx'
+import { PropTypes } from 'prop-types';
 
-import Coder from "portfolio/coder.jpg"
-import EspaceBienEtre from "portfolio/espace-bien-etre.jpg"
-import FreshFood from "portfolio/fresh-food.jpg"
-import RestaurantJaponais from "portfolio/restaurant-japonais.jpg"
-import Screens from "portfolio/screens.jpg"
-import Seo from "portfolio/seo.jpg"
+import { useContext } from 'react';
+import { FooterStyle } from 'jsx/footer-context.jsx';
+
+import { validateId } from 'jsx/errors-management.jsx';
+
+import Coder from "portfolio/coder.jpg";
+import EspaceBienEtre from "portfolio/espace-bien-etre.jpg";
+import FreshFood from "portfolio/fresh-food.jpg";
+import RestaurantJaponais from "portfolio/restaurant-japonais.jpg";
+import Screens from "portfolio/screens.jpg";
+import Seo from "portfolio/seo.jpg";
 
 let realisations =[];
 
 const requiredFields = ["id", "src", "alt", "title", "description", "tools", "link"  ];
-
-
 
 const addRealisationDynamic = (rea) => {
     const formattedRealisations = {};
@@ -24,7 +26,6 @@ const addRealisationDynamic = (rea) => {
     })
     realisations.push(formattedRealisations);
 }
-
 
 //* AJOUT DYNAMIQUE DE REALISATIONS ##################################################################################################
 addRealisationDynamic({
@@ -137,9 +138,12 @@ RealisationsList.propTypes = {
 };
 
 // *==============================================================================================
-export function RealistaionItemsList () {
+export function RealistaionsList () {
+    const style = useContext(FooterStyle);
+    const isFooter = `${style ? "footerStyle" : "" }`;
+    console.log ("valeur de style depuis realistion-card :", style);
     return(
-    <div>
+    <div className={isFooter}>
         <h4 className="app_title-4">Mes dernières réalisations</h4>
         {realisations.map(rea => (
             <a key={rea.id} href={rea.link} target="_blank" rel="noopenner noreferrer" className="app_toRealisationCard">
