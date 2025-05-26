@@ -20,11 +20,11 @@ const RealisationsPage = () => {
         }
     }, [ hash ]);
     return (
-        <div className="mb-5">
+        <>
             <BannerBg/>
             <Presentation title = "Portfolio" description = "Voici quelques unes de mes réalisations."/>
             <RealisationsList selectedIds ={['coder', 'bienetre', 'freshfood', 'restaujap', 'screens','seo']}/>
-        </div>
+        </>
     )
 }
 export default RealisationsPage;

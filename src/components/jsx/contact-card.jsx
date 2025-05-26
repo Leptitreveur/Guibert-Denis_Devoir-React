@@ -5,7 +5,6 @@ import { useContext } from 'react';
 import { FooterStyle } from 'jsx/footer-context';
 import { SocialLinks } from 'jsx/social-link';
 
-let footer=false;
 let contacts = [];
 
 const requiredFields = ["id", "name", "address1", "address2", "country", "phone", "email", "website"];
@@ -61,6 +60,7 @@ const BoxCard = ({cardid, showIcon=false, tomap=false}) => {
         if (!enabledicon){
             console.log("BoxCard message : Contact card's id value is : ", id);
         }
+
     const formatPhoneNumber = (phone) => {
         if (!phone) return "";
         // Si le numéro commence par "33", ajouter le préfixe "+33"
@@ -70,9 +70,9 @@ const BoxCard = ({cardid, showIcon=false, tomap=false}) => {
         // Format par défaut : regrouper par paires
         return phone.match(/.{1,2}/g).join(" ");
     };
-    
+
     const linkToMap = tomap ? `https://www.google.com/maps?q=${encodeURIComponent(address1+""+address2)}` : '/contact#map';
-    
+
     const extractDomain = (url) => {
         try {
             const parsedUrl = new URL(url);
@@ -83,77 +83,87 @@ const BoxCard = ({cardid, showIcon=false, tomap=false}) => {
             return url;
         }
     }
-
-    // !=====================================
-    // !=====================================
-
+// * gestion du context si composant dans le footer ==================================================
     const style = useContext(FooterStyle);
-    const isFooterClass = `${style ? "isFooterClass" : "app_contactCardContainer"}`;
+    const isFooterField = `${style ? "footerBox footerBox-contact" : "app_contactCardContainer"}`;
     const isFooterLink = `${style ? "isFooterLink" : "app_link"}`;
-
-    console.log("valeur de {style} dans Boxcard() de contact-card.jsx :", style)
-
-    // !=====================================
-    // !=====================================
+    const isFooterList = style ? "footerList" : null;
+    const isFooterListItem = `${style ? "footerList-item" : "list-item"}`;
+    const isFooterLegend = `${style ? "footerList-legend" : "cardList-legend"}`
+// * Fin de gestion de context =======================================================================
 
     return (
-        <div id={`${enabledicon && id ? id.replace(/\s+/g, '-').toLowerCase() : "id-non-trouvee"}`} className={isFooterClass}>
-            <h4 className = "app_title-4">{name}</h4>
-            {address1 && (
-                <Link
-                to={linkToMap}
-                target={tomap ? '_blank' : undefined}
-                rel={tomap ? 'noreferrer noopenner' : undefined}
-                className = {isFooterLink}
-                >
-                    {showIcon && <i className="bi bi-map"></i>} {address1}
-                </Link>
-            )}
-            {address2 && country && (
-                <Link
-                to={linkToMap}
-                target={tomap ? '_blank' : undefined}
-                rel={tomap?'noreferrer noopenner' : undefined} 
-                className = {isFooterLink}
-                >
-                    {showIcon && <i className="bi bi-geo-alt"></i>} 
-                    {address2 ? `${address2}, ` : ''} {country}
-                </Link>
-            )}
-            {phone && (
-                <Link
-                to={`tel:{formatPhoneNumber(phone)}`}
-                className = {isFooterLink}
-                >
-                    {showIcon && <i className="bi bi-phone"></i>}
-                    {formatPhoneNumber(phone)}
-                </Link>
-            )}
-            {email && (
-                <Link to={`mailto:{email}`}
-                className = {isFooterLink}
-                >
-                    {showIcon && <i className="bi bi-envelope-at"></i>}
-                    {email}
-                </Link>
-            )}
-            {website && (
-                <Link
-                to={website}
-                className = {isFooterLink}
-                >
-                    {showIcon && <i className="bi bi-globe2 app_bi-globe2"></i>}
-                    {extractDomain(website)}
-                </Link>
-            )}
-        </div>
+        <fieldset id={`${enabledicon && id ? id.replace(/\s+/g, '-').toLowerCase() : "id-non-trouvee"}`} className={isFooterField}>
+            <legend className ={isFooterLegend}>{name}</legend>
+            <ul className={isFooterList}>
+                {address1 && (
+                    <li className={isFooterListItem}>
+                        <Link
+                            to={linkToMap}
+                            target={tomap ? '_blank' : undefined}
+                            rel={tomap ? 'noreferrer noopenner' : undefined}
+                            className = {isFooterLink}
+                        >
+                            {showIcon && <i className="bi bi-map"></i>}{address1}
+                        </Link>
+                    </li>
+                )}
+                {address2 && country && (
+                    <li className={isFooterListItem}>
+                        <Link
+                            to={linkToMap}
+                            target={tomap ? '_blank' : undefined}
+                            rel={tomap?'noreferrer noopenner' : undefined}
+                            className = {isFooterLink}
+                        >
+                            {showIcon && <i className="bi bi-geo-alt"></i>}
+                            {address2 ? `${address2}, ` : ''} {country}
+                        </Link>
+                    </li>
+                )}
+                {phone && (
+                    <li className={isFooterListItem}>
+                        <Link
+                            to={`tel:{formatPhoneNumber(phone)}`}
+                            className = {isFooterLink}
+                        >
+                            {showIcon && <i className="bi bi-phone"></i>}
+                            {formatPhoneNumber(phone)}
+                        </Link>
+                    </li>
+                )}
+                {email && (
+                    <li className={isFooterListItem}>
+                        <Link
+                            to={`mailto:{email}`}
+                            className = {isFooterLink}
+                        >
+                            {showIcon && <i className="bi bi-envelope-at"></i>}
+                            {email}
+                        </Link>
+                    </li>
+                )}
+                {website && (
+                    <li className={isFooterListItem}>
+                        <Link
+                            to={website}
+                            className = {isFooterLink}
+                        >
+                            {showIcon && <i className="bi bi-globe2 app_bi-globe2"></i>}
+                            {extractDomain(website)}
+                        </Link>
+                    </li>
+                )}
+            </ul>
+            <>{style && <SocialLinks/>}</>
+        </fieldset>
         )
 }
 BoxCard.propTypes = {
-    showIcon : PropTypes.bool.isRequired,
     cardid : PropTypes.string.isRequired,
+    showIcon : PropTypes.bool,
     tomap : PropTypes.bool,
-    socialLink : PropTypes.bool
+    socialLink : PropTypes.bool,
 }
 
 export const ContactList = ({ selectedIds, showIcon=false}) => {
@@ -165,24 +175,18 @@ export const ContactList = ({ selectedIds, showIcon=false}) => {
             console.log(`Value of <ContactList selectedIds={["${id}"]} showIcon={${showIcon}} /> does not match any existing ID in the contacts list.`);
         }
     });
-    
-    const style = useContext(FooterStyle);
-    const isFooter = `${style ? "footerStyle" : "" }`;
-    console.log("Valeur de {isFooter} et {style} depuis ContactList() :",isFooter,style);
-    
+
     return (
-        <div className={isFooter}>
+        <>
             {contacts
                 .filter(contact => !selectedIds || selectedIds.includes(contact.id))
                 .map(contact => (
-                    <BoxCard key={contact.id} cardid={contact.id} showIcon={showIcon}  tomap={contact.id === "host"}  footer={footer}/>
+                    <BoxCard key={contact.id} cardid={contact.id} showIcon={showIcon}  tomap={contact.id === "host"}/>
                 ))}
-                {footer && <SocialLinks/>}
-        </div>
+        </>
     );
 };
 ContactList.propTypes = {
     selectedIds: PropTypes.arrayOf(PropTypes.string),
     showIcon: PropTypes.bool,
-    socialLink: PropTypes.bool
 };

@@ -1,5 +1,5 @@
 import { PropTypes } from 'prop-types';
-
+import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { FooterStyle } from 'jsx/footer-context.jsx';
 
@@ -90,13 +90,15 @@ const BoxRea = ({cardid}) => {
     const {id, src, alt, title, description, tools, link} = getRealisationsById(cardid);
 
     return(
-        <div className="m-3">
+        <div className="reaCard card-hover">
             <div id = {id} className ="app_realisationCard-upperBox">
-                <img src = {src} alt = {alt} className="w-100"/>
 
-                <div className="app_realisationCard-innerText">
-                    <h2 className="m-2"><strong>{title}</strong></h2>
-                    <p className="m-1">{description}</p>
+                <div className="app_realisationCard-innerBox">
+                    <img src = {src} alt = {alt} className="app_reaCard-image"/>
+                    <div className="innerBox-text">
+                        <h2 className="m-2 app_title-2"><strong>{title}</strong></h2>
+                        <p className="m-1">{description}</p>
+                    </div>
                 </div>
 
                 <button type="button" className="btn btn-primary m-3"
@@ -124,7 +126,7 @@ export const RealisationsList = ({selectedIds}) => {
         }
     });
     return (
-        <div>
+        <div className="reaCardContainer">
             {realisations
                 .filter(rea => !selectedIds || selectedIds.includes(rea.id))
                 .map(rea => (
@@ -138,17 +140,20 @@ RealisationsList.propTypes = {
 };
 
 // *==============================================================================================
-export function RealistaionsList () {
+export function ReaFooterList () {
     const style = useContext(FooterStyle);
-    const isFooter = `${style ? "footerStyle" : "" }`;
-    console.log ("valeur de style depuis realistion-card :", style);
+    const isFooter = `${style ? "footerBox footerBox-portfolio" : "" }`;
     return(
-    <div className={isFooter}>
-        <h4 className="app_title-4">Mes dernières réalisations</h4>
-        {realisations.map(rea => (
-            <a key={rea.id} href={rea.link} target="_blank" rel="noopenner noreferrer" className="app_toRealisationCard">
-                <strong>{rea.title}</strong>
-            </a>
-        ))}
-    </div>)
+    <fieldset className={isFooter}>
+        <legend className="footerList-legend">Mes dernières réalisations</legend>
+        <ul className="footerList">
+                {realisations.map(rea => (
+                    <li key={rea.id} className="footerList-item">
+                        <Link to={rea.link} target="_blank" rel="noopenner noreferrer" className="footerLink">
+                            <strong>{rea.title}</strong>
+                        </Link>
+                    </li>
+                ))}
+        </ul>
+    </fieldset>)
 }

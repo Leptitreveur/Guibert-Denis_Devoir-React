@@ -1,3 +1,4 @@
+@import '_breakpoint-sm.scss';
 @import '_app.scss';
 @import '_home.scss';
 @import '_modale.scss';
@@ -5,10 +6,11 @@
 @import '_realisations.scss';
 @import '_contact.scss';
 @import '_legalnotice.scss';
-
+@import '_header.scss';
+@import '_footer.scss';
 @import '_components.scss';
 @import '_contact-card.scss';
-@import '_breakpoint-sm.scss';
+
 
 @font-face {
     font-family: Nunitosans;
@@ -21,7 +23,24 @@
     box-sizing : border-box;
 }
 
-.app-fullScreen{
+.app_fullScreen{
     min-width: 100vw;
+    min-height: 100%;
+}
+#root{
     min-height: 100dvh; //dvh(dynamic viewport height) prevent an unwilling positionning on smartphone screen
+    background-color: $dark;
+}
+.card-hover:hover{
+        cursor: default;
+        border-radius: 0.6rem;//style's correction to realisation's card due to global selection
+        background-color: #efefef;
+        box-shadow: 3px 3px 8px $gray-600;
+}
+
+
+// ! Bootstrap style correction ======================================
+.h1, .h2, .h3, .h4,
+.fw-bold{
+    font-weight: 600 !important;
 }

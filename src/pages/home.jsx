@@ -5,7 +5,8 @@ import { HeroBg } from "jsx/images"
 import { Profil } from "jsx/text"
 import { SkillsToShow } from 'jsx/skill-section';
 
-// !         Modal          ===========================================================
+// *        MODAL       ===========================================================
+
 export function UserProfile() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -32,37 +33,41 @@ export function UserProfile() {
   if (loading) return <p>Chargement...</p>;
   if (error) return <p>Erreur : {error}</p>;
 
-  const paragraphs = [
-    <div key="1">
-      <i className="bi bi-person"></i>
-      <Link to={user.html_url} target="_blank" rel="noopener noreferrer" className="app_link">
-        <p>{user.name}</p>
-      </Link>
-    </div>,
-    <div key="2">
-      <i className="bi bi-geo-alt"></i>
-      </div>,
-    <div key="3">
-      <i className="bi bi-card-text"></i>
-      <p>{user.bio || 'Aucune bio disponible'}</p>
-    </div>,
-    <div key="4">
-      <i className="bi bi-box"></i>
-      <p>Repository : {user.public_repos}</p>
-    </div>,
-    <div key="5">
-      <i className="bi bi-people"></i>
-      <p>Followers : {user.followers}</p>
-    </div>,
-    <div key="6">
-      <i className="bi bi-people"></i>
-      <p>Following : {user.following}</p>
-    </div>
-  ]
+  const paragraphItem =[
+    {key :"1",
+      iconClass: "bi-person",
+      content: (
+        <Link to={user.html_url} target="_blank" rel="noopener noreferrer" className="app_link">
+          <span className="app_link-item">{user.name}</span>
+        </Link>
+      )
+    },
+    {key: "2",
+      iconClass: "bi-geo-alt",
+      content: (<span>{user.location}</span>),
+    },
+    {key: "3",
+      iconClass:"bi-card-text",
+      content:  (<span>{user.bio}</span>),
+    },
+    {key: "4",
+      iconClass: "bi-box",
+      content: (<span>Repository : {user.public_repos}</span>),
+    },
+    {key: "5",
+      iconClass: "bi-people",
+      content: (<span>Followers : {user.followers}</span>),
+    },
+    {key: "6",
+      iconClass: "bi-people",
+      content: (<span>Following : {user.following}</span>),
+    }
+]
+const commonDivClass = "app_modal-contentBox";
 
   return (
     <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div className="modal-dialog modal-dialog-centered">
+      <div className="modal-dialog modal-dialog-centered modal-xl app_modalDialog">
         <div className="modal-content app_modal-content">
 
           <div className="modal-header app_modal-header">
@@ -72,13 +77,16 @@ export function UserProfile() {
 
           <div className="modal-body app_modal-body">
             <div className="app_imageBox">
-              <img src={user.avatar_url} alt={user.login} className="w-100" />
+              <img src={user.avatar_url} alt={user.login} className="app_modal-image" />
             </div>
             <div className="app_infoBox">
-              {paragraphs.map((item, index) => (
-                <React.Fragment key={index}>
-                  {item}
-                  {index !== paragraphs.length - 1 && <hr className='w-100'/>}
+              {paragraphItem.map( (item, index) => (
+                <React.Fragment key={item.key}>
+                  <div className= {commonDivClass}>
+                    <i className= {`bi ${item.iconClass}`}></i>
+                    {item.content}
+                  </div>
+                {index !== paragraphItem.length -1 && <hr className="app_hr"/>}
                 </React.Fragment>
               ))}
             </div>
@@ -93,28 +101,28 @@ export function UserProfile() {
   );
 }
 
-// !        Home page             ==========================================================================================================
+// *        Home page             ==========================================================================================================
 export default function HomePage() {
-   return(
-     <div className="app_mainContainer">
-         <div className="app_introductionContainer">
-            <HeroBg/>
-            <div className="app_introductionContainer-box">
-              <h1 className="app_title-1">Bonjour, je suis Jhon Doe</h1>
-              <h2 className="app_title-2">Développeur web full stack</h2>
-              <button className="btn btn-danger" type="button" data-bs-toggle= "modal" data-bs-target="#staticBackdrop">
-                En savoir plus
-              </button>
-              <div className="modal-container">
-                <UserProfile/>
-              </div>
-            </div>
-         </div>
-
-        <div className="app_aboutContainer shadow">
-          <Profil/>
-          <SkillsToShow/>
+  return(
+    <>
+      <div className="app_introductionContainer">
+        <HeroBg/>
+        <div className="app_introductionContainer-box">
+          <h1 className="app_title-1">Bonjour, je suis Jhon Doe</h1>
+          <h2 className="app_title-2">Développeur web full stack</h2>
+          <button className="btn btn-danger customBtn" type="button" data-bs-toggle= "modal" data-bs-target="#staticBackdrop">
+            En savoir plus
+          </button>
+          <div className="modal-container app_modalContainer">
+            <UserProfile/>
+          </div>
         </div>
-       </div>
- )
+      </div>
+
+      <div className="app_aboutContainer shadow">
+        <Profil/>
+        <SkillsToShow/>
+      </div>
+    </>
+  )
 }

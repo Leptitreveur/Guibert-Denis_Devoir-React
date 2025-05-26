@@ -1,14 +1,17 @@
 .app_contactCardContainer{
-    
+
     *{
         margin : 0;
         padding : 0;
     }
     .bi {
-        padding-right :0.5rem
+        padding-right :0.7rem
         ;}
-    .app_title-4{
+    .cardList-legend{
         margin-bottom : 0.5rem;
+    }
+    .list-item{
+        list-style-type: none;
     }
     .app_link{
         display : block;
@@ -22,23 +25,5 @@
     }
     .app_bi-globe2{
         color : $black;
-    }
-    .app_socialContainer{
-        display : flex;
-        justify-content: flex-start;
-        width: auto;
-        margin-top: 1rem;
-        
-        .app_icon-social{
-            display: block;
-            width: auto;
-            font-size: 1.5rem;
-            color : $light;
-            opacity: 30%;
-
-            &:hover{
-                opacity: 100%;
-            }
-        }
     }
 }

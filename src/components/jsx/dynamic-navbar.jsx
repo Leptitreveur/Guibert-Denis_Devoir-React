@@ -1,5 +1,8 @@
 import { NavLink } from "react-router-dom";
 import { PropTypes } from 'prop-types';
+import { useContext, forwardRef } from 'react';
+
+import { FooterStyle } from 'jsx/footer-context.jsx';
 
 const navbarLinks = [];
 
@@ -16,7 +19,7 @@ function addLink (nav){
 }
 
 //* AJOUT DYNAMIQUE DE LIEN DE NAVIGATION ##################################################################################
-// ! Mettre le nom avec la premiere letre en majuscule
+// ! Mettre le nom avec la premiere lettre en majuscule
 addLink({
     id : 'home',
     path : '/',
@@ -46,14 +49,17 @@ addLink({
 
 const getNavbarLink = (id) => navbarLinks.find(nav => nav.id === id);
 
-//! application d'un style suivant le context NON FONCTIONNEL!!!  ############################################################################################
-
-
 const NavbarBox = ({ navId }) => {
+
     const { id, path, name } = getNavbarLink(navId);
+
+    const style = useContext(FooterStyle);
+    const isFooterListItem = `${style ? "footerList-item" : "nav-item"}`;
+    const isFooterLink = `${style ? "footerLink" : "nav-link"}`;
+
     return(
-        <li id = {id} className="nav-item">
-            <NavLink to = {path} className="nav-link">
+        <li id = {id} className={isFooterListItem}>
+            <NavLink to = {path} className={isFooterLink}>
                 {name}
             </NavLink>
         </li>
@@ -64,15 +70,17 @@ NavbarBox.propTypes = {
 }
 
 
-export const NavbarItems = ({ selectedIds, footer=false }) => {
-    const navbarClass = `${footer ? "app_footerBox": "collapse navbar-collapse app_collapse" }`;
-    const navbarId = `${footer ? "" : "navbarNav"}`;
-    const navClass = `${footer ? "app_navList" : "navbar-nav ms-auto app_navbar-nav"}`;
-    
+export const NavbarItems = forwardRef(({ selectedIds }, ref) => {
+
+    const style = useContext(FooterStyle);
+    const isFooterNavbar = `${style ? "footerBox footerBox-nav": "collapse navbar-collapse app_collapse"}`;
+    const isFooterId = style ? null : "navbarNav";
+    const isFooterNav = `${style ? "footerList" : "navbar-nav ms-auto app_navbar-nav"}`;
+
     return(
-        <div className={navbarClass} id={navbarId}>
-            <ul className={navClass}>
-                {footer && <h4 className="app_title-4">Liens utiles</h4>}
+        <fieldset className={isFooterNavbar} id={isFooterId} ref={ref}>
+            {style && <legend className="footerList-legend">Liens utiles</legend>}
+            <ul className={isFooterNav}>
                 {navbarLinks
                     .filter(nav => !selectedIds|| selectedIds.includes(nav.id))
                     .map(nav => (
@@ -80,10 +88,10 @@ export const NavbarItems = ({ selectedIds, footer=false }) => {
                 ))
                 }
             </ul>
-        </div>
-    )
-}
+        </fieldset>
+    );
+});
 NavbarItems.propTypes = {
     selectedIds: PropTypes.arrayOf(PropTypes.string),
-    footer : PropTypes.bool
 }
+NavbarItems.displayName = 'NavbarItems';

@@ -10,7 +10,7 @@ export default function LegalNoticePage() {
             title = "Mentions légales"
             description = {false}
         />
-        <section className="accordion-container">
+        <section className="accordion-container app_accordionContainer">
             <DetailsAccordion
                 title = "Editeur du site"
                 text = {<ContactList selectedIds={["editor"]} showIcon={true} />}

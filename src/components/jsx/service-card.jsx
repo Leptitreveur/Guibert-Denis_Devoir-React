@@ -6,7 +6,7 @@ const requiredFields = ["id", "icon", "title", "text" ];
 
 const addServicesDynamics = (service) => {
     const formattedServices = {};
-    requiredFields.forEach(fields =>{
+    requiredFields.forEach(fields => {
         formattedServices[fields] =  service[fields] || "non specified";
     })
     services.push(formattedServices);
@@ -16,19 +16,19 @@ addServicesDynamics({
     id : 'uxdesign',
     icon : <i className="bi bi-brush card-img-top" ></i>,
     title : "UX Design",
-    text : "L'UX design est une discipline qui consiste à concevoir des produits (sites web, application mobiles, logiciels, objets connectés, etc.) en plaçant l'utilisateur au centre des préoccupations. L'objectif est de rendre l'experience utilisateur la plus fluide et la plus agreable possible."
+    text : "L'UX design est une discipline qui consiste à concevoir des produits (sites web, applications mobiles, logiciels, objets connectés, etc.) en plaçant l'utilisateur au centre des préoccupations. L'objectif est de rendre l'expérience utilisateur la plus fluide et la plus agréable possible."
 })
 addServicesDynamics({
     id : 'dev',
     icon : <i className="bi bi-code-slash card-img-top"></i>,
     title : "Developpement Web",
-    text : "Le développement de site web consiste à utiliser des langages de programmation (HTML, CSS, JavaScript, PHP, etc.) et des frameworks (Bootstrap, React, Angular, etc.)"
+    text : "Le développement de site web consiste à créer des sites internet en utilisant des langages de programmation (HTML, CSS, JavaScript, PHP, etc.) et des frameworks (Bootstrap, React, Angular, etc.)"
 })
 addServicesDynamics({
     id : 'ref',
     icon : <i className="bi bi-search card-img-top"></i>,
     title : "Référencement",
-    text : "Le référencement naturel (SEO) est une technique qui consiste à optimiser un site web pour le faire remonter dans les moteurs de recherche (Google, Bing, Yahoo, etc.). L'objectif est d'attirer un maximum de visiteurs qualifiés sur le site."
+    text : "Le référencement naturel (SEO) est une technique qui consiste à optimiser un site web pour le faire remonter dans les résultats des moteurs de recherche (Google, Bing, Yahoo, etc.). L'objectif est d'attirer un maximum de visiteurs qualifiés sur le site."
 })
 
 // *FIN D'AJOUT DYNAMIQUE #######################################################################################################
@@ -39,10 +39,10 @@ const BoxService = ({cardid}) => {
     const {id, icon, title, text} = getServicesById(cardid);
 
     return(
-        <div id = {`${id.replace(/\s+/g, '-').toLowerCase()}`} className="card-body app_card-body">
+        <div id = {`${id.replace(/\s+/g, '-').toLowerCase()}`} className="card-body app_card-body card-hover">
             {icon}
             <h2 className="card-title fw-bold">{title}</h2>
-            {text}
+            <p className="card-text">{text}</p>
         </div>
     )
 }

@@ -31,12 +31,14 @@ const getSocialIcons = (linkId) => socialIcons.find((sociallink)=> sociallink.id
 
 const SocialLinkBox = ({linkId}) => {
     const socialIcon = getSocialIcons(linkId);
+    const { id, link, icon } = socialIcon;
+
     // Vérifier que socialIcon existe pour éviter des erreurs de déstructuration
     if (!socialIcon) return null;
-    const { id, link, icon } = socialIcon;
+
 return(
-        <Link to={link} target="_blank" rel="noopener noreferrer" id ={id}>
-            <i className={`bi ${icon} app_icon-social`}></i>
+        <Link to={link} target="_blank" rel="noopener noreferrer" id ={id} className="footerLink">
+            <i className={`bi ${icon} footerIcon`}></i>
         </Link>
 )
 }
@@ -45,7 +47,7 @@ SocialLinkBox.propTypes = {
 }
 export function SocialLinks({ selectedIds }){
 return(
-    <div className="app_socialContainer">
+    <div className="footerBox--socialIcon">
         {socialIcons
         .filter( (socialLink) => !selectedIds || selectedIds.includes(socialLink.id))
         .map ((socialLink)=> (

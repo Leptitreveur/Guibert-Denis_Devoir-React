@@ -1,35 +1,42 @@
 .app_introductionContainer{
+    position: relative;
     display : flex;
     justify-content : center;
     align-items : center;
-    min-width: 100vw;
+    width: 100vw;
     height : 40rem;
     overflow : hidden;
 
     .app_image-hero{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
         filter : contrast(40%);
-        transform: scale(0.8);
     }
 }
 .app_introductionContainer-box{
     position : absolute;
-    top : 26%;
     display : flex;
     flex-direction: column;
     align-items: center;
     justify-content : center;
-    width :90%;
-    gap: 1rem;
-    text-align: center;
-    color : $light;
+    top : 30%;
+    gap: 1.2rem;
+
+    .app_title-1,
+    .app_title-2{
+        color : $light;
+        opacity: 100%;
+        font-weight : bold;
+        text-align: center;
+        padding: 0rem 2rem;
+    }
 
     .app_title-1{
-        font-size : 2.8rem;
-        font-weight : bold;
+        font-size: 2.4rem;
     }
     .app_title-2{
-        font-size: 2.2rem;
-        font-weight : bold;
+        font-size: 2rem;;
     }
 }
 
@@ -39,17 +46,20 @@
 .app_aboutContainer{
     display: flex;
     flex-direction: column;
-    margin: 2rem 0.5rem;
+    margin: 3rem 0.8rem 0rem 0.8rem;
     border-radius: 5px;
     padding: 1.5rem;
 
 
     .app_image-about{
         width: 100%;
-        // height: auto;
         aspect-ratio: 16/9;
         object-fit: cover;
         margin-bottom: 2rem;
+    }
+    .profilTextBox{
+        width: 96%;
+        text-align: justify;
     }
     .app_title-3{
         font-size: 1.3rem;
