@@ -1,53 +1,113 @@
-// import { NavLink } from "react-router-dom";
-import { Outlet } from "react-router-dom";
-
-import { NavbarItems } from 'jsx/dynamic-navbar'
-import { ContactList } from "jsx/contact-card"
-import { RealistaionItemsList } from "jsx/realisation-card"
+import { useRef, useEffect } from 'react';
+import { Outlet, useLocation } from "react-router-dom";
+import { NavbarItems } from 'jsx/dynamic-navbar';
+import { Footer } from 'jsx/footer-content.jsx';
+import Collapse from 'bootstrap/js/dist/collapse';
 
 export default function App() {
+
+  const navbarCollapsibleRef = useRef(null);
+  const location = useLocation();
+
+//   useEffect(() => {
+//   console.log("useEffect pour pathname:", location.pathname);
+//   const collapsibleElement = navbarCollapsibleRef.current;
+//   console.log("Collapsible element:", collapsibleElement);
+
+//   if (collapsibleElement) {
+//     console.log("Bootstrap object:", window.bootstrap); // Ou juste `bootstrap` si importé en module
+//     const collapseInstance = window.bootstrap.Collapse.getInstance(collapsibleElement);
+//     console.log("Collapse instance:", collapseInstance);
+
+//     if (collapseInstance) {
+//       console.log("Element has 'show' class:", collapsibleElement.classList.contains('show'));
+//       if (collapsibleElement.classList.contains('show')) {
+//         console.log("Hiding collapse...");
+//         collapseInstance.hide();
+//       } else {
+//         console.log("Not hiding, 'show' class not present.");
+//       }
+//     } else {
+//       console.log("No collapse instance found. Bootstrap might not be initialized on this element yet, or selector is wrong.");
+//     }
+//   }
+// }, [location.pathname]);
+
+// useEffect(() => {
+
+//   const tryToCloseNavbar = () => {
+//     console.log("useEffect pour pathname:", location.pathname);
+//     const collapsibleElement = navbarCollapsibleRef.current;
+//     console.log("Collapsible element:", collapsibleElement);
+
+//     if (collapsibleElement) {
+//       if (window.bootstrap && window.bootstrap.Collapse) { // Vérifie si bootstrap et Collapse existent
+//         console.log("Bootstrap object:", window.bootstrap);
+//         const collapseInstance = window.bootstrap.Collapse.getInstance(collapsibleElement);
+//         console.log("Collapse instance:", collapseInstance);
+
+//         if (collapseInstance) {
+//           console.log("Element has 'show' class:", collapsibleElement.classList.contains('show'));
+//           if (collapsibleElement.classList.contains('show')) {
+//             console.log("Hiding collapse...");
+//             collapseInstance.hide();
+//           } else {
+//             console.log("Not hiding, 'show' class not present.");
+//           }
+//         } else {
+//           console.log("No collapse instance found for this element.");
+//         }
+//       } else {// Bootstrap n'est pas encore prêt, on pourrait réessayer après un court délai
+//         console.log("Bootstrap not ready yet, will try again shortly...");
+//         setTimeout(tryToCloseNavbar, 100); // Réessaie dans 100ms
+//       }
+//     }
+//   };
+//   tryToCloseNavbar(); // Premier essai
+// }, [location.pathname, navbarCollapsibleRef]);
+
+useEffect(() => {
+    const collapsibleElement = navbarCollapsibleRef.current;
+    if (collapsibleElement && Collapse) {
+      let collapseInstance = Collapse.getInstance(collapsibleElement);
+      if (collapseInstance) {
+        if (collapsibleElement.classList.contains('show')) {
+          collapseInstance.hide();
+        }
+      }
+    }
+  }, [location.pathname]); 
+
   return(
-    <div>
-      <header className="app_headerContainer">
-        <nav className="navbar navbar-expand-lg navbar-dark sticky-top app_navbarBox" >
+    <>
+      <header className="headerContainer">
+        <nav
+        className="navbar navbar-expand-xl navbar-dark bg-dark app_navbarBox"
+        data-bs-theme="dark"
+        >
           <div className="container-fluid">
-            <p className="nav-brand"><strong>jhon doe</strong></p>
+            <span className="nav-brand app_nav-brand"><strong>jhon doe</strong></span>
 
             <button type="button"
               className="navbar-toggler app_navbar-toggler"
+              aria-controls="navbarNav"
               data-bs-toggle="collapse"
               data-bs-target="#navbarNav"
-              aria-controls="navbarNav"
-              aria-expanded="false"
               aria-label="Toggle navigation"
             >
               <span className="navbar-toggler-icon app_icon-menu"></span>
             </button>
-
-            <div className="collapse navbar-collapse app_collapse" id="navbarNav">
-              <NavbarItems/>
-            </div>
-
+            <NavbarItems ref={navbarCollapsibleRef}/>
           </div>
         </nav>
       </header>
 
-
-      <main className="app_mianContainer">
+      <main className="mainContainer">
         <Outlet/>
       </main>
 
-      <footer className ="app_footerContainer">
-        <ContactList selectedIds={["editor"]} showicon={false} />
-        <div className="app_socialContainer">
-          <a href="https://github.com/github-john-doe" target="_blank" rel="noopener noreferrer"><i className="bi bi-github app_icon-social"></i></a>
-          <a href="https://x.com/?lang=fr" target="_blank" rel="noopener noreferrer"><i className="bi bi-twitter app_icon-social"></i></a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i className="bi bi-linkedin app_icon-social"></i></a>
-        </div>
-        <NavbarItems header={false}/>
+    <Footer/>
 
-        <RealistaionItemsList/>
-      </footer>
-    </div>
+    </>
   )
 };

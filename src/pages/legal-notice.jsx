@@ -1,24 +1,25 @@
-import { Presentation, DetailsAccordion } from "jsx/components"
+import { Presentation } from "jsx/components"
+import { DetailsAccordion } from 'jsx/accordion';
 import { CreditText } from "jsx/text"
 import { ContactList } from "jsx/contact-card"
 
 export default function LegalNoticePage() {
   return(
-    <div className = "m-4">
+    <div className = "app_mainContainer">
         <Presentation
             title = "Mentions légales"
             description = {false}
         />
-        <section className="accordion-container">
+        <section className="accordion-container app_accordionContainer">
             <DetailsAccordion
                 title = "Editeur du site"
-                text = {<ContactList selectedIds={["editor"]} showicon={true} />}
+                text = {<ContactList selectedIds={["editor"]} showIcon={true} />}
                 id = "editor"
             />
 
             <DetailsAccordion
                 title = "Hébergeur"
-                text = {<ContactList selectedIds={["host"]} showicon={true}/>}
+                text = {<ContactList selectedIds={["host"]} showIcon={true}/>}
                 id = "host"
             />
 
@@ -31,4 +32,4 @@ export default function LegalNoticePage() {
     </div>
   )
 }
-// dynamiser le rendu des border radius sur le 1er et le dernier element de l'accordéon et dynamiser l'ouverture et la faermeture des accordéons via les hooks
+ 

@@ -1,18 +1,20 @@
-import { PropTypes } from 'prop-types'
-import { validateId } from 'jsx/errors-management.jsx'
+import { PropTypes } from 'prop-types';
+import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { FooterStyle } from 'jsx/footer-context.jsx';
 
-import Coder from "portfolio/coder.jpg"
-import EspaceBienEtre from "portfolio/espace-bien-etre.jpg"
-import FreshFood from "portfolio/fresh-food.jpg"
-import RestaurantJaponais from "portfolio/restaurant-japonais.jpg"
-import Screens from "portfolio/screens.jpg"
-import Seo from "portfolio/seo.jpg"
+import { validateId } from 'jsx/errors-management.jsx';
+
+import Coder from "portfolio/coder.jpg";
+import EspaceBienEtre from "portfolio/espace-bien-etre.jpg";
+import FreshFood from "portfolio/fresh-food.jpg";
+import RestaurantJaponais from "portfolio/restaurant-japonais.jpg";
+import Screens from "portfolio/screens.jpg";
+import Seo from "portfolio/seo.jpg";
 
 let realisations =[];
 
 const requiredFields = ["id", "src", "alt", "title", "description", "tools", "link"  ];
-
-
 
 const addRealisationDynamic = (rea) => {
     const formattedRealisations = {};
@@ -24,7 +26,6 @@ const addRealisationDynamic = (rea) => {
     })
     realisations.push(formattedRealisations);
 }
-
 
 //* AJOUT DYNAMIQUE DE REALISATIONS ##################################################################################################
 addRealisationDynamic({
@@ -89,13 +90,15 @@ const BoxRea = ({cardid}) => {
     const {id, src, alt, title, description, tools, link} = getRealisationsById(cardid);
 
     return(
-        <div className="m-3">
+        <div className="reaCard card-hover">
             <div id = {id} className ="app_realisationCard-upperBox">
-                <img src = {src} alt = {alt} className="w-100"/>
 
-                <div className="app_realisationCard-innerText">
-                    <h2 className="m-2"><strong>{title}</strong></h2>
-                    <p className="m-1">{description}</p>
+                <div className="app_realisationCard-innerBox">
+                    <img src = {src} alt = {alt} className="app_reaCard-image"/>
+                    <div className="innerBox-text">
+                        <h2 className="m-2 app_title-2"><strong>{title}</strong></h2>
+                        <p className="m-1">{description}</p>
+                    </div>
                 </div>
 
                 <button type="button" className="btn btn-primary m-3"
@@ -123,7 +126,7 @@ export const RealisationsList = ({selectedIds}) => {
         }
     });
     return (
-        <div>
+        <div className="reaCardContainer">
             {realisations
                 .filter(rea => !selectedIds || selectedIds.includes(rea.id))
                 .map(rea => (
@@ -137,14 +140,20 @@ RealisationsList.propTypes = {
 };
 
 // *==============================================================================================
-export function RealistaionItemsList () {
+export function ReaFooterList () {
+    const style = useContext(FooterStyle);
+    const isFooter = `${style ? "footerBox footerBox-portfolio" : "" }`;
     return(
-    <div>
-        <h4 className="app_title-4">Mes dernières réalisations</h4>
-        {realisations.map(rea => (
-            <a key={rea.id} href={rea.link} target="_blank" rel="noopenner noreferrer" className="app_toRealisationCard">
-                <strong>{rea.title}</strong>
-            </a>
-        ))}
-    </div>)
+    <fieldset className={isFooter}>
+        <legend className="footerList-legend">Mes dernières réalisations</legend>
+        <ul className="footerList">
+                {realisations.map(rea => (
+                    <li key={rea.id} className="footerList-item">
+                        <Link to={rea.link} target="_blank" rel="noopenner noreferrer" className="footerLink">
+                            <strong>{rea.title}</strong>
+                        </Link>
+                    </li>
+                ))}
+        </ul>
+    </fieldset>)
 }

@@ -1,0 +1,35 @@
+.app_modal-content{
+    background-color: $dark !important;
+    color: $light;
+
+    .app_modal-header,
+    .app_modal-footer{
+        border-color: rgba($gray-300, 0.25);
+    }
+
+    .app_modal-body{
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+
+        .app_modal-image{
+            width: 100%;
+        }
+
+        .app_infoBox{
+            padding: 0.5rem 0;
+            .app_modal-contentBox{
+                padding: 0 0.5rem;
+
+                 *{
+                display: inline;
+                margin: 0 0.2rem;
+                text-align: left;
+                }
+            }
+            .app_hr{
+                margin: 0.4rem 0;
+            }
+        }
+    }
+}
