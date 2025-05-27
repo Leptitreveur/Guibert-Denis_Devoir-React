@@ -1,3 +1,4 @@
+import {createHead, UnheadProvider } from "@unhead/react/client";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -14,19 +15,23 @@ import Realisations from "pages/realisations.jsx";
 import Contact from "pages/contact.jsx";
 import LegalNotice from "pages/legal-notice.jsx";
 
+const head = createHead();
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Router>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route index element={<Home />} />
-          <Route path="services" element={<Services />} />
-          <Route path="realisations" element={<Realisations />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="legal-notice" element={<LegalNotice />} />
-        </Route>
-      </Routes>
-    </Router>
+    <UnheadProvider head={head}>
+      <Router>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route index element={<Home />} />
+            <Route path="services" element={<Services />} />
+            <Route path="realisations" element={<Realisations />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="legal-notice" element={<LegalNotice />} />
+          </Route>
+        </Routes>
+      </Router>
+    </UnheadProvider>
   </StrictMode>
 );

@@ -1,3 +1,5 @@
+import { Head } from '@unhead/react';
+
 import { Presentation, SectionTitle} from "jsx/components"
 import { ContactList } from 'jsx/contact-card'
 import { useRef } from 'react';
@@ -21,6 +23,10 @@ export default function ContactPage(){
 
   return(
       <>
+        <Head>
+          <title>Contact</title>
+          <meta name="description" content="Acces au formulaire de contact ainsi qu'à l'adresse professionnelle via la minimap" />
+        </Head>
         <Presentation title= "Contact" description= "Pour me contacte en vue d'un entretien  ou d'une future collaboration, merci de remplir le formulaire de contact."/>
         <div className= "p-4 shadow rounded contact-box">
           <section className="contact-section">

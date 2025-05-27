@@ -1,3 +1,4 @@
+import { Head } from '@unhead/react';
 import { useState, useEffect } from 'react'
 import React from 'react'
 import { Link } from 'react-router-dom'
@@ -105,6 +106,10 @@ const commonDivClass = "app_modal-contentBox";
 export default function HomePage() {
   return(
     <>
+      <Head>
+        <title>Accueil</title>
+        <meta name="description" content="Jhon Doe vous propose ses services en qualité de Dév Web Full Stack. Page de présentation."/>
+      </Head>
       <div className="app_introductionContainer">
         <HeroBg/>
         <div className="app_introductionContainer-box">
