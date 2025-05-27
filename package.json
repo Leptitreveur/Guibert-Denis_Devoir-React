@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
+    "@unhead/react": "^2.0.10",
     "bootstrap": "^5.3.5",
     "bootstrap-icons": "^1.13.1",
     "open-cli": "^8.0.0",

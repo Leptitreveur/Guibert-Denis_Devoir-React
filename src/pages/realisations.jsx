@@ -1,3 +1,5 @@
+import { Head } from '@unhead/react';
+
 import { BannerBg } from "jsx/images"
 import { Presentation } from "jsx/components"
 import { useEffect } from "react"
@@ -21,6 +23,10 @@ const RealisationsPage = () => {
     }, [ hash ]);
     return (
         <>
+            <Head>
+                <title>Portfolio</title>
+                <meta name="description" content="Page regroupant les différentes réalisations" />
+            </Head>
             <BannerBg/>
             <Presentation title = "Portfolio" description = "Voici quelques unes de mes réalisations."/>
             <RealisationsList selectedIds ={['coder', 'bienetre', 'freshfood', 'restaujap', 'screens','seo']}/>
