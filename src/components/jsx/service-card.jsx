@@ -1,3 +1,6 @@
+// ! Modification necessaire de la valeur de la cle "icon" icon: bi-search ou bi-brush ou bi-code-slash la balise i ira dans le return de la fonction BoxService <i className=`bi ${icon} card-img-top></i>`
+
+
 import { PropTypes } from 'prop-types'
 
 let services = [];
@@ -34,6 +37,7 @@ addServicesDynamics({
 // *FIN D'AJOUT DYNAMIQUE #######################################################################################################
 
 const getServicesById = (id) => services.find(service => service.id === id) || { id : ""};
+
 
 const BoxService = ({cardid}) => {
     const {id, icon, title, text} = getServicesById(cardid);

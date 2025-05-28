@@ -1,9 +1,9 @@
-import { PropTypes } from 'prop-types'
-import { FooterStyle } from 'jsx/footer-context.jsx'
+import { PropTypes } from "prop-types";
 
-import { ContactList } from "jsx/contact-card"
-import { ReaFooterList } from "jsx/realisation-card"
-import { NavbarItems } from 'jsx/dynamic-navbar'
+import { FooterStyle } from "jsx/footer-context.jsx";
+import { ContactList } from "jsx/contact-card";
+import { ReaFooterList } from "jsx/realisation-card";
+import { NavbarItems } from "jsx/dynamic-navbar";
 
 export function Footer({style=true}) {
     return(

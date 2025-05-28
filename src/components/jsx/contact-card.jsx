@@ -83,13 +83,13 @@ const BoxCard = ({cardid, showIcon=false, tomap=false}) => {
             return url;
         }
     }
-// * gestion du context si composant dans le footer ==================================================
+// * gestion du context à la condition "est dans le footer" composant dans le footer ==================================================
     const style = useContext(FooterStyle);
     const isFooterField = `${style ? "footerBox footerBox-contact" : "app_contactCardContainer"}`;
-    const isFooterLink = `${style ? "isFooterLink" : "app_link"}`;
+    const isFooterLegend = `${style ? "footerList-legend" : "cardList-legend"}`
     const isFooterList = style ? "footerList" : null;
     const isFooterListItem = `${style ? "footerList-item" : "list-item"}`;
-    const isFooterLegend = `${style ? "footerList-legend" : "cardList-legend"}`
+    const isFooterLink = `${style ? "isFooterLink" : "app_link"}`;
 // * Fin de gestion de context =======================================================================
 
     return (

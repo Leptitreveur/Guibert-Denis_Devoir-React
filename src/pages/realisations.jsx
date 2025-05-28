@@ -1,9 +1,9 @@
 import { Head } from '@unhead/react';
+import { useEffect } from "react"
+import { useLocation } from "react-router-dom"
 
 import { BannerBg } from "jsx/images"
 import { Presentation } from "jsx/components"
-import { useEffect } from "react"
-import { useLocation } from "react-router-dom"
 import { RealisationsList } from "jsx/realisation-card"
 
 // //*Scroll vers la realisation sélectionnéee ================================================
@@ -21,6 +21,7 @@ const RealisationsPage = () => {
             }
         }
     }, [ hash ]);
+    
     return (
         <>
             <Head>

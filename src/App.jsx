@@ -1,8 +1,9 @@
 import { useRef, useEffect } from 'react';
 import { Outlet, useLocation } from "react-router-dom";
+import Collapse from 'bootstrap/js/dist/collapse';
+
 import { NavbarItems } from 'jsx/dynamic-navbar';
 import { Footer } from 'jsx/footer-content.jsx';
-import Collapse from 'bootstrap/js/dist/collapse';
 
 export default function App() {
 

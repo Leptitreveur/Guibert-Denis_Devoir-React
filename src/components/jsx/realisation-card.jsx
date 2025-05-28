@@ -1,8 +1,8 @@
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
-import { FooterStyle } from 'jsx/footer-context.jsx';
 
+import { FooterStyle } from 'jsx/footer-context.jsx';
 import { validateId } from 'jsx/errors-management.jsx';
 
 import Coder from "portfolio/coder.jpg";
@@ -125,6 +125,7 @@ export const RealisationsList = ({selectedIds}) => {
             console.log(`Value of <ContactList selectedIds={["${id}"]} } /> does not match any existing ID in the contacts list.`);
         }
     });
+    
     return (
         <div className="reaCardContainer">
             {realisations
@@ -143,6 +144,7 @@ RealisationsList.propTypes = {
 export function ReaFooterList () {
     const style = useContext(FooterStyle);
     const isFooter = `${style ? "footerBox footerBox-portfolio" : "" }`;
+
     return(
     <fieldset className={isFooter}>
         <legend className="footerList-legend">Mes dernières réalisations</legend>

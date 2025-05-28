@@ -12,7 +12,7 @@ const addSkill = (skilldata) => {
     })
     skills.push(formattedSkill);
 }
-
+// * Début ajout dynamique ===========================================================================================
 addSkill({
     id :'html',
     title : 'html5',
@@ -43,6 +43,7 @@ addSkill({
     percent : 50,
     color : 'primary'
 })
+// * Fin ajout dynamique =============================================================================================
 
 const getSkillsAdd = (id) => skills.find(skill => skill.id === id) || {id : ''};
 

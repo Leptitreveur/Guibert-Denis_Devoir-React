@@ -1,4 +1,4 @@
-import {createHead, UnheadProvider } from "@unhead/react/client";
+import { createHead, UnheadProvider } from "@unhead/react/client";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";

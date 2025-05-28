@@ -33,7 +33,7 @@ const SocialLinkBox = ({linkId}) => {
     const socialIcon = getSocialIcons(linkId);
     const { id, link, icon } = socialIcon;
 
-    // Vérifier que socialIcon existe pour éviter des erreurs de déstructuration
+    // Vérifier que socialIcon existe pour éviter des erreurs de déstructuration et eviter l'ajout d'un composant inutile
     if (!socialIcon) return null;
 
 return(
@@ -57,5 +57,5 @@ return(
 )
 }
 SocialLinks.propTypes ={
-selectedIds : PropTypes.arrayOf(PropTypes.string)
+    selectedIds : PropTypes.arrayOf(PropTypes.string)
 }

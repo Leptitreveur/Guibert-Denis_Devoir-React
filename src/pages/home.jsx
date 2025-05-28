@@ -1,7 +1,8 @@
 import { Head } from '@unhead/react';
-import { useState, useEffect } from 'react'
-import React from 'react'
-import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 import { HeroBg } from "jsx/images"
 import { Profil } from "jsx/text"
 import { SkillsToShow } from 'jsx/skill-section';

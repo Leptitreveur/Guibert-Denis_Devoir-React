@@ -14,7 +14,7 @@ export default function LegalNoticePage() {
                 <meta name="description" content="Page concernant les mentions légales"/>
                 <meta name="robots" content="noindex, nofollow"/>
             </Head>
-            
+
             <div className = "app_mainContainer">
                 <Presentation
                     title = "Mentions légales"
