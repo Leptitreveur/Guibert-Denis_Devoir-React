@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-export function DetailsAccordion({ title, text, id }){
+export function AccordionItem({ title, text, id }){
     const [ isOpen, setIsOpen] = useState(false);
     return(
-        <div className = "accordion " >
+        <div className = "accordion" >
             <div className ="accordion-item ">
                 <h2 className="accordion-header ">
                     <button className={`accordion-button ${isOpen ? "" : "collapsed"}`}
@@ -29,7 +29,7 @@ export function DetailsAccordion({ title, text, id }){
         </div>
     )
 }
-DetailsAccordion.propTypes = {
+AccordionItem.propTypes = {
     title : PropTypes.string.isRequired,
     text : PropTypes.node.isRequired,
     id : PropTypes.string.isRequired
