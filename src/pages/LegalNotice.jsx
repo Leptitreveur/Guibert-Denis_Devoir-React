@@ -2,8 +2,8 @@ import { Head } from '@unhead/react';
 
 import { Presentation } from "jsx/components";
 import { AccordionItem } from 'jsx/accordion';
-import { CreditText } from "jsx/text";
-import { ContactCardList } from "jsx/contact-card";
+import { CreditText } from "jsx/textAssets";
+import { ContactCardList } from "jsx/contactCard";
 
 export default function LegalNoticePage() {
 
