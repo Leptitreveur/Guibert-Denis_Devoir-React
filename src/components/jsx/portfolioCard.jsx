@@ -2,8 +2,8 @@ import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 
-import { FooterStyle } from 'jsx/footer-context.jsx';
-import { validateId } from 'jsx/errors-management.jsx';
+import { FooterStyle } from 'jsx/footerContext.jsx';
+import { validateId } from 'jsx/errorHandling.jsx';
 
 // ! Déplacer l'importation dans le fichier imagesAsstes.jsx
 import Coder from "portfolio/coder.jpg";
@@ -13,23 +13,24 @@ import RestaurantJaponais from "portfolio/restaurant-japonais.jpg";
 import Screens from "portfolio/screens.jpg";
 import Seo from "portfolio/seo.jpg";
 
-let realisations =[];
+let portfolio =[];
 
 const requiredFields = ["id", "src", "alt", "title", "description", "tools", "link"  ];
 
-const addRealisationDynamic = (rea) => {
-    const formattedRealisations = {};
+// ! est ce que formattedData recoit bien des donnée formatées?
+const addPortfolio = (data) => {
+    const formattedData = {};
     requiredFields.forEach(field => {
-        if ( field === 'id' && !validateId(rea[field])) {
+        if ( field === 'id' && !validateId(data[field])) {
             return;
         }
-        formattedRealisations[field] = rea[field] || "non specified";
+        formattedData[field] = data[field] || "non specified";
     })
-    realisations.push(formattedRealisations);
+    portfolio.push(formattedData);
 }
 
 //* AJOUT DYNAMIQUE DE REALISATIONS ##################################################################################################
-addRealisationDynamic({
+addPortfolio({
     id : 'coder',
     src : Coder,
     alt : "Coder background",
@@ -38,7 +39,7 @@ addRealisationDynamic({
     tools : "PHP - SYMFONY",
     link : 'https://webtech.fr/blog/comment-creer-une-api/'
 })
-addRealisationDynamic({
+addPortfolio({
     id : 'bienetre',
     src : EspaceBienEtre,
     alt :"Espace bien-être background",
@@ -47,7 +48,7 @@ addRealisationDynamic({
     tools : "Site réalisé avec LARAVEL",
     link : 'https://www.duneeteau.fr/'
 })
-addRealisationDynamic({
+addPortfolio({
     id : 'freshfood',
     src : FreshFood,
     alt : "Freshfood background",
@@ -56,7 +57,7 @@ addRealisationDynamic({
     tools : "Site réalisé avec PHP et MySQL",
     link : 'http://fr.freshfoodvillage.com/fresh_food_village.html'
 })
-addRealisationDynamic({
+addPortfolio({
     id : 'restaujap',
     src : RestaurantJaponais,
     alt : "Restaurant japonais background",
@@ -65,7 +66,7 @@ addRealisationDynamic({
     tools : "Réalisé avec WordPress",
     link : 'https://www.akirabackparis.com/fr/'
 })
-addRealisationDynamic({
+addPortfolio({
     id : 'screens',
     src : Screens,
     alt : "Screens background",
@@ -74,7 +75,7 @@ addRealisationDynamic({
     tools : "Réaliser avec FIGMA",
     link : 'https://www.figma.com/fr-fr/'
 })
-addRealisationDynamic({
+addPortfolio({
     id : 'seo',
     src : Seo,
     alt :"Seo background",
@@ -85,19 +86,19 @@ addRealisationDynamic({
 })
 // *FIN D'AJOUT DYNAMIQUE #######################################################################################################
 
-const getRealisationsById = (id) => realisations.find(rea =>rea.id === id) || { id : ""};
+const getRealisationsById = (id) => portfolio.find(data =>data.id === id) || { id : ""};
 
-const BoxRea = ({cardid}) => {
-    const {id, src, alt, title, description, tools, link} = getRealisationsById(cardid);
+const PortfolioBox = ({dataId}) => {
+    const {id, src, alt, title, description, tools, link} = getRealisationsById(dataId);
 
     return(
-        <div className="reaCard card-hover">
-            <div id = {id} className ="app_realisationCard-upperBox">
+        <div className="app-card--portfolio card-hover">
+            <div id = {id} className ="app-card-potfolio__box--upper">
 
-                <div className="app_realisationCard-innerBox">
-                    <img src = {src} alt = {alt} className="app_reaCard-image"/>
-                    <div className="innerBox-text">
-                        <h2 className="m-2 app_title-2"><strong>{title}</strong></h2>
+                <div className="app-card--portfolio__box--inner">
+                    <img src = {src} alt = {alt} className="app-card--portfolio__image"/>
+                    <div className="app-text__box--inner">
+                        <h2 className="m-2 app-title--2"><strong>{title}</strong></h2>
                         <p className="m-1">{description}</p>
                     </div>
                 </div>
@@ -111,53 +112,53 @@ const BoxRea = ({cardid}) => {
                 </button>
             </div>
 
-            <div className="app_realisationCard-lowerBox">
+            <div className="app-card--portfolio__box--lower">
                 <p className="m-0">{tools}</p>
             </div>
         </div>
     )
 }
-BoxRea.propTypes = {
-    cardid : PropTypes.string.isRequired
+PortfolioBox.propTypes = {
+    dataId : PropTypes.string.isRequired
 }
 
-export const RealisationsList = ({selectedIds}) => {
+export const PortfolioCardList = ({selectedIds}) => {
     selectedIds.forEach(id => {
         if (!id.trim()) { // Si l'ID est vide ou uniquement des espaces
-            console.log(`Value of <ContactList selectedIds = {["${id}"]} />`);
+            console.log(`Value of <ContactCardList selectedIds = {["${id}"]} />`);
         }
-        else if (!realisations.some(rea => rea.id === id)) {
-            console.log(`Value of <ContactList selectedIds={["${id}"]} } /> does not match any existing ID in the contacts list.`);
+        else if (!portfolio.some(rea => rea.id === id)) {
+            console.log(`Value of <ContactCardList selectedIds={["${id}"]} } /> does not match any existing ID in the contacts list.`);
         }
     });
 
     return (
-        <div className="reaCardContainer">
-            {realisations
-                .filter(rea => !selectedIds || selectedIds.includes(rea.id))
-                .map(rea => (
-                    <BoxRea key={rea.id} cardid={rea.id} />
+        <div className="app-card--portfolio__container">
+            {portfolio
+                .filter(data => !selectedIds || selectedIds.includes(data.id))
+                .map(data => (
+                    <PortfolioBox key={data.id} dataId={data.id} />
                 ))}
         </div>
     );
 }
-RealisationsList.propTypes = {
+PortfolioCardList.propTypes = {
     selectedIds: PropTypes.arrayOf(PropTypes.string).isRequired
 };
 
 // *==============================================================================================
-export function ReaFooterList () {
+export function PortfolioLinkList () {
     const style = useContext(FooterStyle);
-    const isFooter = style ? "footerBox footerBox-portfolio" : null;
+    const isFooter = style ? "app-footer__box app-footer__box--portfolio" : null;
 
     return(
     <fieldset className={isFooter}>
-        <legend className="footerList-legend">Mes dernières réalisations</legend>
-        <ul className="footerList">
-                {realisations.map(rea => (
-                    <li key={rea.id} className="footerList-item">
-                        <Link to={rea.link} target="_blank" rel="noopenner noreferrer" className="footerLink">
-                            <strong>{rea.title}</strong>
+        <legend className="app-footer__nav-legend">Mes dernières réalisations</legend>
+        <ul className="app-footer__nav">
+                {portfolio.map(data => (
+                    <li key={data.id} className="app-footer__nav-item">
+                        <Link to={data.link} target="_blank" rel="noopenner noreferrer" className="app-footer__link">
+                            <strong>{data.title}</strong>
                         </Link>
                     </li>
                 ))}
