@@ -3,59 +3,62 @@ import PropTypes from 'prop-types'
 
 
 const socialIcons= [];
+
 const requiredFields =['id', 'link', 'icon'];
 
-const addSocialIcons = (iconData) => {
+// !est ce que formattedData reçoit bien des données formatées? 
+// ! est ce que addIcon est précis comme nom car il ajoute aussi un lien attaché à l'icône
+const addIcon = (data) => {
     const formattedData={};
     requiredFields.forEach((field) => {
-        formattedData[field] = iconData[field];
+        formattedData[field] = data[field];
     });
     socialIcons.push(formattedData);
 }
-addSocialIcons({
+addIcon({
     id :'github',
     link:'https://github.com/github-john-doe',
     icon:'bi-github',
 })
-addSocialIcons({
+addIcon({
     id :'x',
     link:'https://x.com/?lang=fr',
     icon:'bi-twitter',
 })
-addSocialIcons({
+addIcon({
     id :'linkedin',
     link:'https://www.linkedin.com/',
     icon:'bi-linkedin',
 })
-const getSocialIcons = (linkId) => socialIcons.find((sociallink)=> sociallink.id === linkId);
+const getSocialIcons = (id) => socialIcons.find((data)=> data.id === id);
 
-const SocialLinkBox = ({linkId}) => {
-    const socialIcon = getSocialIcons(linkId);
+const SocialIconBox = ({dataId}) => {
+    const socialIcon = getSocialIcons(dataId);
     const { id, link, icon } = socialIcon;
 
     // Vérifier que socialIcon existe pour éviter des erreurs de déstructuration et eviter l'ajout d'un composant inutile
     if (!socialIcon) return null;
 
 return(
-        <Link to={link} target="_blank" rel="noopener noreferrer" id ={id} className="footerLink">
-            <i className={`bi ${icon} footerIcon`}></i>
+        <Link to={link} target="_blank" rel="noopener noreferrer" id ={id} className="app-footer__link">
+            <i className={`bi ${icon} app-footer__icon`}></i>
         </Link>
 )
 }
-SocialLinkBox.propTypes = {
-    linkId : PropTypes.string.isRequired,
+SocialIconBox.propTypes = {
+    dataId : PropTypes.string.isRequired,
 }
-export function SocialLinks({ selectedIds }){
+export function SocialIconList({ selectedIds }){
 return(
-    <div className="footerBox--socialIcon">
+    <div className="app-footer__box--icon">
         {socialIcons
-        .filter( (socialLink) => !selectedIds || selectedIds.includes(socialLink.id))
-        .map ((socialLink)=> (
-            <SocialLinkBox key={socialLink.id} linkId={socialLink.id} />
+        .filter( (data) => !selectedIds || selectedIds.includes(data.id))
+        .map ((data)=> (
+            <SocialIconBox key={data.id} linkId={data.id} />
         ))}
     </div>
 )
 }
-SocialLinks.propTypes ={
+SocialIconList.propTypes ={
     selectedIds : PropTypes.arrayOf(PropTypes.string)
 }
