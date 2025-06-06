@@ -1,9 +1,9 @@
 import { Head } from '@unhead/react';
 
 import { Presentation } from "jsx/components";
-import { DetailsAccordion } from 'jsx/accordion';
+import { AccordionItem } from 'jsx/accordion';
 import { CreditText } from "jsx/text";
-import { ContactList } from "jsx/contact-card";
+import { ContactCardList } from "jsx/contact-card";
 
 export default function LegalNoticePage() {
 
@@ -15,25 +15,25 @@ export default function LegalNoticePage() {
                 <meta name="robots" content="noindex, nofollow"/>
             </Head>
 
-            <div className = "app_mainContainer">
+            <div className = "app-main__container">
                 <Presentation
                     title = "Mentions légales"
                     description = {false}
                 />
-                <section className="accordion-container app_accordionContainer">
-                    <DetailsAccordion
+                <section className="accordion-container app-accordion__container">
+                    <AccordionItem
                         title = "Editeur du site"
-                        text = {<ContactList selectedIds={["editor"]} showIcon={true} />}
+                        text = {<ContactCardList selectedIds={["editor"]} showIcon={true} />}
                         id = "editor"
                     />
 
-                    <DetailsAccordion
+                    <AccordionItem
                         title = "Hébergeur"
-                        text = {<ContactList selectedIds={["host"]} showIcon={true}/>}
+                        text = {<ContactCardList selectedIds={["host"]} showIcon={true}/>}
                         id = "host"
                     />
 
-                    <DetailsAccordion
+                    <AccordionItem
                         title = "Crédit"
                         text = {<CreditText />}
                         id = "credit"
