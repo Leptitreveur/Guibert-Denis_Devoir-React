@@ -2,7 +2,7 @@ import { Head } from '@unhead/react';
 import { useRef } from 'react';
 
 import { Presentation, SectionTitle} from "jsx/components"
-import { ContactList } from 'jsx/contact-card'
+import { ContactCardList } from 'jsx/contact-card'
 
 export default function ContactPage(){
   const formRef = useRef(null);
@@ -29,13 +29,13 @@ export default function ContactPage(){
         </Head>
 
         <Presentation title= "Contact" description= "Pour me contacte en vue d'un entretien  ou d'une future collaboration, merci de remplir le formulaire de contact."/>
-        
-        <div className= "p-4 shadow rounded contact-box">
-          <section className="contact-section">
+
+        <div className= "p-4 shadow rounded app-contact__box">
+          <section className="app-contact__section">
 
             <SectionTitle title= "Formulaire de contact"/>
 
-              <form ref={formRef} className= "app_formContainer needs-validation" noValidate onSubmit={handleSubmit}>
+              <form ref={formRef} className= "app-form__container needs-validation" noValidate onSubmit={handleSubmit}>
                   <label htmlFor="name" className="form-label visually-hidden"></label>
                   <div className="w-100 h-100 m-0 p-0">
                     <input id="name" className= "form-control" type="text" placeholder="Votre nom" required/>
@@ -65,10 +65,10 @@ export default function ContactPage(){
               </form>
           </section>
 
-          <section className= "contact-section">
+          <section className= "app-contact__section">
             <SectionTitle title= "Mes coordonnées"/>
 
-              <ContactList selectedIds= {["editor"]} showIcon={true} />
+              <ContactCardList selectedIds= {["editor"]} showIcon={true} />
 
               <div className= "d-flex w-100 mt-3" id="map">
 
