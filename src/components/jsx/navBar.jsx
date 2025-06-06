@@ -2,20 +2,22 @@ import { NavLink } from "react-router-dom";
 import { PropTypes } from 'prop-types';
 import { useContext, forwardRef } from 'react';
 
-import { FooterStyle } from 'jsx/footer-context.jsx';
+import { FooterStyle } from 'jsx/footerContext.jsx';
 
 const navbarLinks = [];
 
 const requiredfields = ['id', 'path','name'];
 
-function addLink (nav){
-    const formattedpath = {};
+
+// !Est ce que les donnée sont bel et bien formattées (formattedData)
+function addLink (data){
+    const formattedData = {};
     requiredfields.forEach(field => {
-        if (nav[field]){
-            formattedpath[field] = nav[field];
+        if (data[field]){
+            formattedData[field] = data[field];
         }
     });
-    navbarLinks.push(formattedpath);
+    navbarLinks.push(formattedData);
 }
 
 //* AJOUT DYNAMIQUE DE LIEN DE NAVIGATION ##################################################################################
@@ -27,12 +29,12 @@ addLink({
 })
 addLink({
     id : 'services',
-    path :'/services',
+    path :'/Services',
     name :'Services'
 })
 addLink({
-    id : 'realisation',
-    path :'/realisations',
+    id : 'portfolio',
+    path :'/Porftolio',
     name :'Portfolio'
 })
 addLink({
@@ -41,24 +43,24 @@ addLink({
     name :'Contact'
 })
 addLink({
-    id : 'legalnotcie',
-    path :'/legal-notice',
+    id : 'legalnotice',
+    path :'/LegalNotice',
     name :'Mentions légales'
 })
 //* FIN D'AJOUT DYNAMIQUE ##################################################################################################
 
 const getNavbarLink = (id) => navbarLinks.find(nav => nav.id === id);
 
-const NavbarBox = ({ navId }) => {
+const NavbarBox = ({ dataId }) => {
 
-    const { id, path, name } = getNavbarLink(navId);
+    const { id, path, name } = getNavbarLink(dataId);
 
     const style = useContext(FooterStyle);
-    const isFooterListItem = `${style ? "footerList-item" : "nav-item"}`;
-    const isFooterLink = `${style ? "footerLink" : "nav-link"}`;
+    const isFooterNavItem = `${style ? "app-footer__nav-item" : "app-navbar__nav-item"}`;
+    const isFooterLink = `${style ? "app-footer__Link" : "app-navbar__link"}`;
 
     return(
-        <li id = {id} className={isFooterListItem}>
+        <li id = {id} className={isFooterNavItem}>
             <NavLink to = {path} className={isFooterLink}>
                 {name}
             </NavLink>
@@ -66,32 +68,32 @@ const NavbarBox = ({ navId }) => {
     )
 }
 NavbarBox.propTypes = {
-    navId : PropTypes.string.isRequired
+    dataId : PropTypes.string.isRequired
 }
 
 
-export const NavbarItems = forwardRef(({ selectedIds }, ref) => {
+export const NavbarLinkList = forwardRef(({ selectedIds }, ref) => {
 
     const style = useContext(FooterStyle);
-    const isFooterNavbar = `${style ? "footerBox footerBox-nav": "collapse navbar-collapse app_collapse"}`;
+    const isFooterNavbar = `${style ? "app-footer__box app-footer__box--navbar": "collapse navbar-collapse app-collapse"}`;
     const isFooterId = style ? null : "navbarNav";
-    const isFooterNav = `${style ? "footerList" : "navbar-nav ms-auto app_navbar-nav"}`;
+    const isFooterNav = `${style ? "app-footer__nav" : "navbar-nav ms-auto app-navbar__nav"}`;
 
     return(
         <fieldset className={isFooterNavbar} id={isFooterId} ref={ref}>
-            {style && <legend className="footerList-legend">Liens utiles</legend>}
+            {style && <legend className="app-footer__nav-legend">Liens utiles</legend>}
             <ul className={isFooterNav}>
                 {navbarLinks
                     .filter(nav => !selectedIds|| selectedIds.includes(nav.id))
                     .map(nav => (
-                        <NavbarBox key ={nav.id} navId={nav.id} />
+                        <NavbarBox key ={nav.id} dataId={nav.id} />
                 ))
                 }
             </ul>
         </fieldset>
     );
 });
-NavbarItems.propTypes = {
+NavbarLinkList.propTypes = {
     selectedIds: PropTypes.arrayOf(PropTypes.string),
 }
-NavbarItems.displayName = 'NavbarItems';
+NavbarLinkList.displayName = 'NavbarLinkList';
