@@ -1,6 +1,3 @@
-// From images
-// ======================================================================================
-
 import Aboutbg from "images/john-doe-about.jpg"
 import Herobg from "images/hero-bg.jpg"
 import Bannerbg from "images/banner.jpg"

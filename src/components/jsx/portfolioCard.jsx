@@ -5,6 +5,7 @@ import { useContext } from 'react';
 import { FooterStyle } from 'jsx/footer-context.jsx';
 import { validateId } from 'jsx/errors-management.jsx';
 
+// ! Déplacer l'importation dans le fichier imagesAsstes.jsx
 import Coder from "portfolio/coder.jpg";
 import EspaceBienEtre from "portfolio/espace-bien-etre.jpg";
 import FreshFood from "portfolio/fresh-food.jpg";
@@ -101,9 +102,13 @@ const BoxRea = ({cardid}) => {
                     </div>
                 </div>
 
-                <button type="button" className="btn btn-primary m-3"
+                <button 
+                type="button" 
+                className="btn btn-primary m-3"
                 onClick={() => window.open(link, "_blank")}
-                >Voir la page</button>
+                >
+                    Voir la page
+                </button>
             </div>
 
             <div className="app_realisationCard-lowerBox">
@@ -125,7 +130,7 @@ export const RealisationsList = ({selectedIds}) => {
             console.log(`Value of <ContactList selectedIds={["${id}"]} } /> does not match any existing ID in the contacts list.`);
         }
     });
-    
+
     return (
         <div className="reaCardContainer">
             {realisations
@@ -143,7 +148,7 @@ RealisationsList.propTypes = {
 // *==============================================================================================
 export function ReaFooterList () {
     const style = useContext(FooterStyle);
-    const isFooter = `${style ? "footerBox footerBox-portfolio" : "" }`;
+    const isFooter = style ? "footerBox footerBox-portfolio" : null;
 
     return(
     <fieldset className={isFooter}>

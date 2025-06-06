@@ -9,11 +9,11 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import { ScrollToTop } from "jsx/global-components";
 
 import App from "src/App.jsx";
-import Home from "pages/home.jsx";
-import Services from "pages/services.jsx";
-import Realisations from "pages/realisations.jsx";
-import Contact from "pages/contact.jsx";
-import LegalNotice from "pages/legal-notice.jsx";
+import Home from "pages/Home.jsx";
+import Services from "pages/Services.jsx";
+import Portfolio from "pages/Portfolio.jsx";
+import Contact from "pages/Contact.jsx";
+import LegalNotice from "pages/LegalNotice.jsx";
 
 const head = createHead();
 
@@ -25,10 +25,10 @@ createRoot(document.getElementById("root")).render(
         <Routes>
           <Route path="/" element={<App />}>
             <Route index element={<Home />} />
-            <Route path="services" element={<Services />} />
-            <Route path="realisations" element={<Realisations />} />
-            <Route path="contact" element={<Contact />} />
-            <Route path="legal-notice" element={<LegalNotice />} />
+            <Route path="Services" element={<Services />} />
+            <Route path="Portfolio" element={<Portfolio />} />
+            <Route path="Contact" element={<Contact />} />
+            <Route path="LegalNotice" element={<LegalNotice />} />
           </Route>
         </Routes>
       </Router>

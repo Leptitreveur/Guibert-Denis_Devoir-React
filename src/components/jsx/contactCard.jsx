@@ -38,7 +38,7 @@ addContactDynamic({
     address2 : "69009 Lyon",
     country : "France",
     phone : 1020304050,
-    email : "jhon.doe@gmail.com"
+    email : "jhon.doe@gmail.com",
 }, true);
 
 addContactDynamic({
@@ -47,12 +47,14 @@ addContactDynamic({
     address1 : "91 rue du Faubourg Saint-Honoré",
     address2 : "75008 Paris",
     country : "France",
-    website : "https://www.alwaysdata.com/fr/"
+    website : "https://www.alwaysdata.com/fr/",
 }, true);
 // *FIN D'AJOUT DYNAMIQUE #######################################################################################################
 
 const getContactById = (id) => contacts.find(contact => contact.id === id) || { id : ""};
 
+
+// ! attention a réécrire la props tomap en toMap ainsi que la proptypes
 const BoxCard = ({cardid, showIcon=false, tomap=false}) => {
     const { id, name, address1, address2, country, phone, email, website } = getContactById(cardid);
 

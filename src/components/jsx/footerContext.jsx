@@ -10,8 +10,8 @@ export function Footer({style=true}) {
         <footer className ="footerContainer">
             <FooterStyle.Provider value={style}>
                 <ContactList selectedIds={["editor"]}/>
-                <NavbarItems/>
-                <ReaFooterList/>
+                <NavbarItems />
+                <ReaFooterList />
             </FooterStyle.Provider>
         </footer>
     )

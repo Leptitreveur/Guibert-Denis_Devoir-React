@@ -1,23 +1,25 @@
 import AboutBg from "jsx/images.jsx"
 import { SectionTitle } from "jsx/components"
 
-// * PROFIL ===========================================================================================================================================
+// ! PROFIL est un composant + les classes servent pour le breakpoint ===========================================================================================================================================
 
 export  function Profil() {
     const message = ["Lorem ipsum dolor sit amet, consecte apiscing elit. Integer nec feugiat tortor. Proin ac tellus sit amet dolor fringilla elementum.Nullam pharetra imperdiet augue ullamcorper pellentesque.",
         "Vestibulum elementum malesuada dapibus. Aenean ultrices eget risus dictum faucibus. Sed vulputate, justo nec auctor pharetra, massa neque posuere turpis, a posuere lacus libero non mauris.",
         " Curabitur id dapibus nunc, sagittis tincidunt ipsum. Vestibulum egestas consectetur tempor. Aliquam euismod luctus lectus sit amet vulputate. Etiam feugiat justo vel ipsum fermentum."]
-    return ( <div className="app_profilComponent">
-                <SectionTitle title = "A propos"/>
-                <AboutBg/>
-                <div className="profilTextBox">
-                    {message.map((msg,index)=>(
-                        <p key ={index} className="profilText-item">
-                            {msg} 
-                        </p>
-                    ))}
-                </div>
-            </div>)
+    return (
+        <div className="app_profilComponent">
+            <SectionTitle title = "A propos"/>
+            <AboutBg/>
+            <div className="profilTextBox">
+                {message.map((msg,index)=>(
+                    <p key ={index} className="profilText-item">
+                        {msg}
+                    </p>
+                ))}
+            </div>
+        </div>
+    )
 }
 
 //* Legal notice ===========================================================================================================================================

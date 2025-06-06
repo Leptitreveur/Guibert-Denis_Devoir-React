@@ -12,7 +12,7 @@ export default function ContactPage(){
     event.preventDefault();
     event.stopPropagation();
     form.classList.add('was-validated');
-  
+
     if (!form.checkValidity()){
       // error message filled with bootstrap's class was-validated
     }else{

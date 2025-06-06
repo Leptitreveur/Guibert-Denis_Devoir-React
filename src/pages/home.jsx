@@ -112,7 +112,7 @@ export default function HomePage() {
         <meta name="description" content="Jhon Doe vous propose ses services en qualité de Dév Web Full Stack. Page de présentation."/>
       </Head>
       <div className="app_introductionContainer">
-        <HeroBg/>
+        <HeroBg />
         <div className="app_introductionContainer-box">
           <h1 className="app_title-1">Bonjour, je suis Jhon Doe</h1>
           <h2 className="app_title-2">Développeur web full stack</h2>
@@ -120,14 +120,14 @@ export default function HomePage() {
             En savoir plus
           </button>
           <div className="modal-container app_modalContainer">
-            <UserProfile/>
+            <UserProfile />
           </div>
         </div>
       </div>
 
       <div className="app_aboutContainer shadow">
-        <Profil/>
-        <SkillsToShow/>
+        <Profil />
+        <SkillsToShow />
       </div>
     </>
   )
