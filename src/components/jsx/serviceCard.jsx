@@ -1,33 +1,34 @@
-// ! Modification necessaire de la valeur de la cle "icon" icon: bi-search ou bi-brush ou bi-code-slash la balise i ira dans le return de la fonction BoxService <i className=`bi ${icon} card-img-top></i>`
-
-
 import { PropTypes } from 'prop-types'
 
 let services = [];
 
 const requiredFields = ["id", "icon", "title", "text" ];
 
-const addServicesDynamics = (service) => {
-    const formattedServices = {};
+// ! Est ce que formattedData traite bel et bien des données formatées?
+const addService = (data) => {
+    const formattedData = {};
     requiredFields.forEach(fields => {
-        formattedServices[fields] =  service[fields] || "non specified";
+        formattedData[fields] =  data[fields] || "non specified";
     })
-    services.push(formattedServices);
+    services.push(formattedData);
 }
+
+
+// ! Modification necessaire de la valeur de la cle "icon" icon: bi-search ou bi-brush ou bi-code-slash la balise i ira dans le return de la fonction BoxService <i className=`bi ${icon} card-img-top></i>`
 //* AJOUT DYNAMIQUE DE SERVICES ##################################################################################################
-addServicesDynamics({
+addService({
     id : 'uxdesign',
     icon : <i className="bi bi-brush card-img-top" ></i>,
     title : "UX Design",
     text : "L'UX design est une discipline qui consiste à concevoir des produits (sites web, applications mobiles, logiciels, objets connectés, etc.) en plaçant l'utilisateur au centre des préoccupations. L'objectif est de rendre l'expérience utilisateur la plus fluide et la plus agréable possible."
 })
-addServicesDynamics({
+addService({
     id : 'dev',
     icon : <i className="bi bi-code-slash card-img-top"></i>,
     title : "Developpement Web",
     text : "Le développement de site web consiste à créer des sites internet en utilisant des langages de programmation (HTML, CSS, JavaScript, PHP, etc.) et des frameworks (Bootstrap, React, Angular, etc.)"
 })
-addServicesDynamics({
+addService({
     id : 'ref',
     icon : <i className="bi bi-search card-img-top"></i>,
     title : "Référencement",
@@ -36,44 +37,45 @@ addServicesDynamics({
 
 // *FIN D'AJOUT DYNAMIQUE #######################################################################################################
 
-const getServicesById = (id) => services.find(service => service.id === id) || { id : ""};
+const getServicesById = (id) => services.find(data => data.id === id) || { id : ""};
 
 
-const BoxService = ({cardid}) => {
-    const {id, icon, title, text} = getServicesById(cardid);
+const ServiceBox = ({dataId}) => {
+    const {id, icon, title, text} = getServicesById(dataId);
 
     return(
-        <div id = {`${id.replace(/\s+/g, '-').toLowerCase()}`} className="card-body app_card-body card-hover">
+        <div id = {`${id.replace(/\s+/g, '-').toLowerCase()}`} className="card-body app-card--service__body card-hover">
             {icon}
             <h2 className="card-title fw-bold">{title}</h2>
             <p className="card-text">{text}</p>
         </div>
     )
 }
-BoxService.propTypes = {
-    cardid : PropTypes.string.isRequired
+ServiceBox.propTypes = {
+    dataId : PropTypes.string.isRequired
 }
 
-export const ServicesList = ({ selectedIds }) => {
+export const ServiceCardList = ({ selectedIds }) => {
     selectedIds.forEach(id => {
         if (!id.trim()) { // Si l'ID est vide ou uniquement des espaces
-            console.log(`Value of <ContactList selectedIds = {["${id}"]} />`);
+            console.log(`Value of <ContactCardList selectedIds = {["${id}"]} />`);
         }
         else if (!services.some(service => service.id === id)) {
-            console.log(`Value of <ContactList selectedIds={["${id}"]} /> does not match any existing ID in the contacts list.`);
+            console.log(`Value of <ContactCardList selectedIds={["${id}"]} /> does not match any existing ID in the contacts list.`);
         }
     });
+
     return (
-        <div className="card app_cardContainer">
+        <div className="card app-card--service__container">
             {services
-                .filter(service => !selectedIds || selectedIds.includes(service.id))
-                .map(service => (
-                    <BoxService key={service.id} cardid={service.id} />
+                .filter(data => !selectedIds || selectedIds.includes(data.id))
+                .map(data => (
+                    <ServiceBox key={data.id} cardid={data.id} />
                 ))
             }
             </div>
     );
 };
-ServicesList.propTypes = {
+ServiceCardList.propTypes = {
     selectedIds : PropTypes.arrayOf(PropTypes.string)
 };
