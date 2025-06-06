@@ -4,21 +4,21 @@ import Bannerbg from "images/banner.jpg"
 
 // ======================================================================================
 
-export default function AboutBg(){
+export default function BgAbout(){
     return(
-        <img src ={Aboutbg} alt="About Jhon Doe" className="app_image-about" />
+        <img src ={Aboutbg} alt="About Jhon Doe" className="app-image__about" />
     )
 }
 
-export function HeroBg(){
+export function BgHero(){
     return(
-        <img src={Herobg} alt="Hero background" className="app_image-hero" />
+        <img src={Herobg} alt="Hero background" className="app-image__hero" />
     )
 }
 
-export function BannerBg() {
+export function BgBanner() {
     return(
-        <img src={Bannerbg} alt="Banner background" className="app_image-banner"/>
+        <img src={Bannerbg} alt="Banner background" className="app-image__banner"/>
     )
 }
 
