@@ -1,16 +1,25 @@
-@import '_breakpoint-sm.scss';
-@import '_app.scss';
-@import '_home.scss';
-@import '_modale.scss';
-@import '_services.scss';
-@import '_realisations.scss';
-@import '_contact.scss';
-@import '_legalnotice.scss';
-@import '_header.scss';
-@import '_footer.scss';
-@import '_components.scss';
-@import '_contact-card.scss';
+// * Page parent
+@import 'app.scss';
 
+// * Eléments
+@import 'header.scss';
+@import 'footer.scss';
+@import 'modale.scss';
+@import 'contactCard.scss';
+@import 'components.scss';
+
+// *Pages enfants
+@import 'homePage.scss';
+@import 'servicesPage.scss';
+@import 'portfolioPage.scss';
+@import 'contactPage.scss';
+@import 'legalNoticePage.scss';
+
+// *Breakpoint
+@import '_breakpointMd.scss';
+@import '_breakpointLg.scss';
+@import '_breakpointXl.scss';
+@import '_breakpointXxl.scss';
 
 @font-face {
     font-family: Nunitosans;
@@ -23,18 +32,21 @@
     box-sizing : border-box;
 }
 
-.app_fullScreen{
+.app-full-screen{
     min-width: 100vw;
     min-height: 100%;
+
+    body{
+        background-color: $dark;
+
+        #root{
+            min-height: 100dvh; //dvh(dynamic viewport height) prevent an unwilling positionning on smartphone screen
+        }
+    }
+
 }
 
-body{
-    background-color: $dark;
-}
-
-#root{
-    min-height: 100dvh; //dvh(dynamic viewport height) prevent an unwilling positionning on smartphone screen
-}
+// ! Bootstrap revue of classe style =================================================================================
 .card-hover:hover{
         cursor: default;
         border-radius: 0.6rem;//style's correction to realisation's card due to global selection
@@ -42,9 +54,7 @@ body{
         box-shadow: 3px 3px 8px $gray-600;
 }
 
-
-// ! Bootstrap style correction ======================================
-.h1, .h2, .h3, .h4,
+.h1, .h2, .h3,
 .fw-bold{
     font-weight: 600 !important;
 }

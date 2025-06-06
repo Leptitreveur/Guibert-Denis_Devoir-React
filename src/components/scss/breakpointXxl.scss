@@ -1,0 +1,13 @@
+@include media-breakpoint-up(xxl){
+    .app_card-body{
+        min-height: 21vh !important;
+        .card-title{
+            font-size: 2rem !important;
+        }
+    }
+    @media screen and (orientation: portrait){
+        .reaCardContainer{
+            grid-template-columns: repeat(3, 1fr) !important;
+        }
+    }
+}

@@ -1,0 +1,8 @@
+@include media-breakpoint-up(xl){
+    .app_card-body{
+        min-height: 23vh !important;
+        .card-title{
+            font-size: 1.8rem !important;
+        }
+    }
+}
