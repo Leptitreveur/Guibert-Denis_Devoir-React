@@ -1,46 +1,47 @@
 @include media-breakpoint-up(md){
-    .mainContainer{
-        .app_introductionContainer-box {
-            .app_title-1{
+    .app-main__container{
+        .app-introduction__box {
+            .app-title--1{
                 font-size: 3.2rem;
             }
-            .app_title-2{
+            .app-title--2{
                 font-size: 2.4rem;
             }
-            .customBtn{
+            .app-btn{
                 font-size: 1.1rem;
             }
         }
 
-        .app_separator{
+        .app-divider{
             width: 30rem;
         }
 
-        .app_image-banner{
+        .app-image__banner{
             transform: scale(1);
             height: 13rem;
         }
 
-        .app_cardContainer{
+        .app-card--service__container{
             flex-direction: row;
             align-items: flex-start;
             width: 80%;
         }
 
-        .app_card-body{
+        .app-card--service__body{
             width: 30%;
         }
 
         @media screen and (orientation: landscape){
-            .app_card-body{
+            .app-card--service__body{
                 min-height: 50vh !important;
 
+                // !Classe Bootstrap
                 .card-title{
                     font-size: 1.3rem;
                 }
             }
 
-            .reaCardContainer{
+            .app-card--portfolio__container{
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 grid-auto-rows: auto;
@@ -48,22 +49,23 @@
         }
 
         @media screen and (orientation: portrait){
-            .reaCardContainer{
+            .app-card--portfolio__container{
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 grid-auto-rows: auto;
             }
 
-            .app_realisationCard-upperBox{
+            .app-card--portfolio__box--upper-upperBox{
                 min-height:30vh;
             }
 
-            .app_cardContainer{
+            .app-card--service__container{
                 width: 90%;
 
-                .app_card-body{
+                .app-card--service__body-body{
                     min-height: 37vh;
 
+                    // !Classe Bootstrap
                     .card-title{
                         font-size: 1.3rem;
                     }
@@ -72,23 +74,25 @@
         }
     }
 
-    .app_modal-body{
+    .app-modal__body{
         display: grid !important;
         grid-template: 1fr / repeat(2, 1fr);
         width: 99%;
     }
-    .app_reaCardList{
+    // ! Où est appliquée cette classe?
+    // .app_reaCardList{
         // display:flex;
         // justify-content: space-around;
         // width: 80vw;
         // flex-wrap: wrap;
-        .reaCard{
-            max-width: 45%;
-            height: auto;
-        }
+    // }
+
+    .app-card--portfolio__box{
+        max-width: 45%;
+        height: auto;
     }
 
-    .contact-box{
+    .app-contact__box{
         width: 90vw;
         iframe{
             height: 50rem;
@@ -96,18 +100,18 @@
     }
 
     @media screen and (orientation: landscape){
-        .app_profilComponent,
-        .app_skillToShowComponent{
+        .app-profil__container,
+        .app-progressbar__container{
             display:flex;
             flex-direction: column;
             width: 50%;
         }
-        .app_aboutContainer{
+        .app-about__container{
             flex-direction: row !important;
             width: 80vw;
             gap: 1rem;
         }
-        .contact-box{
+        .app-contact__box{
             display: grid !important;
             grid-template-columns: 1fr 1fr;
             height: 100% !important;
@@ -117,16 +121,16 @@
         }
     }
 
-    .app_accordionContainer{
+    .app-accordion__container{
         width: 80vw;
     }
 
-    .footerContainer{
+    .app-footer__container{
         display: grid !important;
         grid-template-columns: repeat(3, 1fr);
     }
     @media screen and (orientation: landscape){
-        .footerContainer{
+        .app-footer__container{
             padding-left: 10vw !important;
         }
     }
