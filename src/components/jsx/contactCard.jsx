@@ -2,36 +2,36 @@ import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 
-import { FooterStyle } from 'jsx/footer-context';
-import { SocialLinks } from 'jsx/social-link';
+import { FooterStyle } from 'jsx/footerContext';
+import { SocialIconLink } from 'jsx/socialIcons';
 
 let contacts = [];
 
 const requiredFields = ["id", "name", "address1", "address2", "country", "phone", "email", "website"];
 
-const addContactDynamic = (contact, ignoreEmptyFields = false) => {
-    const formattedContact = {};
+const addContact = (data, ignoreEmptyFields = false) => {
+    const formattedData = {};
     requiredFields.forEach(field=>{
-        if (ignoreEmptyFields && !contact[field]){
+        if (ignoreEmptyFields && !data[field]){
             return;
         }
-        if (field === "phone" && contact[field]){
-            if (!/^\d+$/.test(contact[field]) || contact[field.lentgh < 9] || contact[field.lentgh > 9]) {
+        if (field === "phone" && data[field]){
+            if (!/^\d+$/.test(data[field]) || data[field.lentgh < 9] || data[field.lentgh > 9]) {
                 console.log("Erreur : format de numéro de téléphone invalide.");
-                formattedContact[field] = "Numéro invalide";
+                formattedData[field] = "Numéro invalide";
                 return;
             }
-            formattedContact[field] = String(contact[field]);
+            formattedData[field] = String(data[field]);
         } else {
-            formattedContact[field] = contact[field] || "";
+            formattedData[field] = data[field] || "";
         }
     })
-    contacts.push(formattedContact);
+    contacts.push(formattedData);
 };
 
 //* AJOUT DYNAMIQUE DE CONTACT ##################################################################################################
 
-addContactDynamic({
+addContact({
     id : "editor",
     name : "Jhon Doe",
     address1 : "40 rue Laure Diebold",
@@ -41,7 +41,7 @@ addContactDynamic({
     email : "jhon.doe@gmail.com",
 }, true);
 
-addContactDynamic({
+addContact({
     id : "host",
     name : "alwaysdata",
     address1 : "91 rue du Faubourg Saint-Honoré",
@@ -54,13 +54,12 @@ addContactDynamic({
 const getContactById = (id) => contacts.find(contact => contact.id === id) || { id : ""};
 
 
-// ! attention a réécrire la props tomap en toMap ainsi que la proptypes
-const BoxCard = ({cardid, showIcon=false, tomap=false}) => {
-    const { id, name, address1, address2, country, phone, email, website } = getContactById(cardid);
+const ContactBox = ({dataId, showIcon=false, toMap=false}) => {
+    const { id, name, address1, address2, country, phone, email, website } = getContactById(dataId);
 
-    const enabledicon = id && id !== "";
-        if (!enabledicon){
-            console.log("BoxCard message : Contact card's id value is : ", id);
+    const enabledIcon = id && id !== "";
+        if (!enabledIcon){
+            console.log("ContactBox message : Contact card's id value is : ", id);
         }
 
     const formatPhoneNumber = (phone) => {
@@ -73,7 +72,7 @@ const BoxCard = ({cardid, showIcon=false, tomap=false}) => {
         return phone.match(/.{1,2}/g).join(" ");
     };
 
-    const linkToMap = tomap ? `https://www.google.com/maps?q=${encodeURIComponent(address1+""+address2)}` : '/contact#map';
+    const mapLink = toMap ? `https://www.google.com/maps?q=${encodeURIComponent(address1+""+address2)}` : '/contact#map';
 
     const extractDomain = (url) => {
         try {
@@ -85,25 +84,29 @@ const BoxCard = ({cardid, showIcon=false, tomap=false}) => {
             return url;
         }
     }
+
 // * gestion du context à la condition "est dans le footer" composant dans le footer ==================================================
+
     const style = useContext(FooterStyle);
-    const isFooterField = `${style ? "footerBox footerBox-contact" : "app_contactCardContainer"}`;
-    const isFooterLegend = `${style ? "footerList-legend" : "cardList-legend"}`
-    const isFooterList = style ? "footerList" : null;
-    const isFooterListItem = `${style ? "footerList-item" : "list-item"}`;
-    const isFooterLink = `${style ? "isFooterLink" : "app_link"}`;
-// * Fin de gestion de context =======================================================================
+
+    const isFooterField = `${style ? "app-footer__box app-footer__Box--contact" : "app-card--contact__container"}`;
+    const isFooterLegend = `${style ? "app-footer__nav-legend" : "app-card--contact__nav-legend"}`
+    const isFooterNav = style ? "app-footer__nav" : null;
+    const isFooterNavItem = `${style ? "app-footer__nav--item" : "list-item"}`;
+    const isFooterLink = `${style ? "app-link--footer" : "app-link"}`;
+
+// * Fin de gestion de context ========================================================================================================
 
     return (
-        <fieldset id={`${enabledicon && id ? id.replace(/\s+/g, '-').toLowerCase() : "id-non-trouvee"}`} className={isFooterField}>
+        <fieldset id={`${enabledIcon && id ? id.replace(/\s+/g, '-').toLowerCase() : "id-non-trouvee"}`} className={isFooterField}>
             <legend className ={isFooterLegend}>{name}</legend>
-            <ul className={isFooterList}>
+            <ul className={isFooterNav}>
                 {address1 && (
-                    <li className={isFooterListItem}>
+                    <li className={isFooterNavItem}>
                         <Link
-                            to={linkToMap}
-                            target={tomap ? '_blank' : undefined}
-                            rel={tomap ? 'noreferrer noopenner' : undefined}
+                            to={mapLink}
+                            target={toMap ? '_blank' : undefined}
+                            rel={toMap ? 'noreferrer noopenner' : undefined}
                             className = {isFooterLink}
                         >
                             {showIcon && <i className="bi bi-map"></i>}{address1}
@@ -111,11 +114,11 @@ const BoxCard = ({cardid, showIcon=false, tomap=false}) => {
                     </li>
                 )}
                 {address2 && country && (
-                    <li className={isFooterListItem}>
+                    <li className={isFooterNavItem}>
                         <Link
-                            to={linkToMap}
-                            target={tomap ? '_blank' : undefined}
-                            rel={tomap?'noreferrer noopenner' : undefined}
+                            to={mapLink}
+                            target={toMap ? '_blank' : undefined}
+                            rel={toMap?'noreferrer noopenner' : undefined}
                             className = {isFooterLink}
                         >
                             {showIcon && <i className="bi bi-geo-alt"></i>}
@@ -124,7 +127,7 @@ const BoxCard = ({cardid, showIcon=false, tomap=false}) => {
                     </li>
                 )}
                 {phone && (
-                    <li className={isFooterListItem}>
+                    <li className={isFooterNavItem}>
                         <Link
                             to={`tel:{formatPhoneNumber(phone)}`}
                             className = {isFooterLink}
@@ -135,7 +138,7 @@ const BoxCard = ({cardid, showIcon=false, tomap=false}) => {
                     </li>
                 )}
                 {email && (
-                    <li className={isFooterListItem}>
+                    <li className={isFooterNavItem}>
                         <Link
                             to={`mailto:{email}`}
                             className = {isFooterLink}
@@ -146,29 +149,29 @@ const BoxCard = ({cardid, showIcon=false, tomap=false}) => {
                     </li>
                 )}
                 {website && (
-                    <li className={isFooterListItem}>
+                    <li className={isFooterNavItem}>
                         <Link
                             to={website}
                             className = {isFooterLink}
                         >
-                            {showIcon && <i className="bi bi-globe2 app_bi-globe2"></i>}
+                            {showIcon && <i className="bi bi-globe2 app-icon--bi-globe2"></i>}
                             {extractDomain(website)}
                         </Link>
                     </li>
                 )}
             </ul>
-            <>{style && <SocialLinks/>}</>
+            <>{style && <SocialIconLink/>}</>
         </fieldset>
         )
 }
-BoxCard.propTypes = {
-    cardid : PropTypes.string.isRequired,
+ContactBox.propTypes = {
+    dataId : PropTypes.string.isRequired,
     showIcon : PropTypes.bool,
-    tomap : PropTypes.bool,
+    toMap : PropTypes.bool,
     socialLink : PropTypes.bool,
 }
 
-export const ContactList = ({ selectedIds, showIcon=false}) => {
+export const ContactCardList = ({ selectedIds, showIcon=false}) => {
     selectedIds.forEach(id => {
         if (!id.trim()) { // Si l'ID est vide ou uniquement des espaces
             console.log(`Value of <ContactList selectedIds = {["${id}"]} showIcon : {${showIcon}}/>`);
@@ -181,14 +184,14 @@ export const ContactList = ({ selectedIds, showIcon=false}) => {
     return (
         <>
             {contacts
-                .filter(contact => !selectedIds || selectedIds.includes(contact.id))
-                .map(contact => (
-                    <BoxCard key={contact.id} cardid={contact.id} showIcon={showIcon}  tomap={contact.id === "host"}/>
+                .filter(data => !selectedIds || selectedIds.includes(data.id))
+                .map(data => (
+                    <ContactBox key={data.id} dataId={data.id} showIcon={showIcon}  toMap={data.id === "host"}/>
                 ))}
         </>
     );
 };
-ContactList.propTypes = {
+ContactCardList.propTypes = {
     selectedIds: PropTypes.arrayOf(PropTypes.string),
     showIcon: PropTypes.bool,
 };
