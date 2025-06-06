@@ -2,8 +2,8 @@ import { useRef, useEffect } from 'react';
 import { Outlet, useLocation } from "react-router-dom";
 import Collapse from 'bootstrap/js/dist/collapse';
 
-import { NavbarItems } from 'jsx/dynamic-navbar';
-import { Footer } from 'jsx/footer-content.jsx';
+import { NavbarItemList } from 'jsx/navBar';
+import { Footer } from 'jsx/footerContent.jsx';
 
 export default function App() {
 
@@ -81,29 +81,29 @@ useEffect(() => {
 
   return(
     <>
-      <header className="headerContainer">
+      <header className="app-header">
         <nav
-        className="navbar navbar-expand-xl navbar-dark bg-dark app_navbarBox"
+        className="navbar navbar-expand-xl navbar-dark bg-dark app-navbar__box"
         data-bs-theme="dark"
         >
           <div className="container-fluid">
-            <span className="nav-brand app_nav-brand"><strong>jhon doe</strong></span>
+            <span className="nav-brand app-nav__brand"><strong>jhon doe</strong></span>
 
             <button type="button"
-              className="navbar-toggler app_navbar-toggler"
+              className="navbar-toggler app-navbar__toggler"
               aria-controls="navbarNav"
               data-bs-toggle="collapse"
               data-bs-target="#navbarNav"
               aria-label="Toggle navigation"
             >
-              <span className="navbar-toggler-icon app_icon-menu"></span>
+              <span className="navbar-toggler-icon app-navbar__menu-icon"></span>
             </button>
-            <NavbarItems ref={navbarCollapsibleRef}/>
+            <NavbarItemList ref={navbarCollapsibleRef}/>
           </div>
         </nav>
       </header>
 
-      <main className="mainContainer">
+      <main className="app-main__container">
         <Outlet/>
       </main>
 
