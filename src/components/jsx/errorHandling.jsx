@@ -16,7 +16,7 @@ export const validateId = (id) => {
     }
 
     if (errors.length > 0) {
-        console.warn("( Realisation card id is : ", id, " ) =\n\n Erreurs trouvées :\n" + errors.map(error => "\t" + error).join("\n"), "\n ______________________________________________________________________");
+        console.warn("( Portfolio card id is : ", id, " ) =\n\n Erreurs trouvées :\n" + errors.map(error => "\t" + error).join("\n"), "\n ______________________________________________________________________");
     }
 
     return isValid;
