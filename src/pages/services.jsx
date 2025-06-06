@@ -1,8 +1,8 @@
 import { Head } from '@unhead/react';
 
-import { BannerBg } from "jsx/images"
+import { BgBanner } from "jsx/imageAssets"
 import { Presentation } from "jsx/components"
-import { ServicesList } from "jsx/service-card"
+import { ServiceCardList } from "jsx/serviceCard"
 
 export default function ServicesPage() {
   return(
@@ -11,9 +11,10 @@ export default function ServicesPage() {
         <title>Services</title>
         <meta name="description" content="Page regroupant les services proposés"/>
       </Head>
-      <BannerBg/>
+
+      <BgBanner/>
       <Presentation title = "Mon offre de services" description = "Voici les prestations sur lequelles je peux intervenir" />
-      <ServicesList selectedIds = {['uxdesign', 'dev', 'ref']}/>
+      <ServiceCardList selectedIds = {['uxdesign', 'dev', 'ref']}/>
     </>
   )
 }
