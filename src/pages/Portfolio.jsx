@@ -2,12 +2,12 @@ import { Head } from '@unhead/react';
 import { useEffect } from "react"
 import { useLocation } from "react-router-dom"
 
-import { BannerBg } from "jsx/images"
+import { BgBanner } from "jsx/imageAssets"
 import { Presentation } from "jsx/components"
-import { RealisationsList } from "jsx/realisation-card"
+import { PortfolioCardList } from "jsx/portfolioCard"
 
 // //*Scroll vers la realisation sélectionnéee ================================================
-const RealisationsPage = () => {
+const PortfolioPage = () => {
     const  { hash } = useLocation();
 
     useEffect(() => {
@@ -28,10 +28,11 @@ const RealisationsPage = () => {
                 <title>Portfolio</title>
                 <meta name="description" content="Page regroupant les différentes réalisations" />
             </Head>
-            <BannerBg/>
+
+            <BgBanner/>
             <Presentation title = "Portfolio" description = "Voici quelques unes de mes réalisations."/>
-            <RealisationsList selectedIds ={['coder', 'bienetre', 'freshfood', 'restaujap', 'screens','seo']}/>
+            <PortfolioCardList selectedIds ={['coder', 'bienetre', 'freshfood', 'restaujap', 'screens','seo']}/>
         </>
     )
 }
-export default RealisationsPage;
+export default PortfolioPage;
