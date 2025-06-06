@@ -49,11 +49,11 @@ addLink({
 })
 //* FIN D'AJOUT DYNAMIQUE ##################################################################################################
 
-const getNavbarLink = (id) => navbarLinks.find(nav => nav.id === id);
+const getNavbarLinks = (id) => navbarLinks.find(data => data.id === id);
 
 const NavbarBox = ({ dataId }) => {
 
-    const { id, path, name } = getNavbarLink(dataId);
+    const { id, path, name } = getNavbarLinks(dataId);
 
     const style = useContext(FooterStyle);
     const isFooterNavItem = `${style ? "app-footer__nav-item" : "app-navbar__nav-item"}`;
@@ -81,12 +81,14 @@ export const NavbarLinkList = forwardRef(({ selectedIds }, ref) => {
 
     return(
         <fieldset className={isFooterNavbar} id={isFooterId} ref={ref}>
+
             {style && <legend className="app-footer__nav-legend">Liens utiles</legend>}
+
             <ul className={isFooterNav}>
                 {navbarLinks
-                    .filter(nav => !selectedIds|| selectedIds.includes(nav.id))
-                    .map(nav => (
-                        <NavbarBox key ={nav.id} dataId={nav.id} />
+                    .filter(data => !selectedIds|| selectedIds.includes(data.id))
+                    .map(data => (
+                        <NavbarBox key ={data.id} dataId={data.id} />
                 ))
                 }
             </ul>

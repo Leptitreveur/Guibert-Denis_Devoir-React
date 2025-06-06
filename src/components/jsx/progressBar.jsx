@@ -1,7 +1,7 @@
 import { SectionTitle } from 'jsx/components'
 import PropTypes from "prop-types";
 
-const progressBar = [];
+const progressBars = [];
 
 const requieredFields = ['id', 'title', 'percent', 'color'];
 
@@ -11,7 +11,7 @@ const addProgressBar = (data) => {
     requieredFields.forEach(field =>{
         formattedData[field] = data[field];
     })
-    progressBar.push(formattedData);
+    progressBars.push(formattedData);
 }
 // * Début ajout dynamique ===========================================================================================
 addProgressBar({
@@ -46,10 +46,10 @@ addProgressBar({
 })
 // * Fin ajout dynamique =============================================================================================
 
-const getProgressBar = (id) => progressBar.find(data => data.id === id) || {id : ''};
+const getProgressBars = (id) => progressBars.find(data => data.id === id) || {id : ''};
 
 const ProgressBarBox = ({ dataId })=>{
-    const {id, title, percent, color} = getProgressBar(dataId);
+    const {id, title, percent, color} = getProgressBars(dataId);
 
     return(
         <div>
@@ -75,7 +75,7 @@ export const ProgressBarList = ({ selectedIds }) => {
     return(
         <div className="app-progressbar__container">
             <SectionTitle title = "Mes compétences"/>
-            {progressBar
+            {progressBars
                 .filter( progressBar => !selectedIds || selectedIds.includes(progressBar.id))
                 .map(data =>
                     <ProgressBarBox key={data.id} dataId={data.id}/>

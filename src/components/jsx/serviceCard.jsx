@@ -37,11 +37,11 @@ addService({
 
 // *FIN D'AJOUT DYNAMIQUE #######################################################################################################
 
-const getServicesById = (id) => services.find(data => data.id === id) || { id : ""};
+const getServices = (id) => services.find(data => data.id === id) || { id : ""};
 
 
-const ServiceBox = ({dataId}) => {
-    const {id, icon, title, text} = getServicesById(dataId);
+const ServiceCardBox = ({dataId}) => {
+    const {id, icon, title, text} = getServices(dataId);
 
     return(
         <div id = {`${id.replace(/\s+/g, '-').toLowerCase()}`} className="card-body app-card--service__body card-hover">
@@ -51,7 +51,7 @@ const ServiceBox = ({dataId}) => {
         </div>
     )
 }
-ServiceBox.propTypes = {
+ServiceCardBox.propTypes = {
     dataId : PropTypes.string.isRequired
 }
 
@@ -70,7 +70,7 @@ export const ServiceCardList = ({ selectedIds }) => {
             {services
                 .filter(data => !selectedIds || selectedIds.includes(data.id))
                 .map(data => (
-                    <ServiceBox key={data.id} cardid={data.id} />
+                    <ServiceCardBox key={data.id} cardid={data.id} />
                 ))
             }
             </div>

@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { FooterStyle } from 'jsx/footerContext';
 import { SocialIconLink } from 'jsx/socialIcons';
 
-let contacts = [];
+let contactCards = [];
 
 const requiredFields = ["id", "name", "address1", "address2", "country", "phone", "email", "website"];
 
@@ -26,7 +26,7 @@ const addContact = (data, ignoreEmptyFields = false) => {
             formattedData[field] = data[field] || "";
         }
     })
-    contacts.push(formattedData);
+    contactCards.push(formattedData);
 };
 
 //* AJOUT DYNAMIQUE DE CONTACT ##################################################################################################
@@ -51,11 +51,11 @@ addContact({
 }, true);
 // *FIN D'AJOUT DYNAMIQUE #######################################################################################################
 
-const getContactById = (id) => contacts.find(contact => contact.id === id) || { id : ""};
+const getContacts = (id) => contactCards.find(contact => contact.id === id) || { id : ""};
 
 
-const ContactBox = ({dataId, showIcon=false, toMap=false}) => {
-    const { id, name, address1, address2, country, phone, email, website } = getContactById(dataId);
+const ContactCardBox = ({dataId, showIcon=false, toMap=false}) => {
+    const { id, name, address1, address2, country, phone, email, website } = getContacts(dataId);
 
     const enabledIcon = id && id !== "";
         if (!enabledIcon){
@@ -164,7 +164,7 @@ const ContactBox = ({dataId, showIcon=false, toMap=false}) => {
         </fieldset>
         )
 }
-ContactBox.propTypes = {
+ContactCardBox.propTypes = {
     dataId : PropTypes.string.isRequired,
     showIcon : PropTypes.bool,
     toMap : PropTypes.bool,
@@ -174,19 +174,19 @@ ContactBox.propTypes = {
 export const ContactCardList = ({ selectedIds, showIcon=false}) => {
     selectedIds.forEach(id => {
         if (!id.trim()) { // Si l'ID est vide ou uniquement des espaces
-            console.log(`Value of <ContactList selectedIds = {["${id}"]} showIcon : {${showIcon}}/>`);
+            console.log(`Value of <ContactCardList selectedIds = {["${id}"]} showIcon : {${showIcon}}/>`);
         }
-        else if (!contacts.some(contact => contact.id === id)) {
-            console.log(`Value of <ContactList selectedIds={["${id}"]} showIcon={${showIcon}} /> does not match any existing ID in the contacts list.`);
+        else if (!contactCards.some(contact => contact.id === id)) {
+            console.log(`Value of <ContactCardList selectedIds={["${id}"]} showIcon={${showIcon}} /> does not match any existing ID in the contacts list.`);
         }
     });
 
     return (
         <>
-            {contacts
+            {contactCards
                 .filter(data => !selectedIds || selectedIds.includes(data.id))
                 .map(data => (
-                    <ContactBox key={data.id} dataId={data.id} showIcon={showIcon}  toMap={data.id === "host"}/>
+                    <ContactCardBox key={data.id} dataId={data.id} showIcon={showIcon}  toMap={data.id === "host"}/>
                 ))}
         </>
     );

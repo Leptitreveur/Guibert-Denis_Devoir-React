@@ -13,7 +13,7 @@ import RestaurantJaponais from "portfolio/restaurant-japonais.jpg";
 import Screens from "portfolio/screens.jpg";
 import Seo from "portfolio/seo.jpg";
 
-let portfolio =[];
+let portfolioCards =[];
 
 const requiredFields = ["id", "src", "alt", "title", "description", "tools", "link"  ];
 
@@ -26,7 +26,7 @@ const addPortfolio = (data) => {
         }
         formattedData[field] = data[field] || "non specified";
     })
-    portfolio.push(formattedData);
+    portfolioCards.push(formattedData);
 }
 
 //* AJOUT DYNAMIQUE DE REALISATIONS ##################################################################################################
@@ -86,10 +86,10 @@ addPortfolio({
 })
 // *FIN D'AJOUT DYNAMIQUE #######################################################################################################
 
-const getRealisationsById = (id) => portfolio.find(data =>data.id === id) || { id : ""};
+const getPortfolioCards = (id) => portfolioCards.find(data =>data.id === id) || { id : ""};
 
-const PortfolioBox = ({dataId}) => {
-    const {id, src, alt, title, description, tools, link} = getRealisationsById(dataId);
+const PortfolioCardBox = ({dataId}) => {
+    const {id, src, alt, title, description, tools, link} = getPortfolioCards(dataId);
 
     return(
         <div className="app-card--portfolio card-hover">
@@ -103,8 +103,8 @@ const PortfolioBox = ({dataId}) => {
                     </div>
                 </div>
 
-                <button 
-                type="button" 
+                <button
+                type="button"
                 className="btn btn-primary m-3"
                 onClick={() => window.open(link, "_blank")}
                 >
@@ -118,7 +118,7 @@ const PortfolioBox = ({dataId}) => {
         </div>
     )
 }
-PortfolioBox.propTypes = {
+PortfolioCardBox.propTypes = {
     dataId : PropTypes.string.isRequired
 }
 
@@ -127,17 +127,17 @@ export const PortfolioCardList = ({selectedIds}) => {
         if (!id.trim()) { // Si l'ID est vide ou uniquement des espaces
             console.log(`Value of <ContactCardList selectedIds = {["${id}"]} />`);
         }
-        else if (!portfolio.some(rea => rea.id === id)) {
+        else if (!portfolioCards.some(rea => rea.id === id)) {
             console.log(`Value of <ContactCardList selectedIds={["${id}"]} } /> does not match any existing ID in the contacts list.`);
         }
     });
 
     return (
         <div className="app-card--portfolio__container">
-            {portfolio
+            {portfolioCards
                 .filter(data => !selectedIds || selectedIds.includes(data.id))
                 .map(data => (
-                    <PortfolioBox key={data.id} dataId={data.id} />
+                    <PortfolioCardBox key={data.id} dataId={data.id} />
                 ))}
         </div>
     );
@@ -155,7 +155,7 @@ export function PortfolioLinkList () {
     <fieldset className={isFooter}>
         <legend className="app-footer__nav-legend">Mes dernières réalisations</legend>
         <ul className="app-footer__nav">
-                {portfolio.map(data => (
+                {portfolioCards.map(data => (
                     <li key={data.id} className="app-footer__nav-item">
                         <Link to={data.link} target="_blank" rel="noopenner noreferrer" className="app-footer__link">
                             <strong>{data.title}</strong>
