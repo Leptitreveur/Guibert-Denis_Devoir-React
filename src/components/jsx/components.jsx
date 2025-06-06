@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 
 export function Presentation({title, description}) {
     return(
-        <div className="app_presentationContainer">
+        <div className="app-presentation__container">
             <h1 className="fw-bold">{title}</h1>
             {description && <p>{description}</p>}
-            <span className="app_separator" />
+            <span className="app-divider" />
         </div>
     )
 }
@@ -21,9 +21,9 @@ Presentation.propTypes ={
 
 export function SectionTitle({title}) {
     return(
-        <div className="app_sectionTitleContainer">
+        <div className="app-section--title__container">
             <h2 className="fw-bold">{title}</h2>
-            <span className="app_title-underline"/>
+            <span className="app-title--underline"/>
         </div>
     )
 }
