@@ -127,7 +127,7 @@ export const PortfolioCardList = ({selectedIds}) => {
         if (!id.trim()) { // Si l'ID est vide ou uniquement des espaces
             console.log(`Value of <ContactCardList selectedIds = {["${id}"]} />`);
         }
-        else if (!portfolioCards.some(rea => rea.id === id)) {
+        else if (!portfolioCards.some(data => data.id === id)) {
             console.log(`Value of <ContactCardList selectedIds={["${id}"]} } /> does not match any existing ID in the contacts list.`);
         }
     });

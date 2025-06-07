@@ -99,6 +99,16 @@
         }
     }
 
+    
+    .app-accordion__container{
+        width: 80vw;
+    }
+    
+    .app-footer__container{
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
     @media screen and (orientation: landscape){
         .app-profil__container,
         .app-progressbar__container{
@@ -119,17 +129,6 @@
                 height: 30rem !important;
             }
         }
-    }
-
-    .app-accordion__container{
-        width: 80vw;
-    }
-
-    .app-footer__container{
-        display: grid !important;
-        grid-template-columns: repeat(3, 1fr);
-    }
-    @media screen and (orientation: landscape){
         .app-footer__container{
             padding-left: 10vw !important;
         }

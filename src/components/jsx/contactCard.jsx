@@ -176,7 +176,7 @@ export const ContactCardList = ({ selectedIds, showIcon=false}) => {
         if (!id.trim()) { // Si l'ID est vide ou uniquement des espaces
             console.log(`Value of <ContactCardList selectedIds = {["${id}"]} showIcon : {${showIcon}}/>`);
         }
-        else if (!contactCards.some(contact => contact.id === id)) {
+        else if (!contactCards.some(data => data.id === id)) {
             console.log(`Value of <ContactCardList selectedIds={["${id}"]} showIcon={${showIcon}} /> does not match any existing ID in the contacts list.`);
         }
     });

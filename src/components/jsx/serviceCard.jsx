@@ -60,7 +60,7 @@ export const ServiceCardList = ({ selectedIds }) => {
         if (!id.trim()) { // Si l'ID est vide ou uniquement des espaces
             console.log(`Value of <ContactCardList selectedIds = {["${id}"]} />`);
         }
-        else if (!services.some(service => service.id === id)) {
+        else if (!services.some(data => data.id === id)) {
             console.log(`Value of <ContactCardList selectedIds={["${id}"]} /> does not match any existing ID in the contacts list.`);
         }
     });
