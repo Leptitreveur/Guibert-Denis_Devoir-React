@@ -1,4 +1,4 @@
-.app_image-banner{
+.app-image__banner{
     width: 100%;
     height: 3.5rem;
     transform: scale(1.1);
@@ -7,7 +7,7 @@
 
 // *======================================
 
-.app_cardContainer{
+.app-card--service__container{
     display : flex;
     flex-direction: column;
     align-items: center;
@@ -17,7 +17,7 @@
     border : none !important;
 }
 
-.app_card-body{
+.app-card--service__body{
     display : flex;
     flex-direction: column;
     align-items: center;
