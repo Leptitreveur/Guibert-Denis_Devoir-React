@@ -70,7 +70,7 @@ export const ServiceCardList = ({ selectedIds }) => {
             {services
                 .filter(data => !selectedIds || selectedIds.includes(data.id))
                 .map(data => (
-                    <ServiceCardBox key={data.id} cardid={data.id} />
+                    <ServiceCardBox key={data.id} dataId={data.id} />
                 ))
             }
             </div>

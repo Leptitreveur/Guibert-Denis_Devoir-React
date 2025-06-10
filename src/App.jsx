@@ -77,7 +77,7 @@ useEffect(() => {
         }
       }
     }
-  }, [location.pathname]); 
+  }, [location.pathname]);
 
   return(
     <>

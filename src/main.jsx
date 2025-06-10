@@ -12,7 +12,7 @@ import App from "src/App.jsx";
 import Home from "pages/Home.jsx";
 import Services from "pages/Services.jsx";
 import Portfolio from "pages/Portfolio.jsx";
-import Contact from "pages/Contact.jsx";
+import ContactForm from "pages/ContactForm.jsx";
 import LegalNotice from "pages/LegalNotice.jsx";
 
 const head = createHead();
@@ -27,7 +27,7 @@ createRoot(document.getElementById("root")).render(
             <Route index element={<Home />} />
             <Route path="Services" element={<Services />} />
             <Route path="Portfolio" element={<Portfolio />} />
-            <Route path="Contact" element={<Contact />} />
+            <Route path="ContactForm" element={<ContactForm />} />
             <Route path="LegalNotice" element={<LegalNotice />} />
           </Route>
         </Routes>

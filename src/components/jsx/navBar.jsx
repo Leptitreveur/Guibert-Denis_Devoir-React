@@ -23,27 +23,27 @@ function addLink (data){
 //* AJOUT DYNAMIQUE DE LIEN DE NAVIGATION ##################################################################################
 // ! Mettre le nom avec la premiere lettre en majuscule
 addLink({
-    id : 'home',
+    id : 'Home',
     path : '/',
     name : 'Accueil'
 })
 addLink({
-    id : 'services',
+    id : 'Services',
     path :'/Services',
     name :'Services'
 })
 addLink({
-    id : 'portfolio',
-    path :'/Porftolio',
+    id : 'Portfolio',
+    path :'/Portfolio',
     name :'Portfolio'
 })
 addLink({
-    id : 'contact',
-    path :'/contact',
-    name :'Contact'
+    id : 'ContactForm',
+    path :'/ContactForm',
+    name :'ContactForm'
 })
 addLink({
-    id : 'legalNotice',
+    id : 'LegalNotice',
     path :'/LegalNotice',
     name :'Mentions légales'
 })

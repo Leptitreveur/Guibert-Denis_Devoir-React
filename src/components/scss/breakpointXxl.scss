@@ -6,7 +6,7 @@
         }
     }
     @media screen and (orientation: portrait){
-        .app-portfolio__container{
+        .app-card--portfolio__container{
             grid-template-columns: repeat(3, 1fr) !important;
         }
     }

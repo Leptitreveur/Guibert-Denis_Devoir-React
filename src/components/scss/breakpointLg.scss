@@ -1,33 +1,33 @@
-@include media-breakpoint-up(lg){
-    .app-profil__container,
-    .app-progressbar__container{
-        display:flex;
-        flex-direction: column;
-        width: 50%;
+@include media-breakpoint-up(lg) {
+  .app-profil__container,
+  .app-progressbar__container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+  .app-about__container {
+    flex-direction: row !important;
+    width: 80vw;
+    gap: 1rem;
+  }
+  .app-card--service__container {
+    width: 80% !important;
+  }
+  .app-card--service__body {
+    min-height: 28vh !important;
+    .card-title {
+      font-size: 1.4rem !important;
     }
-    .app-about__container{
-        flex-direction: row !important;
-        width: 80vw;
-        gap: 1rem;
+  }
+  .app-contact__container {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    height: 100% !important;
+    iframe {
+      height: 30rem !important;
     }
-    .app-card--service__container{
-        width: 80% !important;
-    }
-    .app-card--service__body{
-        min-height: 28vh !important;
-        .card-title{
-            font-size: 1.4rem !important;
-        }
-    }
-    .app-contact__box{
-        display: grid !important;
-        grid-template-columns: 1fr 1fr;
-        height: 100% !important;
-        iframe{
-            height: 30rem !important;
-        }
-    }
-    .app-footer__container{
-        padding-left: 10vw !important;
-    }
+  }
+  .app-footer__container {
+    padding-left: 10vw !important;
+  }
 }

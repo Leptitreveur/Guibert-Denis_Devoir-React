@@ -1,22 +1,37 @@
-.app-contact__box{
+.app-contact__container {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    width: 90vw;
+    height: auto;
+    gap: 2vw;
 }
 
-.app-form__container{
-    display : flex;
-    flex-direction : column;
-    align-items: center;
-    gap : 0.5rem;
-    input,
-    textarea{
+.app-contact__section--form,
+.app-contact__section--map{
+    height: 100%;
+    width: 100%;
+}
+
+
+.app-contact__section--form{
+    *{
+        border: 1px solid black;
+    }
+    textarea {
         display: flex;
-        height: 25rem;
+        height: auto;
     }
 }
-iframe{
-    width : 100%;
-    height : 30rem;
+.app-contact__section--map{
+    iframe {
+        width: 100%;
+        height: 100%;
+    }
 }
 
+.app-form__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}

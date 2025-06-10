@@ -92,8 +92,8 @@ const PortfolioCardBox = ({dataId}) => {
     const {id, src, alt, title, description, tools, link} = getPortfolioCards(dataId);
 
     return(
-        <div className="app-card--portfolio card-hover">
-            <div id = {id} className ="app-card-potfolio__box--upper">
+        <div className="app-card--portfolio__box card-hover">
+            <div id = {id} className ="app-card--portfolio__box--upper">
 
                 <div className="app-card--portfolio__box--inner">
                     <img src = {src} alt = {alt} className="app-card--portfolio__image"/>
