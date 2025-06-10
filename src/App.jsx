@@ -2,7 +2,7 @@ import { useRef, useEffect } from 'react';
 import { Outlet, useLocation } from "react-router-dom";
 import Collapse from 'bootstrap/js/dist/collapse';
 
-import { NavbarItemList } from 'jsx/navBar';
+import { NavbarLinkList } from 'jsx/navBar';
 import { Footer } from 'jsx/footerContent.jsx';
 
 export default function App() {
@@ -81,13 +81,13 @@ useEffect(() => {
 
   return(
     <>
-      <header className="app-header">
+      <header className="app-header__container">
         <nav
         className="navbar navbar-expand-xl navbar-dark bg-dark app-navbar__box"
         data-bs-theme="dark"
         >
           <div className="container-fluid">
-            <span className="nav-brand app-nav__brand"><strong>jhon doe</strong></span>
+            <span className="nav-brand app-navbar__brand"><strong>jhon doe</strong></span>
 
             <button type="button"
               className="navbar-toggler app-navbar__toggler"
@@ -98,7 +98,7 @@ useEffect(() => {
             >
               <span className="navbar-toggler-icon app-navbar__menu-icon"></span>
             </button>
-            <NavbarItemList ref={navbarCollapsibleRef}/>
+            <NavbarLinkList ref={navbarCollapsibleRef}/>
           </div>
         </nav>
       </header>

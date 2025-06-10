@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "scss/global.scss";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
-import { ScrollToTop } from "jsx/global-components";
+import { ScrollToTop } from "jsx/globalComponents";
 
 import App from "src/App.jsx";
 import Home from "pages/Home.jsx";

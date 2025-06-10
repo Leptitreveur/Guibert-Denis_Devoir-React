@@ -1,4 +1,4 @@
-import BgAbout from "jsx/images.jsx"
+import BgAbout from "jsx/imageAssets.jsx"
 import { SectionTitle } from "jsx/components"
 
 // ! PROFIL est un composant + les classes servent pour le breakpoint ===========================================================================================================================================

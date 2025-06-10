@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 
 import { FooterStyle } from 'jsx/footerContext';
-import { SocialIconLink } from 'jsx/socialIcons';
+import { SocialIconList } from 'jsx/socialIcons';
 
 let contactCards = [];
 
@@ -160,7 +160,7 @@ const ContactCardBox = ({dataId, showIcon=false, toMap=false}) => {
                     </li>
                 )}
             </ul>
-            <>{style && <SocialIconLink/>}</>
+            <>{style && <SocialIconList/>}</>
         </fieldset>
         )
 }

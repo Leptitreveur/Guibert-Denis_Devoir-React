@@ -1,5 +1,5 @@
 // * Page parent
-@import 'app.scss';
+@import 'appPage.scss';
 
 // * Eléments
 @import 'header.scss';
@@ -16,10 +16,10 @@
 @import 'legalNoticePage.scss';
 
 // *Breakpoint
-@import '_breakpointMd.scss';
-@import '_breakpointLg.scss';
-@import '_breakpointXl.scss';
-@import '_breakpointXxl.scss';
+@import 'breakpointMd.scss';
+@import 'breakpointLg.scss';
+@import 'breakpointXl.scss';
+@import 'breakpointXxl.scss';
 
 @font-face {
     font-family: Nunitosans;

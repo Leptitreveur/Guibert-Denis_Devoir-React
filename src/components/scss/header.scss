@@ -20,7 +20,9 @@
     }
 
     .app-navbar__link {
+        color: $white;
             font-weight: bold;
+            text-decoration-line: none;
 
         &:hover {
             color: $white;
@@ -28,7 +30,10 @@
             text-decoration-style: solid;
         }
     }
-    .active{
+
+    .app-navbar__nav-item{
+        .active{
         text-decoration-line: underline;
+        }
     }
 }

@@ -43,7 +43,7 @@ addLink({
     name :'Contact'
 })
 addLink({
-    id : 'legalnotice',
+    id : 'legalNotice',
     path :'/LegalNotice',
     name :'Mentions légales'
 })

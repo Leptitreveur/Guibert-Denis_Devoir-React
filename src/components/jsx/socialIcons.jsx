@@ -15,6 +15,7 @@ const addIcon = (data) => {
     });
     socialIcons.push(formattedData);
 }
+// * Ajout dynamique  ==================================================================================
 addIcon({
     id :'github',
     link:'https://github.com/github-john-doe',
@@ -30,6 +31,8 @@ addIcon({
     link:'https://www.linkedin.com/',
     icon:'bi-linkedin',
 })
+// * Fin d'ajout dynamique =============================================================================
+
 const getSocialIcons = (id) => socialIcons.find((data)=> data.id === id);
 
 const SocialIconBox = ({dataId}) => {
@@ -52,9 +55,9 @@ export function SocialIconList({ selectedIds }){
 return(
     <div className="app-footer__box--icon">
         {socialIcons
-        .filter( (data) => !selectedIds || selectedIds.includes(data.id))
-        .map ((data)=> (
-            <SocialIconBox key={data.id} linkId={data.id} />
+        .filter( data => !selectedIds || selectedIds.includes(data.id))
+        .map (data=> (
+            <SocialIconBox key={data.id} dataId={data.id} />
         ))}
     </div>
 )

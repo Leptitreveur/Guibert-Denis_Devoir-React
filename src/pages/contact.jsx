@@ -2,7 +2,7 @@ import { Head } from '@unhead/react';
 import { useRef } from 'react';
 
 import { Presentation, SectionTitle} from "jsx/components"
-import { ContactCardList } from 'jsx/contact-card'
+import { ContactCardList } from 'jsx/contactCard'
 
 export default function ContactPage(){
   const formRef = useRef(null);
