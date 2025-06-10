@@ -1,4 +1,4 @@
-.headerContainer {
+.app-header__container {
     padding: 0rem 1.5rem;
     background-color: $dark;
 
@@ -6,12 +6,12 @@
         text-transform: uppercase;
     }
 
-    .app_nav-brand {
+    .app-navbar__brand {
         color: $white;
         font-size: 1.2rem;
     }
 
-    .app_navbar-toggler {
+    .app-navbar__toggler {
         box-shadow: none;
 
         &:hover {
@@ -19,7 +19,7 @@
         }
     }
 
-    .nav-link {
+    .app-navbar__link {
             font-weight: bold;
 
         &:hover {
