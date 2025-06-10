@@ -1,4 +1,4 @@
-.app_contactCardContainer{
+.app-card--contact__container{
 
     *{
         margin : 0;
@@ -7,23 +7,19 @@
     .bi {
         padding-right :0.7rem
         ;}
-    .cardList-legend{
+    .app-card--contact__list-legend{
         margin-bottom : 0.5rem;
     }
-    .list-item{
+    .app-nav__item{
         list-style-type: none;
     }
-    .app_link{
+    .app-link{
         display : block;
         color : $black;
         text-decoration : none;
     }
-    // .app_link-website{
-    //     display : block;
-    //     gap :0;
-    //     margin-top : 0.5rem;
-    // }
-    .app_bi-globe2{
+
+    .app-icon__bi-globe2{
         color : $black;
     }
 }
