@@ -1,4 +1,4 @@
-.reaCardContainer{
+.app-portfolio__container{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -6,10 +6,10 @@
     padding: 0rem 0.8rem;
     gap: 1rem;
 }
-.reaCard{
+.app-portfolio__box{
     width: 100%;
 }
-.app_realisationCard-upperBox{
+.app-card--portfolio__box--upper{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,22 +30,22 @@
     }
 }
 
-.app_realisationCard-innerBox{
+.app-card--portfolio__box--inner{
     display: flex;
     flex-direction: column;
     align-items : center;
     justify-content: flex-start;
     text-align: center;
     width: 100%;
-    .app_reaCard-image{
+    .app-portfolio__image{
         width: 100%;
         height: 18rem;
     }
-    .innerBox-text{
+    .app-portfolio__text--inner{
         padding: 0.2rem 1rem;
     }
 }
-.app_realisationCard-lowerBox{
+.app-card--porftolio__box--lower{
     display: flex;
     justify-content : center ;
     align-items : center;
