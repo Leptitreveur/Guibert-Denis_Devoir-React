@@ -1,24 +1,24 @@
-.app_modal-content{
+.app-modal__content{
     background-color: $dark !important;
     color: $light;
 
-    .app_modal-header,
-    .app_modal-footer{
+    .app-modal__header,
+    .app-modal__footer{
         border-color: rgba($gray-300, 0.25);
     }
 
-    .app_modal-body{
+    .app-modal__body{
         display: flex;
         flex-direction: column;
         padding: 2rem;
 
-        .app_modal-image{
+        .app-modal__image{
             width: 100%;
         }
 
-        .app_infoBox{
+        .app-modal__box--info{
             padding: 0.5rem 0;
-            .app_modal-contentBox{
+            .app-modal__box{
                 padding: 0 0.5rem;
 
                  *{
@@ -27,7 +27,7 @@
                 text-align: left;
                 }
             }
-            .app_hr{
+            .app-hr{
                 margin: 0.4rem 0;
             }
         }
