@@ -1,4 +1,4 @@
-.footerContainer{
+.app-footer__container{
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -17,16 +17,16 @@
         font-weight: $font-weight-light;
     }
 
-    .footerBox{
+    .app-footer__box{
         width: 100%;
         height: 100%;
     }
     
-    .footerList-legend{
+    .app-footer__nav-legend{
         margin-bottom: 0.5rem;
         font-weight: bold;
     }
-    .footerList *{
+    .app-footer__nav *{
         opacity: 0.95;
 
         &:hover{
@@ -37,13 +37,13 @@
         }
     }
 
-    .footerBox--socialIcon{
+    .app-footer__box--icon{
         display: flex;
         gap: 0.5rem;
         width: auto;
         height: auto;
         padding-top: 0.3rem;
-        .footerLink{
+        .app-footer__link{
             font-size: 1.5rem;
             opacity: 0.3;
             &:hover{
