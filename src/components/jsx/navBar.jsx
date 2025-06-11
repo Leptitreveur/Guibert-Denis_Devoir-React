@@ -40,7 +40,7 @@ addLink({
 addLink({
     id : 'ContactForm',
     path :'/ContactForm',
-    name :'ContactForm'
+    name :'Contact'
 })
 addLink({
     id : 'LegalNotice',

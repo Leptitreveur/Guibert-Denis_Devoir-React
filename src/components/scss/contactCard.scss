@@ -4,15 +4,18 @@
         margin : 0;
         padding : 0;
     }
+
     .bi {
-        padding-right :0.7rem
-        ;}
-    .app-card--contact__list-legend{
+        padding-right :0.7rem;
+    }
+    .app-card--contact__list-legend {
         margin-bottom : 0.5rem;
     }
+
     .app-nav__item{
         list-style-type: none;
     }
+    
     .app-link{
         display : block;
         color : $black;

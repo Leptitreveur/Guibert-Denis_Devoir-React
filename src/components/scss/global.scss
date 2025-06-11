@@ -34,14 +34,10 @@
 
 .app-full-screen{
     min-width: 100vw;
-    min-height: 100%;
+    min-height: 100dvh;//dvh(dynamic viewport height) prevent an unwilling positionning on smartphone and tablet screen
 
     body{
         background-color: $dark;
-
-        #root{
-            min-height: 100dvh; //dvh(dynamic viewport height) prevent an unwilling positionning on smartphone screen
-        }
     }
 
 }

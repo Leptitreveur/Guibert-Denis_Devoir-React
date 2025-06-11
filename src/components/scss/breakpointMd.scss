@@ -76,13 +76,6 @@
     width: 99%;
   }
 
-  .app-contact__container {
-    width: 90vw;
-    iframe {
-      height: 50rem;
-    }
-  }
-
   .app-footer__container {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr);
@@ -95,19 +88,18 @@
       flex-direction: column;
       width: 50%;
     }
+
     .app-about__container {
       flex-direction: row !important;
       width: 80vw;
       gap: 1rem;
     }
+
     .app-contact__container {
-      display: grid !important;
-      grid-template-columns: 1fr 1fr;
-      height: 100% !important;
-      iframe {
-        height: 30rem !important;
-      }
+      grid-template: 1fr / repeat(2, 1fr) !important;
+      width: 80vw;
     }
+
     .app-footer__container {
       padding-left: 10vw !important;
     }
