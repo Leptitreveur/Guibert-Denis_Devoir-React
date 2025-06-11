@@ -1,19 +1,6 @@
 @include media-breakpoint-up(lg) {
-  .app-profil__container,
-  .app-progressbar__container {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-  }
-  
-  .app-about__container {
-    flex-direction: row !important;
-    width: 80vw;
-    gap: 1rem;
-  }
-
   .app-card--service__container {
-    width: 80% !important;
+    width: 80vw !important;
   }
 
   .app-card--service__body {

@@ -27,23 +27,6 @@
       width: 30%;
     }
 
-    @media screen and (orientation: landscape) {
-      .app-card--service__body {
-        min-height: 50vh !important;
-
-        // !Classe Bootstrap
-        .card-title {
-          font-size: 1.3rem;
-        }
-      }
-
-      .app-card--portfolio__container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-auto-rows: auto;
-      }
-    }
-
     @media screen and (orientation: portrait) {
       .app-card--portfolio__container {
         display: grid;
@@ -68,6 +51,22 @@
         }
       }
     }
+    @media screen and (orientation: landscape) {
+      .app-card--service__body {
+        min-height: 50vh !important;
+
+        // !Classe Bootstrap
+        .card-title {
+          font-size: 1.3rem;
+        }
+      }
+
+      .app-card--portfolio__container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: auto;
+      }
+    }
   }
 
   .app-modal__body {
@@ -82,19 +81,7 @@
   }
 
   @media screen and (orientation: landscape) {
-    .app-profil__container,
-    .app-progressbar__container {
-      display: flex;
-      flex-direction: column;
-      width: 50%;
-    }
-
-    .app-about__container {
-      flex-direction: row !important;
-      width: 80vw;
-      gap: 1rem;
-    }
-
+    .app-about__container,
     .app-contact__container {
       grid-template: 1fr / repeat(2, 1fr) !important;
       width: 80vw;

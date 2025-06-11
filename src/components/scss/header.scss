@@ -19,21 +19,25 @@
         }
     }
 
-    .app-navbar__link {
-        color: $white;
-            font-weight: bold;
-            text-decoration-line: none;
+    .app-navbar__nav{
+        // display: flex; is set by navbar-nav  bootstrap class
+        gap: 0.5rem;
+        
+        .app-navbar__nav-item{
+            .app-navbar__link {
+                color: $white;
+                font-weight: bold;
+                text-decoration-line: none;
 
-        &:hover {
-            color: $white;
-            text-decoration-line: underline;
-            text-decoration-style: solid;
-        }
-    }
-
-    .app-navbar__nav-item{
-        .active{
-        text-decoration-line: underline;
+                &:hover {
+                    color: $white;
+                    text-decoration-line: underline;
+                    text-decoration-style: solid;
+                }
+            }
+            .active{
+                text-decoration-line: underline;
+            }
         }
     }
 }
