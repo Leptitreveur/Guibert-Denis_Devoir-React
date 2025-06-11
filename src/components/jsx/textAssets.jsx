@@ -10,13 +10,15 @@ export  function ProfilText() {
     return (
         <div className="app-profil__container">
             <SectionTitle title = "A propos"/>
-            <BgAbout />
-            <div className="app-profil__box">
-                {text.map((msg,index)=>(
-                    <p key ={index} className="app-profil__item">
-                        {msg}
-                    </p>
-                ))}
+            <div className="app-profil__content">
+                <BgAbout />
+                <div className="app-profil__box--text">
+                    {text.map((msg,index)=>(
+                        <p key ={index} className="app-profil__item">
+                            {msg}
+                        </p>
+                    ))}
+                </div>
             </div>
         </div>
     )

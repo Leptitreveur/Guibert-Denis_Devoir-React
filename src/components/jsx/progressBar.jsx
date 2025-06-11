@@ -75,12 +75,14 @@ export const ProgressBarList = ({ selectedIds }) => {
     return(
         <div className="app-progressbar__container">
             <SectionTitle title = "Mes compétences"/>
-            {progressBars
-                .filter( progressBar => !selectedIds || selectedIds.includes(progressBar.id))
-                .map(data =>
-                    <ProgressBarBox key={data.id} dataId={data.id}/>
-                )
-            }
+            <div className="app-progressbar__content">
+                {progressBars
+                    .filter( progressBar => !selectedIds || selectedIds.includes(progressBar.id))
+                    .map(data =>
+                        <ProgressBarBox key={data.id} dataId={data.id}/>
+                    )
+                }
+            </div>
         </div>
     )
 }

@@ -1,7 +1,9 @@
 import { Head } from '@unhead/react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import React from 'react';
 import { Link } from 'react-router-dom';
+
+import Modal from 'bootstrap/js/dist/modal';
 
 import { BgHero } from "jsx/imageAssets"
 import { ProfilText } from "jsx/textAssets"
@@ -13,6 +15,8 @@ export function UserProfileModale() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const modalRef = useRef(null);
 
   useEffect(() => {
     fetch('https://api.github.com/users/github-john-doe')
@@ -30,6 +34,11 @@ export function UserProfileModale() {
         setError(error.message);
         setLoading(false);
       });
+
+      if (modalRef.current){
+        new Modal(modalRef.current);
+      }
+
   }, []);
 
   if (loading) return <p>Chargement...</p>;
@@ -64,24 +73,25 @@ export function UserProfileModale() {
       iconClass: "bi-people",
       content: (<span>Following : {user.following}</span>),
     }
-]
-const commonDivClass = "app_modal-contentBox";
+  ]
 
+  const commonDivClass = "app-modal__info-content";
+ 
   return (
-    <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div className="modal-dialog modal-dialog-centered modal-xl app-modale__dialog">
+    <div ref={modalRef} className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div className="modal-dialog modal-dialog-centered modal-xl app-modal__dialog">
         <div className="modal-content app-modal__content">
 
-          <div className="modal-header app-modale__header">
+          <div className="modal-header app-modal__header">
             <h5 className="modal-title" id='staticBackdropLabel'>Mon profil GitHub</h5>
               <button type="button" className="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
 
-          <div className="modal-body app-modale__body">
-            <div className="app-modale__box--image">
-              <img src={user.avatar_url} alt={user.login} className="app-modale__image" />
+          <div className="modal-body app-modal__body">
+            <div className="app-modal__box--image">
+              <img src={user.avatar_url} alt={user.login} className="app-modal__image" />
             </div>
-            <div className="app-modale__box--info">
+            <div className="app-modal__box--info">
               {paragraphItem.map( (item, index) => (
                 <React.Fragment key={item.key}>
                   <div className= {commonDivClass}>
@@ -94,7 +104,7 @@ const commonDivClass = "app_modal-contentBox";
             </div>
           </div>
 
-          <div className='modal-footer app-modale__footer'>
+          <div className='modal-footer app-modal__footer'>
             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close"> Fermer </button>
           </div>
         </div>
@@ -119,7 +129,7 @@ export default function HomePage() {
           <button className="btn btn-danger app-btn" type="button" data-bs-toggle= "modal" data-bs-target="#staticBackdrop">
             En savoir plus
           </button>
-          <div className="modal-container app-modale__container">
+          <div className="modal-container app-modal__container">
             <UserProfileModale />
           </div>
         </div>
