@@ -1,12 +1,12 @@
 @include media-breakpoint-up(lg) {
   .app-card--service__container {
+    grid-template: 1fr / repeat(3, 1fr);
     width: 80vw !important;
-  }
 
-  .app-card--service__body {
-    min-height: 28vh !important;
-    .card-title {
-      font-size: 1.4rem !important;
+    .app-card--service__body {
+      .card-title {
+        font-size: 1.4rem !important;
+      }
     }
   }
 
