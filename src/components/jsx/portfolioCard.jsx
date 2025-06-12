@@ -96,20 +96,28 @@ const PortfolioCardBox = ({dataId}) => {
             <div id = {id} className ="app-card--portfolio__box--upper">
 
                 <div className="app-card--portfolio__box--inner">
-                    <img src = {src} alt = {alt} className="app-card--portfolio__image"/>
+                    <div className="app-card--portfolio__box--image">
+                        <img src = {src} alt = {alt} className="app-card--portfolio__image"/>
+                    </div>
+
                     <div className="app-text__box--inner">
-                        <h2 className="m-2 app-title--2"><strong>{title}</strong></h2>
-                        <p className="m-1">{description}</p>
+                        <div>
+                            <h2 className="m-2 app-title--2">{title}</h2>
+                        </div>
+                        <div>
+                            <p className="m-1">{description}</p>
+                        </div>
                     </div>
                 </div>
-
-                <button
-                type="button"
-                className="btn btn-primary m-3"
-                onClick={() => window.open(link, "_blank")}
-                >
-                    Voir la page
-                </button>
+                <div className="app-box--btn">
+                    <button
+                    type="button"
+                    className="btn btn-primary m-3"
+                    onClick={() => window.open(link, "_blank")}
+                    >
+                        Voir la page
+                    </button>
+                </div>
             </div>
 
             <div className="app-card--portfolio__box--lower">

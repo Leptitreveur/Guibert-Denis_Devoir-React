@@ -1,6 +1,12 @@
+.app-modal__dialog{
+    width: 95vw;
+}
+
 .app-modal__content{
     background-color: $dark !important;
     color: $light;
+    width: 100%;
+    height: 100%;
 
     .app-modal__header,
     .app-modal__footer{
@@ -8,26 +14,33 @@
     }
 
     .app-modal__body{
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template: auto auto / 1fr;
+        column-gap: 2vw;
+        row-gap: 0.5vh;
         padding: 2rem;
 
-        .app-modal__image{
-            width: 100%;
+        .app-modal__box--image{
+            .app-modal__image{
+                //*only used to center horizontaly that image under 768px (md breackpoint)
+                margin: 0 1.5vw;
+                overflow: hidden;
+                width: 100%;
+            }
         }
-
+        
         .app-modal__box--info{
-            padding: 0.5rem 0rem;
             .app-modal__info-content{
                 padding: 0rem 0.5rem;
 
-                 *{
+                * {
                 display: inline;
                 margin: 0rem 0.2rem;
                 text-align: left;
                 }
             }
-            .app-hr{
+
+            .app-hr {
                 margin: 0.4rem 0rem;
             }
         }

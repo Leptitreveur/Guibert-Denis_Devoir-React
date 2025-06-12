@@ -69,9 +69,12 @@ export default function App() {
 
 useEffect(() => {
     const collapsibleElement = navbarCollapsibleRef.current;
+
     if (collapsibleElement && Collapse) {
       let collapseInstance = Collapse.getInstance(collapsibleElement);
+
       if (collapseInstance) {
+
         if (collapsibleElement.classList.contains('show')) {
           collapseInstance.hide();
         }

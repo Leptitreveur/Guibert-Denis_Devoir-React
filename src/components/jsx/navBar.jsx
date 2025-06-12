@@ -62,7 +62,7 @@ const NavbarBox = ({ dataId }) => {
     return(
         <li id = {id} className={isFooterNavItem}>
             <NavLink to = {path} className={isFooterLink}>
-                {name}
+                <strong>{name}</strong>
             </NavLink>
         </li>
     )

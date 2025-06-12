@@ -91,6 +91,7 @@ export function UserProfileModale() {
             <div className="app-modal__box--image">
               <img src={user.avatar_url} alt={user.login} className="app-modal__image" />
             </div>
+            
             <div className="app-modal__box--info">
               {paragraphItem.map( (item, index) => (
                 <React.Fragment key={item.key}>

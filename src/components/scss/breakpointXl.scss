@@ -4,4 +4,8 @@
             font-size: 1.8rem !important;
         }
     }
+    
+        .app-card--portfolio__container{
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
 }

@@ -18,34 +18,32 @@
     }
 
     .app-modal__body {
-      display: grid !important;
       grid-template: 1fr / repeat(2, 1fr);
-      width: 99%;
+
+      .app-modal__image{
+        margin: 0 !important;
+      }
     }
 
     .app-footer__container {
       grid-template: 1fr / repeat(3, 1fr);
     }
 
-    @media screen and (orientation: portrait) {
-      .app-card--portfolio__container {
-        grid-template-columns: repeat(2, 1fr);
-        width: 90vw;
-      }
 
-      .app-card--portfolio__box--upper {
-        min-height: 30vh;
-      }
+    .app-card--portfolio__container {
+      grid-template-columns: repeat(2, 1fr);
+      width: 90vw;
+    }
 
-      .app-card--service__container {
-        .app-card--service__body-body {
-          // !Classe Bootstrap
-          .card-title {
-            font-size: 1.3rem;
-          }
+    .app-card--service__container {
+      .app-card--service__body-body {
+        // !Classe Bootstrap
+        .card-title {
+          font-size: 1.3rem;
         }
       }
     }
+
     @media screen and (orientation: landscape) {
       .app-card--service__body {
         // !Classe Bootstrap
@@ -67,7 +65,7 @@
 
     }
   }
-  
+
   .app-footer__container {
     grid-template: 1fr / auto auto auto;
     justify-content: center;

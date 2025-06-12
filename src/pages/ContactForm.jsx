@@ -116,7 +116,7 @@ export default function ContactPage() {
                 />
               </div>
 
-              <div className="app-from__box--btn">
+              <div className="app-box--btn">
                 <button type="submit" className="btn btn-primary" >
                   Envoyer
                 </button>

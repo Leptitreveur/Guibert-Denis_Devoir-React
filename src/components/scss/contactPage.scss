@@ -7,7 +7,7 @@
     .app-contact__section--form,
     .app-contact__section--map{
         display: grid;
-        grid-template: 6vh 1fr / 1fr;
+        grid-template: auto 1fr / 1fr;
         padding: 0.5vh 1rem;
         gap: 0.7rem;
     }
