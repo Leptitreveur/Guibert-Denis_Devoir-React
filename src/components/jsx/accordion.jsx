@@ -1,27 +1,38 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useEffect, useRef } from "react";
+
+import Collapse from 'bootstrap/js/dist/collapse';
 
 export function AccordionItem({ title, text, id }){
-    const [ isOpen, setIsOpen] = useState(false);
+    const collapseRef = useRef(null);
+
+    useEffect(() => {
+        if (collapseRef.current) {
+            new Collapse(collapseRef.current, {
+                toggle: false
+            })
+        }
+    })
+
     return(
         <div className = "accordion" >
             <div className ="accordion-item ">
                 <h2 className="accordion-header ">
-                    <button className={`accordion-button ${isOpen ? "" : "collapsed"}`}
-                            onClick = {()=> setIsOpen(!isOpen)}
+                    <button className = "accordion-button collapsed"
                             type = "button"
                             data-bs-toggle = "collapse"
                             data-bs-target = {`#collapse${id}`}
-                            aria-expanded = "true"
+                            aria-expanded = "false"
                             aria-controls = {`collapse${id}`}
                     >
                         {title}
                     </button>
                 </h2>
-                <div    id = {`collapse${id}`} 
-                        className={`accordion-collapse collapse ${isOpen ? "show" : "" }`}
+                <div    id = {`collapse${id}`}
+                        ref = {collapseRef}
+                        className = "accordion-collapse collapse"
                 >
-                    <div className="accordion-body">
+                    <div className = "accordion-body">
                         {text}
                     </div>
                 </div>
