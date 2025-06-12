@@ -70,7 +70,7 @@ addPortfolio({
     id : 'screens',
     src : Screens,
     alt : "Screens background",
-    title : "Maquette d'une site web",
+    title : "Maquette d'un site web",
     description : "Création d'un prototype d'un site",
     tools : "Réaliser avec FIGMA",
     link : 'https://www.figma.com/fr-fr/'

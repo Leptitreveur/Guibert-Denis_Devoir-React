@@ -89,7 +89,7 @@ const ContactCardBox = ({dataId, showIcon=false, toMap=false}) => {
 
     const style = useContext(FooterStyle);
 
-    const isFooterField = `${style ? "app-footer__box app-footer__Box--contact" : "app-card--contact__container"}`;
+    const isFooterField = `${style ? "app-footer__box app-footer__box--contact" : "app-card--contact__container"}`;
     const isFooterLegend = `${style ? "app-footer__nav-legend" : "app-card--contact__nav-legend"}`
     const isFooterNav = style ? "app-footer__nav" : null;
     const isFooterNavItem = `${style ? "app-footer__nav--item" : "app-nav__item"}`;
