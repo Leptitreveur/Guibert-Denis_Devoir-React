@@ -1,3 +1,7 @@
+.app-accordion__container{
+        width: 80vw;
+}
+
 .accordion:first-of-type *{
     border-bottom-left-radius: 0px !important ;
     border-bottom-right-radius: 0px !important;
@@ -11,7 +15,4 @@
     overflow: hidden !important;
     border-top-left-radius: 0px !important;
     border-top-right-radius: 0px !important;
-}
-.app-accordion__container{
-        width: 80vw;
 }

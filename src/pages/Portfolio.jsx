@@ -1,5 +1,5 @@
-import { Head } from '@unhead/react';
 import { useEffect } from "react"
+import { Head } from '@unhead/react';
 import { useLocation } from "react-router-dom"
 
 import { BgBanner } from "jsx/imageAssets"
@@ -7,7 +7,7 @@ import { Presentation } from "jsx/components"
 import { PortfolioCardList } from "jsx/portfolioCard"
 
 // //*Scroll vers la realisation sélectionnéee ================================================
-const PortfolioPage = () => {
+export default function PortfolioPage() {
     const  { hash } = useLocation();
 
     useEffect(() => {
@@ -21,7 +21,7 @@ const PortfolioPage = () => {
             }
         }
     }, [ hash ]);
-    
+
     return (
         <>
             <Head>
@@ -31,8 +31,7 @@ const PortfolioPage = () => {
 
             <BgBanner/>
             <Presentation title = "Portfolio" description = "Voici quelques unes de mes réalisations."/>
-            <PortfolioCardList selectedIds ={['coder', 'bienetre', 'freshfood', 'restaujap', 'screens','seo']}/>
+            <PortfolioCardList selectedIds ={['coder', 'wellbeing', 'freshfood', 'japrest', 'screens','seo']}/>
         </>
     )
 }
-export default PortfolioPage;

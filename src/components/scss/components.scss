@@ -6,15 +6,16 @@
     width: 85vw;
     margin: 3rem 0.5rem;
     text-align: center;
-}
-.app-divider{
-    height: 6px;
-    width : 30vw;
-    margin : 0;
-    padding : 0;
-    margin-top: 1rem;
-    background-color: $primary;
-    opacity: 100%;
+
+    .app-divider{
+        height: 6px;
+        width : 30vw;
+        margin : 0;
+        padding : 0;
+        margin-top: 1rem;
+        background-color: $primary;
+        opacity: 100%;
+    }
 }
 
 .app-section--title__container{
@@ -34,9 +35,4 @@
         background-color: $primary;
         opacity: 100%;
     }
-}
-
-.app-progressbar__box{
-    height : 1rem;
-    margin-bottom : 1.5rem;
 }

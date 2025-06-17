@@ -34,13 +34,13 @@
             }
         }
     }
-    
-    .app-contact__section--map {
 
+    .app-contact__section--map {
         .app-section--map__content{
             display: grid;
             grid-template: 1fr auto / 1fr;
             gap: 0.5rem;
+
             .app-map__box {
                 iframe{
                     min-width: 100%;

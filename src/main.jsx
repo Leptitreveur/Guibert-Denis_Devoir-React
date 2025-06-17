@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "scss/global.scss";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
-import { ScrollToTop } from "jsx/globalComponents";
+import { ScrollToTopWrapper } from "jsx/components";
 
 import App from "src/App.jsx";
 import Home from "pages/Home.jsx";
@@ -17,11 +17,12 @@ import LegalNotice from "pages/LegalNotice.jsx";
 
 const head = createHead();
 
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <UnheadProvider head={head}>
       <Router>
-        <ScrollToTop />
+        <ScrollToTopWrapper />
         <Routes>
           <Route path="/" element={<App />}>
             <Route index element={<Home />} />

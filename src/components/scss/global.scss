@@ -2,11 +2,13 @@
 @import 'appPage.scss';
 
 // * Eléments
+@import 'bootstrapElement.scss';
 @import 'header.scss';
 @import 'footer.scss';
 @import 'modal.scss';
 @import 'contactCard.scss';
 @import 'components.scss';
+@import 'imageAssets.scss';
 
 // *Pages enfants
 @import 'homePage.scss';
@@ -36,36 +38,10 @@
 
 .app-full-screen{
     min-width: 100vw;
-    min-height: 100dvh;//dvh(dynamic viewport height) prevent an unwilling positionning on smartphone and tablet screen
+    min-height: 100dvh; //*dvh(dynamic viewport height) prevent an unwilling positionning on smartphone and tablet screen
 
     body{
         background-color: $dark;
     }
 
-}
-
-// ! Bootstrap revue of classe style =================================================================================
-.card-hover:hover{
-        cursor: default;
-        border-radius: 0.6rem;//style's correction to realisation's card due to global selection
-        background-color: #efefef;
-        box-shadow: 3px 3px 8px $gray-600;
-}
-
-.h1,
-.h2,
-.h3,
-.fw-bold{
-    font-weight: 600 !important;
-}
-
-.app-box--btn{
-    .btn {
-        margin-top: 0 !important;
-        &:hover,
-        &:focus {
-            background-color: rgba($primary, 0.7);
-            border-color: rgba($primary, 0);
-        }
-    }
 }

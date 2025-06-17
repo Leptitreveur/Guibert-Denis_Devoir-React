@@ -1,30 +1,21 @@
-import BgAbout from "jsx/imageAssets.jsx"
-import { SectionTitle } from "jsx/components"
-
-// ! PROFIL est un composant + les classes servent pour le breakpoint ===========================================================================================================================================
+// * Home page component ===============================================================================================================================================
 
 export  function ProfilText() {
     const text = ["Lorem ipsum dolor sit amet, consecte apiscing elit. Integer nec feugiat tortor. Proin ac tellus sit amet dolor fringilla elementum.Nullam pharetra imperdiet augue ullamcorper pellentesque.",
         "Vestibulum elementum malesuada dapibus. Aenean ultrices eget risus dictum faucibus. Sed vulputate, justo nec auctor pharetra, massa neque posuere turpis, a posuere lacus libero non mauris.",
         " Curabitur id dapibus nunc, sagittis tincidunt ipsum. Vestibulum egestas consectetur tempor. Aliquam euismod luctus lectus sit amet vulputate. Etiam feugiat justo vel ipsum fermentum."]
     return (
-        <div className="app-profil__container">
-            <SectionTitle title = "A propos"/>
-            <div className="app-profil__content">
-                <BgAbout />
-                <div className="app-profil__box--text">
-                    {text.map((msg,index)=>(
-                        <p key ={index} className="app-profil__item">
-                            {msg}
-                        </p>
-                    ))}
-                </div>
-            </div>
+        <div className="app-profil__box--text">
+            {text.map((msg,index)=>(
+                <p key ={index} className="app-profil__item">
+                    {msg}
+                </p>
+            ))}
         </div>
     )
 }
 
-//* Legal notice ===========================================================================================================================================
+//* Legal notice  components ===========================================================================================================================================
 
 export function CreditText () {
     const text = [

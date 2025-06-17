@@ -1,0 +1,24 @@
+.card-hover:hover{
+        cursor: default;
+        background-color: #efefef;
+        box-shadow: 3px 3px 8px $gray-600;
+        border: none !important;
+}
+
+.h1,
+.h2,
+.h3,
+.fw-bold{
+    font-weight: 600 !important;
+}
+
+.app-box--btn{
+    .btn {
+        margin-top: 0 !important;
+        &:hover,
+        &:focus {
+            background-color: rgba($primary, 0.7);
+            border-color: rgba($primary, 0);
+        }
+    }
+}

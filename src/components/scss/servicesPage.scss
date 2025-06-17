@@ -1,12 +1,3 @@
-.app-image__banner{
-    width: 100%;
-    height: 3.5rem;
-    transform: scale(1.1);
-    overflow: hidden;
-}
-
-// *======================================
-
 .app-card--service__container{
     display : grid;
     grid-template: repeat(3, 1fr) / 1fr;

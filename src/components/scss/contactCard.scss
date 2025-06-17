@@ -5,23 +5,26 @@
         padding : 0;
     }
 
-    .bi {
-        padding-right :0.7rem;
-    }
-    .app-card--contact__list-legend {
+    .app-card--contact__nav-legend {
         margin-bottom : 0.5rem;
     }
 
     .app-nav__item{
         list-style-type: none;
-    }
-    
-    .app-link{
-        display : block;
-        color : $black;
-        text-decoration : none;
+
+        .app-link{
+            display : block;
+            color : $black;
+            text-decoration : none;
+
+            i {
+                padding-right :0.7rem;
+            }
+        }
     }
 
+
+    // * Classe de bootstrap Icons =================================================================
     .app-icon__bi-globe2{
         color : $black;
     }

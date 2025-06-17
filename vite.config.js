@@ -7,12 +7,13 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://vite.dev/config/
 export default defineConfig({
-  
+
   plugins: [react()],
   resolve: {
     alias: {
-      src: path.resolve(__dirname, "./src/"),
       public: path.resolve(__dirname, "./public/"),
+      src: path.resolve(__dirname, "./src/"),
+      hooks: path.resolve(__dirname, "./src/hooks/"),
       pages: path.resolve(__dirname, "./src/pages/"),
       images: path.resolve(__dirname, "./src/assets/images/"),
       portfolio: path.resolve(__dirname, "./src/assets/images/portfolio/"),

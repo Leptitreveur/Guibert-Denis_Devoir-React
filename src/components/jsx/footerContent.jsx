@@ -2,7 +2,7 @@ import { PropTypes } from "prop-types";
 
 import { FooterStyle } from "jsx/footerContext.jsx";
 import { ContactCardList } from "jsx/contactCard";
-import { PortfolioLinkList } from "jsx/portfolioCard";
+import { PortfolioLinkList } from "jsx/portfolioLinkList";
 import { NavbarLinkList } from "jsx/navBar";
 
 export function Footer({style=true}) {

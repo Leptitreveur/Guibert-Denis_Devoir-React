@@ -1,5 +1,6 @@
 import { useRef, useEffect } from 'react';
 import { Outlet, useLocation } from "react-router-dom";
+
 import Collapse from 'bootstrap/js/dist/collapse';
 
 import { NavbarLinkList } from 'jsx/navBar';
@@ -9,63 +10,6 @@ export default function App() {
 
   const navbarCollapsibleRef = useRef(null);
   const location = useLocation();
-
-//   useEffect(() => {
-//   console.log("useEffect pour pathname:", location.pathname);
-//   const collapsibleElement = navbarCollapsibleRef.current;
-//   console.log("Collapsible element:", collapsibleElement);
-
-//   if (collapsibleElement) {
-//     console.log("Bootstrap object:", window.bootstrap); // Ou juste `bootstrap` si importé en module
-//     const collapseInstance = window.bootstrap.Collapse.getInstance(collapsibleElement);
-//     console.log("Collapse instance:", collapseInstance);
-
-//     if (collapseInstance) {
-//       console.log("Element has 'show' class:", collapsibleElement.classList.contains('show'));
-//       if (collapsibleElement.classList.contains('show')) {
-//         console.log("Hiding collapse...");
-//         collapseInstance.hide();
-//       } else {
-//         console.log("Not hiding, 'show' class not present.");
-//       }
-//     } else {
-//       console.log("No collapse instance found. Bootstrap might not be initialized on this element yet, or selector is wrong.");
-//     }
-//   }
-// }, [location.pathname]);
-
-// useEffect(() => {
-
-//   const tryToCloseNavbar = () => {
-//     console.log("useEffect pour pathname:", location.pathname);
-//     const collapsibleElement = navbarCollapsibleRef.current;
-//     console.log("Collapsible element:", collapsibleElement);
-
-//     if (collapsibleElement) {
-//       if (window.bootstrap && window.bootstrap.Collapse) { // Vérifie si bootstrap et Collapse existent
-//         console.log("Bootstrap object:", window.bootstrap);
-//         const collapseInstance = window.bootstrap.Collapse.getInstance(collapsibleElement);
-//         console.log("Collapse instance:", collapseInstance);
-
-//         if (collapseInstance) {
-//           console.log("Element has 'show' class:", collapsibleElement.classList.contains('show'));
-//           if (collapsibleElement.classList.contains('show')) {
-//             console.log("Hiding collapse...");
-//             collapseInstance.hide();
-//           } else {
-//             console.log("Not hiding, 'show' class not present.");
-//           }
-//         } else {
-//           console.log("No collapse instance found for this element.");
-//         }
-//       } else {// Bootstrap n'est pas encore prêt, on pourrait réessayer après un court délai
-//         console.log("Bootstrap not ready yet, will try again shortly...");
-//         setTimeout(tryToCloseNavbar, 100); // Réessaie dans 100ms
-//       }
-//     }
-//   };
-//   tryToCloseNavbar(); // Premier essai
-// }, [location.pathname, navbarCollapsibleRef]);
 
 useEffect(() => {
     const collapsibleElement = navbarCollapsibleRef.current;

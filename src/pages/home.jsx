@@ -1,13 +1,13 @@
+import React, { useState, useEffect, useRef } from 'react';
 import { Head } from '@unhead/react';
-import { useState, useEffect, useRef } from 'react';
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Modal from 'bootstrap/js/dist/modal';
 
-import { BgHero } from "jsx/imageAssets"
-import { ProfilText } from "jsx/textAssets"
+import { BgHero } from "jsx/imageAssets";
+import { ProfilSection } from "jsx/components";
 import { ProgressBarList } from 'jsx/progressBar';
+import { SectionTitle } from 'jsx/components'
 
 // *        MODAL       ===========================================================
 
@@ -76,7 +76,7 @@ export function UserProfileModale() {
   ]
 
   const commonDivClass = "app-modal__info-content";
- 
+
   return (
     <div ref={modalRef} className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div className="modal-dialog modal-dialog-centered modal-xl app-modal__dialog">
@@ -91,7 +91,7 @@ export function UserProfileModale() {
             <div className="app-modal__box--image">
               <img src={user.avatar_url} alt={user.login} className="app-modal__image" />
             </div>
-            
+
             <div className="app-modal__box--info">
               {paragraphItem.map( (item, index) => (
                 <React.Fragment key={item.key}>
@@ -99,7 +99,7 @@ export function UserProfileModale() {
                     <i className= {`bi ${item.iconClass}`}></i>
                     {item.content}
                   </div>
-                {index !== paragraphItem.length -1 && <hr className="app-hr"/>}
+                  {index !== paragraphItem.length -1 && <hr className="app-hr"/>}
                 </React.Fragment>
               ))}
             </div>
@@ -115,6 +115,7 @@ export function UserProfileModale() {
 }
 
 // *        Home page             ==========================================================================================================
+
 export default function HomePage() {
   return(
     <>
@@ -122,14 +123,18 @@ export default function HomePage() {
         <title>Accueil</title>
         <meta name="description" content="Jhon Doe vous propose ses services en qualité de Dév Web Full Stack. Page de présentation."/>
       </Head>
+
       <div className="app-introduction__container">
         <BgHero />
+
         <div className="app-introduction__box">
           <h1 className="app-title--1">Bonjour, je suis Jhon Doe</h1>
           <h2 className="app-title--2">Développeur web full stack</h2>
+
           <button className="btn btn-danger app-btn" type="button" data-bs-toggle= "modal" data-bs-target="#staticBackdrop">
             En savoir plus
           </button>
+
           <div className="modal-container app-modal__container">
             <UserProfileModale />
           </div>
@@ -137,8 +142,11 @@ export default function HomePage() {
       </div>
 
       <div className="app-about__container shadow">
-        <ProfilText />
-        <ProgressBarList />
+        <ProfilSection />
+        <div className="app-progressbar__container">
+            <SectionTitle title = "Mes compétences"/>
+            <ProgressBarList />
+        </div>
       </div>
     </>
   )

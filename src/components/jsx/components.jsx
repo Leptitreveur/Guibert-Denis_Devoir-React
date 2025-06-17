@@ -1,6 +1,18 @@
-import PropTypes from "prop-types";
+import { PropTypes } from "prop-types";
 
-//*Start content Services page==================================================================================
+import { useScrollToTop } from "src/hooks/useScrollToTop";
+import { BgAbout } from "jsx/imageAssets.jsx"
+import { ProfilText } from "jsx/textAssets"
+
+// *  ======================================================================================================================
+
+
+export const ScrollToTopWrapper = () => {
+    useScrollToTop();
+    return null;
+}
+
+//* Component showned to present all pages but home and app ================================================================
 
 export function Presentation({title, description}) {
     return(
@@ -11,13 +23,12 @@ export function Presentation({title, description}) {
         </div>
     )
 }
-
 Presentation.propTypes ={
     title : PropTypes.string.isRequired,
     description : PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
 }
 
-// =======================================================================================================
+//* Other components =======================================================================================================
 
 export function SectionTitle({title}) {
     return(
@@ -27,9 +38,20 @@ export function SectionTitle({title}) {
         </div>
     )
 }
-
 SectionTitle.propTypes ={
     title : PropTypes.string.isRequired
 }
 
+export function ProfilSection(){
+    return(
+        <div className="app-profil__container">
+                    <SectionTitle title = "A propos"/>
+                    <div className="app-profil__content">
+                        <BgAbout />
+                        <ProfilText />
+                    </div>
+        </div>
+    )
+}
 // =======================================================================================================
+

@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import Collapse from 'bootstrap/js/dist/collapse';
 
 export function AccordionItem({ title, text, id }){
+    
     const collapseRef = useRef(null);
 
     useEffect(() => {

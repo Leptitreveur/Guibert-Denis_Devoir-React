@@ -8,5 +8,9 @@
         font-size: 1.4rem !important;
       }
     }
-  }
+  }    
+  .app-card--portfolio__container {
+      grid-template-columns: repeat(2, 1fr);
+      width: 90vw !important;
+    }
 }

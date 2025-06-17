@@ -1,0 +1,17 @@
+// * Bannière des pages : Portfolioi et Services =====================================================================
+
+.app-image__banner{
+    width: 100%;
+    height: 3.5rem;
+    transform: scale(1.1);
+    overflow: hidden;
+}
+
+// * Image de la page Home dans le container About ===================================================================
+
+.app-image__hero{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter : contrast(40%);
+}

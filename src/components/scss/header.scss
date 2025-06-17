@@ -20,9 +20,9 @@
     }
 
     .app-navbar__nav{
-        // display: flex; is set by navbar-nav  bootstrap class
+        // ! "display: flex;" is set by navbar-nav's bootstrap class
         gap: 0.5rem;
-        
+
         .app-navbar__nav-item{
             .app-navbar__link {
                 color: $white;
