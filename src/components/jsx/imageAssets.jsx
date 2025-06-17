@@ -1,6 +1,6 @@
-import Aboutbg from "images/john-doe-about.jpg"
-import Herobg from "images/hero-bg.jpg"
-import Bannerbg from "images/banner.jpg"
+import ProfilBg from "images/john-doe-about.jpg";
+import HeroBg from "images/hero-bg.jpg";
+import BannerBg from "images/banner.jpg";
 
 import Coder from "portfolio/coder.jpg";
 import EspaceBienEtre from "portfolio/espace-bien-etre.jpg";
@@ -11,33 +11,31 @@ import Seo from "portfolio/seo.jpg";
 
 //* ======================================================================================
 
-export function BgAbout(){
-    return(
-        <img src ={ Aboutbg } alt="About Jhon Doe" className="app-image__about" />
-    )
+export function BgProfil() {
+  return (
+    <img src={ProfilBg} alt="About Jhon Doe" className="app-image__profil" />
+  );
 }
 
-export function BgHero(){
-    return(
-        <img src={ Herobg } alt="Hero background" className="app-image__hero" />
-    )
+export function BgHero() {
+  return <img src={HeroBg} alt="Hero background" className="app-image__hero" />;
 }
 
 export function BgBanner() {
-    return(
-        <img src={ Bannerbg } alt="Banner background" className="app-image__banner"/>
-    )
+  return (
+    <img src={BannerBg} alt="Banner background" className="app-image__banner" />
+  );
 }
 
 //* ======================================================================================
 
 const PortfolioImages = {
-    coder: Coder,
-    wellbeing: EspaceBienEtre,
-    freshfood: FreshFood,
-    japrest: JapaneseRestaurant,
-    screens: Screens,
-    seo: Seo,
+  coder: Coder,
+  wellbeing: EspaceBienEtre,
+  freshfood: FreshFood,
+  japrest: JapaneseRestaurant,
+  screens: Screens,
+  seo: Seo,
 };
 
 export default PortfolioImages;

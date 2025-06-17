@@ -1,82 +1,80 @@
-.app-introduction__container{
-    position: relative;
-    display : flex;
-    justify-content : center;
-    align-items : center;
-    width: 100vw;
-    height : 40rem;
-    overflow : hidden;
-    margin-bottom: 3rem;
+.app-introduction__container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 40rem;
+  overflow: hidden;
+  margin-bottom: 3rem;
 
-    .app-introduction__box{
-        position : absolute;
-        display : flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content : center;
-        top : 30%;
-        gap: 1.2rem;
+  .app-introduction__box {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 30%;
+    gap: 1.2rem;
 
-        .app-title--1,
-        .app-title--2{
-            color : $light;
-            opacity: 100%;
-            font-weight : bold;
-            text-align: center;
-            padding: 0rem 2rem;
-        }
-
-        .app-title--1{
-            font-size: 2.4rem;
-        }
-        .app-title--2{
-            font-size: 2rem;;
-        }
+    .app-title--1,
+    .app-title--2 {
+      color: $light;
+      opacity: 100%;
+      font-weight: bold;
+      text-align: center;
+      padding: 0rem 2rem;
     }
+
+    .app-title--1 {
+      font-size: 2.4rem;
+    }
+    .app-title--2 {
+      font-size: 2rem;
+    }
+  }
 }
 
 // *====================================================
 
-.app-about__container{
-    display: grid;
-    grid-template: 1fr auto / 1fr;
-    gap: 1rem;
-    margin: 0rem 0.8rem;
-    border-radius: 5px;
-    padding: 1.5rem;
+.app-about__container {
+  display: grid;
+  grid-template: 1fr auto / 1fr;
+  gap: 1rem;
+  margin: 0rem 0.8rem;
+  border-radius: 5px;
+  padding: 1.5rem;
 
-    .app-title--3{
-        font-size: 1.3rem;
-        text-transform: uppercase;
-    }
-    .app-profil__container,
-    .app-progressbar__container{
-        width: 100%;
-    }
-    .app-profil__content,
-    .app-progressbar__content{
-        margin-top: 2rem;
-    }
+  .app-title--3 {
+    font-size: 1.3rem;
+    text-transform: uppercase;
+  }
+  .app-profil__container,
+  .app-progressbar__container {
+    width: 100%;
+  }
+  .app-profil__content,
+  .app-progressbar__content {
+    margin-top: 2rem;
+  }
 
-    .app-profil__content{
-        .app-image__about{
-            width: 100%;
-            aspect-ratio: 16/9;
-            object-fit: cover;
-            margin-bottom: 2rem;
-        }
-
-        .app-profil__box--text{
-            width: 96%;
-            text-align: justify;
-        }
-    }
-    .app-progressbar__content{
-        .app-progressbar__box{
-            height : 1rem;
-            margin-bottom : 1.5rem;
-        }
+  .app-profil__content {
+    .app-image__profil {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      margin-bottom: 2rem;
     }
 
-
+    .app-profil__box--text {
+      width: 96%;
+      text-align: justify;
+    }
+  }
+  .app-progressbar__content {
+    .app-progressbar__box {
+      height: 1rem;
+      margin-bottom: 1.5rem;
+    }
+  }
 }
