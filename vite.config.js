@@ -5,22 +5,28 @@ import react from "@vitejs/plugin-react";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-// https://vite.dev/config/
 export default defineConfig({
 
   plugins: [react()],
   resolve: {
     alias: {
-      public: path.resolve(__dirname, "./public/"),
+      public: path.resolve(__dirname, "./public"),
       src: path.resolve(__dirname, "./src/"),
-      hooks: path.resolve(__dirname, "./src/hooks/"),
-      pages: path.resolve(__dirname, "./src/pages/"),
-      images: path.resolve(__dirname, "./src/assets/images/"),
-      portfolio: path.resolve(__dirname, "./src/assets/images/portfolio/"),
-      favicon: path.resolve(__dirname, "./src/assets/favicon/"),
-      font: path.resolve(__dirname, "./src/assets/font/"),
-      scss: path.resolve(__dirname, "./src/components/scss/"),
-      jsx: path.resolve(__dirname, "./src/components/jsx/"),
+      contexts: path.resolve(__dirname, "./src/contexts"),
+      images: path.resolve(__dirname, "./src/assets/images"),
+      favicon: path.resolve(__dirname, "./src/assets/favicon"),
+      portfolioImg: path.resolve(__dirname, "./src/assets/images/portfolioImg"),
+      common: path.resolve(__dirname, "./src/components/common"),
+      contact: path.resolve(__dirname, "./src/components/contact"),
+      layout: path.resolve(__dirname, "./src/components/layout"),
+      navbar: path.resolve(__dirname, "./src/components/navbar"),
+      portfolio: path.resolve(__dirname, "./src/components/portfolio"),
+      progressbar: path.resolve(__dirname, "./src/components/progressbar"),
+      services: path.resolve(__dirname, "./src/components/services"),
+      data: path.resolve(__dirname, "./src/data"),
+      hooks: path.resolve(__dirname, "./src/hooks"),
+      pages: path.resolve(__dirname, "./src/pages"),
+      font: path.resolve(__dirname, "./src/assets/font"),
     },
   },
   css: {
@@ -29,7 +35,7 @@ export default defineConfig({
         additionalData: `@use "bootstrap/scss/bootstrap" as *;`,
         includePaths: [
           path.resolve(__dirname, "./node_modules/"),
-          path.resolve(__dirname, "./src/components/scss/"),
+          path.resolve(__dirname, "./src/styles/scss/"),
           path.resolve(__dirname, "./src/assets/font/")
         ],
       },

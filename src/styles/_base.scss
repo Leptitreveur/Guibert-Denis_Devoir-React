@@ -1,0 +1,22 @@
+*{
+    font-family: Nunitosans, Arial, sans-serif;
+    box-sizing : border-box;
+}
+
+.app-index--full-screen{
+    min-width: 100vw;
+    min-height: 100dvh; //*dvh(dynamic viewport height) prevent an unwilling positionning on smartphone and tablet screen
+
+    body{
+        background-color: $dark;
+    }
+}
+
+.app-main__outlet-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 3rem;
+    background-color: $white;
+}

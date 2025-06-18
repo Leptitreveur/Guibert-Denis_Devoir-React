@@ -1,0 +1,71 @@
+.app-card--service__container{
+    display : grid;
+    grid-template: repeat(3, 1fr) / 1fr;
+    width: 90vw;
+    gap : 1rem;
+    border: none;
+
+    .app-card--service__body{
+        display : flex;
+        flex-direction: column;
+        align-items: center;
+        border : 1px solid $gray-400;
+        border-radius : 0.5rem;
+        text-align : center;
+
+        > i {
+            margin : 1.5rem;
+            text-align: center;
+            font-size: 1.6rem;
+            color : $primary;
+        }
+    }
+}
+
+//* BREAKPOINT and Screen ORIENTATION ==================================================================================
+
+@include media-breakpoint-up(md){
+    .app-card--service__body-body {
+        // !Classe Bootstrap
+        .card-title {
+            font-size: 1.3rem;
+        }
+    }
+
+    @media screen and (orientation: landscape) {
+        .app-card--service__body {
+            // !Classe Bootstrap
+            .card-title {
+                font-size: 1.3rem;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(lg){
+    .app-card--service__container {
+        grid-template: 1fr / repeat(3, 1fr);
+        width: 80vw !important;
+
+        .app-card--service__body {
+            .card-title {
+                font-size: 1.4rem !important;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(xl){
+    .app-card--service__body{
+        .card-title{
+            font-size: 1.8rem !important;
+        }
+    }
+}
+@include media-breakpoint-up(xxl){
+    .app-card--service__body{
+        .card-title{
+            font-size: 2rem !important;
+        }
+    }
+}

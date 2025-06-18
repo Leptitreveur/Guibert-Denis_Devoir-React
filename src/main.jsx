@@ -3,20 +3,24 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import "scss/global.scss";
-import 'bootstrap-icons/font/bootstrap-icons.css';
-
-import { ScrollToTopWrapper } from "jsx/components";
+import "styles/main.scss";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 import App from "src/App.jsx";
-import Home from "pages/Home.jsx";
-import Services from "pages/Services.jsx";
-import Portfolio from "pages/Portfolio.jsx";
-import ContactForm from "pages/ContactForm.jsx";
-import LegalNotice from "pages/LegalNotice.jsx";
+import HomePage from "pages/HomePage/HomePage.jsx";
+import ServicesPage from "pages/ServicesPage/ServicesPage.jsx";
+import PortfolioPage from "pages/PortfolioPage/PortfolioPage.jsx";
+import ContactPage from "pages/ContactPage/ContactPage.jsx";
+import LegalNoticePage from "pages/LegalNoticePage/LegalNoticePage.jsx";
+
+import { useScrollToTop } from "src/hooks/useScrollToTop";
+
+export const ScrollToTopWrapper = () => {
+  useScrollToTop();
+  return null;
+};
 
 const head = createHead();
-
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -25,11 +29,11 @@ createRoot(document.getElementById("root")).render(
         <ScrollToTopWrapper />
         <Routes>
           <Route path="/" element={<App />}>
-            <Route index element={<Home />} />
-            <Route path="Services" element={<Services />} />
-            <Route path="Portfolio" element={<Portfolio />} />
-            <Route path="ContactForm" element={<ContactForm />} />
-            <Route path="LegalNotice" element={<LegalNotice />} />
+            <Route index element={<HomePage />} />
+            <Route path="ServicesPage" element={<ServicesPage />} />
+            <Route path="PortfolioPage" element={<PortfolioPage />} />
+            <Route path="ContactPage" element={<ContactPage />} />
+            <Route path="LegalNoticePage" element={<LegalNoticePage />} />
           </Route>
         </Routes>
       </Router>
