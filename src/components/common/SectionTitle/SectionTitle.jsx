@@ -1,14 +1,15 @@
-import { PropTypes } from "prop-types";
+import { PropTypes } from 'prop-types';
 
+import './SectionTitle.scss'
 export function SectionTitle({ title }) {
-    return (
-        <div className="app-section--title__container">
-            <h2 className="fw-bold">{title}</h2>
-            <span className="app-title--underline" />
-        </div>
-    );
+  return (
+    <div className="app-section--title__container">
+      <h2 className="fw-bold">{title}</h2>
+      <span className="app-title--underline" />
+    </div>
+  );
 }
 
 SectionTitle.propTypes = {
-    title: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 };

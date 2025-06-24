@@ -1,0 +1,17 @@
+.app-profil__container {
+  width: 100%;
+
+  .app-profil__content {
+    .app-image__profil {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+    .app-profil__box--text {
+      width: 96%;
+      text-align: justify;
+    }
+  }
+}

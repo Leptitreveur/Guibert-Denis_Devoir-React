@@ -1,0 +1,17 @@
+.app-card--service__container {
+  display: grid;
+  grid-template: repeat(3, 1fr) / 1fr;
+  width: 90vw;
+  gap: 1rem;
+  border: none;
+}
+
+//* LG Breakpoint ==============================================
+@include media-breakpoint-up(lg) {
+  .app-card--service__container {
+    grid-template: 1fr / repeat(3, 1fr);
+    width: 80vw !important;
+  }
+}
+
+

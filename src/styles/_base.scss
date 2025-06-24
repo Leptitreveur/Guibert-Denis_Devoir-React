@@ -1,22 +1,47 @@
-*{
-    font-family: Nunitosans, Arial, sans-serif;
-    box-sizing : border-box;
+@font-face {
+  font-family: Nunitosans;
+  src: url('font/NunitoSans-VariableFont_YTLC\,opsz\,wdth\,wght.ttf') format('truetype');
 }
 
-.app-index--full-screen{
-    min-width: 100vw;
-    min-height: 100dvh; //*dvh(dynamic viewport height) prevent an unwilling positionning on smartphone and tablet screen
-
-    body{
-        background-color: $dark;
-    }
+* {
+  font-family: Nunitosans, Arial, sans-serif;
+  box-sizing: border-box;
 }
 
-.app-main__outlet-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 3rem;
-    background-color: $white;
+.app-index--full-screen {
+  min-width: 100vw;
+  min-height: 100dvh; //*dvh(dynamic viewport height) prevent an unwilling positionning on smartphone and tablet screen
+
+  body {
+    background-color: $dark;
+  }
+}
+
+.app-main__outlet-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 3rem;
+  background-color: $white;
+}
+
+.app-title--1,
+.app-title--2 {
+  color: $light;
+  opacity: 100%;
+  font-weight: bold;
+  text-align: center;
+  padding: 0rem 2rem;
+}
+
+.app-title--1 {
+  font-size: 2.4rem;
+}
+.app-title--2 {
+  font-size: 2rem;
+}
+.app-title--3 {
+  font-size: 1.3rem;
+  text-transform: uppercase;
 }

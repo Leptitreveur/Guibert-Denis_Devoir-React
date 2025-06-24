@@ -1,9 +1,11 @@
-import { Head } from "@unhead/react";
-import { useRef } from "react";
+import { Head } from '@unhead/react';
+import { useRef } from 'react';
 
-import { Presentation } from "common/Presentation/Presentation";
-import { SectionTitle } from "common/SectionTitle/SectionTilte"
-import { ContactCardList } from "contact/ContactCardList/ContactCardList";
+import './ContactPage.scss';
+
+import { Presentation } from 'src/components/common/Presentation/Presentation';
+import { SectionTitle } from 'src/components/common/SectionTitle/SectionTitle';
+import { ContactCardsList } from 'src/components/contact/ContactCardsList/ContactCardsList';
 
 export default function ContactPage() {
   const formRef = useRef(null);
@@ -12,13 +14,13 @@ export default function ContactPage() {
     const form = formRef.current;
     event.preventDefault();
     event.stopPropagation();
-    form.classList.add("was-validated");
+    form.classList.add('was-validated');
 
     if (!form.checkValidity()) {
       // error message filled with bootstrap's class was-validated
     } else {
       form.reset();
-      form.classList.remove("was-validated");
+      form.classList.remove('was-validated');
     }
   };
 
@@ -26,84 +28,45 @@ export default function ContactPage() {
     <>
       <Head>
         <title>Contact</title>
-        <meta
-          name="description"
-          content="Acces au formulaire de contact ainsi qu'à l'adresse professionnelle via la minimap"
-        />
+        <meta name="description" content="Acces au formulaire de contact ainsi qu'à l'adresse professionnelle via la minimap" />
       </Head>
 
-      <Presentation
-        title="Contact"
-        description="Pour me contacter en vue d'un entretien  ou d'une future collaboration, merci de remplir le formulaire de contact."
-      />
+      <Presentation title="Contact" description="Pour me contacter en vue d'un entretien  ou d'une future collaboration, merci de remplir le formulaire de contact." />
 
       <div className="shadow rounded app-contact__container">
         <section className="app-contact__section--form">
           <SectionTitle title="Formulaire de contact" />
           <div className="app-form__container">
-
-            <form
-              ref={formRef}
-              className="app-form__content needs-validation"
-              noValidate
-              onSubmit={handleSubmit}
-            >
+            <form ref={formRef} className="app-form__content needs-validation" noValidate onSubmit={handleSubmit}>
               <div className="app-form__box--input">
                 <label htmlFor="name" className="form-label visually-hidden"></label>
-                <input
-                  id="name"
-                  className="form-control"
-                  type="text"
-                  placeholder="Votre nom"
-                  required
-                />
+                <input id="name" className="form-control" type="text" placeholder="Votre nom" required />
               </div>
 
               <div className="app-form__box--input">
                 <label htmlFor="email" className="form-label visually-hidden"></label>
-                <input
-                  id="email"
-                  className="form-control"
-                  type="email"
-                  placeholder="Votre adresse e-mail"
-                  required
-                />
+                <input id="email" className="form-control" type="email" placeholder="Votre adresse e-mail" required />
               </div>
 
               <div className="app-form__box--input">
                 <label htmlFor="phone" className="form-label visually-hidden"></label>
-                <input
-                  id="phone"
-                  className="form-control"
-                  type="text"
-                  placeholder="Votre numéro de téléphone"
-                  required
-                />
+                <input id="phone" className="form-control" type="text" placeholder="Votre numéro de téléphone" required />
               </div>
 
               <div className="app-form__box--input">
                 <label htmlFor="subject" className="form-label visually-hidden"></label>
-                <input
-                  id="subject"
-                  className="form-control"
-                  type="text"
-                  placeholder="Sujet"
-                  required
-                />
+                <input id="subject" className="form-control" type="text" placeholder="Sujet" required />
               </div>
 
               <div className="app-form__box--textarea">
                 <label htmlFor="text" className="form-label visually-hidden"></label>
-                <textarea
-                  id="text"
-                  className="form-control"
-                  placeholder="Votre message"
-                  required
-                />
+                <textarea id="text" className="form-control" placeholder="Votre message" required />
               </div>
 
               <div className="app-box--btn">
-                <button type="submit" className="btn btn-primary" >Envoyer</button>
+                <button type="submit" className="btn btn-primary">
+                  Envoyer
+                </button>
               </div>
             </form>
           </div>
@@ -113,7 +76,7 @@ export default function ContactPage() {
           <SectionTitle title="Mes coordonnées" />
 
           <div className="app-section--map__content">
-            <ContactCardList selectedIds={["editor"]} showIcon={true} />
+            <ContactCardsList selectedIds={['editor']} showIcon={true} />
 
             <div className="app-map__box" id="map">
               <iframe
@@ -123,8 +86,7 @@ export default function ContactPage() {
                     %20Diebold%2C%2069009%20Lyon!5e0!3m2!1sfr!2sfr!4v1738229729412!5m2!1sfr!2sfr"
                 loading="lazy"
                 allowFullScreen
-              >
-              </iframe>
+              ></iframe>
             </div>
           </div>
         </section>

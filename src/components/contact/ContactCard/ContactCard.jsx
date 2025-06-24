@@ -1,29 +1,26 @@
-import { PropTypes } from "prop-types";
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { PropTypes } from 'prop-types';
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 
-import { FooterStyle } from "contexts/footerContext";
-import { SocialLinksList } from "jsx/socialLinks";
+import './ContactCard.scss';
 
-export const ContactCard = ({
-  contactData,
-  showIcon = false,
-  toMap = false,
-}) => {
+import { FooterStyle } from 'src/contexts/FooterContext';
+import { SocialLinksList } from 'src/components/common/socialLink/SocialLinksList/SocialLinksList';
+
+export const ContactCard = ({ contactData, showIcon = false, toMap = false }) => {
   const style = useContext(FooterStyle);
 
   if (!contactData || !contactData.id) {
     return null;
   }
 
-  const { id, name, address1, address2, country, phone, email, website } =
-    contactData;
+  const { id, name, address1, address2, country, phone, email, website } = contactData;
 
   const formatPhoneNumber = (phoneStr) => {
-    if (!phoneStr) return "";
+    if (!phoneStr) return '';
 
     //* Si le numéro commence par "33", ajouter le préfixe "+33" et formattage
-    if (phoneStr.startsWith("33")) {
+    if (phoneStr.startsWith('33')) {
       return `+${phoneStr.slice(0, 2)}
                     ${phoneStr.slice(2, 3)}
                     ${phoneStr.slice(3, 5)}
@@ -34,12 +31,12 @@ export const ContactCard = ({
 
     //* Format par défaut : regrouper par paires.
     //* En prevention: '?.' chaînage optionnel permettant de gérer le cas où la valeur de phoneStr.match() serait null ou undefined pour join. Evite un crash
-    return phoneStr.match(/.{1,2}/g)?.join(" ") || "";
+    return phoneStr.match(/.{1,2}/g)?.join(' ') || '';
   };
 
   // * Redirection vers le points gps dans google map correspondant
   const extractDomain = (url) => {
-    if (!url) return "";
+    if (!url) return '';
     try {
       const parsedUrl = new URL(url);
       return parsedUrl.hostname;
@@ -49,45 +46,24 @@ export const ContactCard = ({
     }
   };
 
-  const mapLink =
-    address1 && address2 && toMap
-      ? `https://www.google.com/maps?q=${encodeURIComponent(
-          address1 + "" + address2
-        )}`
-      : "/ContactPage#map";
+  const mapLink = address1 && address2 && toMap ? `https://www.google.com/maps?q=${encodeURIComponent(address1 + '' + address2)}` : '/ContactPage#map';
 
   // * gestion du context à la condition "est dans le footer" composant dans le footer ==================================================
-  const isFooterField = `${
-    style
-      ? "app-footer__box app-footer__box--contact"
-      : "app-card--contact__container"
-  }`;
-  const isFooterLegend = `${
-    style ? "app-footer__nav-legend" : "app-card--contact__nav-legend"
-  }`;
-  const isFooterNav = style ? "app-footer__nav" : null;
-  const isFooterNavItem = `${
-    style ? "app-footer__nav--item" : "app-nav__item"
-  }`;
-  const isFooterLink = `${style ? "app-link--footer" : "app-link"}`;
+  const isFooterField = `${style ? 'app-footer__box app-footer__box--contact' : 'app-card--contact__container'}`;
+  const isFooterLegend = `${style ? 'app-footer__nav-legend' : 'app-card--contact__nav-legend'}`;
+  const isFooterNav = style ? 'app-footer__nav' : null;
+  const isFooterNavItem = `${style ? 'app-footer__nav--item' : 'app-nav__item'}`;
+  const isFooterLink = `${style ? 'app-link--footer' : 'app-link'}`;
 
   // * Fin de gestion de context ========================================================================================================
 
   return (
-    <fieldset
-      id={id.replace(/\s+/g, "-").toLowerCase()}
-      className={isFooterField}
-    >
+    <fieldset id={id.replace(/\s+/g, '-').toLowerCase()} className={isFooterField}>
       <legend className={isFooterLegend}>{name}</legend>
       <ul className={isFooterNav}>
         {address1 && (
           <li className={isFooterNavItem}>
-            <Link
-              to={mapLink}
-              target={toMap ? "_blank" : undefined}
-              rel={toMap ? "noreferrer noopenner" : undefined}
-              className={isFooterLink}
-            >
+            <Link to={mapLink} target={toMap ? '_blank' : undefined} rel={toMap ? 'noreferrer noopenner' : undefined} className={isFooterLink}>
               {showIcon && <i className="bi bi-map"></i>}
               {address1}
             </Link>
@@ -96,24 +72,16 @@ export const ContactCard = ({
 
         {address2 && country && (
           <li className={isFooterNavItem}>
-            <Link
-              to={mapLink}
-              target={toMap ? "_blank" : undefined}
-              rel={toMap ? "noreferrer noopenner" : undefined}
-              className={isFooterLink}
-            >
+            <Link to={mapLink} target={toMap ? '_blank' : undefined} rel={toMap ? 'noreferrer noopenner' : undefined} className={isFooterLink}>
               {showIcon && <i className="bi bi-geo-alt"></i>}
-              {address2 ? `${address2}, ` : ""} {country}
+              {address2 ? `${address2}, ` : ''} {country}
             </Link>
           </li>
         )}
 
         {phone && (
           <li className={isFooterNavItem}>
-            <Link
-              to={`tel:{formatPhoneNumber(phone)}`}
-              className={isFooterLink}
-            >
+            <Link to={`tel:{formatPhoneNumber(phone)}`} className={isFooterLink}>
               {showIcon && <i className="bi bi-phone"></i>}
               {formatPhoneNumber(phone)}
             </Link>

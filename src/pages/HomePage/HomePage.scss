@@ -1,0 +1,57 @@
+.app-introduction__container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 40rem;
+  overflow: hidden;
+  margin-bottom: 3rem;
+
+  .app-introduction__box {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 30%;
+    gap: 1.2rem;
+  }
+}
+
+// *====================================================
+
+.app-about__container {
+  display: grid;
+  grid-template: 1fr auto / 1fr;
+  gap: 1rem;
+  margin: 0rem 0.8rem;
+  border-radius: 5px;
+  padding: 1.5rem;
+}
+
+// * BREAKPOINT  and Screen ORIENTATION=========================================================================================================================================
+
+@include media-breakpoint-up(md) {
+  .app-introduction__box {
+    .app-title--1 {
+      font-size: 3.2rem;
+    }
+
+    .app-title--2 {
+      font-size: 2.4rem;
+    }
+
+    .app-btn {
+      font-size: 1.1rem;
+    }
+  }
+
+  @media screen and (orientation: landscape) {
+    .app-about__container,
+    .app-contact__container {
+      grid-template: 1fr / repeat(2, 1fr) !important;
+      width: 85vw;
+    }
+  }
+}

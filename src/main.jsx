@@ -1,19 +1,19 @@
-import { createHead, UnheadProvider } from "@unhead/react/client";
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { createHead, UnheadProvider } from '@unhead/react/client';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import "styles/main.scss";
-import "bootstrap-icons/font/bootstrap-icons.css";
+import 'src/styles/main.scss';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
-import App from "src/App.jsx";
-import HomePage from "pages/HomePage/HomePage.jsx";
-import ServicesPage from "pages/ServicesPage/ServicesPage.jsx";
-import PortfolioPage from "pages/PortfolioPage/PortfolioPage.jsx";
-import ContactPage from "pages/ContactPage/ContactPage.jsx";
-import LegalNoticePage from "pages/LegalNoticePage/LegalNoticePage.jsx";
+import App from 'src/App.jsx';
+import HomePage from 'src/pages/HomePage/HomePage.jsx';
+import ServicesPage from 'src/pages/ServicesPage/ServicesPage.jsx';
+import PortfolioPage from 'src/pages/PortfolioPage/PortfolioPage.jsx';
+import ContactPage from 'src/pages/ContactPage/ContactPage.jsx';
+import LegalNoticePage from 'src/pages/LegalNoticePage/LegalNoticePage.jsx';
 
-import { useScrollToTop } from "src/hooks/useScrollToTop";
+import { useScrollToTop } from 'src/hooks/useScrollToTop';
 
 export const ScrollToTopWrapper = () => {
   useScrollToTop();
@@ -22,7 +22,7 @@ export const ScrollToTopWrapper = () => {
 
 const head = createHead();
 
-createRoot(document.getElementById("root")).render(
+createRoot(document.getElementById('root')).render(
   <StrictMode>
     <UnheadProvider head={head}>
       <Router>
