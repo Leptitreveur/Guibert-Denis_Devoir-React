@@ -1,5 +1,5 @@
-import HeroBg from 'images/hero-bg.jpg';
-import BannerBg from 'images/banner.jpg';
+import HeroBg from 'src/assets/images/hero-bg.jpg';
+import BannerBg from 'src/assets/images/banner.jpg';
 
 import './BackgroundImage.scss';
 
