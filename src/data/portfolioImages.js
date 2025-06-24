@@ -1,9 +1,9 @@
-import Coder from 'src/assets/portfolioImg/coder.jpg';
-import EspaceBienEtre from 'src/assets/portfolioImg/espace-bien-etre.jpg';
-import FreshFood from 'src/assets/portfolioImg/fresh-food.jpg';
-import JapaneseRestaurant from 'src/assets/portfolioImg/restaurant-japonais.jpg';
-import Screens from 'src/assets/portfolioImg/screens.jpg';
-import Seo from 'src/assets/portfolioImg/seo.jpg';
+import Coder from 'src/assets/images/portfolio/coder';
+import EspaceBienEtre from 'src/assets/images/portfolio/espace-bien-etre';
+import FreshFood from 'src/assets/images/portfolio/fresh-food';
+import JapaneseRestaurant from 'src/assets/images/portfolio/restaurant-japonais';
+import Screens from 'src/assets/images/portfolio/screens';
+import Seo from 'src/assets/images/portfolio/seo';
 
 const PortfolioImages = {
   coder: Coder,

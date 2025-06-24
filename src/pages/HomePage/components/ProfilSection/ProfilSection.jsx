@@ -1,6 +1,6 @@
 import './ProfilSection.scss'
 
-import { SectionTitle } from 'src/commponents/common/SectionTitle/SectionTitle';
+import { SectionTitle } from 'src/components/common/SectionTitle/SectionTitle';
 import ProfilPicture from 'src/assets/images/john-doe-about.jpg';
 
 function TextProfil() {

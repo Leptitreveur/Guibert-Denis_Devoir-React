@@ -1,4 +1,4 @@
-import PortfolioImages from 'data/portfolioImages';
+import PortfolioImages from 'src/data/portfolioImages';
 
 const portfolioCards = [];
 

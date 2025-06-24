@@ -7,7 +7,7 @@ import './Footer.scss';
 import PortfolioCards from 'src/data/portfolioData.js';
 import { FooterStyle } from 'src/contexts/FooterContext';
 import { NavbarLinksList } from 'src/components/navbar/NavbarLinksList/NavbarLinksList';
-import { ContactCardsList } from 'src/components/contact/ContactCardLsit/ContactCardsList';
+// import { ContactCardsList } from 'src/components/contact/ContactCardsLsit/ContactCardsList';
 
 export function PortfolioLinksList() {
   const style = useContext(FooterStyle);
@@ -33,7 +33,7 @@ export default function Footer({ style = true }) {
   return (
     <footer className="app-footer__container">
       <FooterStyle.Provider value={style}>
-        <ContactCardsList selectedIds={['editor']} />
+        {/* <ContactCardsList selectedIds={['editor']} /> */}
         <NavbarLinksList />
         <PortfolioLinksList />
       </FooterStyle.Provider>

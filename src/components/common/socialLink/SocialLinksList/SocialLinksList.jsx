@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 import { useFilteredData } from 'src/hooks/useFilteredData';
 import allSocialLinks from 'src/data/socialLinksData.js';
-import { SocialLink } from 'src/components/common/socialLink/SocialLink';
+import { SocialLink } from 'src/components/common/socialLink/SocialLink/SocialLink';
 
 export function SocialLinksList({ selectedIds }) {
   const filteredCards = useFilteredData(allSocialLinks, selectedIds, 'SocialLink');
