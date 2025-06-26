@@ -1,7 +1,7 @@
 import HeroBg from 'src/assets/images/hero-bg.jpg';
 import BannerBg from 'src/assets/images/banner.jpg';
 
-import './BackgroundImage.scss';
+// import './BackgroundImage.scss';
 
 export function BgHero() {
   return <img src={HeroBg} alt="Hero background" className="app-image__hero" />;

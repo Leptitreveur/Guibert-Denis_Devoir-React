@@ -1,7 +1,7 @@
 import { Head } from '@unhead/react';
 import { useRef } from 'react';
 
-import './ContactPage.scss';
+// import './ContactPage.scss';
 
 import { Presentation } from 'src/components/common/Presentation/Presentation';
 import { SectionTitle } from 'src/components/common/SectionTitle/SectionTitle';

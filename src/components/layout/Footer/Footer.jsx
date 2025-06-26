@@ -2,12 +2,12 @@ import { PropTypes } from 'prop-types';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
-import './Footer.scss';
+// import './Footer.scss';
 
 import PortfolioCards from 'src/data/portfolioData.js';
 import { FooterStyle } from 'src/contexts/FooterContext';
 import { NavbarLinksList } from 'src/components/navbar/NavbarLinksList/NavbarLinksList';
-import { ContactCardsList } from 'src/components/contact/ContactCardsLsit/ContactCardsList';
+import { ContactCardsList } from 'src/components/contact/ContactCardsList/ContactCardsList';
 
 export function PortfolioLinksList() {
   const style = useContext(FooterStyle);

@@ -1,6 +1,6 @@
 import { PropTypes } from 'prop-types';
 
-import './ServiceCardsList.scss';
+// import './ServiceCardsList.scss';
 
 import { useFilteredData } from 'src/hooks/useFilteredData';
 import allServiceCards from 'src/data/servicesData.js';

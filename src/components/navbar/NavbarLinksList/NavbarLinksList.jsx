@@ -1,7 +1,7 @@
 import { PropTypes } from 'prop-types';
 import { useContext, forwardRef } from 'react';
 
-import './NavbarLinksList.scss';
+// import './NavbarLinksList.scss';
 
 import { useFilteredData } from 'src/hooks/useFilteredData';
 import allNavbarLinks from 'src/data/navbarLinks';

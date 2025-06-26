@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Modal from 'bootstrap/js/dist/modal';
 
-import './UserProfilModal.scss'
+// import './UserProfilModal.scss'
 
 export function UserProfilModal() {
   const [user, setUser] = useState(null);

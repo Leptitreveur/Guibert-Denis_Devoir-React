@@ -1,2 +1,25 @@
+@import 'bootstrap/scss/bootstrap';
+
 @import 'base';
 @import 'bootstrap-overrides';
+
+@import '../components/common/BackgroundImage/BackgroundImage';
+@import '../components/common/Presentation/Presentation';
+@import '../components/common/SectionTitle/SectionTitle';
+@import '../components/contact/ContactCard/ContactCard';
+@import '../components/layout/Footer/Footer';
+@import '../components/layout/Header/Header';
+@import '../components/layout/UserProfilModal/UserProfilModal';
+@import '../components/navbar/Navbar/Navbar';
+@import '../components/navbar/NavbarLinksList/NavbarLinksList';
+@import '../components/portfolio/PortfolioCard/PortfolioCard';
+@import '../components/portfolio/PortfolioCardsList/PortfolioCardsList';
+@import '../components/progressbar/Progressbar/Progressbar';
+@import '../components/progressbar/ProgressbarsList/ProgressbarsList';
+@import '../components/services/ServiceCard/ServiceCard';
+@import '../components/services/ServiceCardsList/ServiceCardsList';
+@import '../pages/ContactPage/ContactPage';
+@import '../pages/HomePage/HomePage';
+@import '../pages/HomePage/components/ProfilSection/ProfilSection';
+@import '../pages/HomePage/components/SkillsSection/SkillsSection';
+@import '../pages/LegalNoticePage/LegalNoticePage';

@@ -1,6 +1,6 @@
 import { PropTypes } from 'prop-types';
 
-import './PortfolioCardsList.scss';
+// import './PortfolioCardsList.scss';
 
 import { useFilteredData } from 'src/hooks/useFilteredData';
 import allPortfolioCards from 'src/data/portfolioData.js';

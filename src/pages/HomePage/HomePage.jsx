@@ -1,5 +1,7 @@
 import { Head } from '@unhead/react';
 
+// import './HomePage.scss';
+
 import { UserProfilModal } from 'src/components/layout/UserProfilModal/UserProfilModal';
 import { BgHero } from 'src/components/common/BackgroundImage/BackgroundImage';
 import { ProfilSection } from './components/ProfilSection/ProfilSection';

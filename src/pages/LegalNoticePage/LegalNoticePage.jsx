@@ -1,5 +1,7 @@
 import { Head } from '@unhead/react';
 
+// import './LegalNoticePage.scss';
+
 import { CreditText } from './CreditText/CreditText';
 import { Presentation } from 'src/components/common/Presentation/Presentation';
 import { AccordionItem } from 'src/components/common/Accordion/Accordion';

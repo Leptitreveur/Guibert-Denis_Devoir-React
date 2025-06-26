@@ -16,7 +16,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@use "bootstrap/scss/bootstrap" as *;`,
+        // additionalData: `@use "bootstrap/scss/bootstrap" as *;`,
         includePaths: [path.resolve(__dirname, './node_modules/'), path.resolve(__dirname, './src/styles/scss/'), path.resolve(__dirname, './src/assets/font/')],
       },
     },

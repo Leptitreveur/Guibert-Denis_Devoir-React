@@ -2,7 +2,7 @@ import { PropTypes } from 'prop-types';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
-import './ContactCard.scss';
+// import './ContactCard.scss';
 
 import { FooterStyle } from 'src/contexts/FooterContext';
 import { SocialLinksList } from 'src/components/common/socialLink/SocialLinksList/SocialLinksList';

@@ -1,6 +1,6 @@
 @font-face {
   font-family: Nunitosans;
-  src: url('font/NunitoSans-VariableFont_YTLC\,opsz\,wdth\,wght.ttf') format('truetype');
+  src: url('src/assets/font/NunitoSans-Italic-VariableFont_YTLC\,opsz\,wdth\,wght.ttf') format('truetype');
 }
 
 * {
@@ -44,4 +44,11 @@
 .app-title--3 {
   font-size: 1.3rem;
   text-transform: uppercase;
+}
+
+.app-card--hover:hover {
+  cursor: default;
+  background-color: #efefef;
+  box-shadow: 3px 3px 8px $gray-600;
+  border: none !important;
 }

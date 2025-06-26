@@ -48,8 +48,7 @@
   }
 
   @media screen and (orientation: landscape) {
-    .app-about__container,
-    .app-contact__container {
+    .app-about__container{
       grid-template: 1fr / repeat(2, 1fr) !important;
       width: 85vw;
     }

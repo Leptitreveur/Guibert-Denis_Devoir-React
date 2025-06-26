@@ -2,7 +2,7 @@ import { PropTypes } from 'prop-types';
 import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import './Navbar.scss';
+// import './Navbar.scss';
 
 import { FooterStyle } from 'src/contexts/FooterContext';
 

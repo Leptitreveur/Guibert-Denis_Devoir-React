@@ -1,6 +1,6 @@
 import { PropTypes } from 'prop-types';
 
-import './Presentation.scss';
+// import './Presentation.scss';
 //* Component showned to present all pages but HomePage and app ================================================================
 export function Presentation({ title, description }) {
   return (

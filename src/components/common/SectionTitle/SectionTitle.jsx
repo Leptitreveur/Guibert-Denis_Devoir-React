@@ -1,6 +1,7 @@
 import { PropTypes } from 'prop-types';
 
-import './SectionTitle.scss'
+// import './SectionTitle.scss'
+
 export function SectionTitle({ title }) {
   return (
     <div className="app-section--title__container">

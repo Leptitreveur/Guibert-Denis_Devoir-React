@@ -30,10 +30,10 @@ const addContact = (data) => {
     if (data.website) {
       try {
         new URL(data.website);
-      } catch (_) {
         //! la ligne de commentaire qui suit demande au linter d'ignoer l'avertissement concernant le paramètre reçu par catch.
         // ! catch(_) convention de nommage pour signaler que je n'ai pas besoin de détail sur cette erreur
         // eslint-disable-next-line no-unused-vars
+      } catch (_) {
         console.warn(`Format de l'Url invalide pour le contact "${data.id}". Url reçu : "${data.website}".`);
         return;
       }

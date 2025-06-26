@@ -1,6 +1,6 @@
 import { PropTypes } from 'prop-types';
 
-import './PortfolioCard.scss'
+// import './PortfolioCard.scss'
 
 export const PortfolioCard = ({ cardData }) => {
   if (!cardData) {
@@ -10,7 +10,7 @@ export const PortfolioCard = ({ cardData }) => {
   const { id, src, alt, title, description, tools, link } = cardData;
 
   return (
-    <div className="app-card--portfolio__box card-hover">
+    <div className="app-card--portfolio__box app-card--hover">
       <div id={id} className="app-card--portfolio__box--upper">
         <div className="app-card--portfolio__box--inner">
           <div className="app-card--portfolio__box--image">

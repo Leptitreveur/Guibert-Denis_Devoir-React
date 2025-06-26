@@ -1,4 +1,4 @@
-import './ProfilSection.scss'
+// import './ProfilSection.scss'
 
 import { SectionTitle } from 'src/components/common/SectionTitle/SectionTitle';
 import ProfilPicture from 'src/assets/images/john-doe-about.jpg';
