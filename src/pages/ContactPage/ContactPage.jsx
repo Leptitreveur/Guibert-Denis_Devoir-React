@@ -38,27 +38,27 @@ export default function ContactPage() {
           <SectionTitle title="Formulaire de contact" />
           <div className="app-form__container">
             <form ref={formRef} className="app-form__content needs-validation" noValidate onSubmit={handleSubmit}>
-              <div className="app-form__box--input">
+              <div className="w-100 h-100">
                 <label htmlFor="name" className="form-label visually-hidden"></label>
                 <input id="name" className="form-control" type="text" placeholder="Votre nom" required />
               </div>
 
-              <div className="app-form__box--input">
+              <div className="w-100 h-100">
                 <label htmlFor="email" className="form-label visually-hidden"></label>
                 <input id="email" className="form-control" type="email" placeholder="Votre adresse e-mail" required />
               </div>
 
-              <div className="app-form__box--input">
+              <div className="w-100 h-100">
                 <label htmlFor="phone" className="form-label visually-hidden"></label>
                 <input id="phone" className="form-control" type="text" placeholder="Votre numéro de téléphone" required />
               </div>
 
-              <div className="app-form__box--input">
+              <div className="w-100 h-100">
                 <label htmlFor="subject" className="form-label visually-hidden"></label>
                 <input id="subject" className="form-control" type="text" placeholder="Sujet" required />
               </div>
 
-              <div className="app-form__box--textarea">
+              <div className="h-100">
                 <label htmlFor="text" className="form-label visually-hidden"></label>
                 <textarea id="text" className="form-control" placeholder="Votre message" required />
               </div>
@@ -72,7 +72,7 @@ export default function ContactPage() {
           </div>
         </section>
 
-        <section className="app-contact__section--map">
+        <section className="app-contact__section--map d-grid grid-template-rows-auto-1fr grid-template-columns-1fr">
           <SectionTitle title="Mes coordonnées" />
 
           <div className="app-section--map__content">

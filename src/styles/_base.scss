@@ -1,6 +1,6 @@
 @font-face {
   font-family: Nunitosans;
-  src: url('src/assets/font/NunitoSans-Italic-VariableFont_YTLC\,opsz\,wdth\,wght.ttf') format('truetype');
+  src: url('../assets/font/NunitoSans-VariableFont_YTLC\,opsz\,wdth\,wght.ttf') format('truetype');
 }
 
 * {
@@ -11,20 +11,20 @@
 .app-index--full-screen {
   min-width: 100vw;
   min-height: 100dvh; //*dvh(dynamic viewport height) prevent an unwilling positionning on smartphone and tablet screen
-
-  body {
-    background-color: $dark;
-  }
+// intégrer a la balise body
+  // body { 
+  //   background-color: $dark;
+  // }
 }
-
-.app-main__outlet-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 3rem;
-  background-color: $white;
-}
+// intégrer a la balise main
+// .app-main__outlet-container { 
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   padding-bottom: 3rem;
+//   background-color: $white;
+// }
 
 .app-title--1,
 .app-title--2 {

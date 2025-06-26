@@ -1,9 +1,9 @@
 .app-card--service__container {
   display: grid;
   grid-template: repeat(3, 1fr) / 1fr;
-  width: 90vw;
   gap: 1rem;
   border: none;
+  width: 90vw;
 }
 
 //* LG Breakpoint ==============================================

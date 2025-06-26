@@ -5,7 +5,7 @@ import { SectionTitle } from 'src/components/common/SectionTitle/SectionTitle';
 
 export const SkillSection = () => {
   return(
-    <div className="app-progressbar__container">
+    <div className="w-100">
       <SectionTitle title="Mes compétences" />
       <ProgressbarsList />
     </div>

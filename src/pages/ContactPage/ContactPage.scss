@@ -1,8 +1,8 @@
 .app-contact__container {
   display: grid;
   grid-template: repeat(2, 1fr) / 1fr;
-  width: 99vw;
   height: auto;
+  width: 99vw;
 
   .app-contact__section--form,
   .app-contact__section--map {
