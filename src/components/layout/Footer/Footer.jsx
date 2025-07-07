@@ -11,15 +11,15 @@ import { ContactCardsList } from 'src/components/contact/ContactCardsList/Contac
 
 export function PortfolioLinksList() {
   const style = useContext(FooterStyle);
-  const isFooter = style ? 'app-footer__box app-footer__box--portfolio' : null;
+  const isFooter = style ? 'app-footer__box' : null;
 
   return (
     <fieldset className={isFooter}>
-      <legend className="app-footer__nav-legend">Mes dernières réalisations</legend>
-      <ul className="app-footer__nav">
+      <legend className="mb-1 fw-bold">Mes dernières réalisations</legend>
+      <ul>
         {PortfolioCards.map((data) => (
-          <li key={data.id} className="app-footer__nav-item">
-            <Link to={data.link} target="_blank" rel="noopenner noreferrer" className="app-footer__link">
+          <li key={data.id} className="app-footer__box-link ">
+            <Link to={data.link} target="_blank" rel="noopenner noreferrer">
               <strong>{data.title}</strong>
             </Link>
           </li>
@@ -29,14 +29,17 @@ export function PortfolioLinksList() {
   );
 }
 
+// ==============================================================================
 export default function Footer({ style = true }) {
   return (
-    <footer className="app-footer__container">
-      <FooterStyle.Provider value={style}>
-        <ContactCardsList selectedIds={['editor']} />
-        <NavbarLinksList />
-        <PortfolioLinksList />
-      </FooterStyle.Provider>
+    <footer className="container-fluid p-5 text-white justify-content-centered bg-dark app-footer__container">
+      <div className="row justify-content-start gap-2 justify-content-md-around gap-md-0 flex-md-nowrap">
+        <FooterStyle.Provider value={style}>
+          <ContactCardsList selectedIds={['editor']} />
+          <NavbarLinksList />
+          <PortfolioLinksList />
+        </FooterStyle.Provider>
+      </div>
     </footer>
   );
 }

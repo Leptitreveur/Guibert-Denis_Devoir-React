@@ -25,12 +25,12 @@ addLink({
 addLink({
   id: 'ServicesPage',
   path: '/ServicesPage',
-  name: 'ServicesPage',
+  name: 'Services',
 });
 addLink({
   id: 'PortfolioPage',
   path: '/PortfolioPage',
-  name: 'PortfolioPage',
+  name: 'Portfolio',
 });
 addLink({
   id: 'ContactPage',
@@ -41,6 +41,11 @@ addLink({
   id: 'LegalNoticePage',
   path: '/LegalNoticePage',
   name: 'Mentions légales',
+});
+addLink({
+  id: 'Test',
+  path: '/Test',
+  name: 'Test',
 });
 //* FIN D'AJOUT DYNAMIQUE ##################################################################################################
 

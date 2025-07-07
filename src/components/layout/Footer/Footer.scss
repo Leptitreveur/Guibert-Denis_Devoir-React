@@ -1,67 +1,32 @@
 .app-footer__container {
-  display: grid;
-  grid-template: repeat(3, 1fr) / 1fr;
-  justify-items: start;
-  padding-top: 3rem;
-  padding-left: 3rem;
-  background-color: $dark;
 
   * {
-    margin: 0;
-    padding: 0;
-    color: $light;
-    text-decoration: none;
+    @extend .m-0;
+    @extend .p-0;
+    @extend .text-white;
+    @extend .text-decoration-none;
     list-style-type: none;
-    font-weight: $font-weight-light;
   }
 
   .app-footer__box {
-    min-width: 15rem;
-    height: 100%;
-
-    .app-footer__nav-legend {
-      margin-bottom: 0.5rem;
-      font-weight: bold;
+    @extend .col-12;
+    @extend .col-md-3;
+    
+    .app-footer__link-icon:hover {
+      @extend .opacity-100;
+      transform: scale(1.1);
+      transform: rotate(0.03turn);
+      transition: transform 0.4s ease;
+      z-index: 0;
     }
-
-    .app-footer__nav * {
-      opacity: 0.95;
-
-      &:hover {
-        font-weight: bold;
-        color: $white;
-        opacity: 1;
-        text-decoration: underline;
-      }
-    }
-
-    .app-footer__box--icon {
-      display: flex;
-      gap: 0.5rem;
-      width: auto;
-      height: auto;
-      margin: 0.5rem 0rem;
-
-      .app-footer__link {
-        font-size: 1.5rem;
-        opacity: 0.3;
-
-        &:hover {
-          color: $white;
-          opacity: 1;
-        }
-      }
-    }
+    
+    
   }
-}
-
-//* BREAKPOINT and Screen ORIENTATION ====================================================================================
-
-@include media-breakpoint-up(md) {
-  .app-footer__container {
-    grid-template: 1fr / auto auto auto;
-    justify-content: center;
-    column-gap: 15vw;
-    padding: 3rem;
+  .app-footer__box-link:hover {
+    @extend .opacity-100;
+    transform: scale(1.1);
+    transform-origin: top left;
+    transition: transform 0.5s ease-in-out;
+    z-index: 0;
   }
 }

@@ -12,13 +12,13 @@ export const InnerNavbarLinkList = ({ selectedIds }, ref) => {
   const filteredCards = useFilteredData(allNavbarLinks, selectedIds, 'Navbar');
 
   const style = useContext(FooterStyle);
-  const isFooterNavbar = `${style ? 'app-footer__box app-footer__box--navbar' : 'collapse navbar-collapse'}`;
+  const isFooterNavbar = style ? 'app-footer__box' : 'collapse navbar-collapse';
   const isFooterId = style ? null : 'navbarNav';
-  const isFooterNav = `${style ? 'app-footer__nav' : 'navbar-nav ms-auto app-navbar__nav'}`;
+  const isFooterNav = style ? null : 'navbar-nav ms-auto gap-1';
 
   return (
     <fieldset className={isFooterNavbar} id={isFooterId} ref={ref}>
-      {style && <legend className="app-footer__nav-legend">Liens utiles</legend>}
+      {style && <legend className="mb-1 fw-bold ">Liens utiles</legend>}
 
       <ul className={isFooterNav}>
         {filteredCards.map((data) => (

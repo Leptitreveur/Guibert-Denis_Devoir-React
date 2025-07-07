@@ -11,10 +11,10 @@ export const Progressbar = ({ barData }) => {
 
   return (
     <div>
-      <h3 className="app-title--3">
+      <h3 className="text-uppercase text-start">
         {title} {percent}%
       </h3>
-      <div className="progress app-progressbar__box">
+      <div className="progress mb-3">
         <div id={id} className={`progress-bar bg-${color}`} style={{ width: `${percent}%` }} aria-valuenow={percent} aria-valuemin="0" aria-valuemax="100"></div>
       </div>
     </div>

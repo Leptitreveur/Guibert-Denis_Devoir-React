@@ -1,0 +1,25 @@
+# Règles de sécurité pour l'assistant IA
+
+## Modifications de fichiers
+
+- TOUJOURS demander confirmation avant de modifier un fichier
+- Ne jamais appliquer de changements automatiquement
+- Attendre l'approbation explicite de l'utilisateur
+
+## Types de modifications autorisées
+
+- Création de nouveaux fichiers (avec confirmation)
+- Suggestions de code (sans application automatique)
+- Explications et conseils
+
+## Types de modifications interdites
+
+- Modification de fichiers existants sans consentement
+- Suppression de fichiers sans confirmation
+- Changements de configuration sans approbation
+
+## Communication
+
+- Toujours expliquer ce qui va être modifié avant de le faire
+- Présenter les changements de manière claire et concise
+- Donner la possibilité de refuser ou modifier les suggestions

@@ -17,26 +17,29 @@ export default function HomePage() {
         <meta name="description" content="Jhon Doe vous propose ses services en qualité de Dév Web Full Stack. Page de présentation." />
       </Head>
 
-      <div className="app-introduction__container">
+      <div className="app-introduction__container w-100 d-flex flex-row align-items-center justify-content-center position-relative mb-5 overflow-hidden" style={{ height: '40rem' }}>
         <BgHero />
 
-        <div className="app-introduction__box">
-          <h1 className="app-title--1">Bonjour, je suis Jhon Doe</h1>
-          <h2 className="app-title--2">Développeur web full stack</h2>
+        <div className="app-introduction__box d-flex flex-column align-items-center justify-content-center position-absolute gap-4 top-25">
+          <h1 className="text-light fw-bold text-center px-4 fs-1">Bonjour, je suis Jhon Doe</h1>
+          <h2 className="text-light fw-bold text-center px-4 fs-2">Développeur web full stack</h2>
 
-          <button className="btn btn-danger app-btn" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          <button className="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             En savoir plus
           </button>
 
-          <div className="modal-container app-modal__container">
+          <div className="modal-container">
             <UserProfilModal />
           </div>
         </div>
       </div>
-
-      <div className="app-about__container shadow">
-        <ProfilSection />
-        <SkillSection />
+      <div className="mx-3">
+        <div className="container-fluid rounded shadow"> {/*appaboutconainer */}
+          <div className="row p-3 pb-md-5 px-lg-4 ">
+            <ProfilSection />
+            <SkillSection />
+          </div>
+        </div>
       </div>
     </>
   );

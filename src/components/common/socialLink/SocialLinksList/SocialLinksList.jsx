@@ -8,7 +8,7 @@ export function SocialLinksList({ selectedIds }) {
   const filteredCards = useFilteredData(allSocialLinks, selectedIds, 'SocialLink');
 
   return (
-    <div className="app-footer__box--icon">
+    <div className="d-flex gap-2 w-auto h-auto">
       {filteredCards.map((data) => (
         <SocialLink key={data.id} linkData={data} />
       ))}

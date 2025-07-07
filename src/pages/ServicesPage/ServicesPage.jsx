@@ -13,7 +13,7 @@ export default function ServicesPage() {
       </Head>
 
       <BgBanner />
-      <Presentation title="Mon offre de services" description="Voici les prestations sur lequelles je peux intervenir" />
+      <Presentation title="Mon offre de services" description="Voici les prestations sur lesquelles je peux intervenir" />
       <ServiceCardsList selectedIds={['uxdesign', 'dev', 'ref']} />
     </>
   );

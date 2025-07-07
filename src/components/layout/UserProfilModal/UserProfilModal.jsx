@@ -42,8 +42,8 @@ export function UserProfilModal() {
       key: '1',
       iconClass: 'bi-person',
       content: (
-        <Link to={user.html_url} target="_blank" rel="noopener noreferrer" className="app-link">
-          <span className="app-link__item">{user.name}</span>
+        <Link to={user.html_url} target="_blank" rel="noopener noreferrer" >
+          <span>{user.name}</span>
         </Link>
       ),
     },
@@ -70,38 +70,36 @@ export function UserProfilModal() {
     },
   ];
 
-  const commonDivClass = 'app-modal__info-content';
+  // const commonDivClass = 'px-1';
 
   return (
     <div ref={modalRef} className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div className="modal-dialog modal-dialog-centered modal-xl app-modal__dialog">
-        <div className="modal-content app-modal__content">
-          <div className="modal-header app-modal__header">
+      <div className="modal-dialog modal-dialog-centered modal-md modal-lg modal-xl container-fluid"> {/*appmodaldialog*/}
+        <div className="modal-content bg-dark text-light container-fluid">{/*appmodalcontent*/}
+          <div className="modal-header border-secondary">{/*appmodalheader*/}
             <h5 className="modal-title" id="staticBackdropLabel">
               Mon profil GitHub
             </h5>
             <button type="button" className="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-
-          <div className="modal-body app-modal__body">
-            <div className="app-modal__box--image">
-              <img src={user.avatar_url} alt={user.login} className="app-modal__image" />
+          <div className="modal-body p-4 row">{/*appmodalbody*/}
+            <div className="col-12 col-sm-6">{/*app-modal__box--image */}
+              <img src={user.avatar_url} alt={user.login} className="mx-2 img-fluid" />{/*app-modal__image*/}
             </div>
 
-            <div className="app-modal__box--info">
+            <div className="pt-2 mb-4 px-4 col-12 col-sm-6">{/*app-modal__box--info */}
               {paragraphItem.map((item, index) => (
                 <React.Fragment key={item.key}>
-                  <div className={commonDivClass}>
-                    <i className={`bi ${item.iconClass}`}></i>
+                  <div className=""> {/*{commonDivClass}*/}
+                    <i className={`bi ${item.iconClass} me-2`}></i>
                     {item.content}
                   </div>
-                  {index !== paragraphItem.length - 1 && <hr className="app-hr" />}
+                  {index !== paragraphItem.length - 1 && <hr className="my-2" />}{/*app-hr*/}
                 </React.Fragment>
               ))}
             </div>
           </div>
-
-          <div className="modal-footer app-modal__footer">
+          <div className="modal-footer border-secondary">{/*appmodalfooter*/}
             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">
               {' '}
               Fermer{' '}

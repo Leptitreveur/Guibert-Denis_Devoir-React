@@ -11,9 +11,9 @@ function TextProfil() {
   ];
 
   return (
-    <div className="app-profil__box--text">
+    <div className="text-start text-justify pe-2">
       {text.map((msg, index) => (
-        <p key={index} className="app-profil__item">
+        <p key={index} className="">
           {msg}
         </p>
       ))}
@@ -23,10 +23,10 @@ function TextProfil() {
 
 export function ProfilSection() {
   return (
-    <div className="app-profil__container">
+    <div className="col-12 col-md-6">
       <SectionTitle title="A propos" />
-      <div className="app-profil__content">
-        <img src={ProfilPicture} alt="About Jhon Doe" className="app-image__profil" />
+      <div className="">{/*appprofilcontent*/}
+        <img src={ProfilPicture} alt="About Jhon Doe" className="mb-4 object-fit-cover w-100" style={{ aspectRatio: '16/9',}}  />{/*app-image__profil*/}
         <TextProfil />
       </div>
     </div>

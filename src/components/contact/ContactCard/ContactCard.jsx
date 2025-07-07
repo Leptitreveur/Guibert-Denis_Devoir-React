@@ -49,11 +49,11 @@ export const ContactCard = ({ contactData, showIcon = false, toMap = false }) =>
   const mapLink = address1 && address2 && toMap ? `https://www.google.com/maps?q=${encodeURIComponent(address1 + '' + address2)}` : '/ContactPage#map';
 
   // * gestion du context à la condition "est dans le footer" composant dans le footer ==================================================
-  const isFooterField = `${style ? 'app-footer__box app-footer__box--contact' : 'app-card--contact__container'}`;
-  const isFooterLegend = `${style ? 'app-footer__nav-legend' : 'app-card--contact__nav-legend'}`;
-  const isFooterNav = style ? 'app-footer__nav' : null;
-  const isFooterNavItem = `${style ? 'app-footer__nav--item' : 'app-nav__item'}`;
-  const isFooterLink = `${style ? 'app-link--footer' : 'app-link'}`;
+  const isFooterField = `${style ? 'app-footer__box gap-auto' : 'app-card--contact__container'}`;
+  const isFooterLegend = `${style ? 'mb-1 fw-bold' : 'app-card--contact__nav-legend'}`;
+  const isFooterNav = style ? 'mb-3' : null;
+  const isFooterNavItem = style ? 'app-footer__box-link' : 'app-nav__item';
+  const isFooterLink = `${style ? 'app-footer__link overflow-hidden' : 'app-link'}`;
 
   // * Fin de gestion de context ========================================================================================================
 

@@ -10,8 +10,8 @@ export const Navbar = ({ navData }) => {
   const { id, path, name } = navData;
 
   const style = useContext(FooterStyle);
-  const isFooterNavItem = `${style ? 'app-footer__nav-item' : 'app-navbar__nav-item'}`;
-  const isFooterLink = `${style ? 'app-footer__Link' : 'app-navbar__link'}`;
+  const isFooterNavItem = style ? 'app-footer__box-link' : 'app-navbar__nav-item';
+  const isFooterLink = `${style ? 'app-footer__link' : 'text-light text-decoration-none fw-light app-navbar__link--hover'}`;
 
   return (
     <li id={id} className={isFooterNavItem}>

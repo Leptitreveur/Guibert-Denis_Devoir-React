@@ -26,14 +26,14 @@ export default function Header() {
   }, [location.pathname]);
 
   return (
-    <header className="app-header__container">
-      <nav className="navbar navbar-expand-xl navbar-dark bg-dark app-navbar__box" data-bs-theme="dark">
+    <header className="px-3 bg-dark">
+      <nav className="navbar navbar-expand-xl navbar-dark bg-dark text-white  text-uppercase app-navbar__box">
         <div className="container-fluid">
-          <span className="nav-brand app-navbar__brand">
+          <span className="nav-brandcolor-white fs-5">
             <strong>jhon doe</strong>
           </span>
 
-          <button type="button" className="navbar-toggler app-navbar__toggler" aria-controls="navbarNav" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+          <button type="button" className="navbar-toggler border-secondary app-navbar__toggler shadow-none" aria-controls="navbarNav" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon app-navbar__menu-icon"></span>
           </button>
           <NavbarLinksList ref={navbarCollapsibleRef} />

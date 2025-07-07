@@ -10,10 +10,12 @@ export const ServiceCard = ({ cardData }) => {
   const { id, icon, title, text } = cardData;
 
   return (
-    <div id={`${id.replace(/\s+/g, '-').toLowerCase()}`} className="card-body app-card--hover app-card--service__body">
-      <i className={`bi ${icon} card-img-top`}></i>
-      <h2 className="card-title fw-bold">{title}</h2>
-      <p className="card-text">{text}</p>
+    <div className="col-12 col-sm-10 col-md-7 col-lg-3">
+      <div id={`${id.replace(/\s+/g, '-').toLowerCase()}`} className="card-body app-card--hover d-flex flex-column align-items-center h-100  border rounded ">
+        <i className={`bi ${icon} card-img-top m-3 text-primary fs-2 text-center`}></i>
+        <h2 className="card-title fw-bold text-center">{title}</h2>
+        <p className="card-text text-center">{text}</p>
+      </div>
     </div>
   );
 };

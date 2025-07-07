@@ -1,21 +1,6 @@
-.app-header__container {
-  padding: 0rem 1.5rem;
-  background-color: $dark;
-
-  * {
-    text-transform: uppercase;
-  }
-
-  .app-navbar__brand {
-    color: $white;
-    font-size: 1.2rem;
-  }
-
-  .app-navbar__toggler {
-    box-shadow: none;
-
-    &:hover {
-      border: 0.1rem solid $white;
-    }
+.app-navbar__toggler{
+  &:focus{
+    @extend .border-light;
   }
 }
+

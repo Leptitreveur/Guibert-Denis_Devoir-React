@@ -1,0 +1,9 @@
+@for $i from 1 through 100 {
+  .app-w-#{$i}px { width: #{$i}px; }
+  .app-w-#{$i}rem { width: #{$i}rem; }
+  .app-w-#{$i}vw { width: #{$i}vw; }
+  
+  .app-h-#{$i}px { height: #{$i}px; }
+  .app-h-#{$i}rem { height: #{$i}rem; }
+  .app-h-#{$i}vh { height: #{$i}vh; }
+}

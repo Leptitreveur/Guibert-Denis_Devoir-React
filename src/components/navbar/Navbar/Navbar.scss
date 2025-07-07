@@ -1,16 +1,11 @@
 .app-navbar__nav-item {
-  .app-navbar__link {
-    color: $light;
-    font-weight: bold;
-    text-decoration-line: none;
-
-    &:hover {
-      color: $white;
-      text-decoration-line: underline;
-      text-decoration-style: solid;
+  .app-navbar__link--hover:hover {
+    @extend .text-light;
+    @extend .text-decoration-underline;
     }
-  }
+
   .active {
-    text-decoration-line: underline;
+    @extend .text-white;
+    @extend .text-decoration-underline;
   }
 }

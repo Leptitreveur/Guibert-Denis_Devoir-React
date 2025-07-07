@@ -8,7 +8,7 @@ export default function App() {
     <>
       <Header />
 
-      <main className="app-main__outlet-container d-flex flex-column align-items-center justify-content-center pb-5 bg-white">
+      <main className="d-flex flex-column align-items-center justify-content-center h-100 pb-5 bg-white">
         <Outlet />
       </main>
 
