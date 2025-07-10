@@ -42,11 +42,6 @@ addLink({
   path: '/LegalNoticePage',
   name: 'Mentions légales',
 });
-addLink({
-  id: 'Test',
-  path: '/Test',
-  name: 'Test',
-});
 //* FIN D'AJOUT DYNAMIQUE ##################################################################################################
 
 export const getNavbarLinks = (id) => navbarLinks.find((data) => data.id === id);

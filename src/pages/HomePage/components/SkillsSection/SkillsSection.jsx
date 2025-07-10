@@ -1,13 +1,13 @@
 // import './SkillsSection.scss';
 
 import { ProgressbarsList } from 'src/components/progressbar/ProgressbarsList/ProgressbarsList';
-import { SectionTitle } from 'src/components/common/SectionTitle/SectionTitle';
+import { TitleSection } from 'src/components/common/TitleSection/TitleSection';
 
 export const SkillSection = () => {
-  return(
+  return (
     <div className="col-12 col-md-6">
-      <SectionTitle title="Mes compétences" />
+      <TitleSection title="Mes compétences" />
       <ProgressbarsList />
     </div>
-  )
+  );
 };

@@ -10,12 +10,10 @@ export const ServiceCardsList = ({ selectedIds }) => {
   const filteredCards = useFilteredData(allServiceCards, selectedIds, 'ServicesPage');
 
   return (
-    <div className="card container-fluid border-0">
-      <div className="row gy-3 gy-lg-0 justify-content-center">
-        {filteredCards.map((data) => (
-          <ServiceCard key={data.id} cardData={data} />
-        ))}
-      </div>
+    <div className="row row-cols-1 row-cols-md-3">
+          {filteredCards.map((data) => (
+            <ServiceCard key={data.id} cardData={data} />
+          ))}
     </div>
   );
 };

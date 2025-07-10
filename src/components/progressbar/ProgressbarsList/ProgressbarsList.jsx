@@ -10,11 +10,11 @@ export const ProgressbarsList = ({ selectedIds }) => {
   const filteredCards = useFilteredData(allProgressBars, selectedIds, 'Progressbar');
 
   return (
-    <div className="pb-4">
+    <>
       {filteredCards.map((data) => (
         <Progressbar key={data.id} barData={data} />
       ))}
-    </div>
+    </>
   );
 };
 

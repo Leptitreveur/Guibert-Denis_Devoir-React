@@ -1,8 +1,4 @@
-.app-contact__container {
-  display: grid;
-  grid-template: repeat(2, 1fr) / 1fr;
-  height: auto;
-  width: 99vw;
+
 
   .app-contact__section--form,
   .app-contact__section--map {
@@ -49,13 +45,3 @@
       }
     }
   }
-}
-//* ====================================================
-@include media-breakpoint-up(md) {
-  @media screen and (orientation: landscape) {
-    .app-contact__container {
-      grid-template: 1fr / repeat(2, 1fr) !important;
-      width: 85vw;
-    }
-  }
-}

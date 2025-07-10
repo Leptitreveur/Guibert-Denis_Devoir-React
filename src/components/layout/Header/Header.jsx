@@ -3,8 +3,6 @@ import { useLocation } from 'react-router-dom';
 
 import Collapse from 'bootstrap/js/dist/collapse';
 
-// import './Header.scss';
-
 import { NavbarLinksList } from 'src/components/navbar/NavbarLinksList/NavbarLinksList';
 
 export default function Header() {

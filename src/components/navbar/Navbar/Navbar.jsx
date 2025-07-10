@@ -2,8 +2,6 @@ import { PropTypes } from 'prop-types';
 import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 
-// import './Navbar.scss';
-
 import { FooterStyle } from 'src/contexts/FooterContext';
 
 export const Navbar = ({ navData }) => {
@@ -11,7 +9,7 @@ export const Navbar = ({ navData }) => {
 
   const style = useContext(FooterStyle);
   const isFooterNavItem = style ? 'app-footer__box-link' : 'app-navbar__nav-item';
-  const isFooterLink = `${style ? 'app-footer__link' : 'text-light text-decoration-none fw-light app-navbar__link--hover'}`;
+  const isFooterLink = style ? 'app-footer__link' : 'text-custom-gray-300 text-decoration-none fw-light app-navbar__link--hover';
 
   return (
     <li id={id} className={isFooterNavItem}>

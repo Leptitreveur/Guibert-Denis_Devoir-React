@@ -11,7 +11,7 @@ export const SocialLink = ({ linkData }) => {
   const { id, link, icon } = socialIcon;
 
   return (
-    <Link to={link} target="_blank" rel="noopener noreferrer" id={id} className="app-footer__link-icon fs-3 opacity-25">
+    <Link to={link} target="_blank" rel="noopener noreferrer" id={id} className="app-footer__link-icon  text-custom-gray-700 fs-3">
       <i className={`bi ${icon}`}></i>
     </Link>
   );

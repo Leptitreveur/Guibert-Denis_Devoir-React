@@ -1,6 +1,6 @@
 // import './ProfilSection.scss'
 
-import { SectionTitle } from 'src/components/common/SectionTitle/SectionTitle';
+import { TitleSection } from 'src/components/common/TitleSection/TitleSection';
 import ProfilPicture from 'src/assets/images/john-doe-about.jpg';
 
 function TextProfil() {
@@ -24,11 +24,12 @@ function TextProfil() {
 export function ProfilSection() {
   return (
     <div className="col-12 col-md-6">
-      <SectionTitle title="A propos" />
-      <div className="">{/*appprofilcontent*/}
-        <img src={ProfilPicture} alt="About Jhon Doe" className="mb-4 object-fit-cover w-100" style={{ aspectRatio: '16/9',}}  />{/*app-image__profil*/}
+      <TitleSection title="A propos" />
+      <>
+        <img src={ProfilPicture} alt="About Jhon Doe" className="mb-4 object-fit-cover w-100" style={{ aspectRatio: '16/9' }} />
+        {/*app-image__profil*/}
         <TextProfil />
-      </div>
+      </>
     </div>
   );
 }

@@ -10,11 +10,12 @@ export const PortfolioCardsList = ({ selectedIds }) => {
   const filteredCards = useFilteredData(allPortfolioCards, selectedIds, 'PortfolioPage');
 
   return (
-    <div className="app-card--portfolio__container">
-      {filteredCards.map((data) => (
-        <PortfolioCard key={data.id} cardData={data} />
-      ))}
-    </div>
+      <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+        {/* gx-0 gy-3 gx-md-3 */}
+        {filteredCards.map((data) => (
+          <PortfolioCard key={data.id} cardData={data} />
+        ))}
+      </div>
   );
 };
 PortfolioCardsList.propTypes = {

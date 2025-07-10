@@ -29,8 +29,15 @@ export default function PortfolioPage() {
       </Head>
 
       <BgBanner />
-      <Presentation title="Portfolio" description="Voici quelques unes de mes réalisations." />
-      <PortfolioCardsList />
+      <div className="my-3 my-md-4">
+        <div className="container-fluid">
+          <div className="row justify-content-center app-w-sm-80vw">
+            {/* <div className="container-fluid mb-5 app-w-sm-80vw app-w-xl-70vw text-center"> */}
+            <Presentation title="Portfolio" description="Voici quelques unes de mes réalisations." />
+            <PortfolioCardsList />
+          </div>
+        </div>
+      </div>
     </>
   );
 }

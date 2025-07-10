@@ -18,8 +18,8 @@ export function PortfolioLinksList() {
       <legend className="mb-1 fw-bold">Mes dernières réalisations</legend>
       <ul>
         {PortfolioCards.map((data) => (
-          <li key={data.id} className="app-footer__box-link ">
-            <Link to={data.link} target="_blank" rel="noopenner noreferrer">
+          <li key={data.id} className="position-relative app-footer__box-link ">
+            <Link to={data.link} target="_blank" rel="noopenner noreferrer" className="app-footer__link text-custom-gray-300">
               <strong>{data.title}</strong>
             </Link>
           </li>
@@ -33,7 +33,7 @@ export function PortfolioLinksList() {
 export default function Footer({ style = true }) {
   return (
     <footer className="container-fluid p-5 text-white justify-content-centered bg-dark app-footer__container">
-      <div className="row justify-content-start gap-2 justify-content-md-around gap-md-0 flex-md-nowrap">
+      <div className="row row-cols-md-3 justify-content-start gap-2 justify-content-md-around gap-md-0 flex-md-nowrap">
         <FooterStyle.Provider value={style}>
           <ContactCardsList selectedIds={['editor']} />
           <NavbarLinksList />

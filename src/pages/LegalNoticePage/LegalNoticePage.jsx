@@ -18,7 +18,7 @@ export default function LegalNoticePage() {
 
       <>
         <Presentation title="Mentions légales" description={false} />
-        <section className="accordion-container app-accordion__container">
+        <section className="accordion-container app-w-80vw">
           <AccordionItem title="Editeur du site" text={<ContactCardsList selectedIds={['editor']} showIcon={true} />} id="editor" />
 
           <AccordionItem title="Hébergeur" text={<ContactCardsList selectedIds={['host']} showIcon={true} />} id="host" />

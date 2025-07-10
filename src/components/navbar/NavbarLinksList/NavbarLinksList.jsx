@@ -1,8 +1,6 @@
 import { PropTypes } from 'prop-types';
 import { useContext, forwardRef } from 'react';
 
-// import './NavbarLinksList.scss';
-
 import { useFilteredData } from 'src/hooks/useFilteredData';
 import allNavbarLinks from 'src/data/navbarLinks';
 import { FooterStyle } from 'src/contexts/FooterContext';
@@ -12,9 +10,9 @@ export const InnerNavbarLinkList = ({ selectedIds }, ref) => {
   const filteredCards = useFilteredData(allNavbarLinks, selectedIds, 'Navbar');
 
   const style = useContext(FooterStyle);
-  const isFooterNavbar = style ? 'app-footer__box' : 'collapse navbar-collapse';
+  const isFooterNavbar = style ? null : 'collapse navbar-collapse';
   const isFooterId = style ? null : 'navbarNav';
-  const isFooterNav = style ? null : 'navbar-nav ms-auto gap-1';
+  const isFooterNav = style ? null : 'navbar-nav ms-auto gap-2';
 
   return (
     <fieldset className={isFooterNavbar} id={isFooterId} ref={ref}>

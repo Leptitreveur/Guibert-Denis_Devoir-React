@@ -49,11 +49,11 @@ export const ContactCard = ({ contactData, showIcon = false, toMap = false }) =>
   const mapLink = address1 && address2 && toMap ? `https://www.google.com/maps?q=${encodeURIComponent(address1 + '' + address2)}` : '/ContactPage#map';
 
   // * gestion du context à la condition "est dans le footer" composant dans le footer ==================================================
-  const isFooterField = `${style ? 'app-footer__box gap-auto' : 'app-card--contact__container'}`;
-  const isFooterLegend = `${style ? 'mb-1 fw-bold' : 'app-card--contact__nav-legend'}`;
-  const isFooterNav = style ? 'mb-3' : null;
-  const isFooterNavItem = style ? 'app-footer__box-link' : 'app-nav__item';
-  const isFooterLink = `${style ? 'app-footer__link overflow-hidden' : 'app-link'}`;
+  const isFooterField = style ? 'gap-auto' : null;
+  const isFooterLegend = style ? 'mb-1 fw-bold' : 'mb-1';
+  const isFooterNav = style ? 'mb-3' : 'list-unstyled';
+  const isFooterNavItem = style ? 'app-footer__box-link position-relative' : 'app-nav__item';
+  const isFooterLink = style ? 'app-footer__link overflow-hidden' : 'd-block text-black text-decoration-none';
 
   // * Fin de gestion de context ========================================================================================================
 
@@ -64,7 +64,7 @@ export const ContactCard = ({ contactData, showIcon = false, toMap = false }) =>
         {address1 && (
           <li className={isFooterNavItem}>
             <Link to={mapLink} target={toMap ? '_blank' : undefined} rel={toMap ? 'noreferrer noopenner' : undefined} className={isFooterLink}>
-              {showIcon && <i className="bi bi-map"></i>}
+              {showIcon && <i className="bi bi-map pe-2"></i>}
               {address1}
             </Link>
           </li>
@@ -73,7 +73,7 @@ export const ContactCard = ({ contactData, showIcon = false, toMap = false }) =>
         {address2 && country && (
           <li className={isFooterNavItem}>
             <Link to={mapLink} target={toMap ? '_blank' : undefined} rel={toMap ? 'noreferrer noopenner' : undefined} className={isFooterLink}>
-              {showIcon && <i className="bi bi-geo-alt"></i>}
+              {showIcon && <i className="bi bi-geo-alt pe-2"></i>}
               {address2 ? `${address2}, ` : ''} {country}
             </Link>
           </li>
@@ -82,7 +82,7 @@ export const ContactCard = ({ contactData, showIcon = false, toMap = false }) =>
         {phone && (
           <li className={isFooterNavItem}>
             <Link to={`tel:{formatPhoneNumber(phone)}`} className={isFooterLink}>
-              {showIcon && <i className="bi bi-phone"></i>}
+              {showIcon && <i className="bi bi-phone pe-2"></i>}
               {formatPhoneNumber(phone)}
             </Link>
           </li>
@@ -91,7 +91,7 @@ export const ContactCard = ({ contactData, showIcon = false, toMap = false }) =>
         {email && (
           <li className={isFooterNavItem}>
             <Link to={`mailto:{email}`} className={isFooterLink}>
-              {showIcon && <i className="bi bi-envelope-at"></i>}
+              {showIcon && <i className="bi bi-envelope-at pe-2"></i>}
               {email}
             </Link>
           </li>
@@ -100,7 +100,7 @@ export const ContactCard = ({ contactData, showIcon = false, toMap = false }) =>
         {website && (
           <li className={isFooterNavItem}>
             <Link to={website} className={isFooterLink}>
-              {showIcon && <i className="bi bi-globe2 app-icon--bi-globe2"></i>}
+              {showIcon && <i className="bi bi-globe2 pe-2"></i>}
               {extractDomain(website)}
             </Link>
           </li>

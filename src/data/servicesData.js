@@ -32,14 +32,14 @@ addService({
 addService({
   id: 'dev',
   icon: 'bi-code-slash',
-  title: 'Developpement Web',
+  title: 'Développement Web',
   text: 'Le développement de site web consiste à créer des sites internet en utilisant des langages de programmation (HTML, CSS, JavaScript, PHP, etc.) et des frameworks (Bootstrap, React, Angular, etc.)',
 });
 addService({
   id: 'ref',
   icon: 'bi-search',
   title: 'Référencement',
-  text: "Le référencement naturel (SEO) est une technique qui consiste à optimiser un site web pour le faire remonter dans les résultats des moteurs de recherche (Google, Bing, Yahoo, etc.). L'objectif est d'attirer un maximum de visiteurs qualifiés sur le site.",
+  text: "Le référencement naturel (SEO) est une technique qui consiste à optimiser un site web pour le faire remonter dans les résultats des moteurs de recherche (Google, Bing, Yahoo, etc.). L'objectif est d'attiré un maximum de visiteurs qualifiés sur le site.",
 });
 
 // *FIN D'AJOUT DYNAMIQUE ===================================================================================================

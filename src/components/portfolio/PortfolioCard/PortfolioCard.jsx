@@ -1,6 +1,5 @@
 import { PropTypes } from 'prop-types';
-
-// import './PortfolioCard.scss'
+import { Link } from 'react-router-dom';
 
 export const PortfolioCard = ({ cardData }) => {
   if (!cardData) {
@@ -10,32 +9,21 @@ export const PortfolioCard = ({ cardData }) => {
   const { id, src, alt, title, description, tools, link } = cardData;
 
   return (
-    <div className="app-card--portfolio__box app-card--hover">
-      <div id={id} className="app-card--portfolio__box--upper">
-        <div className="app-card--portfolio__box--inner">
-          <div className="app-card--portfolio__box--image">
-            <img src={src} alt={alt} className="app-card--portfolio__image" />
-          </div>
+    <div className="col-12 gx-0 gy-3 gx-md-3">
+        <div id={id} className="card text-center h-100">
+          <img src={src} alt={alt} className="card-img-top object-fit-cover app-h-15.0rem" loading="lazy" />
 
-          <div className="app-text__box--inner">
-            <div>
-              <h2 className="m-2 app-title--2">{title}</h2>
-            </div>
-            <div>
-              <p className="m-1">{description}</p>
-            </div>
+          <div className="card-body">
+            <h2 className="card-title">{title}</h2>
+            <p className="card-text">{description}</p>
+            <Link to={link} target="_blank" rel="norefferer noopenner" className="btn btn-primary" >
+              Voir la page
+            </Link>
+          </div>
+          <div className="card-footer">
+            {tools}
           </div>
         </div>
-        <div className="app-box--btn">
-          <button type="button" className="btn btn-primary m-3" onClick={() => window.open(link, '_blank')}>
-            Voir la page
-          </button>
-        </div>
-      </div>
-
-      <div className="app-card--portfolio__box--lower">
-        <p className="m-0">{tools}</p>
-      </div>
     </div>
   );
 };

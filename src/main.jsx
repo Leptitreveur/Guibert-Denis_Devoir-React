@@ -7,7 +7,6 @@ import 'src/styles/main.scss';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 import App from 'src/App.jsx';
-import Test from '../test/test';
 import HomePage from 'src/pages/HomePage/HomePage.jsx';
 import ServicesPage from 'src/pages/ServicesPage/ServicesPage.jsx';
 import PortfolioPage from 'src/pages/PortfolioPage/PortfolioPage.jsx';
@@ -35,7 +34,6 @@ createRoot(document.getElementById('root')).render(
             <Route path="PortfolioPage" element={<PortfolioPage />} />
             <Route path="ContactPage" element={<ContactPage />} />
             <Route path="LegalNoticePage" element={<LegalNoticePage />} />
-            <Route path="Test" element={<Test />} />
           </Route>
         </Routes>
       </Router>

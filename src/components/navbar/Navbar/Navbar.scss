@@ -1,11 +1,12 @@
 .app-navbar__nav-item {
+  .active {
+    @extend .text-white;
+    @extend .text-decoration-underline;
+  }
+  
   .app-navbar__link--hover:hover {
     @extend .text-light;
     @extend .text-decoration-underline;
     }
 
-  .active {
-    @extend .text-white;
-    @extend .text-decoration-underline;
-  }
 }
