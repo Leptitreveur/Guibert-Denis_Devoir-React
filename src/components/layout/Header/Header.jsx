@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 import Collapse from 'bootstrap/js/dist/collapse';
 
+import { FooterStyle } from 'src/contexts/FooterContext';
 import { NavbarLinksList } from 'src/components/navbar/NavbarLinksList/NavbarLinksList';
 
 export default function Header() {
@@ -27,14 +28,16 @@ export default function Header() {
     <header className="px-3 bg-dark">
       <nav className="navbar navbar-expand-xl navbar-dark bg-dark text-white  text-uppercase app-navbar__box">
         <div className="container-fluid">
-          <span className="nav-brandcolor-white fs-5">
+          <span className="nav-brand fs-5">
             <strong>jhon doe</strong>
           </span>
 
           <button type="button" className="navbar-toggler border-secondary app-navbar__toggler shadow-none" aria-controls="navbarNav" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon app-navbar__menu-icon"></span>
           </button>
-          <NavbarLinksList ref={navbarCollapsibleRef} />
+          <FooterStyle.Provider value = {false}>
+            <NavbarLinksList ref={navbarCollapsibleRef} />
+          </FooterStyle.Provider>
         </div>
       </nav>
     </header>

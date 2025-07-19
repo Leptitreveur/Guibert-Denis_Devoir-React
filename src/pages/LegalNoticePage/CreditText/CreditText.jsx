@@ -30,6 +30,7 @@ export function CreditText() {
   ];
   return (
     <div>
+      <h3 className="fw-bold fs-4">Crédits</h3>
       {text.map((msg, index) => (
         <div key={index}>
           <p>{msg}</p>

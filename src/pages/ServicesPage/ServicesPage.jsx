@@ -1,7 +1,8 @@
 import { Head } from '@unhead/react';
 
+import { PageLayout } from 'src/components/Layout/PageLayout/PageLayout';
 import { BgBanner } from 'src/components/common/BackgroundImage/BackgroundImage';
-import { Presentation } from 'src/components/common/Presentation/Presentation';
+import { TitleLayout } from 'src/components/common/TitleLayout/TitleLayout';
 import { ServiceCardsList } from 'src/components/services/ServiceCardsList/ServiceCardsList';
 
 export default function ServicesPage() {
@@ -11,16 +12,11 @@ export default function ServicesPage() {
         <title>Services</title>
         <meta name="description" content="Page regroupant les services proposés" />
       </Head>
-
-      <BgBanner />
-      <div className="my-3 my-md-4">
-        <div className="container-fluid">
-          <div className="col align-items-center mx-3 app-w-sm-80vw">
-            <Presentation title="Mon offre de services" description="Voici les prestations sur lesquelles je peux intervenir" />
+      <PageLayout beforeContent={<BgBanner />}>
+            <TitleLayout title="Mon offre de services" description="Voici les prestations sur lesquelles je peux intervenir" />
             <ServiceCardsList />
-          </div>
-        </div>
-      </div>
+      </PageLayout>
+  
     </>
   );
 }

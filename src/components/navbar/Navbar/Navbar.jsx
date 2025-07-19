@@ -1,19 +1,15 @@
 import { PropTypes } from 'prop-types';
-import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { FooterStyle } from 'src/contexts/FooterContext';
+import { useFooterStyle } from 'src/hooks/useFooterStyle';
 
 export const Navbar = ({ navData }) => {
   const { id, path, name } = navData;
-
-  const style = useContext(FooterStyle);
-  const isFooterNavItem = style ? 'app-footer__box-link' : 'app-navbar__nav-item';
-  const isFooterLink = style ? 'app-footer__link' : 'text-custom-gray-300 text-decoration-none fw-light app-navbar__link--hover';
+  const style = useFooterStyle();
 
   return (
-    <li id={id} className={isFooterNavItem}>
-      <NavLink to={path} className={isFooterLink}>
+    <li id={id} className={style.getNavLign()}>
+      <NavLink to={path} className={style.getNavLink()}>
         <strong>{name}</strong>
       </NavLink>
     </li>

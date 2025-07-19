@@ -2,8 +2,9 @@ import { useEffect } from 'react';
 import { Head } from '@unhead/react';
 import { useLocation } from 'react-router-dom';
 
+import { PageLayout } from 'src/components/Layout/PageLayout/PageLayout';
 import { BgBanner } from 'src/components/common/BackgroundImage/BackgroundImage';
-import { Presentation } from 'src/components/common/Presentation/Presentation';
+import { TitleLayout } from 'src/components/common/TitleLayout/TitleLayout';
 import { PortfolioCardsList } from 'src/components/portfolio/PortfolioCardsList/PortfolioCardsList';
 
 // //*Scroll vers la realisation sélectionnéee ================================================
@@ -28,16 +29,11 @@ export default function PortfolioPage() {
         <meta name="description" content="Page regroupant les différentes réalisations" />
       </Head>
 
-      <BgBanner />
-      <div className="my-3 my-md-4">
-        <div className="container-fluid">
-          <div className="row justify-content-center app-w-sm-80vw">
-            {/* <div className="container-fluid mb-5 app-w-sm-80vw app-w-xl-70vw text-center"> */}
-            <Presentation title="Portfolio" description="Voici quelques unes de mes réalisations." />
+    <PageLayout beforeContent={<BgBanner />}>
+            <TitleLayout title="Portfolio" description="Voici quelques unes de mes réalisations." />
             <PortfolioCardsList />
-          </div>
-        </div>
-      </div>
+    </PageLayout>
+
     </>
   );
 }

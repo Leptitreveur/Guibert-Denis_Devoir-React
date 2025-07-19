@@ -14,7 +14,7 @@ export const PortfolioCard = ({ cardData }) => {
           <img src={src} alt={alt} className="card-img-top object-fit-cover app-h-15.0rem" loading="lazy" />
 
           <div className="card-body">
-            <h2 className="card-title">{title}</h2>
+            <h2 className="card-title fw-bold">{title}</h2>
             <p className="card-text">{description}</p>
             <Link to={link} target="_blank" rel="norefferer noopenner" className="btn btn-primary" >
               Voir la page

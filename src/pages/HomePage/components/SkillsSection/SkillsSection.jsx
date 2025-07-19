@@ -1,5 +1,3 @@
-// import './SkillsSection.scss';
-
 import { ProgressbarsList } from 'src/components/progressbar/ProgressbarsList/ProgressbarsList';
 import { TitleSection } from 'src/components/common/TitleSection/TitleSection';
 

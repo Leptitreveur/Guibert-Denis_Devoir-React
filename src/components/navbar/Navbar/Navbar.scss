@@ -2,6 +2,7 @@
   .active {
     @extend .text-white;
     @extend .text-decoration-underline;
+    @extend .fw-bold;
   }
   
   .app-navbar__link--hover:hover {

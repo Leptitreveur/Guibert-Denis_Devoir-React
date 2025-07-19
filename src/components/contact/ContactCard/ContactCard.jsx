@@ -1,14 +1,11 @@
 import { PropTypes } from 'prop-types';
-import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
-// import './ContactCard.scss';
-
-import { FooterStyle } from 'src/contexts/FooterContext';
+import { useFooterStyle } from 'src/hooks/useFooterStyle';
 import { SocialLinksList } from 'src/components/common/socialLink/SocialLinksList/SocialLinksList';
 
 export const ContactCard = ({ contactData, showIcon = false, toMap = false }) => {
-  const style = useContext(FooterStyle);
+  const style = useFooterStyle();
 
   if (!contactData || !contactData.id) {
     return null;
@@ -19,7 +16,7 @@ export const ContactCard = ({ contactData, showIcon = false, toMap = false }) =>
   const formatPhoneNumber = (phoneStr) => {
     if (!phoneStr) return '';
 
-    //* Si le numéro commence par "33", ajouter le préfixe "+33" et formattage
+    //* Return a formatted character chain of the phone number if it start with +33 
     if (phoneStr.startsWith('33')) {
       return `+${phoneStr.slice(0, 2)}
                     ${phoneStr.slice(2, 3)}
@@ -48,22 +45,14 @@ export const ContactCard = ({ contactData, showIcon = false, toMap = false }) =>
 
   const mapLink = address1 && address2 && toMap ? `https://www.google.com/maps?q=${encodeURIComponent(address1 + '' + address2)}` : '/ContactPage#map';
 
-  // * gestion du context à la condition "est dans le footer" composant dans le footer ==================================================
-  const isFooterField = style ? 'gap-auto' : null;
-  const isFooterLegend = style ? 'mb-1 fw-bold' : 'mb-1';
-  const isFooterNav = style ? 'mb-3' : 'list-unstyled';
-  const isFooterNavItem = style ? 'app-footer__box-link position-relative' : 'app-nav__item';
-  const isFooterLink = style ? 'app-footer__link overflow-hidden' : 'd-block text-black text-decoration-none';
-
-  // * Fin de gestion de context ========================================================================================================
 
   return (
-    <fieldset id={id.replace(/\s+/g, '-').toLowerCase()} className={isFooterField}>
-      <legend className={isFooterLegend}>{name}</legend>
-      <ul className={isFooterNav}>
+    <fieldset id={id.replace(/\s+/g, '-').toLowerCase()} className={style.getField()} >
+      <legend className={style.getLegend()}>{name}</legend>
+      <ul className={style.getNavList()}>
         {address1 && (
-          <li className={isFooterNavItem}>
-            <Link to={mapLink} target={toMap ? '_blank' : undefined} rel={toMap ? 'noreferrer noopenner' : undefined} className={isFooterLink}>
+          <li className={style.getNavLign()}>
+            <Link to={mapLink} target={toMap ? '_blank' : undefined} rel={toMap ? 'noreferrer noopenner' : undefined} className={style.getNavLink()}>
               {showIcon && <i className="bi bi-map pe-2"></i>}
               {address1}
             </Link>
@@ -71,8 +60,8 @@ export const ContactCard = ({ contactData, showIcon = false, toMap = false }) =>
         )}
 
         {address2 && country && (
-          <li className={isFooterNavItem}>
-            <Link to={mapLink} target={toMap ? '_blank' : undefined} rel={toMap ? 'noreferrer noopenner' : undefined} className={isFooterLink}>
+          <li className={style.getNavLign()}>
+            <Link to={mapLink} target={toMap ? '_blank' : undefined} rel={toMap ? 'noreferrer noopenner' : undefined} className={style.getNavLink()}>
               {showIcon && <i className="bi bi-geo-alt pe-2"></i>}
               {address2 ? `${address2}, ` : ''} {country}
             </Link>
@@ -80,8 +69,8 @@ export const ContactCard = ({ contactData, showIcon = false, toMap = false }) =>
         )}
 
         {phone && (
-          <li className={isFooterNavItem}>
-            <Link to={`tel:{formatPhoneNumber(phone)}`} className={isFooterLink}>
+          <li className={style.getNavLign()}>
+            <Link to={`tel:{formatPhoneNumber(phone)}`} className={style.getNavLink()}>
               {showIcon && <i className="bi bi-phone pe-2"></i>}
               {formatPhoneNumber(phone)}
             </Link>
@@ -89,8 +78,8 @@ export const ContactCard = ({ contactData, showIcon = false, toMap = false }) =>
         )}
 
         {email && (
-          <li className={isFooterNavItem}>
-            <Link to={`mailto:{email}`} className={isFooterLink}>
+          <li className={style.getNavLign()}>
+            <Link to={`mailto:{email}`} className={style.getNavLink()}>
               {showIcon && <i className="bi bi-envelope-at pe-2"></i>}
               {email}
             </Link>
@@ -98,8 +87,8 @@ export const ContactCard = ({ contactData, showIcon = false, toMap = false }) =>
         )}
 
         {website && (
-          <li className={isFooterNavItem}>
-            <Link to={website} className={isFooterLink}>
+          <li className={style.getNavLign()}>
+            <Link to={website} className={style.getNavLink()}>
               {showIcon && <i className="bi bi-globe2 pe-2"></i>}
               {extractDomain(website)}
             </Link>

@@ -1,7 +1,5 @@
 import PropTypes from 'prop-types';
 
-// import './ProgressbarsList.scss';
-
 import { useFilteredData } from 'src/hooks/useFilteredData';
 import allProgressBars from 'src/data/progressbarsData.js';
 import { Progressbar } from 'src/components/progressbar/Progressbar/Progressbar';

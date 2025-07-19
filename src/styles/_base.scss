@@ -8,24 +8,10 @@
   box-sizing: border-box !important;
 }
 
-.app-title--1,
-.app-title--2 {
-  color: $light;
-  opacity: 100%;
-  font-weight: bold;
-  text-align: center;
-  padding: 0rem 2rem;
-}
-
-.app-title--1 {
-  font-size: 2.4rem;
-}
-.app-title--2 {
-  font-size: 2rem;
-}
-.app-title--3 {
-  font-size: 1.3rem;
-  text-transform: uppercase;
+.app-html{
+  @extend .min-vh-100;
+  @extend .min-vw-100;
+  @extend .bg-dark;
 }
 
 .app-card--hover:hover {

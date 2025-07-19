@@ -194,3 +194,10 @@
 .text-custom-gray-900 {
   color: $gray-900 !important;
 }
+
+.app-presentation-title {
+  @extend .text-light;
+  @extend .fw-bold;
+  @extend .text-center;
+  @extend .mx-3;
+}

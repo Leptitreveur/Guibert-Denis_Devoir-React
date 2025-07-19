@@ -1,7 +1,5 @@
 import { PropTypes } from 'prop-types';
 
-// import './Progressbar.scss';
-
 export const Progressbar = ({ barData }) => {
   if (!barData) {
     return null;

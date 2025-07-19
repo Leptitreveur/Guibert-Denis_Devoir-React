@@ -1,22 +1,38 @@
 import { PropTypes } from 'prop-types';
 import { forwardRef, useContext } from 'react';
+import { NavLink } from 'react-router-dom';
 
-import { useFooterStyle } from 'src/hooks/useFooterStyle';
 import allNavbarLinks from 'src/data/navbarLinks';
-import { FooterStyle } from 'src/contexts/FooterContext';
 import { useFilteredData } from 'src/hooks/useFilteredData';
 import { Navbar } from 'src/components/navbar/Navbar/Navbar';
 
-export const InnerNavbarLinkList = ({ selectedIds }, ref) => {
-  const filteredCards = useFilteredData(allNavbarLinks, selectedIds, 'Navbar');
-  const style = useFooterStyle();
-  const isInFooter = useContext(FooterStyle);
-  const legend = isInFooter === true ? <legend className={style.getLegend()}>Liens utiles</legend> : null;
+const Navbar = ({ navData }) => {
+  const { id, path, name } = navData;
 
   return (
-    <fieldset className={`collapse navbar-collapse ${style.getField()}`} id={style.getNavId} ref={ref}>
-      {legend}
-      <ul className={style.getNavList()}>
+    <li id={id} className=''>
+      <NavLink to={path} className=''>
+        <strong>{name}</strong>
+      </NavLink>
+    </li>
+  );
+};
+Navbar.propTypes = {
+  navData: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+  }).isRequired,
+};
+// ======================================================================
+
+export const InnerNavbarLinkList = ({ selectedIds }, ref) => {
+  const filteredCards = useFilteredData(allNavbarLinks, selectedIds, 'Navbar');
+
+  return (
+    <fieldset className='' ref={ref}>
+      <legend className=''>Liens utiles</legend>
+      <ul className=''>
         {filteredCards.map((data) => (
           <Navbar key={data.id} navData={data} />
         ))}

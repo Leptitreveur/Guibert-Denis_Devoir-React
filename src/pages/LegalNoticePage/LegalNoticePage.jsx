@@ -1,9 +1,8 @@
 import { Head } from '@unhead/react';
 
-// import './LegalNoticePage.scss';
-
+import { PageLayout } from 'src/components/Layout/PageLayout/PageLayout';
 import { CreditText } from './CreditText/CreditText';
-import { Presentation } from 'src/components/common/Presentation/Presentation';
+import { TitleLayout } from 'src/components/common/TitleLayout/TitleLayout';
 import { AccordionItem } from 'src/components/common/Accordion/Accordion';
 import { ContactCardsList } from 'src/components/contact/ContactCardsList/ContactCardsList';
 
@@ -15,17 +14,16 @@ export default function LegalNoticePage() {
         <meta name="description" content="Page concernant les mentions légales" />
         <meta name="robots" content="noindex, nofollow" />
       </Head>
-
-      <>
-        <Presentation title="Mentions légales" description={false} />
-        <section className="accordion-container app-w-80vw">
+      <PageLayout>
+        <TitleLayout title="Mentions légales" description={false} />
+        <section className="accordion-container app-w-md-60vw">
           <AccordionItem title="Editeur du site" text={<ContactCardsList selectedIds={['editor']} showIcon={true} />} id="editor" />
 
           <AccordionItem title="Hébergeur" text={<ContactCardsList selectedIds={['host']} showIcon={true} />} id="host" />
 
           <AccordionItem title="Crédit" text={<CreditText />} id="credit" />
         </section>
-      </>
+      </PageLayout>
     </>
   );
 }
