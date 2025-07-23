@@ -2,13 +2,16 @@ import PropTypes from 'prop-types';
 
 import { useFilteredData } from 'src/hooks/useFilteredData';
 import allSocialLinks from 'src/data/socialLinksData.js';
+import { useContextualStyle } from 'src/hooks/useContextualStyle';
+
 import { SocialLink } from 'src/components/common/socialLink/SocialLink/SocialLink';
 
 export function SocialLinksList({ selectedIds }) {
   const filteredCards = useFilteredData(allSocialLinks, selectedIds, 'SocialLink');
+  const style = useContextualStyle();
 
   return (
-    <div className="d-flex gap-2 w-auto h-auto">
+    <div className={style.getSocialBox}>
       {filteredCards.map((data) => (
         <SocialLink key={data.id} linkData={data} />
       ))}

@@ -12,6 +12,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "@unhead/react": "^2.0.10",
+    "awesome-phonenumber": "^7.5.0",
     "bootstrap": "^5.3.5",
     "bootstrap-icons": "^1.13.1",
     "libphonenumber-js": "^1.12.9",

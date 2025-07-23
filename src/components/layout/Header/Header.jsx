@@ -35,7 +35,7 @@ export default function Header() {
           <button type="button" className="navbar-toggler border-secondary app-navbar__toggler shadow-none" aria-controls="navbarNav" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon app-navbar__menu-icon"></span>
           </button>
-          <FooterStyle.Provider value = {false}>
+          <FooterStyle.Provider value={false}>
             <NavbarLinksList ref={navbarCollapsibleRef} />
           </FooterStyle.Provider>
         </div>

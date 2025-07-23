@@ -1,7 +1,10 @@
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
 
+import { useContextualStyle } from 'src/hooks/useContextualStyle';
+
 export const SocialLink = ({ linkData }) => {
+  const style = useContextualStyle();
   if (!linkData) {
     return null;
   }
@@ -11,7 +14,7 @@ export const SocialLink = ({ linkData }) => {
   const { id, link, icon } = socialIcon;
 
   return (
-    <Link to={link} target="_blank" rel="noopener noreferrer" id={id} className="app-footer__link-icon  text-custom-gray-700 fs-3">
+    <Link to={link} target="_blank" rel="noopener noreferrer" id={id} className={style.getSocialLink}>
       <i className={`bi ${icon}`}></i>
     </Link>
   );

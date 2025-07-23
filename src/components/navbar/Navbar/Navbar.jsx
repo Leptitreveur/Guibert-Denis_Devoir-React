@@ -1,11 +1,11 @@
 import { PropTypes } from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
-import { useFooterStyle } from 'src/hooks/useFooterStyle';
+import { useContextualStyle } from 'src/hooks/useContextualStyle';
 
 export const Navbar = ({ navData }) => {
   const { id, path, name } = navData;
-  const style = useFooterStyle();
+  const style = useContextualStyle();
 
   return (
     <li id={id} className={style.getNavLign()}>

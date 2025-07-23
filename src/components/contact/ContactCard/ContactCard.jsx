@@ -1,101 +1,83 @@
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
 
-import { useFooterStyle } from 'src/hooks/useFooterStyle';
+import { FooterStyle } from 'src/contexts/FooterContext';
+import { useContextualStyle } from 'src/hooks/useContextualStyle';
+
+import { formatPhoneNumber } from 'src/utils/phoneFormatter';
+import { extractDomain } from 'src/utils/domainExtractor';
 import { SocialLinksList } from 'src/components/common/socialLink/SocialLinksList/SocialLinksList';
 
-export const ContactCard = ({ contactData, showIcon = false, toMap = false }) => {
-  const style = useFooterStyle();
+export const ContactCard = ({ contactData, toMap = false }) => {
+  // toMap is a boolean that...
+  // icon is a boolean that is here to select wither or not dev wants to sow icons before object
+  const style = useContextualStyle();
+  const isInFooter = useContext(FooterStyle);
 
   if (!contactData || !contactData.id) {
     return null;
   }
 
-  const { id, name, address1, address2, country, phone, email, website } = contactData;
+  const { id, name, address = {}, phoneStr, email, website } = contactData;
+  const { street, postalCode, city, country } = address;
 
-  const formatPhoneNumber = (phoneStr) => {
-    if (!phoneStr) return '';
+  const formattedPhone = formatPhoneNumber(phoneStr);
 
-    //* Return a formatted character chain of the phone number if it start with +33 
-    if (phoneStr.startsWith('33')) {
-      return `+${phoneStr.slice(0, 2)}
-                    ${phoneStr.slice(2, 3)}
-                    ${phoneStr.slice(3, 5)}
-                    ${phoneStr.slice(5, 7)}
-                    ${phoneStr.slice(7, 9)}
-                    ${phoneStr.slice(9)}`;
-    }
+  const mapLink = street && postalCode && city && toMap ? `https://www.google.com/maps?q=${encodeURIComponent(street + '' + postalCode + '' + city)}` : '/ContactPage#map';
 
-    //* Format par défaut : regrouper par paires.
-    //* En prevention: '?.' chaînage optionnel permettant de gérer le cas où la valeur de phoneStr.match() serait null ou undefined pour join. Evite un crash
-    return phoneStr.match(/.{1,2}/g)?.join(' ') || '';
-  };
-
-  // * Redirection vers le points gps dans google map correspondant
-  const extractDomain = (url) => {
-    if (!url) return '';
-    try {
-      const parsedUrl = new URL(url);
-      return parsedUrl.hostname;
-    } catch (error) {
-      console.error("Erreur de parsing d'Url :", error);
-      return url;
-    }
-  };
-
-  const mapLink = address1 && address2 && toMap ? `https://www.google.com/maps?q=${encodeURIComponent(address1 + '' + address2)}` : '/ContactPage#map';
-
+  const toMapAttributes = toMap ? { target: '_blank', rel: 'norefferer nooppenner' } : {};
 
   return (
-    <fieldset id={id.replace(/\s+/g, '-').toLowerCase()} className={style.getField()} >
-      <legend className={style.getLegend()}>{name}</legend>
-      <ul className={style.getNavList()}>
-        {address1 && (
-          <li className={style.getNavLign()}>
-            <Link to={mapLink} target={toMap ? '_blank' : undefined} rel={toMap ? 'noreferrer noopenner' : undefined} className={style.getNavLink()}>
-              {showIcon && <i className="bi bi-map pe-2"></i>}
-              {address1}
-            </Link>
-          </li>
+    <fieldset id={id.replace(/\s+/g, '-').toLowerCase()} className={style.getCardField()}>
+      <legend className={style.getCardLegend()}>{name}</legend>
+      <ul className={style.getCardList()}>
+        {address && (
+          <>
+            <li className={style.getCardLign()}>
+              <Link to={mapLink} {...toMapAttributes} className={style.getCardLink()}>
+                {isInFooter && <i className="bi bi-map pe-2"></i>}
+                {street}
+              </Link>
+            </li>
+            <li className={style.getCardLign()}>
+              <Link to={mapLink} {...toMapAttributes} className={style.getCardLink()}>
+                {isInFooter && <i className="bi bi-geo-alt pe-2"></i>}
+                {postalCode} {city}
+                {country ? `, ${country}` : ''}
+              </Link>
+            </li>
+          </>
         )}
 
-        {address2 && country && (
-          <li className={style.getNavLign()}>
-            <Link to={mapLink} target={toMap ? '_blank' : undefined} rel={toMap ? 'noreferrer noopenner' : undefined} className={style.getNavLink()}>
-              {showIcon && <i className="bi bi-geo-alt pe-2"></i>}
-              {address2 ? `${address2}, ` : ''} {country}
-            </Link>
-          </li>
-        )}
-
-        {phone && (
-          <li className={style.getNavLign()}>
-            <Link to={`tel:{formatPhoneNumber(phone)}`} className={style.getNavLink()}>
-              {showIcon && <i className="bi bi-phone pe-2"></i>}
-              {formatPhoneNumber(phone)}
+        {phoneStr && (
+          <li className={style.getCardLign()}>
+            <Link to={`tel:{formatPhoneNumber(phoneStr)}`} className={style.getCardLink()}>
+              {isInFooter && <i className="bi bi-phone pe-2"></i>}
+              {formattedPhone}
             </Link>
           </li>
         )}
 
         {email && (
-          <li className={style.getNavLign()}>
-            <Link to={`mailto:{email}`} className={style.getNavLink()}>
-              {showIcon && <i className="bi bi-envelope-at pe-2"></i>}
+          <li className={style.getCardLign()}>
+            <Link to={`mailto:{email}`} className={style.getCardLink()}>
+              {isInFooter && <i className="bi bi-envelope-at pe-2"></i>}
               {email}
             </Link>
           </li>
         )}
 
         {website && (
-          <li className={style.getNavLign()}>
-            <Link to={website} className={style.getNavLink()}>
-              {showIcon && <i className="bi bi-globe2 pe-2"></i>}
+          <li className={style.getCardLign()}>
+            <Link to={website} className={style.getCardLink()}>
+              {isInFooter && <i className="bi bi-globe2 pe-2"></i>}
               {extractDomain(website)}
             </Link>
           </li>
         )}
       </ul>
-      <>{style && <SocialLinksList />}</>
+      <>{isInFooter && <SocialLinksList />}</>
     </fieldset>
   );
 };
@@ -104,13 +86,15 @@ ContactCard.propTypes = {
   contactData: PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    address1: PropTypes.string,
-    address2: PropTypes.string,
-    country: PropTypes.string,
-    phone: PropTypes.string,
+    address: PropTypes.shape({
+      street: PropTypes.string,
+      postalCode: PropTypes.string,
+      city: PropTypes.string,
+      country: PropTypes.string,
+    }),
+    phoneStr: PropTypes.string,
     email: PropTypes.string,
     website: PropTypes.string,
   }).isRequired,
-  showIcon: PropTypes.bool,
   toMap: PropTypes.bool,
 };

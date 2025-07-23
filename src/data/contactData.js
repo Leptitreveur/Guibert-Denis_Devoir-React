@@ -10,11 +10,11 @@ const addContact = (data) => {
       return;
     }
 
-    if (data.phone) {
+    if (data.phoneStr) {
       const phoneRegex = /^\d{10}$/;
 
-      if (!phoneRegex.test(data.phone)) {
-        console.log(`Format de numéro de téléphone invalide: "${data.phone}"`);
+      if (!phoneRegex.test(data.phoneStr)) {
+        console.log(`Format de numéro de téléphone invalide: "${data.phoneStr}"`);
         return;
       }
     }
@@ -49,19 +49,25 @@ const addContact = (data) => {
 addContact({
   id: 'editor',
   name: 'Jhon Doe',
-  address1: '40 rue Laure Diebold',
-  address2: '69009 Lyon',
-  country: 'France',
-  phone: '1020304050',
+  address: {
+    street: '40 rue Laure Diebold',
+    postalCode: '69009',
+    city: 'Lyon',
+    country: 'France',
+  },
+  phoneStr: '1020304050',
   email: 'jhon.doe@gmail.com',
 });
 
 addContact({
   id: 'host',
   name: 'alwaysdata',
-  address1: '91 rue du Faubourg Saint-Honoré',
-  address2: '75008 Paris',
-  country: 'France',
+  address: {
+    street: '91 rue du Faubourg Saint-Honoré',
+    postalCode:'75008',
+    city: 'Paris',
+    country: 'France',
+  },
   website: 'https://www.alwaysdata.com/fr/',
 });
 

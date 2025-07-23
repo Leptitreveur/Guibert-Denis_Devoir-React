@@ -5,7 +5,7 @@ export function MapSection() {
   return (
     <section>
       <TitleSection title="Mes coordonnées" />
-      <ContactCardsList selectedIds={['editor']} showIcon={true} />
+      <ContactCardsList selectedIds={['editor']} />
       <iframe
         id="map"
         title="Address"
@@ -15,6 +15,7 @@ export function MapSection() {
                 %20Diebold%2C%2069009%20Lyon!5e0!3m2!1sfr!2sfr!4v1738229729412!5m2!1sfr!2sfr"
         allowFullScreen
         className="object-fit-cover w-100 app-h-31rem"
+        rel='preload prerender'
       ></iframe>
     </section>
   );
