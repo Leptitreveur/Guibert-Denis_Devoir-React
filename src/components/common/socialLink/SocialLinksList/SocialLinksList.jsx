@@ -8,10 +8,10 @@ import { SocialLink } from 'src/components/common/socialLink/SocialLink/SocialLi
 
 export function SocialLinksList({ selectedIds }) {
   const filteredCards = useFilteredData(allSocialLinks, selectedIds, 'SocialLink');
-  const style = useContextualStyle();
+  const { getClassProps } = useContextualStyle();
 
   return (
-    <div className={style.getSocialBox}>
+    <div {...getClassProps('box', 'social')}>
       {filteredCards.map((data) => (
         <SocialLink key={data.id} linkData={data} />
       ))}

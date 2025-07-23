@@ -6,6 +6,8 @@ import Collapse from 'bootstrap/js/dist/collapse';
 import { FooterStyle } from 'src/contexts/FooterContext';
 import { NavbarLinksList } from 'src/components/navbar/NavbarLinksList/NavbarLinksList';
 
+//All styles that are applied to the components in the Provider are in src/hooks/useContextualStyle.js
+
 export default function Header() {
   const navbarCollapsibleRef = useRef(null);
   const location = useLocation();

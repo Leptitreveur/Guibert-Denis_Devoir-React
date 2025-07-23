@@ -5,11 +5,11 @@ import { ContactCardsList } from 'src/components/contact/ContactCardsList/Contac
 import { NavbarLinksList } from 'src/components/navbar/NavbarLinksList/navbarLinksList';
 import {PortfolioLinksList } from 'src/FooterItems/FooterPortfolioLinks'
 
-
+//All styles that are applied to the components in the Provider are in src/hooks/useContextualStyle.js
 export default function Footer() {
   return (
-    <footer className="container-fluid bg-dark text-light">
-      <div className="row row-cols-md-3">
+    <footer className="container-fluid p-5 bg-dark text-light">
+      <div className="row row-cols-md-3 gap-2">
         <FooterStyle.Provider value={true}>
           <ContactCardsList selectedIds={['editor']}/>
           <NavbarLinksList />

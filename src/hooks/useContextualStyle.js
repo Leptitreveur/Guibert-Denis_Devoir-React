@@ -1,38 +1,63 @@
 import { useContext } from 'react';
 import { FooterStyle } from 'src/contexts/FooterContext';
 
-// centralisation des styles généraux et conditionnels du context
+// Styles communs par type
+const commonStyles = {
+  field: { footer: null, default: null },
+  legend: { footer: 'fw-bold', default: null },
+  list: { footer: 'list-unstyled', default: 'navbar-nav list-unstyled py-1' },
+  lign: { footer: 'nav-item', default: 'nav-item' },
+  link: { footer: 'nav-link p-0', default: 'nav-link text-decoration-none p-0' },
+  box: { footer: 'd-flex gap-2 w-auto h-auto', default: null },
+  icon: { footer: 'bi ', default: null },
+};
+
+// Styles spécifiques par sous-type
+const specificStyles = {
+  field: {
+    card: { footer: null, default: null },
+    nav: { footer: null, default: 'collapse navbar-collapse' },
+    portfolio: { footer: null, default: null },
+  },
+  legend: {
+    card: { footer: null, default: null },
+    nav: { footer: null, default: null },
+    portfolio: { footer: null, default: null },
+  },
+  list: {
+    card: { footer: null, default: null },
+    nav: { footer: null, default: 'nav-underline' },
+    portfolio: { footer: null, default: null },
+  },
+  lign: {
+    card: { footer: null, default: null },
+    nav: { footer: null, default: null },
+    portfolio: { footer: null, default: null },
+  },
+  link: {
+    card: { footer: null, default: null },
+    nav: { footer: null, default: null },
+    portfolio: { footer: null, default: null },
+    social: { footer: 'text-custom-gray-700 fs-3 app-footer__socialLink-effect', default: null },
+  },
+  box: {
+    social: { footer: null, default: null },
+  },
+  icon: {
+    social: { footer: null, default: null },
+  },
+};
+
 export const useContextualStyle = () => {
   const isInFooter = useContext(FooterStyle);
 
-  // Ajouter un test afin de retourner une erreur si le contexte pose un problème
-  const getClass = (baseClass, addGlobalClass = '') => {
-    const classes = [baseClass, addGlobalClass].filter(Boolean);
-    return classes.join(' ');
+  const getClassProps = (section, key) => {
+    const common = isInFooter ? commonStyles[section].footer : commonStyles[section].default;
+    const specific = isInFooter ? specificStyles[section][key].footer : specificStyles[section][key].default;
+
+    const classes = [common, specific].filter(Boolean).join(' ');
+    return classes ? { className: classes } : undefined;
   };
 
-  return {
-    getCardField: (addGlobalClass = '') => getClass(isInFooter ? '' : '', addGlobalClass),
-    getNavField: (addGlobalClass = '') => getClass(isInFooter ? '' : 'collapse navbar-collapse', addGlobalClass),
-    getPortfolioField: (addGlobalClass = '') => getClass(isInFooter ? '' : '', addGlobalClass),
-
-    getCardLegend: (addGlobalClass = '') => getClass(isInFooter ? 'mb-1 fw-bold' : '', addGlobalClass),
-    getNavLegend: (addGlobalClass = '') => getClass(isInFooter ? 'mb-1 fw-bold' : '', addGlobalClass),
-    getPortfolioLegend: (addGlobalClass = '') => getClass(isInFooter ? 'mb-1 fw-bold' : '', addGlobalClass),
-
-    getCardList: (addGlobalClass = '') => getClass(isInFooter ? 'nav-underline list-unstyled' : 'navbar-nav list-unstyled', addGlobalClass),
-    getNavList: (addGlobalClass = '') => getClass(isInFooter ? 'nav-underline list-unstyled' : 'navbar-nav list-unstyled', addGlobalClass),
-    getPortfolioList: (addGlobalClass = '') => getClass(isInFooter ? 'nav-underline list-unstyled' : 'navbar-nav list-unstyled', addGlobalClass),
-
-    getCardLign: (addGlobalClass = '') => getClass(isInFooter ? 'nav-item' : 'nav-item', addGlobalClass),
-    getNavLign: (addGlobalClass = '') => getClass(isInFooter ? 'nav-item' : 'nav-item', addGlobalClass),
-    getPortfolioLign: (addGlobalClass = '') => getClass(isInFooter ? 'nav-item' : 'nav-item', addGlobalClass),
-
-    getCardLink: (addGlobalClass = '') => getClass(isInFooter ? 'nav-link' : 'nav-link text-decoration-none ', addGlobalClass),
-    getNavLink: (addGlobalClass = '') => getClass(isInFooter ? 'nav-link' : 'nav-link text-decoration-none ', addGlobalClass),
-    getPortfolioLink: (addGlobalClass = '') => getClass(isInFooter ? 'nav-link' : 'nav-link text-decoration-none ', addGlobalClass),
-
-    getSocialBox: (addGlobalClass = '') => getClass(isInFooter ? 'd-flex gap-2 w-auto h-auto' : '', addGlobalClass),
-    getSocialLink: (addGlobalClass = '') => getClass(isInFooter ? 'app_footer__link-icon text-custom-gray-700 fs-3' : '', addGlobalClass),
-  };
+  return { getClassProps };
 };

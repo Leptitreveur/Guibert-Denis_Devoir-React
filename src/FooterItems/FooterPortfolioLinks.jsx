@@ -4,15 +4,15 @@ import { useContextualStyle } from 'src/hooks/useContextualStyle';
 import PortfolioCards from 'src/data/portfolioData';
 
 export function PortfolioLinksList() {
-  const style = useContextualStyle();
+  const { getClassProps } = useContextualStyle();
 
   return (
-    <fieldset className={style.getPortfolioField()}>
-      <legend className={style.getPortfolioLegend()}>Mes dernières réalisations</legend>
-      <ul className={style.getPortfolioList()}>
+    <fieldset {...getClassProps('field', 'portfolio')}>
+      <legend {...getClassProps('legend', 'portfolio')}>Mes dernières réalisations</legend>
+      <ul {...getClassProps('list', 'portfolio')}>
         {PortfolioCards.map((data) => (
-          <li key={data.id} className={style.getPortfolioLign()}>
-            <Link to={data.link} target="_blank" rel="noopenner noreferrer" className={style.getPortfolioLink()}>
+          <li key={data.id} {...getClassProps('lign', 'portfolio')}>
+            <Link to={data.link} target="_blank" rel="noopenner noreferrer" {...getClassProps('link', 'portfolio')}>
               <strong>{data.title}</strong>
             </Link>
           </li>

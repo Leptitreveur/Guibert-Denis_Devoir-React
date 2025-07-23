@@ -5,11 +5,11 @@ import { useContextualStyle } from 'src/hooks/useContextualStyle';
 
 export const Navbar = ({ navData }) => {
   const { id, path, name } = navData;
-  const style = useContextualStyle();
+  const { getClassProps } = useContextualStyle();
 
   return (
-    <li id={id} className={style.getNavLign()}>
-      <NavLink to={path} className={style.getNavLink()}>
+    <li id={id} {...getClassProps('lign', 'nav')}>
+      <NavLink to={path} {...getClassProps('link', 'nav')}>
         <strong>{name}</strong>
       </NavLink>
     </li>

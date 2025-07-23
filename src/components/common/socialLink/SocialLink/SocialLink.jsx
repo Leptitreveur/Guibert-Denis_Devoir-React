@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useContextualStyle } from 'src/hooks/useContextualStyle';
 
 export const SocialLink = ({ linkData }) => {
-  const style = useContextualStyle();
+  const { getClassProps } = useContextualStyle();
   if (!linkData) {
     return null;
   }
@@ -14,8 +14,8 @@ export const SocialLink = ({ linkData }) => {
   const { id, link, icon } = socialIcon;
 
   return (
-    <Link to={link} target="_blank" rel="noopener noreferrer" id={id} className={style.getSocialLink}>
-      <i className={`bi ${icon}`}></i>
+    <Link to={link} target="_blank" rel="noopener noreferrer" id={id} {...getClassProps('link', 'social')}>
+      <i className={`${getClassProps('icon', 'social')?.className || ''} ${icon}`}></i>
     </Link>
   );
 };
