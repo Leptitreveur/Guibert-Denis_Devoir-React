@@ -5,8 +5,9 @@ import { TitleLayout } from 'src/components/common/TitleLayout/TitleLayout';
 import { MapSection } from 'src/components/MapSection/MapSection';
 import { FormSection } from 'src/components/FormSection/FormSection';
 
-export default function ContactPage() {
+/** Page de contact avec formulaire et carte Google Maps.*/
 
+export default function ContactPage() {
   return (
     <>
       <Head>

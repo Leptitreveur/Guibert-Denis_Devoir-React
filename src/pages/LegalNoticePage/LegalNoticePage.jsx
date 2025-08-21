@@ -6,6 +6,8 @@ import { TitleLayout } from 'src/components/common/TitleLayout/TitleLayout';
 import { AccordionItem } from 'src/components/common/Accordion/Accordion';
 import { ContactCardsList } from 'src/components/contact/ContactCardsList/ContactCardsList';
 
+/**Mentions légales avec sections en accordéon. Noindex/nofollow.*/
+
 export default function LegalNoticePage() {
   return (
     <>
@@ -16,7 +18,7 @@ export default function LegalNoticePage() {
       </Head>
       <PageLayout>
         <TitleLayout title="Mentions légales" description={false} />
-        <section className="accordion-container app-w-md-60vw">
+        <section className="accordion-container">
           <AccordionItem title="Editeur du site" text={<ContactCardsList selectedIds={['editor']} />} id="editor" />
 
           <AccordionItem title="Hébergeur" text={<ContactCardsList selectedIds={['host']} />} id="host" />

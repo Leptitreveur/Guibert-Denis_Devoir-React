@@ -1,13 +1,21 @@
+/** Gestion des données de services
+ * Permet d'ajouter des services avec validation des champs requis
+ */
+
 const serviceCard = [];
 
 const requiredFields = ['id', 'icon', 'title', 'text'];
 
+/**Ajoute un service avec validation des données
+ * @param {Object} data - Données du service à ajouter
+ */
 const addService = (data) => {
   const serviceData = {};
 
-  for (const field of requiredFields) {
-    // * Début de validation des données ==================================================================================
+  // * Début de validation des données ==================================================================================
 
+  // Validation des champs requis
+  for (const field of requiredFields) {
     if (data[field] === undefined || data[field] === null) {
       console.warn(`Incomplete data value passed to add service. Missed value: "${field}"`);
       return;
@@ -32,7 +40,7 @@ addService({
 addService({
   id: 'dev',
   icon: 'bi-code-slash',
-  title: 'Développement Web',
+  title: 'Développement web',
   text: 'Le développement de site web consiste à créer des sites internet en utilisant des langages de programmation (HTML, CSS, JavaScript, PHP, etc.) et des frameworks (Bootstrap, React, Angular, etc.)',
 });
 addService({
@@ -44,6 +52,10 @@ addService({
 
 // *FIN D'AJOUT DYNAMIQUE ===================================================================================================
 
+/**Récupère un service par son ID
+ * @param {string} id - ID du service à récupérer
+ * @returns {Object|null} Le service trouvé ou null
+ */
 export const getServices = (id) => serviceCard.find((data) => data.id === id);
 
 //* exportation faite du tableau une fois rempli

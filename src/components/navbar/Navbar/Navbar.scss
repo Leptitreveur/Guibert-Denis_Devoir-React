@@ -1,13 +1,17 @@
-.app-navbar__nav-item {
-  .active {
-    @extend .text-white;
-    @extend .text-decoration-underline;
-    @extend .fw-bold;
-  }
-  
-  .app-navbar__link--hover:hover {
-    @extend .text-light;
-    @extend .text-decoration-underline;
-    }
+/* Styles pour la navigation */
 
+/* État actif des liens de navigation */
+.nav-item {
+  .active {
+    color: $white !important;
+    @extend .fw-bold;
+    text-decoration: underline !important;
+    text-decoration-thickness: 2px !important;
+    text-underline-offset: 2px !important;
+  }
+
+  /* Effet de survol sur les liens */
+  .app-navbar__link--hover:hover {
+    color: $white !important;
+  }
 }

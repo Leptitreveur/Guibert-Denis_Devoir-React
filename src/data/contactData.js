@@ -1,7 +1,14 @@
+/** Gestion des données de contact avec validation
+ * Permet d'ajouter des contacts avec validation des champs requis et formats
+ */
+
 const contactCards = [];
 
 const requiredFields = ['id', 'name'];
 
+/** Ajoute un contact avec validation des données
+ * @param {Object} data - Données du contact à ajouter
+ */
 const addContact = (data) => {
   // *Début de la validation ============================================================================================
   for (const field of requiredFields) {
@@ -10,6 +17,7 @@ const addContact = (data) => {
       return;
     }
 
+    // Validation du format du numéro de téléphone
     if (data.phoneStr) {
       const phoneRegex = /^\d{10}$/;
 
@@ -19,6 +27,7 @@ const addContact = (data) => {
       }
     }
 
+    // Validation du format de l'email
     if (data.email) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(data.email)) {
@@ -27,11 +36,12 @@ const addContact = (data) => {
       }
     }
 
+    // Validation du format de l'URL du site web
     if (data.website) {
       try {
         new URL(data.website);
         //! la ligne de commentaire qui suit demande au linter d'ignoer l'avertissement concernant le paramètre reçu par catch.
-        // ! catch(_) convention de nommage pour signaler que je n'ai pas besoin de détail sur cette erreur
+        //! catch(_) convention de nommage pour signaler que je n'ai pas besoin de détail sur cette erreur
         // eslint-disable-next-line no-unused-vars
       } catch (_) {
         console.warn(`Format de l'Url invalide pour le contact "${data.id}". Url reçu : "${data.website}".`);
@@ -46,6 +56,7 @@ const addContact = (data) => {
 
 //* AJOUT DYNAMIQUE DE CONTACT ========================================================================================
 
+// Contact de l'éditeur du site
 addContact({
   id: 'editor',
   name: 'Jhon Doe',
@@ -59,12 +70,13 @@ addContact({
   email: 'jhon.doe@gmail.com',
 });
 
+// Contact de l'hébergeur
 addContact({
   id: 'host',
   name: 'alwaysdata',
   address: {
     street: '91 rue du Faubourg Saint-Honoré',
-    postalCode:'75008',
+    postalCode: '75008',
     city: 'Paris',
     country: 'France',
   },
@@ -73,6 +85,11 @@ addContact({
 
 // *FIN D'AJOUT DYNAMIQUE ============================================================================================
 
+/**
+ * Récupère un contact par son ID
+ * @param {string} id - ID du contact à récupérer
+ * @returns {Object|null} Le contact trouvé ou null
+ */
 export const getContacts = (id) => contactCards.find((contact) => contact.id === id);
 
 export default contactCards;

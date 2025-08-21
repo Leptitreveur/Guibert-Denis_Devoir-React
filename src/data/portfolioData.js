@@ -1,20 +1,29 @@
+/**Gestion des données du portfolio avec validation
+ * Permet d'ajouter des réalisations avec validation des champs et des images
+ */
+
 import PortfolioImages from 'src/data/portfolioImages';
 
 const portfolioCards = [];
 
 const requiredFields = ['id', 'alt', 'title', 'description', 'tools', 'link'];
 
+/**Ajoute une réalisation au portfolio avec validation complète
+ * @param {Object} data - Données de la réalisation à ajouter
+ */
 const addPortfolio = (data) => {
   const { id } = data;
 
   // * Début de validation des données ============================================================================================
   let idErrors = [];
 
+  // Validation de l'ID
   if (!id || typeof id !== 'string') {
     console.warn(`Validation échouée: L'ID est manquant ou n'est pas une chaîne de caractères.`);
     return;
   }
 
+  // Validation du format de l'ID (minuscules, pas de caractères spéciaux)
   if (!/^[a-z0-9]+$/.test(id)) {
     idErrors.push('doit être en minuscules et sans caractères spéciaux (snake_case ou kebab-case non autorisés ici pour simplifier).');
   }
@@ -24,11 +33,13 @@ const addPortfolio = (data) => {
     return;
   }
 
+  // Vérification de l'existence de l'image correspondante
   if (!PortfolioImages[id]) {
     console.warn(`Validation échouée: Aucune image trouvée pour l'ID "${id}". Vérifiez que l'ID existe dans portfolioImages.js.`);
     return;
   }
 
+  // Validation des champs requis
   for (const field of requiredFields) {
     if (data[field] === undefined || data[field] === null) {
       console.warn(`Validation échouée: Le champ requis "${field}" est manquant pour le projet ID "${id}".`);
@@ -36,6 +47,8 @@ const addPortfolio = (data) => {
     }
   }
   // * Fin de validation ==========================================================================================================
+
+  // Formatage des données avec l'image correspondante
   const formattedData = {
     id: data.id,
     src: PortfolioImages[data.id],
@@ -100,6 +113,10 @@ addPortfolio({
 });
 // *FIN D'AJOUT DYNAMIQUE #######################################################################################################
 
+/**Récupère une réalisation par son ID
+ * @param {string} id - ID de la réalisation à récupérer
+ * @returns {Object|null} La réalisation trouvée ou null
+ */
 export const getPortfolioCards = (id) => portfolioCards.find((data) => data.id === id);
 
 //* exportation faite du tableau une fois rempli

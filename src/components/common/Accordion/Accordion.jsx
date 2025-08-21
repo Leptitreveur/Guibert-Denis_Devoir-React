@@ -3,9 +3,15 @@ import { useEffect, useRef } from 'react';
 
 import Collapse from 'bootstrap/js/dist/collapse';
 
+/**Élément d'accordéon Bootstrap avec titre et contenu collapsible.
+ * @param {string} title - Titre de l'accordéon
+ * @param {ReactNode} text - Contenu de l'accordéon
+ * @param {string} id - Identifiant unique
+ */
 export function AccordionItem({ title, text, id }) {
   const collapseRef = useRef(null);
 
+  // Initialisation du collapse Bootstrap
   useEffect(() => {
     if (collapseRef.current) {
       new Collapse(collapseRef.current, {
@@ -22,6 +28,7 @@ export function AccordionItem({ title, text, id }) {
             {title}
           </button>
         </h2>
+        {/* Contenu collapsible de l'accordéon */}
         <div id={`collapse${id}`} ref={collapseRef} className="accordion-collapse collapse">
           <div className="accordion-body">{text}</div>
         </div>

@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import { useContextualStyle } from 'src/hooks/useContextualStyle';
 import PortfolioCards from 'src/data/portfolioData';
 
+/** Liste des liens vers les réalisations dans le footer.
+ * Affiche les titres des projets avec liens externes.
+ */
 export function PortfolioLinksList() {
   const { getClassProps } = useContextualStyle();
 

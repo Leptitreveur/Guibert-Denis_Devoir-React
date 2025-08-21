@@ -1,3 +1,6 @@
+/* Styles pour l'accordéon Bootstrap
+ * Supprime les bordures arrondies pour créer un effet de continuité entre les éléments
+ */
 .accordion:first-of-type * {
   border-bottom-left-radius: 0px !important ;
   border-bottom-right-radius: 0px !important;

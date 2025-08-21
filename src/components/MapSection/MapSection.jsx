@@ -1,6 +1,8 @@
 import { TitleSection } from 'src/components/common/TitleSection/TitleSection';
 import { ContactCardsList } from 'src/components/contact/ContactCardsList/ContactCardsList';
 
+/**Section contact avec coordonnées et carte Google Maps intégrée.*/
+
 export function MapSection() {
   return (
     <section>
@@ -15,7 +17,7 @@ export function MapSection() {
                 %20Diebold%2C%2069009%20Lyon!5e0!3m2!1sfr!2sfr!4v1738229729412!5m2!1sfr!2sfr"
         allowFullScreen
         className="object-fit-cover w-100 app-h-31rem"
-        rel='preload prerender'
+        rel="preload prerender"
       ></iframe>
     </section>
   );

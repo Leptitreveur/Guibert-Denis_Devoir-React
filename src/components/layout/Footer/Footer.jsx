@@ -3,15 +3,17 @@ import { PropTypes } from 'prop-types';
 import { FooterStyle } from 'src/contexts/FooterContext';
 import { ContactCardsList } from 'src/components/contact/ContactCardsList/ContactCardsList';
 import { NavbarLinksList } from 'src/components/navbar/NavbarLinksList/navbarLinksList';
-import {PortfolioLinksList } from 'src/FooterItems/FooterPortfolioLinks'
+import { PortfolioLinksList } from 'src/FooterItems/FooterPortfolioLinks';
 
-//All styles that are applied to the components in the Provider are in src/hooks/useContextualStyle.js
+/**Pied de page: contacts, navigation, liens de portfolio.
+ * Utilise FooterStyle.Provider pour styles contextuels.
+ */
 export default function Footer() {
   return (
     <footer className="container-fluid p-5 bg-dark text-light">
-      <div className="row row-cols-md-3 gap-2">
+      <div className="row row-cols-md-4  row-gap-2 column-gap-5 justify-content-center">
         <FooterStyle.Provider value={true}>
-          <ContactCardsList selectedIds={['editor']}/>
+          <ContactCardsList selectedIds={['editor']} />
           <NavbarLinksList />
           <PortfolioLinksList />
         </FooterStyle.Provider>

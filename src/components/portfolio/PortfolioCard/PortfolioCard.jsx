@@ -1,6 +1,8 @@
 import { PropTypes } from 'prop-types';
-import { Link } from 'react-router-dom';
 
+/**Carte de réalisation avec image, description et lien vers le projet.
+ * @param {Object} cardData - Données de la réalisation
+ */
 export const PortfolioCard = ({ cardData }) => {
   if (!cardData) {
     return null;
@@ -10,20 +12,18 @@ export const PortfolioCard = ({ cardData }) => {
 
   return (
     <div className="col-12 gx-0 gy-3 gx-md-3">
-        <div id={id} className="card text-center h-100">
-          <img src={src} alt={alt} className="card-img-top object-fit-cover app-h-15.0rem" loading="lazy" />
+      <div id={id} className="card text-center h-100 app-card--hover">
+        <img src={src} alt={alt} className="card-img-top object-fit-cover app-h-15rem" loading="lazy" />
 
-          <div className="card-body">
-            <h2 className="card-title fw-bold">{title}</h2>
-            <p className="card-text">{description}</p>
-            <Link to={link} target="_blank" rel="norefferer noopenner" className="btn btn-primary" >
-              Voir la page
-            </Link>
-          </div>
-          <div className="card-footer">
-            {tools}
-          </div>
+        <div className="card-body">
+          <h2 className="card-title fw-bold">{title}</h2>
+          <p className="card-text">{description}</p>
+          <a href={link} target="_blank" rel="norefferer noopenner" className="btn btn-primary">
+            Voir la page
+          </a>
         </div>
+        <div className="card-footer">{tools}</div>
+      </div>
     </div>
   );
 };

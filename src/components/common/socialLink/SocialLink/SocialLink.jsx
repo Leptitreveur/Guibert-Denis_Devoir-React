@@ -1,10 +1,15 @@
 import { PropTypes } from 'prop-types';
-import { Link } from 'react-router-dom';
 
 import { useContextualStyle } from 'src/hooks/useContextualStyle';
 
+/* Affiche un lien vers un profil social avec icône et styles contextuels.
+  @param {Object} linkData - { id, link, icon }
+  @returns {JSX.Element|null}
+ */
 export const SocialLink = ({ linkData }) => {
   const { getClassProps } = useContextualStyle();
+
+  // Garde-fou: aucun rendu si aucunes données
   if (!linkData) {
     return null;
   }
@@ -14,9 +19,9 @@ export const SocialLink = ({ linkData }) => {
   const { id, link, icon } = socialIcon;
 
   return (
-    <Link to={link} target="_blank" rel="noopener noreferrer" id={id} {...getClassProps('link', 'social')}>
+    <a href={link} target="_blank" rel="noopener noreferrer" id={id} {...getClassProps('link', 'social')}>
       <i className={`${getClassProps('icon', 'social')?.className || ''} ${icon}`}></i>
-    </Link>
+    </a>
   );
 };
 

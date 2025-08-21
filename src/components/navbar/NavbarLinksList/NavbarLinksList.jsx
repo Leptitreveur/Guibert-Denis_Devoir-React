@@ -8,11 +8,16 @@ import { useFilteredData } from 'src/hooks/useFilteredData';
 
 import { Navbar } from 'src/components/navbar/Navbar/Navbar';
 
+/**  Liste de liens de navigation avec filtrage et adaptation selon le contexte.
+ * @param {string[]} selectedIds - IDs des liens à afficher
+ * @param {React.Ref} ref - Référence pour le collapse Bootstrap
+ */
 export const InnerNavbarLinkList = ({ selectedIds }, ref) => {
   const filteredCards = useFilteredData(allNavbarLinks, selectedIds, 'Navbar');
   const { getClassProps } = useContextualStyle();
   const isInFooter = useContext(FooterStyle);
 
+  // Adaptation selon le contexte
   const footerLegend = isInFooter ? <legend {...getClassProps('legend', 'nav')}>Liens utiles</legend> : null;
   const contextualId = isInFooter ? null : 'navbarNav';
 

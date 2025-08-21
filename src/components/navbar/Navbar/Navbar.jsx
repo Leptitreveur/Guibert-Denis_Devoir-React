@@ -3,6 +3,9 @@ import { NavLink } from 'react-router-dom';
 
 import { useContextualStyle } from 'src/hooks/useContextualStyle';
 
+/**Élément de navigation individuel avec lien et styles contextuels.
+ * @param {Object} navData - { id, path, name }
+ */
 export const Navbar = ({ navData }) => {
   const { id, path, name } = navData;
   const { getClassProps } = useContextualStyle();

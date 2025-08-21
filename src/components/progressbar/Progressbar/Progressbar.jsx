@@ -1,5 +1,8 @@
 import { PropTypes } from 'prop-types';
 
+/** Barre de progression Bootstrap avec titre et pourcentage.
+ * @param {Object} barData - { id, title, percent, color }
+ */
 export const Progressbar = ({ barData }) => {
   if (!barData) {
     return null;
@@ -18,6 +21,7 @@ export const Progressbar = ({ barData }) => {
     </div>
   );
 };
+
 Progressbar.propTypes = {
   barData: PropTypes.shape({
     id: PropTypes.string.isRequired,

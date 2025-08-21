@@ -1,30 +1,30 @@
-import { Link } from 'react-router-dom';
+/**Crédits et attributions: liens sources (images, favicon, etc.).*/
 
 export function CreditText() {
   const text = [
     <>
       Ce site a été réalisé par Jhon Doe, étudiant au{' '}
-      <Link to="https:www.centre-europeen-formation.fr/" target="_blank">
+      <a href="https:www.centre-europeen-formation.fr/" target="_blank">
         {' '}
         Centre Européen de formation
-      </Link>
+      </a>
     </>,
     <>
       Les images utilisées sur ce site sont libres de droit et ont été obtenues sur le site{' '}
-      <Link to="https:pixabay.com/fr/" rel="noreferrer" target="_blank">
+      <a href="https:pixabay.com/fr/" rel="noreferrer noopenner" target="_blank">
         Pixabay
-      </Link>
+      </a>
     </>,
     <>
       La favicon de ce site Link été fournie par{' '}
-      <Link to="https:www.flaticon.com/de/kostenlose-icons/john-doe" rel="noreferrer" target="_blank">
+      <a href="https:www.flaticon.com/de/kostenlose-icons/john-doe" rel="noreferrer noopenner" target="_blank">
         Jhon Doe icons erstellt von Freepik - Flaticon{' '}
-      </Link>
+      </a>
       et la conversion des images sur{' '}
-      <Link to="{https:favicon.io/favicon-converter/}" rel="noreferrer" target="_blank">
+      <a href="https:favicon.io/favicon-converter/" rel="noreferrer noopenner" target="_blank">
         {' '}
         favicon.io
-      </Link>
+      </a>
       .
     </>,
   ];

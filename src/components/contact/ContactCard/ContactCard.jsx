@@ -9,10 +9,14 @@ import { formatPhoneNumber } from 'src/utils/phoneFormatter';
 import { extractDomain } from 'src/utils/domainExtractor';
 import { SocialLinksList } from 'src/components/common/socialLink/SocialLinksList/SocialLinksList';
 
+/**Affiche les informations de contact (adresse, téléphone, email, site),
+ * adapte les styles selon le contexte (footer ou non) et gère les liens Maps.
+ * @param {Object} contactData
+ * @param {boolean} toMap - active l'ouverture Maps pour l'adresse
+ */
 export const ContactCard = ({ contactData, toMap = false }) => {
-  // toMap is a boolean that...
-  // icon is a boolean that is here to select wither or not dev wants to sow icons before object
   const { getClassProps } = useContextualStyle();
+
   const isInFooter = useContext(FooterStyle);
   const isNotInFooter = !useContext(FooterStyle);
 
@@ -25,14 +29,17 @@ export const ContactCard = ({ contactData, toMap = false }) => {
 
   const formattedPhone = formatPhoneNumber(phoneStr);
 
+  // Construction du lien Maps (externe) ou fallback interne
   const mapLink = street && postalCode && city && toMap ? `https://www.google.com/maps?q=${encodeURIComponent(street + '' + postalCode + '' + city)}` : '/ContactPage#map';
 
+  // Attributs externes si toMap actif
   const toMapAttributes = toMap ? { target: '_blank', rel: 'norefferer nooppenner' } : {};
 
   return (
     <fieldset id={id.replace(/\s+/g, '-').toLowerCase()} {...getClassProps('field', 'card')}>
       <legend {...getClassProps('legend', 'card')}>{name}</legend>
       <ul {...getClassProps('list', 'card')}>
+        {/* Section adresse → liens vers Maps */}
         {address && (
           <>
             <li {...getClassProps('lign', 'card')}>
@@ -51,6 +58,7 @@ export const ContactCard = ({ contactData, toMap = false }) => {
           </>
         )}
 
+        {/* Téléphone: format d'affichage + lien tel: */}
         {phoneStr && (
           <li {...getClassProps('lign', 'card')}>
             <Link to={`tel:{formatPhoneNumber(phoneStr)}`} {...getClassProps('link', 'card')}>
@@ -60,6 +68,7 @@ export const ContactCard = ({ contactData, toMap = false }) => {
           </li>
         )}
 
+        {/* Email: lien mailto: */}
         {email && (
           <li {...getClassProps('lign', 'card')}>
             <Link to={`mailto:{email}`} {...getClassProps('link', 'card')}>
@@ -69,6 +78,7 @@ export const ContactCard = ({ contactData, toMap = false }) => {
           </li>
         )}
 
+        {/* Site web: affichage du domaine */}
         {website && (
           <li {...getClassProps('lign', 'card')}>
             <Link to={website} {...getClassProps('link', 'card')}>
@@ -78,6 +88,8 @@ export const ContactCard = ({ contactData, toMap = false }) => {
           </li>
         )}
       </ul>
+
+      {/* Affichage des liens sociaux si utilisé dans le footer */}
       <>{isInFooter && <SocialLinksList />}</>
     </fieldset>
   );
