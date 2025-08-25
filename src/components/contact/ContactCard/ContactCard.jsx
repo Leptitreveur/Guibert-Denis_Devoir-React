@@ -27,13 +27,14 @@ export const ContactCard = ({ contactData, toMap = false }) => {
   const { id, name, address = {}, phoneStr, email, website } = contactData;
   const { street, postalCode, city, country } = address;
 
-  const formattedPhone = formatPhoneNumber(phoneStr);
+  // Formatage du téléphone avec le pays depuis l'adresse
+  const formattedPhone = phoneStr ? formatPhoneNumber(phoneStr, country) : null;
 
   // Construction du lien Maps (externe) ou fallback interne
-  const mapLink = street && postalCode && city && toMap ? `https://www.google.com/maps?q=${encodeURIComponent(street + '' + postalCode + '' + city)}` : '/ContactPage#map';
+  const mapLink = street && postalCode && city && toMap ? `https://www.google.com/maps?q=${encodeURIComponent(street + ' ' + postalCode + ' ' + city)}` : '/ContactPage#map';
 
   // Attributs externes si toMap actif
-  const toMapAttributes = toMap ? { target: '_blank', rel: 'norefferer nooppenner' } : {};
+  const toMapAttributes = toMap ? { target: '_blank', rel: 'noreferrer noopener' } : {};
 
   return (
     <fieldset id={id.replace(/\s+/g, '-').toLowerCase()} {...getClassProps('field', 'card')}>
@@ -59,9 +60,9 @@ export const ContactCard = ({ contactData, toMap = false }) => {
         )}
 
         {/* Téléphone: format d'affichage + lien tel: */}
-        {phoneStr && (
+        {formattedPhone && (
           <li {...getClassProps('lign', 'card')}>
-            <Link to={`tel:{formatPhoneNumber(phoneStr)}`} {...getClassProps('link', 'card')}>
+            <Link to={`tel:${formattedPhone}`} {...getClassProps('link', 'card')}>
               {isNotInFooter && <i className="bi bi-phone pe-2"></i>}
               {formattedPhone}
             </Link>
@@ -71,7 +72,7 @@ export const ContactCard = ({ contactData, toMap = false }) => {
         {/* Email: lien mailto: */}
         {email && (
           <li {...getClassProps('lign', 'card')}>
-            <Link to={`mailto:{email}`} {...getClassProps('link', 'card')}>
+            <Link to={`mailto:${email}`} {...getClassProps('link', 'card')}>
               {isNotInFooter && <i className="bi bi-envelope-at pe-2"></i>}
               {email}
             </Link>
@@ -81,10 +82,10 @@ export const ContactCard = ({ contactData, toMap = false }) => {
         {/* Site web: affichage du domaine */}
         {website && (
           <li {...getClassProps('lign', 'card')}>
-            <Link to={website} {...getClassProps('link', 'card')}>
+            <link href={website} target="_blank" rel="noreferrer noopener" {...getClassProps('link', 'card')}>
               {isNotInFooter && <i className="bi bi-globe2 pe-2"></i>}
               {extractDomain(website)}
-            </Link>
+            </link>
           </li>
         )}
       </ul>

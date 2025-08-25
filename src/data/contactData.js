@@ -2,6 +2,9 @@
  * Permet d'ajouter des contacts avec validation des champs requis et formats
  */
 
+// Import de la validation basique du téléphone
+import { validateBasicPhoneFormat } from '../utils/phoneFormatter.js';
+
 const contactCards = [];
 
 const requiredFields = ['id', 'name'];
@@ -17,12 +20,11 @@ const addContact = (data) => {
       return;
     }
 
-    // Validation du format du numéro de téléphone
+    // Validation basique du format du numéro de téléphone (chiffres uniquement)
     if (data.phoneStr) {
-      const phoneRegex = /^\d{10}$/;
-
-      if (!phoneRegex.test(data.phoneStr)) {
-        console.log(`Format de numéro de téléphone invalide: "${data.phoneStr}"`);
+      const phoneValidation = validateBasicPhoneFormat(data.phoneStr);
+      if (!phoneValidation.isValid) {
+        console.warn(`Contact "${data.id}": ${phoneValidation.error}`);
         return;
       }
     }
@@ -66,7 +68,7 @@ addContact({
     city: 'Lyon',
     country: 'France',
   },
-  phoneStr: '1020304050',
+  phoneStr: '0102030405',
   email: 'jhon.doe@gmail.com',
 });
 
