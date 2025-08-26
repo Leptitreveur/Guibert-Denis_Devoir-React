@@ -3,7 +3,7 @@
  */
 
 // Import de la bibliothèque libphonenumber-js pour le formatage international
-import { validatePhoneNumber } from 'src/test/phoneNumberTest';
+import { validatePhoneNumber } from 'src/utils/validation/phoneNumberValidator';
 
 /** Formate un numéro de téléphone au format international
  * @param {string} phoneStr - Le numéro de téléphone à formater
