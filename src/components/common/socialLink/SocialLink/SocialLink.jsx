@@ -19,7 +19,7 @@ export const SocialLink = ({ linkData }) => {
   const { id, link, icon } = socialIcon;
 
   return (
-    <a href={link} target="_blank" rel="noopener noreferrer" id={id} {...getClassProps('link', 'social')}>
+    <a href={link} target="_blank" rel="noopener noreferrer nofollow" id={id} {...getClassProps('link', 'social')}>
       <i className={`${getClassProps('icon', 'social')?.className || ''} ${icon}`}></i>
     </a>
   );

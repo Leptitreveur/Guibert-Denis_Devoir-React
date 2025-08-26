@@ -18,7 +18,7 @@ export const PortfolioCard = ({ cardData }) => {
         <div className="card-body">
           <h2 className="card-title fw-bold">{title}</h2>
           <p className="card-text">{description}</p>
-          <a href={link} target="_blank" rel="norefferer noopenner" className="btn btn-primary">
+          <a href={link} target="_blank" rel="norefferer noopenner" className="btn btn-primary app-portfolio__btn">
             Voir la page
           </a>
         </div>

@@ -1,0 +1,7 @@
+.app-portfolio__btn {
+  margin-top: 0 !important;
+  &:hover {
+    background-color: rgba($primary, 0.7);
+    border-color: rgba($primary, 0);
+  }
+}

@@ -1,5 +1,12 @@
 /**Gestion des données du portfolio avec validation
  * Permet d'ajouter des réalisations avec validation des champs et des images
+ * 
+ * IMPORTANT : MODIFICATION DES IDs
+ *  
+ * 1. Modifier la clé correspondante dans src/data/portfolioImages.js
+ * 2. Mettre à jour le tableau selectedIds dans src/pages/PortfolioPage/PortfolioPage.jsx si choix personaliser
+ * 
+ * RAPPEL : Les IDs doivent être en minuscules sans caractères spéciaux
  */
 
 import PortfolioImages from 'src/data/portfolioImages';
@@ -64,22 +71,6 @@ const addPortfolio = (data) => {
 
 //* AJOUT DYNAMIQUE DE REALISATIONS =================================================================================================
 addPortfolio({
-  id: 'coder',
-  alt: 'Coder background',
-  title: "Création d'une Api",
-  description: "Création d'une API RESTFULL publique",
-  tools: 'PHP - SYMFONY',
-  link: 'https://webtech.fr/blog/comment-creer-une-api/',
-});
-addPortfolio({
-  id: 'wellbeing',
-  alt: 'Espace bien-être background',
-  title: 'Espace bien-être',
-  description: 'Site de reservation de soins ayurvediques',
-  tools: 'Site réalisé avec LARAVEL',
-  link: 'https://www.duneeteau.fr/',
-});
-addPortfolio({
   id: 'freshfood',
   alt: 'Freshfood background',
   title: 'Fresh Food',
@@ -96,12 +87,12 @@ addPortfolio({
   link: 'https://www.akirabackparis.com/fr/',
 });
 addPortfolio({
-  id: 'screens',
-  alt: 'Screens background',
-  title: "Maquette d'un site web",
-  description: "Création d'un prototype d'un site",
-  tools: 'Réaliser avec FIGMA',
-  link: 'https://www.figma.com/fr-fr/',
+  id: 'wellbeing',
+  alt: 'Espace bien-être background',
+  title: 'Espace bien-être',
+  description: 'Site de reservation de soins ayurvediques',
+  tools: 'Site réalisé avec LARAVEL',
+  link: 'https://www.duneeteau.fr/',
 });
 addPortfolio({
   id: 'seo',
@@ -110,6 +101,22 @@ addPortfolio({
   description: "Amélioration du référencement d'un site e-commerce",
   tools: 'Utilisations des outils SEO',
   link: 'https://semji.com/fr/guide/seo/',
+});
+addPortfolio({
+  id: 'code',
+  alt: 'Code background',
+  title: "Création d'une Api",
+  description: "Création d'une API RESTFULL publique",
+  tools: 'PHP - SYMFONY',
+  link: 'https://webtech.fr/blog/comment-creer-une-api/',
+});
+addPortfolio({
+  id: 'mockup',
+  alt: 'Screens background',
+  title: "Maquette d'un site web",
+  description: "Création d'un prototype d'un site",
+  tools: 'Réaliser avec FIGMA',
+  link: 'https://www.figma.com/fr-fr/',
 });
 // *FIN D'AJOUT DYNAMIQUE #######################################################################################################
 

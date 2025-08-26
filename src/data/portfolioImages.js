@@ -11,11 +11,11 @@ import Seo from 'src/assets/images/portfolio/seo.jpg';
 
 // Association des images aux IDs des réalisations
 const PortfolioImages = {
-  coder: Coder,
+  code: Coder,
   wellbeing: EspaceBienEtre,
   freshfood: FreshFood,
   japrest: JapaneseRestaurant,
-  screens: Screens,
+  mockup: Screens,
   seo: Seo,
 };
 

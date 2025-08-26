@@ -47,186 +47,506 @@ Ce projet est un portfolio professionnel développé en React pour présenter le
 ## 📁 Structure du projet
 
 ```
-src/
-├── App.jsx                    # Composant principal de l'application
-├── main.jsx                   # Point d'entrée de l'application
-├── FooterItems/               # Éléments spécifiques au footer
-│   └── FooterPortfolioLinks.jsx
-├── assets/                    # Ressources statiques
-│   ├── font/                  # Polices personnalisées (Nunito Sans)
-│   │   ├── NunitoSans-Italic-VariableFont_YTLC,opsz,wdth,wght.ttf
-│   │   ├── NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf
-│   │   ├── OFL.txt
-│   │   ├── README.txt
-│   │   └── static/            # Variantes de polices (Condensed, Expanded, etc.)
-│   │       ├── NunitoSans_10pt-*.ttf
-│   │       ├── NunitoSans_10pt_Condensed-*.ttf
-│   │       ├── NunitoSans_10pt_Expanded-*.ttf
-│   │       ├── NunitoSans_10pt_SemiCondensed-*.ttf
-│   │       ├── NunitoSans_10pt_SemiExpanded-*.ttf
-│   │       ├── NunitoSans_7pt-*.ttf
-│   │       ├── NunitoSans_7pt_Condensed-*.ttf
-│   │       ├── NunitoSans_7pt_Expanded-*.ttf
-│   │       ├── NunitoSans_7pt_SemiCondensed-*.ttf
-│   │       └── NunitoSans_7pt_SemiExpanded-*.ttf
-│   └── images/                # Images du projet
-│       ├── banner.jpg
-│       ├── hero-bg.jpg
-│       ├── john-doe-about.jpg
-│       └── portfolio/         # Images des projets
-│           ├── coder.jpg
-│           ├── espace-bien-etre.jpg
-│           ├── fresh-food.jpg
-│           ├── restaurant-japonais.jpg
-│           ├── screens.jpg
-│           ├── seo.jpg
-│           └── Thumbs.db      # Fichier système Windows
-├── components/                # Composants réutilisables
-│   ├── common/               # Composants génériques
-│   │   ├── Accordion/        # Composant accordéon
-│   │   │   ├── Accordion.jsx
-│   │   │   └── Accordion.scss
-│   │   ├── BackgroundImage/  # Images de fond
-│   │   │   └── BackgroundImage.jsx
-│   │   ├── Presentation/     # Bannière de présentation
-│   │   │   └── Presentation.jsx
-│   │   ├── TitleLayout/      # Layout de titre principal
-│   │   │   └── TitleLayout.jsx
-│   │   ├── TitleSection/     # Titres de section
-│   │   │   └── TitleSection.jsx
-│   │   └── socialLink/       # Liens sociaux
-│   │       ├── SocialLink/
-│   │       │   └── SocialLink.jsx
-│   │       └── SocialLinksList/
-│   │           └── SocialLinksList.jsx
-│   ├── contact/              # Composants de contact
-│   │   ├── ContactCard/
-│   │   │   └── ContactCard.jsx
-│   │   └── ContactCardsList/
-│   │       └── ContactCardsList.jsx
-│   ├── layout/               # Composants de mise en page
-│   │   ├── Footer/
-│   │   │   ├── Footer.jsx
-│   │   │   └── Footer.scss
-│   │   ├── Header/
-│   │   │   ├── Header.jsx
-│   │   │   └── Header.scss
-│   │   ├── PageLayout/
-│   │   │   └── PageLayout.jsx
-│   │   └── UserProfilModal/
-│   │       └── UserProfilModal.jsx
-│   ├── navbar/               # Composants de navigation
-│   │   ├── Navbar/
-│   │   │   ├── Navbar.jsx
-│   │   │   └── Navbar.scss
-│   │   └── NavbarLinksList/
-│   │       └── NavbarLinksList.jsx
-│   ├── portfolio/            # Composants de portfolio
-│   │   ├── PortfolioCard/
-│   │   │   └── PortfolioCard.jsx
-│   │   └── PortfolioCardsList/
-│   │       └── PortfolioCardsList.jsx
-│   ├── progressbar/          # Composants de barres de progression
-│   │   ├── Progressbar/
-│   │   │   └── Progressbar.jsx
-│   │   └── ProgressbarsList/
-│   │       └── ProgressbarsList.jsx
-│   ├── services/             # Composants de services
-│   │   ├── ServiceCard/
-│   │   │   └── ServiceCard.jsx
-│   │   └── ServiceCardsList/
-│   │       └── ServiceCardsList.jsx
-│   ├── FormSection/          # Formulaire de contact
-│   │   └── FormSection.jsx
-│   └── MapSection/           # Section carte Google Maps
-│       └── MapSection.jsx
-├── contexts/                 # Contextes React
-│   └── FooterContext.js
-├── data/                     # Données statiques
-│   ├── contactData.js        # Données de contact
-│   ├── navBarLinks.js        # Liens de navigation
-│   ├── portfolioData.js      # Données du portfolio
-│   ├── portfolioImages.js    # Images du portfolio
-│   ├── progressbarsData.js   # Données des barres de progression
-│   ├── servicesData.js       # Données des services
-│   └── socialLinksData.js    # Liens sociaux
-├── hooks/                    # Hooks personnalisés
-│   ├── useContextualStyle.js # Gestion des styles contextuels
-│   ├── useFilteredData.js    # Filtrage de données
-│   └── useScrollToTop.js     # Scroll automatique
-├── pages/                    # Pages de l'application
-│   ├── ContactPage/
-│   │   └── ContactPage.jsx
-│   ├── HomePage/
-│   │   ├── HomePage.jsx
-│   │   └── components/
-│   │       ├── ProfilSection/
-│   │       │   └── ProfilSection.jsx
-│   │       └── SkillsSection/
-│   │           └── SkillsSection.jsx
-│   ├── LegalNoticePage/
-│   │   ├── CreditText/
-│   │   │   └── CreditText.jsx
-│   │   └── LegalNoticePage.jsx
-│   ├── PortfolioPage/
-│   │   └── PortfolioPage.jsx
-│   └── ServicesPage/
-│       └── ServicesPage.jsx
-├── styles/                   # Fichiers de style SCSS
-│   ├── _base.scss           # Styles de base
-│   ├── _bootstrap-overrides.scss # Surcharges Bootstrap
-│   ├── _utilities.scss      # Classes utilitaires
-│   └── main.scss            # Fichier principal des styles
-└── utils/                    # Utilitaires
-    ├── domainExtractor.js   # Extraction de domaine
-    └── phoneFormatter.js    # Formatage de téléphone
+📂 src
+├── 📄 App.jsx
+└── 📂 FooterItems/
+│  ├── 📄 FooterPortfolioLinks.jsx
+└── 📂 assets/
+│  └── 📂 font/
+│    ├── 📄 NunitoSans-Italic-VariableFont_YTLC,opsz,wdth,wght.ttf
+│    ├── 📄 NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf
+│    ├── 📄 OFL.txt
+│    ├── 📄 README.txt
+│    └── 📂 static/
+│      ├── 📄 NunitoSans_10pt-Black.ttf
+│      ├── 📄 NunitoSans_10pt-BlackItalic.ttf
+│      ├── 📄 NunitoSans_10pt-Bold.ttf
+│      ├── 📄 NunitoSans_10pt-BoldItalic.ttf
+│      ├── 📄 NunitoSans_10pt-ExtraBold.ttf
+│      ├── 📄 NunitoSans_10pt-ExtraBoldItalic.ttf
+│      ├── 📄 NunitoSans_10pt-ExtraLight.ttf
+│      ├── 📄 NunitoSans_10pt-ExtraLightItalic.ttf
+│      ├── 📄 NunitoSans_10pt-Italic.ttf
+│      ├── 📄 NunitoSans_10pt-Light.ttf
+│      ├── 📄 NunitoSans_10pt-LightItalic.ttf
+│      ├── 📄 NunitoSans_10pt-Medium.ttf
+│      ├── 📄 NunitoSans_10pt-MediumItalic.ttf
+│      ├── 📄 NunitoSans_10pt-Regular.ttf
+│      ├── 📄 NunitoSans_10pt-SemiBold.ttf
+│      ├── 📄 NunitoSans_10pt-SemiBoldItalic.ttf
+│      ├── 📄 NunitoSans_10pt_Condensed-Black.ttf
+│      ├── 📄 NunitoSans_10pt_Condensed-BlackItalic.ttf
+│      ├── 📄 NunitoSans_10pt_Condensed-Bold.ttf
+│      ├── 📄 NunitoSans_10pt_Condensed-BoldItalic.ttf
+│      ├── 📄 NunitoSans_10pt_Condensed-ExtraBold.ttf
+│      ├── 📄 NunitoSans_10pt_Condensed-ExtraBoldItalic.ttf
+│      ├── 📄 NunitoSans_10pt_Condensed-ExtraLight.ttf
+│      ├── 📄 NunitoSans_10pt_Condensed-ExtraLightItalic.ttf
+│      ├── 📄 NunitoSans_10pt_Condensed-Italic.ttf
+│      ├── 📄 NunitoSans_10pt_Condensed-Light.ttf
+│      ├── 📄 NunitoSans_10pt_Condensed-LightItalic.ttf
+│      ├── 📄 NunitoSans_10pt_Condensed-Medium.ttf
+│      ├── 📄 NunitoSans_10pt_Condensed-MediumItalic.ttf
+│      ├── 📄 NunitoSans_10pt_Condensed-Regular.ttf
+│      ├── 📄 NunitoSans_10pt_Condensed-SemiBold.ttf
+│      ├── 📄 NunitoSans_10pt_Condensed-SemiBoldItalic.ttf
+│      ├── 📄 NunitoSans_10pt_Expanded-Black.ttf
+│      ├── 📄 NunitoSans_10pt_Expanded-BlackItalic.ttf
+│      ├── 📄 NunitoSans_10pt_Expanded-Bold.ttf
+│      ├── 📄 NunitoSans_10pt_Expanded-BoldItalic.ttf
+│      ├── 📄 NunitoSans_10pt_Expanded-ExtraBold.ttf
+│      ├── 📄 NunitoSans_10pt_Expanded-ExtraBoldItalic.ttf
+│      ├── 📄 NunitoSans_10pt_Expanded-ExtraLight.ttf
+│      ├── 📄 NunitoSans_10pt_Expanded-ExtraLightItalic.ttf
+│      ├── 📄 NunitoSans_10pt_Expanded-Italic.ttf
+│      ├── 📄 NunitoSans_10pt_Expanded-Light.ttf
+│      ├── 📄 NunitoSans_10pt_Expanded-LightItalic.ttf
+│      ├── 📄 NunitoSans_10pt_Expanded-Medium.ttf
+│      ├── 📄 NunitoSans_10pt_Expanded-MediumItalic.ttf
+│      ├── 📄 NunitoSans_10pt_Expanded-Regular.ttf
+│      ├── 📄 NunitoSans_10pt_Expanded-SemiBold.ttf
+│      ├── 📄 NunitoSans_10pt_Expanded-SemiBoldItalic.ttf
+│      ├── 📄 NunitoSans_10pt_SemiCondensed-Black.ttf
+│      ├── 📄 NunitoSans_10pt_SemiCondensed-BlackItalic.ttf
+│      ├── 📄 NunitoSans_10pt_SemiCondensed-Bold.ttf
+│      ├── 📄 NunitoSans_10pt_SemiCondensed-BoldItalic.ttf
+│      ├── 📄 NunitoSans_10pt_SemiCondensed-ExtraBold.ttf
+│      ├── 📄 NunitoSans_10pt_SemiCondensed-ExtraBoldItalic.ttf
+│      ├── 📄 NunitoSans_10pt_SemiCondensed-ExtraLight.ttf
+│      ├── 📄 NunitoSans_10pt_SemiCondensed-ExtraLightItalic.ttf
+│      ├── 📄 NunitoSans_10pt_SemiCondensed-Italic.ttf
+│      ├── 📄 NunitoSans_10pt_SemiCondensed-Light.ttf
+│      ├── 📄 NunitoSans_10pt_SemiCondensed-LightItalic.ttf
+│      ├── 📄 NunitoSans_10pt_SemiCondensed-Medium.ttf
+│      ├── 📄 NunitoSans_10pt_SemiCondensed-MediumItalic.ttf
+│      ├── 📄 NunitoSans_10pt_SemiCondensed-Regular.ttf
+│      ├── 📄 NunitoSans_10pt_SemiCondensed-SemiBold.ttf
+│      ├── 📄 NunitoSans_10pt_SemiCondensed-SemiBoldItalic.ttf
+│      ├── 📄 NunitoSans_10pt_SemiExpanded-Black.ttf
+│      ├── 📄 NunitoSans_10pt_SemiExpanded-BlackItalic.ttf
+│      ├── 📄 NunitoSans_10pt_SemiExpanded-Bold.ttf
+│      ├── 📄 NunitoSans_10pt_SemiExpanded-BoldItalic.ttf
+│      ├── 📄 NunitoSans_10pt_SemiExpanded-ExtraBold.ttf
+│      ├── 📄 NunitoSans_10pt_SemiExpanded-ExtraBoldItalic.ttf
+│      ├── 📄 NunitoSans_10pt_SemiExpanded-ExtraLight.ttf
+│      ├── 📄 NunitoSans_10pt_SemiExpanded-ExtraLightItalic.ttf
+│      ├── 📄 NunitoSans_10pt_SemiExpanded-Italic.ttf
+│      ├── 📄 NunitoSans_10pt_SemiExpanded-Light.ttf
+│      ├── 📄 NunitoSans_10pt_SemiExpanded-LightItalic.ttf
+│      ├── 📄 NunitoSans_10pt_SemiExpanded-Medium.ttf
+│      ├── 📄 NunitoSans_10pt_SemiExpanded-MediumItalic.ttf
+│      ├── 📄 NunitoSans_10pt_SemiExpanded-Regular.ttf
+│      ├── 📄 NunitoSans_10pt_SemiExpanded-SemiBold.ttf
+│      ├── 📄 NunitoSans_10pt_SemiExpanded-SemiBoldItalic.ttf
+│      ├── 📄 NunitoSans_7pt-Black.ttf
+│      ├── 📄 NunitoSans_7pt-BlackItalic.ttf
+│      ├── 📄 NunitoSans_7pt-Bold.ttf
+│      ├── 📄 NunitoSans_7pt-BoldItalic.ttf
+│      ├── 📄 NunitoSans_7pt-ExtraBold.ttf
+│      ├── 📄 NunitoSans_7pt-ExtraBoldItalic.ttf
+│      ├── 📄 NunitoSans_7pt-ExtraLight.ttf
+│      ├── 📄 NunitoSans_7pt-ExtraLightItalic.ttf
+│      ├── 📄 NunitoSans_7pt-Italic.ttf
+│      ├── 📄 NunitoSans_7pt-Light.ttf
+│      ├── 📄 NunitoSans_7pt-LightItalic.ttf
+│      ├── 📄 NunitoSans_7pt-Medium.ttf
+│      ├── 📄 NunitoSans_7pt-MediumItalic.ttf
+│      ├── 📄 NunitoSans_7pt-Regular.ttf
+│      ├── 📄 NunitoSans_7pt-SemiBold.ttf
+│      ├── 📄 NunitoSans_7pt-SemiBoldItalic.ttf
+│      ├── 📄 NunitoSans_7pt_Condensed-Black.ttf
+│      ├── 📄 NunitoSans_7pt_Condensed-BlackItalic.ttf
+│      ├── 📄 NunitoSans_7pt_Condensed-Bold.ttf
+│      ├── 📄 NunitoSans_7pt_Condensed-BoldItalic.ttf
+│      ├── 📄 NunitoSans_7pt_Condensed-ExtraBold.ttf
+│      ├── 📄 NunitoSans_7pt_Condensed-ExtraBoldItalic.ttf
+│      ├── 📄 NunitoSans_7pt_Condensed-ExtraLight.ttf
+│      ├── 📄 NunitoSans_7pt_Condensed-ExtraLightItalic.ttf
+│      ├── 📄 NunitoSans_7pt_Condensed-Italic.ttf
+│      ├── 📄 NunitoSans_7pt_Condensed-Light.ttf
+│      ├── 📄 NunitoSans_7pt_Condensed-LightItalic.ttf
+│      ├── 📄 NunitoSans_7pt_Condensed-Medium.ttf
+│      ├── 📄 NunitoSans_7pt_Condensed-MediumItalic.ttf
+│      ├── 📄 NunitoSans_7pt_Condensed-Regular.ttf
+│      ├── 📄 NunitoSans_7pt_Condensed-SemiBold.ttf
+│      ├── 📄 NunitoSans_7pt_Condensed-SemiBoldItalic.ttf
+│      ├── 📄 NunitoSans_7pt_Expanded-Black.ttf
+│      ├── 📄 NunitoSans_7pt_Expanded-BlackItalic.ttf
+│      ├── 📄 NunitoSans_7pt_Expanded-Bold.ttf
+│      ├── 📄 NunitoSans_7pt_Expanded-BoldItalic.ttf
+│      ├── 📄 NunitoSans_7pt_Expanded-ExtraBold.ttf
+│      ├── 📄 NunitoSans_7pt_Expanded-ExtraBoldItalic.ttf
+│      ├── 📄 NunitoSans_7pt_Expanded-ExtraLight.ttf
+│      ├── 📄 NunitoSans_7pt_Expanded-ExtraLightItalic.ttf
+│      ├── 📄 NunitoSans_7pt_Expanded-Italic.ttf
+│      ├── 📄 NunitoSans_7pt_Expanded-Light.ttf
+│      ├── 📄 NunitoSans_7pt_Expanded-LightItalic.ttf
+│      ├── 📄 NunitoSans_7pt_Expanded-Medium.ttf
+│      ├── 📄 NunitoSans_7pt_Expanded-MediumItalic.ttf
+│      ├── 📄 NunitoSans_7pt_Expanded-Regular.ttf
+│      ├── 📄 NunitoSans_7pt_Expanded-SemiBold.ttf
+│      ├── 📄 NunitoSans_7pt_Expanded-SemiBoldItalic.ttf
+│      ├── 📄 NunitoSans_7pt_SemiCondensed-Black.ttf
+│      ├── 📄 NunitoSans_7pt_SemiCondensed-BlackItalic.ttf
+│      ├── 📄 NunitoSans_7pt_SemiCondensed-Bold.ttf
+│      ├── 📄 NunitoSans_7pt_SemiCondensed-BoldItalic.ttf
+│      ├── 📄 NunitoSans_7pt_SemiCondensed-ExtraBold.ttf
+│      ├── 📄 NunitoSans_7pt_SemiCondensed-ExtraBoldItalic.ttf
+│      ├── 📄 NunitoSans_7pt_SemiCondensed-ExtraLight.ttf
+│      ├── 📄 NunitoSans_7pt_SemiCondensed-ExtraLightItalic.ttf
+│      ├── 📄 NunitoSans_7pt_SemiCondensed-Italic.ttf
+│      ├── 📄 NunitoSans_7pt_SemiCondensed-Light.ttf
+│      ├── 📄 NunitoSans_7pt_SemiCondensed-LightItalic.ttf
+│      ├── 📄 NunitoSans_7pt_SemiCondensed-Medium.ttf
+│      ├── 📄 NunitoSans_7pt_SemiCondensed-MediumItalic.ttf
+│      ├── 📄 NunitoSans_7pt_SemiCondensed-Regular.ttf
+│      ├── 📄 NunitoSans_7pt_SemiCondensed-SemiBold.ttf
+│      ├── 📄 NunitoSans_7pt_SemiCondensed-SemiBoldItalic.ttf
+│      ├── 📄 NunitoSans_7pt_SemiExpanded-Black.ttf
+│      ├── 📄 NunitoSans_7pt_SemiExpanded-BlackItalic.ttf
+│      ├── 📄 NunitoSans_7pt_SemiExpanded-Bold.ttf
+│      ├── 📄 NunitoSans_7pt_SemiExpanded-BoldItalic.ttf
+│      ├── 📄 NunitoSans_7pt_SemiExpanded-ExtraBold.ttf
+│      ├── 📄 NunitoSans_7pt_SemiExpanded-ExtraBoldItalic.ttf
+│      ├── 📄 NunitoSans_7pt_SemiExpanded-ExtraLight.ttf
+│      ├── 📄 NunitoSans_7pt_SemiExpanded-ExtraLightItalic.ttf
+│      ├── 📄 NunitoSans_7pt_SemiExpanded-Italic.ttf
+│      ├── 📄 NunitoSans_7pt_SemiExpanded-Light.ttf
+│      ├── 📄 NunitoSans_7pt_SemiExpanded-LightItalic.ttf
+│      ├── 📄 NunitoSans_7pt_SemiExpanded-Medium.ttf
+│      ├── 📄 NunitoSans_7pt_SemiExpanded-MediumItalic.ttf
+│      ├── 📄 NunitoSans_7pt_SemiExpanded-Regular.ttf
+│      ├── 📄 NunitoSans_7pt_SemiExpanded-SemiBold.ttf
+│      ├── 📄 NunitoSans_7pt_SemiExpanded-SemiBoldItalic.ttf
+│  └── 📂 images/
+│    ├── 📄 banner.jpg
+│    ├── 📄 hero-bg.jpg
+│    ├── 📄 john-doe-about.jpg
+│    └── 📂 portfolio/
+│      ├── 📄 Thumbs.db
+│      ├── 📄 coder.jpg
+│      ├── 📄 espace-bien-etre.jpg
+│      ├── 📄 fresh-food.jpg
+│      ├── 📄 restaurant-japonais.jpg
+│      ├── 📄 screens.jpg
+│      ├── 📄 seo.jpg
+└── 📂 components/
+│  └── 📂 FormSection/
+│    ├── 📄 FormSection.jsx
+│  └── 📂 MapSection/
+│    ├── 📄 MapSection.jsx
+│  └── 📂 common/
+│    └── 📂 Accordion/
+│      ├── 📄 Accordion.jsx
+│      ├── 📄 Accordion.scss
+│    └── 📂 BackgroundImage/
+│      ├── 📄 BackgroundImage.jsx
+│    └── 📂 Presentation/
+│      ├── 📄 Presentation.jsx
+│    └── 📂 TitleLayout/
+│      ├── 📄 TitleLayout.jsx
+│    └── 📂 TitleSection/
+│      ├── 📄 TitleSection.jsx
+│    └── 📂 socialLink/
+│      └── 📂 SocialLink/
+│        ├── 📄 SocialLink.jsx
+│      └── 📂 SocialLinksList/
+│        ├── 📄 SocialLinksList.jsx
+│  └── 📂 contact/
+│    └── 📂 ContactCard/
+│      ├── 📄 ContactCard.jsx
+│    └── 📂 ContactCardsList/
+│      ├── 📄 ContactCardsList.jsx
+│  └── 📂 layout/
+│    └── 📂 Footer/
+│      ├── 📄 Footer.jsx
+│      ├── 📄 Footer.scss
+│    └── 📂 Header/
+│      ├── 📄 Header.jsx
+│      ├── 📄 Header.scss
+│    └── 📂 PageLayout/
+│      ├── 📄 PageLayout.jsx
+│    └── 📂 UserProfilModal/
+│      ├── 📄 UserProfilModal.jsx
+│  └── 📂 navbar/
+│    └── 📂 Navbar/
+│      ├── 📄 Navbar.jsx
+│      ├── 📄 Navbar.scss
+│    └── 📂 NavbarLinksList/
+│      ├── 📄 NavbarLinksList.jsx
+│  └── 📂 portfolio/
+│    └── 📂 PortfolioCard/
+│      ├── 📄 PortfolioCard.jsx
+│    └── 📂 PortfolioCardsList/
+│      ├── 📄 PortfolioCardsList.jsx
+│  └── 📂 progressbar/
+│    └── 📂 Progressbar/
+│      ├── 📄 Progressbar.jsx
+│    └── 📂 ProgressbarsList/
+│      ├── 📄 ProgressbarsList.jsx
+│  └── 📂 services/
+│    └── 📂 ServiceCard/
+│      ├── 📄 Servicecard.jsx
+│    └── 📂 ServiceCardsList/
+│      ├── 📄 ServiceCardsList.jsx
+└── 📂 contexts/
+│  ├── 📄 FooterContext.js
+└── 📂 data/
+│  ├── 📄 contactData.js
+│  ├── 📄 countryCode.js
+│  ├── 📄 navBarLinks.js
+│  ├── 📄 portfolioData.js
+│  ├── 📄 portfolioImages.js
+│  ├── 📄 progressBarsData.js
+│  ├── 📄 servicesData.js
+│  ├── 📄 socialLinksData.js
+└── 📂 hooks/
+│  ├── 📄 useContextualStyle.js
+│  ├── 📄 useFilteredData.js
+│  ├── 📄 useScrollToTop.js
+├── 📄 main.jsx
+└── 📂 pages/
+│  └── 📂 ContactPage/
+│    ├── 📄 ContactPage.jsx
+│  └── 📂 HomePage/
+│    ├── 📄 HomePage.jsx
+│    └── 📂 components/
+│      └── 📂 ProfilSection/
+│        ├── 📄 ProfilSection.jsx
+│      └── 📂 SkillsSection/
+│        ├── 📄 SkillsSection.jsx
+│  └── 📂 LegalNoticePage/
+│    └── 📂 CreditText/
+│      ├── 📄 CreditText.jsx
+│    ├── 📄 LegalNoticePage.jsx
+│  └── 📂 PortfolioPage/
+│    ├── 📄 PortfolioPage.jsx
+│  └── 📂 ServicesPage/
+│    ├── 📄 ServicesPage.jsx
+└── 📂 styles/
+│  ├── 📄 _base.scss
+│  ├── 📄 _bootstrap-overrides.scss
+│  ├── 📄 _utilities.scss
+│  ├── 📄 main.scss
+└── 📂 utils/
+│  ├── 📄 domainExtractor.js
+│  ├── 📄 phoneFormatter.js
+│  └── 📂 validation/
+│    ├── 📄 emailValidator.js
+│    ├── 📄 phoneNumberValidator.js
+│    └── 📄 urlValidator.js
 ```
 
 ## 🚀 Installation et démarrage
 
 ### Prérequis
 
-- Node.js (version 18 ou supérieure)
-- npm ou yarn
+Avant de commencer, assurez-vous d'avoir installé les outils suivants :
 
-### Installation
+#### Node.js
 
-1. **Cloner le repository**
-   ** using HTTPS **
+- **Version requise** : Node.js 18.0.0 ou supérieure
+- **Vérification** : `node --version`
+- **Téléchargement** : [nodejs.org](https://nodejs.org/)
 
-   ```bash
-   git clone https://github.com/Leptitreveur/Guibert-Denis_Devoir-React.git
-   cd Guibert-Denis_Devoir-React
-   ```
+#### Gestionnaire de paquets
 
-   ** using GitHub CLI **
+- **npm** (inclus avec Node.js) : `npm --version`
+- **yarn** (optionnel) : `npm install -g yarn` puis `yarn --version`
+- **pnpm** (optionnel) : `npm install -g pnpm` puis `pnpm --version`
 
-   ```bash
-   gh repo clone Leptitreveur/Guibert-Denis_Devoir-React
-   cd Guibert-Denis_Devoir-React
-   ```
+#### Git
 
-2. **Installer les dépendances**
+- **Vérification** : `git --version`
+- **Téléchargement** : [git-scm.com](https://git-scm.com/)
 
-   ```bash
-   npm install
-   ```
+### Installation étape par étape
 
-3. **Lancer le serveur de développement**
+#### 1. Cloner le repository
 
-   ```bash
-   npm run dev
-   ```
+**Option A : Clonage HTTPS (recommandé)**
 
-4. **Ouvrir l'application**
-   L'application sera accessible à l'adresse : `http://localhost:....` (.... = numéro à quatre chiffres du port du serveur local)
+```bash
+git clone https://github.com/Leptitreveur/Guibert-Denis_Devoir-React.git
+cd Guibert-Denis_Devoir-React
+```
+
+**Option B : Clonage SSH (si configuré)**
+
+```bash
+git clone git@github.com:Leptitreveur/Guibert-Denis_Devoir-React.git
+cd Guibert-Denis_Devoir-React
+```
+
+**Option C : GitHub CLI**
+
+```bash
+gh repo clone Leptitreveur/Guibert-Denis_Devoir-React
+cd Guibert-Denis_Devoir-React
+```
+
+#### 2. Installer les dépendances
+
+**Avec npm (recommandé)**
+
+```bash
+npm install
+```
+
+**Avec yarn**
+
+```bash
+yarn install
+```
+
+**Avec npm**
+
+```bash
+npm install
+```
+
+**Avec pnpm**
+
+```bash
+pnpm install
+```
+
+#### 3. Vérifier l'installation
+
+```bash
+# Vérifier que toutes les dépendances sont installées
+npm list --depth=0
+
+# Vérifier que le projet peut être construit
+npm run build
+```
+
+#### 4. Lancer le serveur de développement
+
+```bash
+npm run dev
+```
+
+#### 5. Accéder à l'application
+
+- **URL locale** : `http://localhost:5173` (ou le port affiché dans le terminal)
+- **Réseau local** : `http://[votre-IP]:5173` (pour accès depuis d'autres appareils)
 
 ### Scripts disponibles
 
-- `npm run dev` - Lance le serveur de développement
-- `npm run build` - Construit l'application pour la production
-- `npm run lint` - Vérifie le code avec ESLint
-- `npm run preview` - Prévisualise la version de production
+| Commande           | Description                                          | Utilisation             |
+| ------------------ | ---------------------------------------------------- | ----------------------- |
+| `npm run dev`      | Lance le serveur de développement avec hot reload    | Développement quotidien |
+| `npm run build`    | Construit l'application optimisée pour la production | Déploiement             |
+| `npm run preview`  | Prévisualise la version de production localement     | Test avant déploiement  |
+| `npm run lint`     | Vérifie le code avec ESLint                          | Contrôle qualité        |
+| `npm run lint:fix` | Corrige automatiquement les erreurs ESLint           | Nettoyage du code       |
+
+### Résolution des problèmes courants
+
+#### Erreur "command not found: node"
+
+```bash
+# Vérifier l'installation de Node.js
+node --version
+# Si non installé, télécharger depuis nodejs.org
+```
+
+#### Erreur "permission denied"
+
+```bash
+# Sur Linux/Mac, utiliser sudo si nécessaire
+sudo npm install
+
+# Ou configurer npm pour éviter les permissions
+npm config set prefix ~/.npm-global
+```
+
+#### Erreur "port already in use"
+
+```bash
+# Tuer le processus sur le port 5173
+npx kill-port 5173
+
+# Ou utiliser un port différent
+npm run dev -- --port 3000
+```
+
+#### Erreur de dépendances
+
+```bash
+# Supprimer node_modules et réinstaller
+rm -rf node_modules package-lock.json
+npm install
+```
+
+### Vérification de l'installation
+
+Après l'installation, vous devriez voir :
+
+1. **Terminal** : Message "Local: http://localhost:5173/"
+2. **Navigateur** : Page d'accueil du portfolio
+3. **Console** : Aucune erreur dans la console du navigateur
+
+### Structure après installation
+
+```
+Guibert-Denis_Devoir-React/
+├── node_modules/          # Dépendances installées
+├── public/               # Fichiers publics
+├── src/                  # Code source
+├── package.json          # Configuration du projet
+├── package-lock.json     # Verrouillage des versions
+└── README.md            # Ce fichier
+```
+
+## 🔧 Extensions VSCode recommandées
+
+Pour une expérience de développement optimale, nous recommandons d'installer les extensions suivantes dans VSCode :
+
+### Extensions essentielles
+
+- **ES7+ React/Redux/React-Native snippets** - Snippets pour React
+- **Prettier - Code formatter** - Formatage automatique du code
+- **ESLint** - Linting JavaScript/React
+- **Auto Rename Tag** - Renommage automatique des balises JSX
+- **Bracket Pair Colorizer 2** - Coloration des paires de parenthèses
+- **GitLens** - Intégration Git avancée
+
+### Extensions pour SCSS/CSS
+
+- **SCSS IntelliSense** - Autocomplétion SCSS
+- **Color Highlight** - Mise en évidence des couleurs
+
+### Extensions pour React
+
+- **React Developer Tools** - Outils de développement React
+- **React Snippets** - Snippets supplémentaires pour React
+- **JSX Snippets** - Snippets pour JSX
+
+### Extensions utilitaires
+
+- **Path Intellisense** - Autocomplétion des chemins
+- **Error Lens** - Affichage des erreurs en ligne
+
+### Configuration recommandée
+
+Ajoutez ces paramètres à votre `settings.json` VSCode :
+
+```json
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "scss.validate": true,
+  "css.validate": false,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  }
+}
+```
 
 ## 🎨 Design et UX
 
@@ -241,7 +561,6 @@ src/
 ### Typographie
 
 - **Police principale** : Nunito Sans (variable font)
-- **Hiérarchie claire** : Utilisation cohérente des tailles de police
 
 ## 📱 Responsive Design
 

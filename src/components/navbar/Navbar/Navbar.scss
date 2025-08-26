@@ -13,5 +13,8 @@
   /* Effet de survol sur les liens */
   .app-navbar__link--hover:hover {
     color: $white !important;
+    text-decoration: underline !important;
+    text-decoration-thickness: 2px !important;
+    text-underline-offset: 2px !important;
   }
 }
