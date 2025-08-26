@@ -82,10 +82,10 @@ export const ContactCard = ({ contactData, toMap = false }) => {
         {/* Site web: affichage du domaine */}
         {website && (
           <li {...getClassProps('lign', 'card')}>
-            <link href={website} target="_blank" rel="noreferrer noopener" {...getClassProps('link', 'card')}>
+            <a href={website} target="_blank" rel="noreferrer noopener" {...getClassProps('link', 'card')}>
               {isNotInFooter && <i className="bi bi-globe2 pe-2"></i>}
               {extractDomain(website)}
-            </link>
+            </a>
           </li>
         )}
       </ul>

@@ -16,7 +16,7 @@ export function CreditText() {
       </a>
     </>,
     <>
-      La favicon de ce site Link été fournie par{' '}
+      La favicon de ce site a été fournie par{' '}
       <a href="https:www.flaticon.com/de/kostenlose-icons/john-doe" rel="noreferrer noopenner" target="_blank">
         Jhon Doe icons erstellt von Freepik - Flaticon{' '}
       </a>
