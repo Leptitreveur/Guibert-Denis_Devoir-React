@@ -33,7 +33,7 @@ export function FormSection() {
         <input id="email" className="form-control" type="email" placeholder="Votre adresse e-mail" required />
 
         <label htmlFor="phone" className="form-label visually-hidden"></label>
-        <input id="phone" className="form-control" type="tel" placeholder="Votre numéro de téléphone" pattern="{0-9}{10}" maxLength="10" required />
+        <input id="phone" className="form-control" type="tel" placeholder="Votre numéro de téléphone" pattern="[0-9]{10}" maxLength="10" required />
 
         <label htmlFor="subject" className="form-label visually-hidden"></label>
         <input id="subject" className="form-control" type="text" placeholder="Sujet" required />

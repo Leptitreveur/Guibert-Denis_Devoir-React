@@ -3,7 +3,9 @@
  */
 
 // Import de la validation basique du téléphone
-import { validateBasicPhoneFormat } from '../utils/phoneFormatter.js';
+import { validateBasicPhoneFormat } from 'src/utils/validation/phoneNumberValidator';
+import { validateEmailFormat } from 'src/utils/validation/emailValidator';
+import { validateUrlFormat } from 'src/utils/validation/urlValidator'
 
 const contactCards = [];
 
@@ -16,41 +18,35 @@ const addContact = (data) => {
   // *Début de la validation ============================================================================================
   for (const field of requiredFields) {
     if (!data[field]) {
-      console.warn(`Champ requis "${field}" manquant pour le contact "${data.id}`);
+      console.warn(`Champ requis "${field}" manquant pour le contact "${data.id}"`);
       return;
     }
+  }
 
-    // Validation basique du format du numéro de téléphone (chiffres uniquement)
-    if (data.phoneStr) {
-      const phoneValidation = validateBasicPhoneFormat(data.phoneStr);
-      if (!phoneValidation.isValid) {
-        console.warn(`Contact "${data.id}": ${phoneValidation.error}`);
-        return;
-      }
-    }
-
-    // Validation du format de l'email
-    if (data.email) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(data.email)) {
-        console.warn(`Format d'email invalide pour le contact ID "${data.id}". Reçu: ${data.email}`);
-        return;
-      }
-    }
-
-    // Validation du format de l'URL du site web
-    if (data.website) {
-      try {
-        new URL(data.website);
-        //! la ligne de commentaire qui suit demande au linter d'ignoer l'avertissement concernant le paramètre reçu par catch.
-        //! catch(_) convention de nommage pour signaler que je n'ai pas besoin de détail sur cette erreur
-        // eslint-disable-next-line no-unused-vars
-      } catch (_) {
-        console.warn(`Format de l'Url invalide pour le contact "${data.id}". Url reçu : "${data.website}".`);
-        return;
-      }
+  // Validation basique du format du numéro de téléphone (chiffres uniquement)
+  if (data.phoneStr) {
+    const phoneValidation = validateBasicPhoneFormat(data.phoneStr);
+    if (!phoneValidation.isValid) {
+      console.warn(`Contact "${data.id}": ${phoneValidation.error}`);
+      return;
     }
   }
+
+  // Validation du format de l'email
+  if (data.email) {
+    const { isValid, error } = validateEmailFormat(data.email);
+    if (!isValid) {
+      console.warn(`"${error}" pour le contact ID "${data.id}". Reçu: ${data.email}`);
+      return;
+    }
+  }
+
+  // Validation du format de l'URL du site web
+  if (data.website && !validateUrlFormat(data.website)) {
+    console.warn(`Format de l'Url invalide pour le contact "${data.id}". Url reçu : "${data.website}".`);
+    return;
+  }
+
   // * Fin de la validation ===========================================================================================
 
   contactCards.push(data);
