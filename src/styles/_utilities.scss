@@ -1,0 +1,208 @@
+/* Classes utilitaires personnalisées */
+
+/* Génération automatique des classes de largeur et hauteur avec breakpoints */
+@for $i from 1 through 100 {
+  // WIDTH & HEIGTH + BREAKPOINT W & H ============================
+
+  .app-w-#{$i}px {
+    width: #{$i}px;
+  }
+  .app-w-#{$i}rem {
+    width: #{$i}rem;
+  }
+  .app-w-#{$i}vw {
+    width: #{$i}vw;
+  }
+  .app-h-#{$i}px {
+    height: #{$i}px;
+  }
+  .app-h-#{$i}rem {
+    height: #{$i}rem;
+  }
+  .app-h-#{$i}vh {
+    height: #{$i}vh;
+  }
+
+  @include media-breakpoint-up(sm) {
+    .app-w-sm-#{$i}px {
+      width: #{$i}px !important;
+    }
+    .app-w-sm-#{$i}rem {
+      width: #{$i}rem !important;
+    }
+    .app-w-sm-#{$i}vw {
+      width: #{$i}vw !important;
+    }
+    .app-h-sm-#{$i}px {
+      height: #{$i}px !important;
+    }
+    .app-h-sm-#{$i}rem {
+      height: #{$i}rem !important;
+    }
+    .app-h-sm-#{$i}vh {
+      height: #{$i}vh !important;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    .app-w-md-#{$i}px {
+      width: #{$i}px !important;
+    }
+    .app-w-md-#{$i}rem {
+      width: #{$i}rem !important;
+    }
+    .app-w-md-#{$i}vw {
+      width: #{$i}vw !important;
+    }
+    .app-h-md-#{$i}px {
+      height: #{$i}px !important;
+    }
+    .app-h-md-#{$i}rem {
+      height: #{$i}rem !important;
+    }
+    .app-h-md-#{$i}vh {
+      height: #{$i}vh !important;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    .app-w-lg-#{$i}px {
+      width: #{$i}px !important;
+    }
+    .app-w-lg-#{$i}rem {
+      width: #{$i}rem !important;
+    }
+    .app-w-lg-#{$i}vw {
+      width: #{$i}vw !important;
+    }
+    .app-h-lg-#{$i}px {
+      height: #{$i}px !important;
+    }
+    .app-h-lg-#{$i}rem {
+      height: #{$i}rem !important;
+    }
+    .app-h-lg-#{$i}vh {
+      height: #{$i}vh !important;
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    .app-w-xl-#{$i}px {
+      width: #{$i}px !important;
+    }
+    .app-w-xl-#{$i}rem {
+      width: #{$i}rem !important;
+    }
+    .app-w-xl-#{$i}vw {
+      width: #{$i}vw !important;
+    }
+    .app-h-xl-#{$i}px {
+      height: #{$i}px !important;
+    }
+    .app-h-xl-#{$i}rem {
+      height: #{$i}rem !important;
+    }
+    .app-h-xl-#{$i}vh {
+      height: #{$i}vh !important;
+    }
+  }
+
+  @include media-breakpoint-up(xxl) {
+    .app-w-xxl-#{$i}px {
+      width: #{$i}px !important;
+    }
+    .app-w-xxl-#{$i}rem {
+      width: #{$i}rem !important;
+    }
+    .app-w-xxl-#{$i}vw {
+      width: #{$i}vw !important;
+    }
+    .app-h-xxl-#{$i}px {
+      height: #{$i}px !important;
+    }
+    .app-h-xxl-#{$i}rem {
+      height: #{$i}rem !important;
+    }
+    .app-h-xxl-#{$i}vh {
+      height: #{$i}vh !important;
+    }
+  }
+}
+
+// FONT SIZE + BREAKPOINT FS ======================================
+
+/* Génération automatique des classes de taille de police avec breakpoints */
+@for $i from 1 through 100 {
+  .app-fs-#{$i}rem {
+    font-size: #{$i}rem;
+  }
+  @include media-breakpoint-up(sm) {
+    .app-fs-sm-#{$i}rem {
+      font-size: #{$i}rem !important;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    .app-fs-md-#{$i}rem {
+      font-size: #{$i}rem !important;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    .app-fs-lg-#{$i}rem {
+      font-size: #{$i}rem !important;
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    .app-fs-xl-#{$i}rem {
+      font-size: #{$i}rem !important;
+    }
+  }
+
+  @include media-breakpoint-up(xxl) {
+    .app-fs-xxl-#{$i}rem {
+      font-size: #{$i}rem !important;
+    }
+  }
+}
+
+// BOOTSTRAP COLOR ====================================
+
+/* Classes de couleurs personnalisées basées sur les variables Bootstrap */
+
+.text-custom-gray-100 {
+  color: $gray-100 !important;
+}
+.text-custom-gray-200 {
+  color: $gray-200 !important;
+}
+.text-custom-gray-300 {
+  color: $gray-300 !important;
+}
+.text-custom-gray-400 {
+  color: $gray-400 !important;
+}
+.text-custom-gray-500 {
+  color: $gray-500 !important;
+}
+.text-custom-gray-600 {
+  color: $gray-600 !important;
+}
+.text-custom-gray-700 {
+  color: $gray-700 !important;
+}
+.text-custom-gray-800 {
+  color: $gray-800 !important;
+}
+.text-custom-gray-900 {
+  color: $gray-900 !important;
+}
+
+/* Style pour les titres de présentation */
+.app-presentation-title {
+  @extend .text-light;
+  @extend .fw-bold;
+  @extend .text-center;
+  @extend .mx-3;
+}

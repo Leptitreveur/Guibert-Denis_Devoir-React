@@ -1,0 +1,5 @@
+.app-navbar__toggler {
+  &:focus {
+    @extend .border-light;
+  }
+}

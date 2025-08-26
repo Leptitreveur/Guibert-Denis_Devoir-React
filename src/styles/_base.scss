@@ -1,0 +1,25 @@
+@font-face {
+  font-family: Nunitosans;
+  src: url('../assets/font/NunitoSans-VariableFont_YTLC\,opsz\,wdth\,wght.ttf') format('truetype');
+}
+
+/* Styles globaux pour tous les éléments */
+* {
+  font-family: Nunitosans, Arial, sans-serif;
+  box-sizing: border-box !important;
+}
+
+/* Classe pour le conteneur HTML principal */
+.app-html {
+  @extend .min-vh-100;
+  @extend .min-vw-100;
+  @extend .bg-dark;
+}
+
+/* Effet de survol pour les cartes */
+.app-card--hover:hover {
+  cursor: default;
+  border-radius: 5px;
+  background-color: #efefef;
+  box-shadow: 3px 3px 8px $gray-600;
+}

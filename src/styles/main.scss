@@ -1,0 +1,15 @@
+/* Importation des styles Bootstrap et personnalisés */
+
+/* Framework Bootstrap */
+@import 'bootstrap/scss/bootstrap';
+
+/* Styles de base et utilitaires */
+@import 'base';
+@import 'utilities';
+@import 'bootstrap-overrides';
+
+/* Styles des composants */
+@import '../components/common/Accordion/Accordion';
+@import '../components/layout/Footer/Footer';
+@import '../components/layout/Header/Header';
+@import '../components/navbar/Navbar/Navbar';

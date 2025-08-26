@@ -1,0 +1,12 @@
+/* Effet de survol sur les liens et icônes du footer
+ * Applique un effet sur les deux premières lignes de la carte de contact si celle ci est présente dans le footer
+ * Utilise le sélecteur :has() pour cibler les éléments liés
+ */
+.app-footer__icon:hover,
+.app-footer__link:hover,
+.app-footer__field#editor ul:has(li:nth-child(1):hover) li:nth-child(1) .nav-link,
+.app-footer__field#editor ul:has(li:nth-child(1):hover) li:nth-child(2) .nav-link,
+.app-footer__field#editor ul:has(li:nth-child(2):hover) li:nth-child(1) .nav-link,
+.app-footer__field#editor ul:has(li:nth-child(2):hover) li:nth-child(2) .nav-link {
+  color: $white !important;
+}

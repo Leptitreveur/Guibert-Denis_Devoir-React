@@ -1,34 +1,39 @@
-import {createHead, UnheadProvider } from "@unhead/react/client";
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { createHead, UnheadProvider } from '@unhead/react/client';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import "scss/global.scss";
+import 'src/styles/main.scss';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
-import { ScrollToTop } from "jsx/global-components";
+import App from 'src/App.jsx';
+import HomePage from 'src/pages/HomePage/HomePage.jsx';
+import ServicesPage from 'src/pages/ServicesPage/ServicesPage.jsx';
+import PortfolioPage from 'src/pages/PortfolioPage/PortfolioPage.jsx';
+import ContactPage from 'src/pages/ContactPage/ContactPage.jsx';
+import LegalNoticePage from 'src/pages/LegalNoticePage/LegalNoticePage.jsx';
 
-import App from "src/App.jsx";
-import Home from "pages/home.jsx";
-import Services from "pages/services.jsx";
-import Realisations from "pages/realisations.jsx";
-import Contact from "pages/contact.jsx";
-import LegalNotice from "pages/legal-notice.jsx";
+import { useScrollToTop } from 'src/hooks/useScrollToTop';
+
+export const ScrollToTopWrapper = () => {
+  useScrollToTop();
+  return null;
+};
 
 const head = createHead();
 
-createRoot(document.getElementById("root")).render(
+createRoot(document.getElementById('root')).render(
   <StrictMode>
     <UnheadProvider head={head}>
       <Router>
-        <ScrollToTop />
+        <ScrollToTopWrapper />
         <Routes>
           <Route path="/" element={<App />}>
-            <Route index element={<Home />} />
-            <Route path="services" element={<Services />} />
-            <Route path="realisations" element={<Realisations />} />
-            <Route path="contact" element={<Contact />} />
-            <Route path="legal-notice" element={<LegalNotice />} />
+            <Route index element={<HomePage />} />
+            <Route path="ServicesPage" element={<ServicesPage />} />
+            <Route path="PortfolioPage" element={<PortfolioPage />} />
+            <Route path="ContactPage" element={<ContactPage />} />
+            <Route path="LegalNoticePage" element={<LegalNoticePage />} />
           </Route>
         </Routes>
       </Router>
