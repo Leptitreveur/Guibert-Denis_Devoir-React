@@ -21,7 +21,7 @@ function TextProfil() {
   );
 }
 
-export function ProfilSection() {
+export function ProfilPart() {
   return (
     <div className="col-12 col-md-6">
       <TitleSection title="A propos" />
