@@ -42,9 +42,12 @@ const addContact = (data) => {
   }
 
   // Validation du format de l'URL du site web
-  if (data.website && !validateUrlFormat(data.website)) {
-    console.warn(`Format de l'Url invalide pour le contact "${data.id}". Url reçu : "${data.website}".`);
-    return;
+  if (data.website) {
+    const urlValidation = validateUrlFormat(data.website);
+    if(!urlValidation.isValid){
+      console.warn(`Format de l'Url invalide pour le contact "${data.id}". Url reçu : "${data.website}".`);
+      return;
+    }
   }
 
   // * Fin de la validation ===========================================================================================

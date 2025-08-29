@@ -12,7 +12,7 @@ import { Navbar } from 'src/components/navbar/Navbar/Navbar';
  * @param {string[]} selectedIds - IDs des liens à afficher
  * @param {React.Ref} ref - Référence pour le collapse Bootstrap
  */
-export const InnerNavbarLinkList = ({ selectedIds }, ref) => {
+export const InnerNavbarLinkList = ({ selectedIds = [] }, ref) => {
   const filteredCards = useFilteredData(allNavbarLinks, selectedIds, 'Navbar');
   const { getClassProps } = useContextualStyle();
   const isInFooter = useContext(FooterStyle);

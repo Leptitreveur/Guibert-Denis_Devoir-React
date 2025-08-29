@@ -7,7 +7,7 @@ import { ServiceCard } from 'src/components/services/ServiceCard/ServiceCard';
 /** Grille de cartes de services avec filtrage par IDs.
  * @param {string[]} selectedIds - IDs des services à afficher
  */
-export const ServiceCardsList = ({ selectedIds }) => {
+export const ServiceCardsList = ({ selectedIds = [] }) => {
   const filteredCards = useFilteredData(allServiceCards, selectedIds, 'ServicesPage');
 
   return (

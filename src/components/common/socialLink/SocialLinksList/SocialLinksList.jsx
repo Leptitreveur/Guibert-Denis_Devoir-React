@@ -10,7 +10,7 @@ import { SocialLink } from 'src/components/common/socialLink/SocialLink/SocialLi
  * Filtre et affiche une liste de liens sociaux à partir des IDs.
  * @param {string[]} selectedIds
  */
-export function SocialLinksList({ selectedIds }) {
+export function SocialLinksList({ selectedIds = [] }) {
   // Filtrage des données avec le hook
   const filteredCards = useFilteredData(allSocialLinks, selectedIds, 'SocialLink');
   const { getClassProps } = useContextualStyle();

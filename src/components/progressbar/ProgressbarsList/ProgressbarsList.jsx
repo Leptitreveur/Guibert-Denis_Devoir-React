@@ -7,7 +7,7 @@ import { Progressbar } from 'src/components/progressbar/Progressbar/Progressbar'
 /** Liste de barres de progression avec filtrage par IDs.
  * @param {string[]} selectedIds - IDs des barres à afficher
  */
-export const ProgressbarsList = ({ selectedIds }) => {
+export const ProgressbarsList = ({ selectedIds = [] }) => {
   const filteredCards = useFilteredData(allProgressBars, selectedIds, 'Progressbar');
 
   return (

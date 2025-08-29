@@ -7,7 +7,7 @@ import { ContactCard } from 'src/components/contact/ContactCard/ContactCard';
 /** Filtre les cartes de contact et active Maps pour l'hébergeur.
  * @param {string[]} selectedIds
  */
-export const ContactCardsList = ({ selectedIds }) => {
+export const ContactCardsList = ({ selectedIds = [] }) => {
   // Filtrage selon IDs
   const filteredCards = useFilteredData(allContactCards, selectedIds, 'Contact');
 

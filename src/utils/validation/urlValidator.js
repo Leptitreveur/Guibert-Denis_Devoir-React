@@ -4,11 +4,11 @@
  */
 
 export const validateUrlFormat = (website) => {
-  if (typeof website !== 'string' || website.trim() === '') return false;
+  if (typeof website !== 'string' || website.trim() === '') return {isValid : false};
   try {
     new URL(website);
-    return true;
+    return {isValid : true};
   } catch {
-    return false;
+    return {isValid : false};
   }
 }
