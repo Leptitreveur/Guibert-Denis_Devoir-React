@@ -1,13 +1,28 @@
-/** Gestion des liens sociaux
- * Permet d'ajouter des liens vers les réseaux sociaux avec validation
+/**
+ * Gestion des liens sociaux
+ *
+ * Permet d'ajouter des liens vers les réseaux sociaux avec validation.
+ * Fournit un système de gestion centralisé pour les liens vers les
+ * réseaux sociaux avec validation des données.
  */
 
 const socialLinks = [];
 
+/**
+ * Champs requis pour un lien social
+ * @description Liste des champs obligatoires pour la validation
+ */
 const requiredFields = ['id', 'link', 'icon'];
 
-/** Ajoute un lien social avec validation des données
+/**
+ * Ajoute un lien social avec validation des données
+ *
+ * Valide les champs requis avant d'ajouter le lien social au tableau.
+ *
  * @param {Object} data - Données du lien social à ajouter
+ * @param {string} data.id - Identifiant unique du lien social
+ * @param {string} data.link - URL du profil social
+ * @param {string} data.icon - Classe CSS de l'icône Bootstrap
  */
 const addSocialLink = (data) => {
   const linkData = {};
@@ -47,9 +62,11 @@ addSocialLink({
 });
 // * Fin d'ajout dynamique =============================================================================
 
-/**Récupère un lien social par son ID
+/**
+ * Récupère un lien social par son ID
+ *
  * @param {string} id - ID du lien social à récupérer
- * @returns {Object|null} Le lien trouvé ou null
+ * @returns {Object|null} Le lien trouvé ou null si non trouvé
  */
 export const getSocialLinks = (id) => socialLinks.find((data) => data.id === id);
 

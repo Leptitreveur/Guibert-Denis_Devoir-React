@@ -9,10 +9,27 @@ import { formatPhoneNumber } from 'src/utils/phoneFormatter';
 import { extractDomain } from 'src/utils/domainExtractor';
 import { SocialLinksList } from 'src/components/common/socialLink/SocialLinksList/SocialLinksList';
 
-/**Affiche les informations de contact (adresse, téléphone, email, site),
+/**
+ * Carte de contact avec informations complètes et adaptation contextuelle
+ *
+ * Affiche les informations de contact (adresse, téléphone, email, site),
  * adapte les styles selon le contexte (footer ou non) et gère les liens Maps.
- * @param {Object} contactData
- * @param {boolean} toMap - active l'ouverture Maps pour l'adresse
+ * Utilise le contexte FooterStyle pour adapter l'affichage et les liens.
+ *
+ * @param {Object} props - Propriétés du composant
+ * @param {Object} props.contactData - Données du contact à afficher
+ * @param {string} props.contactData.id - Identifiant unique du contact
+ * @param {string} props.contactData.name - Nom du contact
+ * @param {Object} [props.contactData.address] - Adresse du contact
+ * @param {string} [props.contactData.address.street] - Rue de l'adresse
+ * @param {string} [props.contactData.address.postalCode] - Code postal
+ * @param {string} [props.contactData.address.city] - Ville
+ * @param {string} [props.contactData.address.country] - Pays
+ * @param {string} [props.contactData.phoneStr] - Numéro de téléphone (format brut)
+ * @param {string} [props.contactData.email] - Adresse email
+ * @param {string} [props.contactData.website] - URL du site web
+ * @param {boolean} [props.toMap] - Active l'ouverture Maps pour l'adresse
+ * @returns {JSX.Element|null} Carte de contact ou null si données invalides
  */
 export const ContactCard = ({ contactData, toMap = false }) => {
   const { getClassProps } = useContextualStyle();
@@ -96,19 +113,34 @@ export const ContactCard = ({ contactData, toMap = false }) => {
   );
 };
 
+/**
+ * Validation des propriétés du composant ContactCard
+ */
 ContactCard.propTypes = {
+  /** Données du contact à afficher */
   contactData: PropTypes.shape({
+    /** Identifiant unique du contact */
     id: PropTypes.string.isRequired,
+    /** Nom du contact */
     name: PropTypes.string.isRequired,
+    /** Adresse du contact */
     address: PropTypes.shape({
+      /** Rue de l'adresse */
       street: PropTypes.string,
+      /** Code postal */
       postalCode: PropTypes.string,
+      /** Ville */
       city: PropTypes.string,
+      /** Pays */
       country: PropTypes.string,
     }),
+    /** Numéro de téléphone (format brut) */
     phoneStr: PropTypes.string,
+    /** Adresse email */
     email: PropTypes.string,
+    /** URL du site web */
     website: PropTypes.string,
   }).isRequired,
+  /** Active l'ouverture Maps pour l'adresse */
   toMap: PropTypes.bool,
 };

@@ -1,33 +1,45 @@
-/**Gestion des données du portfolio avec validation
- * Permet d'ajouter des réalisations avec validation des champs et des images
- * 
+/**
+ * Gestion des données du portfolio avec validation
+ *
+ * Permet d'ajouter des réalisations avec validation des champs et des images.
+ * Fournit un système de validation complet pour assurer la cohérence
+ * des données et des images associées.
+ *
  * IMPORTANT : MODIFICATION DES IDs
- *  
+ *
  * RAPPEL : La portfolioCard et son image partagent la meme ID.
  *          Les IDs doivent être en minuscules sans caractères spéciaux
- * 
+ *
  * 1. Modifier la clé correspondante dans src/data/portfolioImages.js
  * 2. Mettre à jour le tableau selectedIds dans src/pages/PortfolioPage/PortfolioPage.jsx si choix personaliser
- * 
  */
 
 import PortfolioImages from 'src/data/portfolioImages';
-import { validateIdFormat } from "src/utils/validation/idValidator"
-import { validateImageById } from "src/utils/validation/portfolioImageValidator"
-import { validateField } from "src/utils/validation/fieldValidator"
-
+import { validateIdFormat } from 'src/utils/validation/idValidator';
+import { validateImageById } from 'src/utils/validation/portfolioImageValidator';
+import { validateField } from 'src/utils/validation/fieldValidator';
 
 const portfolioCards = [];
 
-/**Ajoute une réalisation au portfolio avec validation complète
+/**
+ * Ajoute une réalisation au portfolio avec validation complète
+ *
+ * Valide l'ID, l'existence de l'image correspondante et la présence
+ * de tous les champs requis avant d'ajouter la réalisation au tableau.
+ *
  * @param {Object} data - Données de la réalisation à ajouter
+ * @param {string} data.id - Identifiant unique de la réalisation
+ * @param {string} data.alt - Texte alternatif de l'image
+ * @param {string} data.title - Titre de la réalisation
+ * @param {string} data.description - Description du projet
+ * @param {string} data.tools - Outils/technologies utilisés
+ * @param {string} [data.link] - URL du projet (optionnel)
  */
 const addPortfolio = (data) => {
-
   // * Début de validation des données ============================================================================================
 
- // Validation de l'ID et da l'image
-  if(data.id){
+  // Validation de l'ID et da l'image
+  if (data.id) {
     const idValidation = validateIdFormat(data.id);
     const imageValidation = validateImageById(data.id);
     const errors = [];
@@ -36,25 +48,25 @@ const addPortfolio = (data) => {
     if (!idValidation.isValid) {
       errors.push(...idValidation.errors);
     }
-    
-    if(!imageValidation.isValid){
+
+    if (!imageValidation.isValid) {
       errors.push(`Aucune image trouvée pour l'ID "${data.id}". Vérifiez que l'ID existe dans portfolioImages.js.`);
     }
 
-    if(errors.length > 0){
-      console.error(`PortfolioData Validation échouée : \n- ${errors.join('\n- ')}`)
+    if (errors.length > 0) {
+      console.error(`PortfolioData Validation échouée : \n- ${errors.join('\n- ')}`);
       return;
     }
   }
- 
+
   // Validation des champs requis
-  if(data){
+  if (data) {
     const { isValid, field } = validateField(data);
-    if(!isValid){
+    if (!isValid) {
       console.warn(`PortfolioData Validation échouée: Le champ requis, "${field}", est manquant pour le projet ID "${data.id}".`);
     }
   }
-  
+
   // * Fin de validation ==========================================================================================================
 
   // Formatage des données avec l'image correspondante
@@ -122,9 +134,11 @@ addPortfolio({
 });
 // *FIN D'AJOUT DYNAMIQUE #######################################################################################################
 
-/**Récupère une réalisation par son ID
+/**
+ * Récupère une réalisation par son ID
+ *
  * @param {string} id - ID de la réalisation à récupérer
- * @returns {Object|null} La réalisation trouvée ou null
+ * @returns {Object|null} La réalisation trouvée ou null si non trouvée
  */
 export const getPortfolioCards = (id) => portfolioCards.find((data) => data.id === id);
 

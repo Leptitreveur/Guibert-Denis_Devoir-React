@@ -1,8 +1,15 @@
 import { PropTypes } from 'prop-types';
 
-/** Titre description optionnelle et ligne décorative.
- * @param {string} title
- * @param {string|boolean} description
+/**
+ * Titre avec description optionnelle et ligne décorative
+ *
+ * Composant de mise en page pour les titres de page avec description
+ * optionnelle et une ligne décorative en dessous du titre.
+ *
+ * @param {Object} props - Propriétés du composant
+ * @param {string} props.title - Titre principal à afficher
+ * @param {string|boolean} [props.description] - Description optionnelle sous le titre
+ * @returns {JSX.Element} Titre avec description et ligne décorative
  */
 export function TitleLayout({ title, description }) {
   return (
@@ -14,7 +21,13 @@ export function TitleLayout({ title, description }) {
     </div>
   );
 }
+
+/**
+ * Validation des propriétés du composant TitleLayout
+ */
 TitleLayout.propTypes = {
+  /** Titre principal à afficher */
   title: PropTypes.string.isRequired,
+  /** Description optionnelle sous le titre */
   description: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 };

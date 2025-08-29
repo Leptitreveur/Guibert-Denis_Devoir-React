@@ -3,17 +3,46 @@ import { Link } from 'react-router-dom';
 
 import Modal from 'bootstrap/js/dist/modal';
 
-/** Modal Bootstrap affichant les informations du profil GitHub.
- * Récupère les données via l'API GitHub et gère les états de chargement/erreur.
+/**
+ * Modal Bootstrap affichant les informations du profil GitHub
+ *
+ * Composant modal récupérant les données via l'API GitHub et gérant
+ * les états de chargement et d'erreur. Affiche les informations
+ * du profil utilisateur dans une modal Bootstrap responsive.
+ *
+ * @returns {JSX.Element} Modal avec informations du profil GitHub
  */
 export function UserProfilModal() {
+  /**
+   * Données de l'utilisateur GitHub
+   * @description État contenant les informations du profil utilisateur
+   */
   const [user, setUser] = useState(null);
+
+  /**
+   * État de chargement des données
+   * @description Indique si les données sont en cours de récupération
+   */
   const [loading, setLoading] = useState(true);
+
+  /**
+   * État d'erreur lors de la récupération
+   * @description Contient le message d'erreur en cas d'échec
+   */
   const [error, setError] = useState(null);
 
+  /**
+   * Référence au modal Bootstrap
+   * @description Référence DOM pour initialiser et contrôler le modal
+   */
   const modalRef = useRef(null);
 
-  // Récupération des données GitHub et initialisation du modal Bootstrap
+  /**
+   * Effet pour récupérer les données GitHub et initialiser le modal
+   * @description Récupère les données utilisateur et initialise le modal Bootstrap
+   * @dependencies [] - Se déclenche une seule fois au montage du composant
+   * @returns {void} Aucune valeur de retour
+   */
   useEffect(() => {
     fetch('https://api.github.com/users/github-john-doe')
       .then((response) => {
@@ -39,7 +68,10 @@ export function UserProfilModal() {
   if (loading) return <p>Chargement...</p>;
   if (error) return <p>Erreur : {error}</p>;
 
-  // Configuration des éléments d'information du profil
+  /**
+   * Configuration des éléments d'information du profil
+   * @description Tableau des éléments à afficher dans le modal
+   */
   const paragraphItem = [
     {
       key: '1',

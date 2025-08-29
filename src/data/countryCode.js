@@ -1,9 +1,17 @@
-/** Fonction utilitaire pour obtenir le code pays à partir du nom du pays
+/**
+ * Fonction utilitaire pour obtenir le code pays à partir du nom du pays
+ *
+ * Fournit un mapping entre les noms de pays et leurs codes ISO correspondants.
+ * Utilisé principalement pour la validation des numéros de téléphone avec libphonenumber-js.
+ *
  * @param {string} countryName - Nom du pays (ex: 'France', 'United States')
- * @returns {string} Code pays ISO (ex: 'FR', 'US')
+ * @returns {string} Code pays ISO (ex: 'FR', 'US') ou 'FR' par défaut
  */
 export const getCountryCode = (countryName) => {
-  // Mapping des noms de pays vers les codes ISO
+  /**
+   * Mapping des noms de pays vers les codes ISO
+   * @description Correspondance entre noms de pays et codes ISO 3166-1 alpha-2
+   */
   const countryMapping = {
     France: 'FR',
     'United States': 'US',

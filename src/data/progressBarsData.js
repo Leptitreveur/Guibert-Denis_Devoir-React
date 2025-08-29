@@ -1,14 +1,36 @@
-/**Gestion des barres de progression avec validation
- * Permet d'ajouter des barres avec validation des pourcentages et couleurs Bootstrap
+/**
+ * Gestion des barres de progression avec validation
+ *
+ * Permet d'ajouter des barres de progression avec validation des pourcentages
+ * et couleurs Bootstrap. Fournit un système de validation complet pour
+ * assurer la cohérence des données de progression.
  */
 
 const progressBars = [];
 
+/**
+ * Champs requis pour une barre de progression
+ * @description Liste des champs obligatoires pour la validation
+ */
 const requieredFields = ['id', 'title', 'percent', 'color'];
+
+/**
+ * Couleurs Bootstrap valides
+ * @description Liste des couleurs Bootstrap autorisées pour les barres de progression
+ */
 const bootstrapColors = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'];
 
-/**Ajoute une barre de progression avec validation
+/**
+ * Ajoute une barre de progression avec validation
+ *
+ * Valide les champs requis, le pourcentage et la couleur Bootstrap
+ * avant d'ajouter la barre au tableau.
+ *
  * @param {Object} data - Données de la barre à ajouter
+ * @param {string} data.id - Identifiant unique de la barre
+ * @param {string} data.title - Titre de la compétence
+ * @param {number} data.percent - Pourcentage de maîtrise (0-100)
+ * @param {string} data.color - Couleur Bootstrap de la barre
  */
 const addProgressBar = (data) => {
   //* Début validation des données ================================================================
@@ -80,9 +102,11 @@ addProgressBar({
 });
 // * Fin ajout dynamique =============================================================================================
 
-/**Récupère une barre de progression par son ID
+/**
+ * Récupère une barre de progression par son ID
+ *
  * @param {string} id - ID de la barre à récupérer
- * @returns {Object|null} La barre trouvée ou null
+ * @returns {Object|null} La barre trouvée ou null si non trouvée
  */
 export const getProgressBars = (id) => progressBars.find((data) => data.id === id);
 

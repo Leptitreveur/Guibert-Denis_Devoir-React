@@ -1,11 +1,15 @@
-/**Hook useFilteredData
- * Filtre un tableau de données selon les IDs sélectionnés avec validation
- * @param {Array} sourceData - Tableau source de données
- * @param {Array} selectedIds - IDs des éléments à filtrer
- * @param {string} sourceName - Nom de la source pour les logs
- * @returns {Array} Données filtrées ou tableau complet si aucun ID
+/**
+ * Hook useFilteredData - Filtrage de données selon les IDs sélectionnés avec validation
+ *
+ * Filtre un tableau de données selon les IDs fournis et effectue une validation
+ * des IDs pour s'assurer qu'ils correspondent à des données existantes.
+ * Retourne toutes les données si aucun ID n'est spécifié.
+ *
+ * @param {Array} sourceData - Tableau source de données à filtrer
+ * @param {Array} selectedIds - IDs des éléments à filtrer (optionnel)
+ * @param {string} sourceName - Nom de la source pour les logs de validation
+ * @returns {Array} Données filtrées ou tableau complet si aucun ID spécifié
  */
-
 export const useFilteredData = (sourceData, selectedIds = [], sourceName = 'source') => {
   //* Début de la validation ==========================================================================================================
 

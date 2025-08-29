@@ -1,12 +1,17 @@
-/** Hook useContextualStyle
- * Gère les styles contextuels selon l'emplacement du composant (footer ou page normale)
- * Fournit des classes CSS adaptées au contexte d'utilisation
+/**
+ * Hook useContextualStyle - Gestion des styles contextuels selon l'emplacement du composant
+ *
+ * Fournit des classes CSS adaptées au contexte d'utilisation (footer ou page normale).
+ * Permet d'adapter dynamiquement l'apparence des composants selon leur contexte.
  */
 
 import { useContext } from 'react';
 import { FooterStyle } from 'src/contexts/FooterContext';
 
-// Styles communs par type (footer vs default)
+/**
+ * Styles communs par type (footer vs default)
+ * @description Configuration des styles de base selon le contexte
+ */
 const commonStyles = {
   field: { footer: 'app-footer__field', default: null },
   legend: { footer: 'text-white fw-bold mb-1', default: 'fw-bold m-0' },
@@ -17,7 +22,10 @@ const commonStyles = {
   icon: { footer: 'bi ', default: null },
 };
 
-// Styles spécifiques par sous-type et contexte
+/**
+ * Styles spécifiques par sous-type et contexte
+ * @description Configuration des styles spécifiques selon le type de composant
+ */
 const specificStyles = {
   field: {
     card: { footer: null, default: null },
@@ -53,13 +61,28 @@ const specificStyles = {
   },
 };
 
+/**
+ * Hook pour gérer les styles contextuels selon l'emplacement du composant
+ *
+ * Ce hook utilise le contexte FooterStyle pour déterminer si le composant
+ * se trouve dans le footer ou dans une page normale, et retourne les
+ * classes CSS appropriées.
+ *
+ * @returns {Object} Objet contenant la fonction getClassProps
+ * @returns {Function} returns.getClassProps - Fonction pour générer les propriétés de classe
+ */
 export const useContextualStyle = () => {
   const isInFooter = useContext(FooterStyle);
 
-  /** Génère les propriétés de classe selon le contexte et le type
-   * @param {string} section - Section (field, legend, list, etc.)
+  /**
+   * Génère les propriétés de classe selon le contexte et le type
+   *
+   * Combine les styles communs et spécifiques selon le contexte (footer ou default)
+   * et retourne un objet avec la propriété className si des classes sont définies.
+   *
+   * @param {string} section - Section (field, legend, list, lign, link, box, icon)
    * @param {string} key - Clé spécifique (card, nav, portfolio, social)
-   * @returns {Object|undefined} Propriétés avec className ou undefined
+   * @returns {Object|undefined} Propriétés avec className ou undefined si aucune classe
    */
   const getClassProps = (section, key) => {
     // Récupère les styles communs selon le contexte

@@ -1,13 +1,29 @@
-/** Gestion des liens de navigation
- * Permet d'ajouter des liens avec validation des champs requis
+/**
+ * Gestion des liens de navigation
+ *
+ * Permet d'ajouter des liens de navigation avec validation des champs requis.
+ * Fournit un système de gestion centralisé pour les liens de navigation
+ * de l'application avec validation des données.
  */
 
 const navbarLinks = [];
 
+/**
+ * Champs requis pour un lien de navigation
+ * @description Liste des champs obligatoires pour la validation
+ */
 const requiredFields = ['id', 'path', 'name'];
 
-/** Ajoute un lien de navigation avec validation
+/**
+ * Ajoute un lien de navigation avec validation
+ *
+ * Valide les champs requis avant d'ajouter le lien au tableau
+ * de navigation.
+ *
  * @param {Object} data - Données du lien à ajouter
+ * @param {string} data.id - Identifiant unique du lien
+ * @param {string} data.path - Chemin de la route
+ * @param {string} data.name - Nom affiché du lien
  */
 function addLink(data) {
   const linkData = {};
@@ -52,9 +68,11 @@ addLink({
 });
 //* FIN D'AJOUT DYNAMIQUE ##################################################################################################
 
-/** Récupère un lien par son ID
+/**
+ * Récupère un lien par son ID
+ *
  * @param {string} id - ID du lien à récupérer
- * @returns {Object|null} Le lien trouvé ou null
+ * @returns {Object|null} Le lien trouvé ou null si non trouvé
  */
 export const getNavbarLinks = (id) => navbarLinks.find((data) => data.id === id);
 

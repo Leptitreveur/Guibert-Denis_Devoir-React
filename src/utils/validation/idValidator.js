@@ -1,11 +1,24 @@
+/**
+ * Validateur de format d'ID - Validation du format et de la structure des identifiants
+ *
+ * Valide que les IDs respectent un format spécifique : minuscules uniquement,
+ * sans caractères spéciaux, avec une longueur minimale de 2 caractères.
+ * Utilisé pour assurer la cohérence des identifiants dans l'application.
+ *
+ * @param {string} id - L'identifiant à valider
+ * @returns {Object} Résultat de validation avec statut et erreurs
+ * @returns {boolean} returns.isValid - true si l'ID est valide, false sinon
+ * @returns {Array} returns.errors - Tableau des messages d'erreur (vide si valide)
+ */
 export const validateIdFormat = (id) => {
   const errors = [];
+
   // Validation du type d'ID
   if (!id || typeof id !== 'string') {
     errors.push(`L'ID est manquant ou n'est pas une chaîne de caractères.`);
-    return { 
+    return {
       isValid: false,
-      errors
+      errors,
     };
   }
 
@@ -28,4 +41,4 @@ export const validateIdFormat = (id) => {
   }
 
   return { isValid: true };
-}
+};

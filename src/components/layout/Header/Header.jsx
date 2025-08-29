@@ -6,13 +6,34 @@ import Collapse from 'bootstrap/js/dist/collapse';
 import { FooterStyle } from 'src/contexts/FooterContext';
 import { NavbarLinksList } from 'src/components/navbar/NavbarLinksList/NavbarLinksList';
 
-/**Barre de navigation; ferme le menu mobile au changement de route.*/
+/**
+ * Barre de navigation avec fermeture automatique du menu mobile
+ *
+ * Composant d'en-tête contenant la barre de navigation principale avec
+ * fermeture automatique du menu mobile lors des changements de route.
+ * Utilise Bootstrap pour la gestion du collapse et le contexte FooterStyle.
+ *
+ * @returns {JSX.Element} Barre de navigation avec menu mobile
+ */
 export default function Header() {
-  // Ref sur la zone collapsible
+  /**
+   * Référence sur la zone collapsible du menu mobile
+   * @description Référence DOM pour contrôler le collapse Bootstrap
+   */
   const navbarCollapsibleRef = useRef(null);
+
+  /**
+   * Localisation actuelle pour détecter les changements de route
+   * @description Hook React Router pour surveiller les changements de route
+   */
   const location = useLocation();
 
-  // useEffect: récupère/ferme l'instance Bootstrap Collapse si ouverte
+  /**
+   * Effet pour fermer le menu mobile lors des changements de route
+   * @description Récupère et ferme l'instance Bootstrap Collapse si ouverte
+   * @dependencies [location.pathname] - Se déclenche quand le pathname change
+   * @returns {void} Aucune valeur de retour
+   */
   useEffect(() => {
     const collapsibleElement = navbarCollapsibleRef.current;
 

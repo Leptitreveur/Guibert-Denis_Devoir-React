@@ -1,15 +1,24 @@
-/** Tests de validation du numéro de téléphone avec libphonenumber-js
- * Fournit une validation complète
+/**
+ * Tests de validation du numéro de téléphone avec libphonenumber-js
+ *
+ * Fournit une validation complète des numéros de téléphone selon les standards internationaux.
+ * Utilise la bibliothèque libphonenumber-js pour une validation robuste et précise.
  */
 
 import { parsePhoneNumber, isValidPhoneNumber } from 'libphonenumber-js';
 import { getCountryCode } from 'src/data/countryCode';
 
-/**Valide le format basique d'un numéro de téléphone (chiffres uniquement)
+/**
+ * Valide le format basique d'un numéro de téléphone (chiffres uniquement)
+ *
+ * Effectue une validation préliminaire pour s'assurer que le numéro
+ * ne contient que des chiffres et est présent.
+ *
  * @param {string} phoneStr - Le numéro de téléphone à valider
  * @returns {Object} Résultat de validation avec statut et message d'erreur
+ * @returns {boolean} returns.isValid - true si le format est valide, false sinon
+ * @returns {string} returns.error - Message d'erreur si le format est invalide
  */
-
 export const validateBasicPhoneFormat = (phoneStr) => {
   // Vérification de la présence du numéro
   if (!phoneStr) {
@@ -41,10 +50,18 @@ export const validateBasicPhoneFormat = (phoneStr) => {
   };
 };
 
-/**Valide un numéro de téléphone selon plusieurs critères
+/**
+ * Valide un numéro de téléphone selon plusieurs critères
+ *
+ * Effectue une validation complète du numéro selon le pays spécifié,
+ * incluant la validation basique et la validation avec libphonenumber-js.
+ *
  * @param {string} phoneStr - Le numéro de téléphone à valider
  * @param {string} countryName - Le nom du pays (ex: 'France', 'United States')
  * @returns {Object} Résultat de validation avec statut et message d'erreur
+ * @returns {boolean} returns.isValid - true si le numéro est valide, false sinon
+ * @returns {string} returns.error - Message d'erreur si le numéro est invalide
+ * @returns {Object} returns.phoneNumber - Objet PhoneNumber si valide (pour formatage)
  */
 export const validatePhoneNumber = (phoneStr, countryName = 'France') => {
   // Validation basique d'abord

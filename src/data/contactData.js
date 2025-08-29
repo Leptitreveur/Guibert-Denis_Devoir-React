@@ -1,18 +1,37 @@
-/** Gestion des données de contact avec validation
- * Permet d'ajouter des contacts avec validation des champs requis et formats
+/**
+ * Gestion des données de contact avec validation
+ *
+ * Permet d'ajouter des contacts avec validation des champs requis et formats.
+ * Fournit un système de validation complet pour assurer la cohérence
+ * des données de contact (téléphone, email, URL).
  */
 
 // Import de la validation basique du téléphone
 import { validateBasicPhoneFormat } from 'src/utils/validation/phoneNumberValidator';
 import { validateEmailFormat } from 'src/utils/validation/emailValidator';
-import { validateUrlFormat } from 'src/utils/validation/urlValidator'
+import { validateUrlFormat } from 'src/utils/validation/urlValidator';
 
 const contactCards = [];
 
+/**
+ * Champs requis pour un contact
+ * @description Liste des champs obligatoires pour la validation
+ */
 const requiredFields = ['id', 'name'];
 
-/** Ajoute un contact avec validation des données
+/**
+ * Ajoute un contact avec validation des données
+ *
+ * Valide les champs requis, le format du téléphone, de l'email et de l'URL
+ * avant d'ajouter le contact au tableau.
+ *
  * @param {Object} data - Données du contact à ajouter
+ * @param {string} data.id - Identifiant unique du contact
+ * @param {string} data.name - Nom du contact
+ * @param {Object} [data.address] - Adresse du contact
+ * @param {string} [data.phoneStr] - Numéro de téléphone (format brut)
+ * @param {string} [data.email] - Adresse email
+ * @param {string} [data.website] - URL du site web
  */
 const addContact = (data) => {
   // *Début de la validation ============================================================================================
@@ -44,7 +63,7 @@ const addContact = (data) => {
   // Validation du format de l'URL du site web
   if (data.website) {
     const urlValidation = validateUrlFormat(data.website);
-    if(!urlValidation.isValid){
+    if (!urlValidation.isValid) {
       console.warn(`Format de l'Url invalide pour le contact "${data.id}". Url reçu : "${data.website}".`);
       return;
     }
@@ -88,8 +107,9 @@ addContact({
 
 /**
  * Récupère un contact par son ID
+ *
  * @param {string} id - ID du contact à récupérer
- * @returns {Object|null} Le contact trouvé ou null
+ * @returns {Object|null} Le contact trouvé ou null si non trouvé
  */
 export const getContacts = (id) => contactCards.find((contact) => contact.id === id);
 

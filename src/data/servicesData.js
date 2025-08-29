@@ -1,13 +1,29 @@
-/** Gestion des données de services
- * Permet d'ajouter des services avec validation des champs requis
+/**
+ * Gestion des données de services
+ *
+ * Permet d'ajouter des services avec validation des champs requis.
+ * Fournit un système de gestion centralisé pour les services proposés
+ * avec validation des données.
  */
 
 const serviceCard = [];
 
+/**
+ * Champs requis pour un service
+ * @description Liste des champs obligatoires pour la validation
+ */
 const requiredFields = ['id', 'icon', 'title', 'text'];
 
-/**Ajoute un service avec validation des données
+/**
+ * Ajoute un service avec validation des données
+ *
+ * Valide les champs requis avant d'ajouter le service au tableau.
+ *
  * @param {Object} data - Données du service à ajouter
+ * @param {string} data.id - Identifiant unique du service
+ * @param {string} data.icon - Classe CSS de l'icône Bootstrap
+ * @param {string} data.title - Titre du service
+ * @param {string} data.text - Description du service
  */
 const addService = (data) => {
   const serviceData = {};
@@ -52,9 +68,11 @@ addService({
 
 // *FIN D'AJOUT DYNAMIQUE ===================================================================================================
 
-/**Récupère un service par son ID
+/**
+ * Récupère un service par son ID
+ *
  * @param {string} id - ID du service à récupérer
- * @returns {Object|null} Le service trouvé ou null
+ * @returns {Object|null} Le service trouvé ou null si non trouvé
  */
 export const getServices = (id) => serviceCard.find((data) => data.id === id);
 

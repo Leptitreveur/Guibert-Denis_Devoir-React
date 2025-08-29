@@ -1,9 +1,12 @@
-/** Utilitaire d'extraction de domaine
- * Extrait le nom de domaine d'une URL pour l'affichage
+/**
+ * Utilitaire d'extraction de domaine - Extraction du nom de domaine d'une URL
+ *
+ * Extrait le nom de domaine d'une URL pour l'affichage, en gérant les erreurs
+ * de parsing et en retournant l'URL originale en cas de problème.
+ *
  * @param {string} url - URL à traiter
- * @returns {string} Nom de domaine ou URL originale en cas d'erreur
+ * @returns {string} Nom de domaine extrait ou URL originale en cas d'erreur
  */
-
 export const extractDomain = (url) => {
   if (!url) return '';
 

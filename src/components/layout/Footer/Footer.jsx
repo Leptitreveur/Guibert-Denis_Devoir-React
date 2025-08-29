@@ -5,8 +5,14 @@ import { ContactCardsList } from 'src/components/contact/ContactCardsList/Contac
 import { NavbarLinksList } from 'src/components/navbar/NavbarLinksList/navbarLinksList';
 import { PortfolioLinksList } from 'src/FooterItems/FooterPortfolioLinks';
 
-/**Pied de page: contacts, navigation, liens de portfolio.
- * Utilise FooterStyle.Provider pour styles contextuels.
+/**
+ * Pied de page avec contacts, navigation et liens de portfolio
+ *
+ * Composant de pied de page affichant les informations de contact,
+ * la navigation et les liens vers le portfolio. Utilise FooterStyle.Provider
+ * pour appliquer les styles contextuels appropriés au footer.
+ *
+ * @returns {JSX.Element} Pied de page avec contenu structuré
  */
 export default function Footer() {
   return (
@@ -21,6 +27,11 @@ export default function Footer() {
     </footer>
   );
 }
+
+/**
+ * Validation des propriétés du composant Footer
+ */
 Footer.propTypes = {
+  /** Style du footer (non utilisé actuellement) */
   style: PropTypes.bool,
 };
