@@ -18,10 +18,6 @@ import { useScrollToTop } from 'src/hooks/useScrollToTop';
 /**
  * Wrapper pour le scroll automatique en haut de page
  *
- * Composant utilitaire qui utilise le hook useScrollToTop pour
- * gérer le scroll automatique lors des changements de route.
- * Retourne null car il n'affiche aucun contenu visible.
- *
  * @returns {null} Aucun rendu visible
  */
 export const ScrollToTopWrapper = () => {
@@ -29,22 +25,10 @@ export const ScrollToTopWrapper = () => {
   return null;
 };
 
-/**
- * Instance de gestion des métadonnées
- * @description Instance Unhead pour la gestion des métadonnées SEO
- */
 const head = createHead();
 
 /**
  * Point d'entrée principal de l'application React
- *
- * Configure et initialise l'application React avec :
- * - React Router pour la navigation
- * - Unhead pour la gestion des métadonnées
- * - ScrollToTopWrapper pour le scroll automatique
- * - Toutes les routes de l'application
- *
- * @description Point d'entrée principal avec configuration complète
  */
 createRoot(document.getElementById('root')).render(
   <StrictMode>

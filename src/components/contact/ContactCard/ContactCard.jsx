@@ -12,10 +12,6 @@ import { SocialLinksList } from 'src/components/common/socialLink/SocialLinksLis
 /**
  * Carte de contact avec informations complètes et adaptation contextuelle
  *
- * Affiche les informations de contact (adresse, téléphone, email, site),
- * adapte les styles selon le contexte (footer ou non) et gère les liens Maps.
- * Utilise le contexte FooterStyle pour adapter l'affichage et les liens.
- *
  * @param {Object} props - Propriétés du composant
  * @param {Object} props.contactData - Données du contact à afficher
  * @param {string} props.contactData.id - Identifiant unique du contact
@@ -44,20 +40,16 @@ export const ContactCard = ({ contactData, toMap = false }) => {
   const { id, name, address = {}, phoneStr, email, website } = contactData;
   const { street, postalCode, city, country } = address;
 
-  // Formatage du téléphone avec le pays depuis l'adresse
   const formattedPhone = phoneStr ? formatPhoneNumber(phoneStr, country) : null;
 
-  // Construction du lien Maps (externe) ou fallback interne
   const mapLink = street && postalCode && city && toMap ? `https://www.google.com/maps?q=${encodeURIComponent(street + ' ' + postalCode + ' ' + city)}` : '/ContactPage#map';
 
-  // Attributs externes si toMap actif
   const toMapAttributes = toMap ? { target: '_blank', rel: 'noreferrer noopener' } : {};
 
   return (
     <fieldset id={id.replace(/\s+/g, '-').toLowerCase()} {...getClassProps('field', 'card')}>
       <legend {...getClassProps('legend', 'card')}>{name}</legend>
       <ul {...getClassProps('list', 'card')}>
-        {/* Section adresse → liens vers Maps */}
         {address && (
           <>
             <li {...getClassProps('lign', 'card')}>
@@ -76,7 +68,6 @@ export const ContactCard = ({ contactData, toMap = false }) => {
           </>
         )}
 
-        {/* Téléphone: format d'affichage + lien tel: */}
         {formattedPhone && (
           <li {...getClassProps('lign', 'card')}>
             <Link to={`tel:${formattedPhone}`} {...getClassProps('link', 'card')}>
@@ -86,7 +77,6 @@ export const ContactCard = ({ contactData, toMap = false }) => {
           </li>
         )}
 
-        {/* Email: lien mailto: */}
         {email && (
           <li {...getClassProps('lign', 'card')}>
             <Link to={`mailto:${email}`} {...getClassProps('link', 'card')}>
@@ -96,7 +86,6 @@ export const ContactCard = ({ contactData, toMap = false }) => {
           </li>
         )}
 
-        {/* Site web: affichage du domaine */}
         {website && (
           <li {...getClassProps('lign', 'card')}>
             <a href={website} target="_blank" rel="noreferrer noopener" {...getClassProps('link', 'card')}>
@@ -107,40 +96,24 @@ export const ContactCard = ({ contactData, toMap = false }) => {
         )}
       </ul>
 
-      {/* Affichage des liens sociaux si utilisé dans le footer */}
       <>{isInFooter && <SocialLinksList />}</>
     </fieldset>
   );
 };
 
-/**
- * Validation des propriétés du composant ContactCard
- */
 ContactCard.propTypes = {
-  /** Données du contact à afficher */
   contactData: PropTypes.shape({
-    /** Identifiant unique du contact */
     id: PropTypes.string.isRequired,
-    /** Nom du contact */
     name: PropTypes.string.isRequired,
-    /** Adresse du contact */
     address: PropTypes.shape({
-      /** Rue de l'adresse */
       street: PropTypes.string,
-      /** Code postal */
       postalCode: PropTypes.string,
-      /** Ville */
       city: PropTypes.string,
-      /** Pays */
       country: PropTypes.string,
     }),
-    /** Numéro de téléphone (format brut) */
     phoneStr: PropTypes.string,
-    /** Adresse email */
     email: PropTypes.string,
-    /** URL du site web */
     website: PropTypes.string,
   }).isRequired,
-  /** Active l'ouverture Maps pour l'adresse */
   toMap: PropTypes.bool,
 };

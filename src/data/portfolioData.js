@@ -1,10 +1,6 @@
 /**
  * Gestion des données du portfolio avec validation
  *
- * Permet d'ajouter des réalisations avec validation des champs et des images.
- * Fournit un système de validation complet pour assurer la cohérence
- * des données et des images associées.
- *
  * IMPORTANT : MODIFICATION DES IDs
  *
  * RAPPEL : La portfolioCard et son image partagent la meme ID.
@@ -24,9 +20,6 @@ const portfolioCards = [];
 /**
  * Ajoute une réalisation au portfolio avec validation complète
  *
- * Valide l'ID, l'existence de l'image correspondante et la présence
- * de tous les champs requis avant d'ajouter la réalisation au tableau.
- *
  * @param {Object} data - Données de la réalisation à ajouter
  * @param {string} data.id - Identifiant unique de la réalisation
  * @param {string} data.alt - Texte alternatif de l'image
@@ -36,15 +29,11 @@ const portfolioCards = [];
  * @param {string} [data.link] - URL du projet (optionnel)
  */
 const addPortfolio = (data) => {
-  // * Début de validation des données ============================================================================================
-
-  // Validation de l'ID et da l'image
   if (data.id) {
     const idValidation = validateIdFormat(data.id);
     const imageValidation = validateImageById(data.id);
     const errors = [];
 
-    // const { isValid, errors } = validateIdFormat(data.id);
     if (!idValidation.isValid) {
       errors.push(...idValidation.errors);
     }
@@ -59,15 +48,12 @@ const addPortfolio = (data) => {
     }
   }
 
-  // Validation des champs requis
   if (data) {
     const { isValid, field } = validateField(data);
     if (!isValid) {
       console.warn(`PortfolioData Validation échouée: Le champ requis, "${field}", est manquant pour le projet ID "${data.id}".`);
     }
   }
-
-  // * Fin de validation ==========================================================================================================
 
   // Formatage des données avec l'image correspondante
   const formattedData = {
@@ -83,7 +69,6 @@ const addPortfolio = (data) => {
   portfolioCards.push(formattedData);
 };
 
-//* AJOUT DYNAMIQUE DE REALISATIONS =================================================================================================
 addPortfolio({
   id: 'freshfood',
   alt: 'Freshfood background',
@@ -132,7 +117,6 @@ addPortfolio({
   tools: 'Réaliser avec FIGMA',
   link: 'https://www.figma.com/fr-fr/',
 });
-// *FIN D'AJOUT DYNAMIQUE #######################################################################################################
 
 /**
  * Récupère une réalisation par son ID
@@ -142,5 +126,4 @@ addPortfolio({
  */
 export const getPortfolioCards = (id) => portfolioCards.find((data) => data.id === id);
 
-//* exportation faite du tableau une fois rempli
 export default portfolioCards;

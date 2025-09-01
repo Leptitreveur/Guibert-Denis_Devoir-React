@@ -5,10 +5,6 @@ import { useContextualStyle } from 'src/hooks/useContextualStyle';
 /**
  * Lien vers un profil social avec icône et styles contextuels
  *
- * Affiche un lien vers un réseau social avec une icône et des styles
- * adaptés selon le contexte (footer ou page normale). Utilise le hook
- * useContextualStyle pour adapter l'apparence.
- *
  * @param {Object} props - Propriétés du composant
  * @param {Object} props.linkData - Données du lien social
  * @param {string} props.linkData.id - Identifiant unique du lien
@@ -19,7 +15,6 @@ import { useContextualStyle } from 'src/hooks/useContextualStyle';
 export const SocialLink = ({ linkData }) => {
   const { getClassProps } = useContextualStyle();
 
-  // Garde-fou: aucun rendu si aucunes données
   if (!linkData) {
     return null;
   }
@@ -35,17 +30,10 @@ export const SocialLink = ({ linkData }) => {
   );
 };
 
-/**
- * Validation des propriétés du composant SocialLink
- */
 SocialLink.propTypes = {
-  /** Données du lien social */
   linkData: PropTypes.shape({
-    /** Identifiant unique du lien */
     id: PropTypes.string.isRequired,
-    /** URL du profil social */
     link: PropTypes.string.isRequired,
-    /** Classe CSS de l'icône */
     icon: PropTypes.string.isRequired,
   }).isRequired,
 };

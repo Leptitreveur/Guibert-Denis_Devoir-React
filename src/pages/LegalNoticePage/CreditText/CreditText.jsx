@@ -1,18 +1,9 @@
 /**
  * Composant des crédits et attributions
  *
- * Composant affichant les crédits et attributions du site, incluant
- * les liens vers les sources des images, favicon et autres ressources
- * utilisées. Présente les informations de manière structurée avec
- * des liens externes appropriés.
- *
  * @returns {JSX.Element} Section des crédits avec liens d'attribution
  */
 export function CreditText() {
-  /**
-   * Texte des crédits avec liens d'attribution
-   * @description Tableau des éléments de crédit avec liens vers les sources
-   */
   const text = [
     <>
       Ce site a été réalisé par Jhon Doe, étudiant au{' '}

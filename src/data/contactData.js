@@ -1,29 +1,13 @@
-/**
- * Gestion des données de contact avec validation
- *
- * Permet d'ajouter des contacts avec validation des champs requis et formats.
- * Fournit un système de validation complet pour assurer la cohérence
- * des données de contact (téléphone, email, URL).
- */
-
-// Import de la validation basique du téléphone
 import { validateBasicPhoneFormat } from 'src/utils/validation/phoneNumberValidator';
 import { validateEmailFormat } from 'src/utils/validation/emailValidator';
 import { validateUrlFormat } from 'src/utils/validation/urlValidator';
 
 const contactCards = [];
 
-/**
- * Champs requis pour un contact
- * @description Liste des champs obligatoires pour la validation
- */
 const requiredFields = ['id', 'name'];
 
 /**
  * Ajoute un contact avec validation des données
- *
- * Valide les champs requis, le format du téléphone, de l'email et de l'URL
- * avant d'ajouter le contact au tableau.
  *
  * @param {Object} data - Données du contact à ajouter
  * @param {string} data.id - Identifiant unique du contact
@@ -34,7 +18,6 @@ const requiredFields = ['id', 'name'];
  * @param {string} [data.website] - URL du site web
  */
 const addContact = (data) => {
-  // *Début de la validation ============================================================================================
   for (const field of requiredFields) {
     if (!data[field]) {
       console.warn(`Champ requis "${field}" manquant pour le contact "${data.id}"`);
@@ -42,7 +25,6 @@ const addContact = (data) => {
     }
   }
 
-  // Validation basique du format du numéro de téléphone (chiffres uniquement)
   if (data.phoneStr) {
     const phoneValidation = validateBasicPhoneFormat(data.phoneStr);
     if (!phoneValidation.isValid) {
@@ -51,7 +33,6 @@ const addContact = (data) => {
     }
   }
 
-  // Validation du format de l'email
   if (data.email) {
     const { isValid, error } = validateEmailFormat(data.email);
     if (!isValid) {
@@ -60,7 +41,6 @@ const addContact = (data) => {
     }
   }
 
-  // Validation du format de l'URL du site web
   if (data.website) {
     const urlValidation = validateUrlFormat(data.website);
     if (!urlValidation.isValid) {
@@ -69,14 +49,9 @@ const addContact = (data) => {
     }
   }
 
-  // * Fin de la validation ===========================================================================================
-
   contactCards.push(data);
 };
 
-//* AJOUT DYNAMIQUE DE CONTACT ========================================================================================
-
-// Contact de l'éditeur du site
 addContact({
   id: 'editor',
   name: 'Jhon Doe',
@@ -90,7 +65,6 @@ addContact({
   email: 'jhon.doe@gmail.com',
 });
 
-// Contact de l'hébergeur
 addContact({
   id: 'host',
   name: 'alwaysdata',
@@ -102,8 +76,6 @@ addContact({
   },
   website: 'https://www.alwaysdata.com/fr/',
 });
-
-// *FIN D'AJOUT DYNAMIQUE ============================================================================================
 
 /**
  * Récupère un contact par son ID

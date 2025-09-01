@@ -8,10 +8,6 @@ import { ServiceCardsList } from 'src/components/services/ServiceCardsList/Servi
 /**
  * Page des services proposés avec bannière et liste des prestations
  *
- * Page des services affichant une bannière d'en-tête et la liste
- * complète des services proposés. Inclut les métadonnées SEO appropriées
- * et utilise une mise en page responsive avec grille Bootstrap.
- *
  * @returns {JSX.Element} Page des services avec liste des prestations
  */
 export default function ServicesPage() {

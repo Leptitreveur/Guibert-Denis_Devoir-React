@@ -9,10 +9,6 @@ import { ContactCardsList } from 'src/components/contact/ContactCardsList/Contac
 /**
  * Page des mentions légales avec sections en accordéon
  *
- * Page des mentions légales affichant les informations légales
- * organisées en sections accordéon. Inclut les métadonnées SEO
- * avec noindex/nofollow et utilise une mise en page structurée.
- *
  * @returns {JSX.Element} Page des mentions légales avec accordéon
  */
 export default function LegalNoticePage() {

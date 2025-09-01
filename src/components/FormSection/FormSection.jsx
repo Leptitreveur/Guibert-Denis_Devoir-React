@@ -4,24 +4,14 @@ import { TitleSection } from 'src/components/common/TitleSection/TitleSection';
 /**
  * Formulaire de contact avec validation Bootstrap et réinitialisation
  *
- * Composant de formulaire de contact utilisant la validation native HTML5
- * et Bootstrap pour la gestion des erreurs et la réinitialisation automatique.
- * Inclut des champs pour nom, email, téléphone, sujet et message.
- *
  * @returns {JSX.Element} Formulaire de contact avec validation
  */
 export function FormSection() {
-  /**
-   * Référence au formulaire pour la validation
-   * @description Référence DOM pour accéder aux méthodes de validation du formulaire
-   */
   const formRef = useRef(null);
 
   /**
    * Gestionnaire de soumission du formulaire
-   * @description Empêche l'envoi, ajoute la classe was-validated, réinitialise si valide
    * @param {Event} event - Événement de soumission du formulaire
-   * @returns {void} Aucune valeur de retour
    */
   const handleSubmit = (event) => {
     const form = formRef.current;

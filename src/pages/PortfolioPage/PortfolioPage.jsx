@@ -9,11 +9,6 @@ import { useHashScroll } from 'src/hooks/useHashScroll';
 /**
  * Page Portfolio avec scroll automatique vers un élément via hash
  *
- * Page principale du portfolio qui affiche toutes les réalisations
- * avec possibilité de scroll automatique vers une réalisation spécifique
- * via le hash dans l'URL. Utilise le hook useHashScroll pour gérer
- * le scroll automatique vers les éléments.
- *
  * @returns {JSX.Element} Page de portfolio avec grille de réalisations
  */
 export default function PortfolioPage() {

@@ -6,11 +6,6 @@ import Footer from 'src/components/layout/Footer/Footer';
 /**
  * Composant principal de l'application
  *
- * Composant racine de l'application React qui définit la structure
- * générale avec en-tête, contenu principal et pied de page.
- * Utilise React Router pour gérer la navigation et l'affichage
- * des pages via le composant Outlet.
- *
  * @returns {JSX.Element} Structure principale de l'application
  */
 export default function App() {

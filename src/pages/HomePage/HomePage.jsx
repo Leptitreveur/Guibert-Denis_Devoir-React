@@ -6,11 +6,7 @@ import { ProfilPart } from './components/ProfilPart/ProfilPart';
 import { SkillPart } from './components/SkillsPart/SkillsPart';
 
 /**
- * Page d'accueil avec présentation, profil et compétences
- *
- * Page principale d'accueil affichant une bannière de présentation,
- * une section profil avec image et texte, et une section compétences
- * avec barres de progression. Inclut les métadonnées SEO appropriées.
+ * Page d'accueil avec présentation, profil et compétences et métadonnées
  *
  * @returns {JSX.Element} Page d'accueil avec sections structurées
  */

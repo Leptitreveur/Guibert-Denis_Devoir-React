@@ -4,9 +4,6 @@ import BannerBg from 'src/assets/images/banner.jpg';
 /**
  * Image de fond pour la bannière d'accueil
  *
- * Affiche l'image de fond principale utilisée pour la bannière d'accueil
- * avec des propriétés d'opacité et de chargement optimisées.
- *
  * @returns {JSX.Element} Image de fond pour la bannière d'accueil
  */
 export function BgHero() {
@@ -15,9 +12,6 @@ export function BgHero() {
 
 /**
  * Image de fond pour les bannières de page
- *
- * Affiche l'image de fond utilisée pour les bannières des pages
- * avec des dimensions responsives et un chargement optimisé.
  *
  * @returns {JSX.Element} Image de fond pour les bannières de page
  */

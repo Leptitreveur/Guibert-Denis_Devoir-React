@@ -8,10 +8,6 @@ import { FormSection } from 'src/components/FormSection/FormSection';
 /**
  * Page de contact avec formulaire et carte Google Maps
  *
- * Page de contact affichant un formulaire de contact et une section
- * avec carte Google Maps intégrée. Inclut les métadonnées SEO appropriées
- * et utilise une mise en page responsive avec grille Bootstrap.
- *
  * @returns {JSX.Element} Page de contact avec formulaire et carte
  */
 export default function ContactPage() {

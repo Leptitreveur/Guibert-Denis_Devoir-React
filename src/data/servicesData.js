@@ -1,23 +1,9 @@
-/**
- * Gestion des données de services
- *
- * Permet d'ajouter des services avec validation des champs requis.
- * Fournit un système de gestion centralisé pour les services proposés
- * avec validation des données.
- */
-
 const serviceCard = [];
 
-/**
- * Champs requis pour un service
- * @description Liste des champs obligatoires pour la validation
- */
 const requiredFields = ['id', 'icon', 'title', 'text'];
 
 /**
- * Ajoute un service avec validation des données
- *
- * Valide les champs requis avant d'ajouter le service au tableau.
+ * Ajoute un service proposé avec validation des données
  *
  * @param {Object} data - Données du service à ajouter
  * @param {string} data.id - Identifiant unique du service
@@ -28,24 +14,17 @@ const requiredFields = ['id', 'icon', 'title', 'text'];
 const addService = (data) => {
   const serviceData = {};
 
-  // * Début de validation des données ==================================================================================
-
-  // Validation des champs requis
   for (const field of requiredFields) {
     if (data[field] === undefined || data[field] === null) {
       console.warn(`Incomplete data value passed to add service. Missed value: "${field}"`);
       return;
     }
 
-    // * Fin de validation ================================================================================================
-
     serviceData[field] = data[field];
   }
 
   serviceCard.push(serviceData);
 };
-
-//* AJOUT DYNAMIQUE ==============================================================================================
 
 addService({
   id: 'uxdesign',
@@ -66,8 +45,6 @@ addService({
   text: "Le référencement naturel (SEO) est une technique qui consiste à optimiser un site web pour le faire remonter dans les résultats des moteurs de recherche (Google, Bing, Yahoo, etc.). L'objectif est d'attiré un maximum de visiteurs qualifiés sur le site.",
 });
 
-// *FIN D'AJOUT DYNAMIQUE ===================================================================================================
-
 /**
  * Récupère un service par son ID
  *
@@ -76,5 +53,4 @@ addService({
  */
 export const getServices = (id) => serviceCard.find((data) => data.id === id);
 
-//* exportation faite du tableau une fois rempli
 export default serviceCard;

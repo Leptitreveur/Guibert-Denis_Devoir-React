@@ -3,10 +3,6 @@ import { PropTypes } from 'prop-types';
 /**
  * Carte de service avec icône, titre et description
  *
- * Composant de carte affichant un service avec son icône Bootstrap,
- * son titre et sa description. Utilise une grille responsive et
- * inclut des effets de survol pour améliorer l'expérience utilisateur.
- *
  * @param {Object} props - Propriétés du composant
  * @param {Object} props.cardData - Données du service à afficher
  * @param {string} props.cardData.id - Identifiant unique du service
@@ -35,19 +31,11 @@ export const ServiceCard = ({ cardData }) => {
   );
 };
 
-/**
- * Validation des propriétés du composant ServiceCard
- */
 ServiceCard.propTypes = {
-  /** Données du service à afficher */
   cardData: PropTypes.shape({
-    /** Identifiant unique du service */
     id: PropTypes.string.isRequired,
-    /** Classe CSS de l'icône Bootstrap */
     icon: PropTypes.string.isRequired,
-    /** Titre du service */
     title: PropTypes.string.isRequired,
-    /** Description du service */
     text: PropTypes.string.isRequired,
   }).isRequired,
 };

@@ -3,10 +3,6 @@ import { PropTypes } from 'prop-types';
 /**
  * Barre de progression Bootstrap avec titre et pourcentage
  *
- * Composant de barre de progression utilisant Bootstrap pour afficher
- * une compétence avec son titre et son pourcentage de maîtrise.
- * Inclut l'accessibilité avec les attributs ARIA appropriés.
- *
  * @param {Object} props - Propriétés du composant
  * @param {Object} props.barData - Données de la barre de progression
  * @param {string} props.barData.id - Identifiant unique de la barre
@@ -34,19 +30,11 @@ export const Progressbar = ({ barData }) => {
   );
 };
 
-/**
- * Validation des propriétés du composant Progressbar
- */
 Progressbar.propTypes = {
-  /** Données de la barre de progression */
   barData: PropTypes.shape({
-    /** Identifiant unique de la barre */
     id: PropTypes.string.isRequired,
-    /** Titre de la compétence */
     title: PropTypes.string.isRequired,
-    /** Pourcentage de maîtrise (0-100) */
     percent: PropTypes.number.isRequired,
-    /** Couleur Bootstrap de la barre */
     color: PropTypes.string.isRequired,
   }).isRequired,
 };

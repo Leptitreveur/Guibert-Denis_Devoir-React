@@ -8,7 +8,7 @@ Ce projet est un portfolio professionnel développé en React pour présenter le
 
 ### Pages principales
 
-- **Home** : Page de présentation avec une modal contenant les données du profil GitHub de John Doe et deux sections (présentation et compétences concernant les langages de programmation et développement)
+- **Home** : Page de présentation avec une modal contenant les données du profil GitHub de John Doe et une section (présentation et compétences concernant les langages de programmation et développement)
 - **Services** : Présentation des services proposés (UX Design, Développement Web, Référencement)
 - **Portfolio** : Galerie de projets réalisés avec liens externes
 - **Contact** : Informations de contact (Google Maps inclus) et formulaire
@@ -49,249 +49,90 @@ Ce projet est un portfolio professionnel développé en React pour présenter le
 ```
 📂 src
 ├── 📄 App.jsx
-└── 📂 FooterItems/
-│  ├── 📄 FooterPortfolioLinks.jsx
-└── 📂 assets/
+├── 📂 assets/
 │  └── 📂 font/
 │    ├── 📄 NunitoSans-Italic-VariableFont_YTLC,opsz,wdth,wght.ttf
 │    ├── 📄 NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf
 │    ├── 📄 OFL.txt
 │    ├── 📄 README.txt
 │    └── 📂 static/
-│      ├── 📄 NunitoSans_10pt-Black.ttf
-│      ├── 📄 NunitoSans_10pt-BlackItalic.ttf
-│      ├── 📄 NunitoSans_10pt-Bold.ttf
-│      ├── 📄 NunitoSans_10pt-BoldItalic.ttf
-│      ├── 📄 NunitoSans_10pt-ExtraBold.ttf
-│      ├── 📄 NunitoSans_10pt-ExtraBoldItalic.ttf
-│      ├── 📄 NunitoSans_10pt-ExtraLight.ttf
-│      ├── 📄 NunitoSans_10pt-ExtraLightItalic.ttf
-│      ├── 📄 NunitoSans_10pt-Italic.ttf
-│      ├── 📄 NunitoSans_10pt-Light.ttf
-│      ├── 📄 NunitoSans_10pt-LightItalic.ttf
-│      ├── 📄 NunitoSans_10pt-Medium.ttf
-│      ├── 📄 NunitoSans_10pt-MediumItalic.ttf
-│      ├── 📄 NunitoSans_10pt-Regular.ttf
-│      ├── 📄 NunitoSans_10pt-SemiBold.ttf
-│      ├── 📄 NunitoSans_10pt-SemiBoldItalic.ttf
-│      ├── 📄 NunitoSans_10pt_Condensed-Black.ttf
-│      ├── 📄 NunitoSans_10pt_Condensed-BlackItalic.ttf
-│      ├── 📄 NunitoSans_10pt_Condensed-Bold.ttf
-│      ├── 📄 NunitoSans_10pt_Condensed-BoldItalic.ttf
-│      ├── 📄 NunitoSans_10pt_Condensed-ExtraBold.ttf
-│      ├── 📄 NunitoSans_10pt_Condensed-ExtraBoldItalic.ttf
-│      ├── 📄 NunitoSans_10pt_Condensed-ExtraLight.ttf
-│      ├── 📄 NunitoSans_10pt_Condensed-ExtraLightItalic.ttf
-│      ├── 📄 NunitoSans_10pt_Condensed-Italic.ttf
-│      ├── 📄 NunitoSans_10pt_Condensed-Light.ttf
-│      ├── 📄 NunitoSans_10pt_Condensed-LightItalic.ttf
-│      ├── 📄 NunitoSans_10pt_Condensed-Medium.ttf
-│      ├── 📄 NunitoSans_10pt_Condensed-MediumItalic.ttf
-│      ├── 📄 NunitoSans_10pt_Condensed-Regular.ttf
-│      ├── 📄 NunitoSans_10pt_Condensed-SemiBold.ttf
-│      ├── 📄 NunitoSans_10pt_Condensed-SemiBoldItalic.ttf
-│      ├── 📄 NunitoSans_10pt_Expanded-Black.ttf
-│      ├── 📄 NunitoSans_10pt_Expanded-BlackItalic.ttf
-│      ├── 📄 NunitoSans_10pt_Expanded-Bold.ttf
-│      ├── 📄 NunitoSans_10pt_Expanded-BoldItalic.ttf
-│      ├── 📄 NunitoSans_10pt_Expanded-ExtraBold.ttf
-│      ├── 📄 NunitoSans_10pt_Expanded-ExtraBoldItalic.ttf
-│      ├── 📄 NunitoSans_10pt_Expanded-ExtraLight.ttf
-│      ├── 📄 NunitoSans_10pt_Expanded-ExtraLightItalic.ttf
-│      ├── 📄 NunitoSans_10pt_Expanded-Italic.ttf
-│      ├── 📄 NunitoSans_10pt_Expanded-Light.ttf
-│      ├── 📄 NunitoSans_10pt_Expanded-LightItalic.ttf
-│      ├── 📄 NunitoSans_10pt_Expanded-Medium.ttf
-│      ├── 📄 NunitoSans_10pt_Expanded-MediumItalic.ttf
-│      ├── 📄 NunitoSans_10pt_Expanded-Regular.ttf
-│      ├── 📄 NunitoSans_10pt_Expanded-SemiBold.ttf
-│      ├── 📄 NunitoSans_10pt_Expanded-SemiBoldItalic.ttf
-│      ├── 📄 NunitoSans_10pt_SemiCondensed-Black.ttf
-│      ├── 📄 NunitoSans_10pt_SemiCondensed-BlackItalic.ttf
-│      ├── 📄 NunitoSans_10pt_SemiCondensed-Bold.ttf
-│      ├── 📄 NunitoSans_10pt_SemiCondensed-BoldItalic.ttf
-│      ├── 📄 NunitoSans_10pt_SemiCondensed-ExtraBold.ttf
-│      ├── 📄 NunitoSans_10pt_SemiCondensed-ExtraBoldItalic.ttf
-│      ├── 📄 NunitoSans_10pt_SemiCondensed-ExtraLight.ttf
-│      ├── 📄 NunitoSans_10pt_SemiCondensed-ExtraLightItalic.ttf
-│      ├── 📄 NunitoSans_10pt_SemiCondensed-Italic.ttf
-│      ├── 📄 NunitoSans_10pt_SemiCondensed-Light.ttf
-│      ├── 📄 NunitoSans_10pt_SemiCondensed-LightItalic.ttf
-│      ├── 📄 NunitoSans_10pt_SemiCondensed-Medium.ttf
-│      ├── 📄 NunitoSans_10pt_SemiCondensed-MediumItalic.ttf
-│      ├── 📄 NunitoSans_10pt_SemiCondensed-Regular.ttf
-│      ├── 📄 NunitoSans_10pt_SemiCondensed-SemiBold.ttf
-│      ├── 📄 NunitoSans_10pt_SemiCondensed-SemiBoldItalic.ttf
-│      ├── 📄 NunitoSans_10pt_SemiExpanded-Black.ttf
-│      ├── 📄 NunitoSans_10pt_SemiExpanded-BlackItalic.ttf
-│      ├── 📄 NunitoSans_10pt_SemiExpanded-Bold.ttf
-│      ├── 📄 NunitoSans_10pt_SemiExpanded-BoldItalic.ttf
-│      ├── 📄 NunitoSans_10pt_SemiExpanded-ExtraBold.ttf
-│      ├── 📄 NunitoSans_10pt_SemiExpanded-ExtraBoldItalic.ttf
-│      ├── 📄 NunitoSans_10pt_SemiExpanded-ExtraLight.ttf
-│      ├── 📄 NunitoSans_10pt_SemiExpanded-ExtraLightItalic.ttf
-│      ├── 📄 NunitoSans_10pt_SemiExpanded-Italic.ttf
-│      ├── 📄 NunitoSans_10pt_SemiExpanded-Light.ttf
-│      ├── 📄 NunitoSans_10pt_SemiExpanded-LightItalic.ttf
-│      ├── 📄 NunitoSans_10pt_SemiExpanded-Medium.ttf
-│      ├── 📄 NunitoSans_10pt_SemiExpanded-MediumItalic.ttf
-│      ├── 📄 NunitoSans_10pt_SemiExpanded-Regular.ttf
-│      ├── 📄 NunitoSans_10pt_SemiExpanded-SemiBold.ttf
-│      ├── 📄 NunitoSans_10pt_SemiExpanded-SemiBoldItalic.ttf
-│      ├── 📄 NunitoSans_7pt-Black.ttf
-│      ├── 📄 NunitoSans_7pt-BlackItalic.ttf
-│      ├── 📄 NunitoSans_7pt-Bold.ttf
-│      ├── 📄 NunitoSans_7pt-BoldItalic.ttf
-│      ├── 📄 NunitoSans_7pt-ExtraBold.ttf
-│      ├── 📄 NunitoSans_7pt-ExtraBoldItalic.ttf
-│      ├── 📄 NunitoSans_7pt-ExtraLight.ttf
-│      ├── 📄 NunitoSans_7pt-ExtraLightItalic.ttf
-│      ├── 📄 NunitoSans_7pt-Italic.ttf
-│      ├── 📄 NunitoSans_7pt-Light.ttf
-│      ├── 📄 NunitoSans_7pt-LightItalic.ttf
-│      ├── 📄 NunitoSans_7pt-Medium.ttf
-│      ├── 📄 NunitoSans_7pt-MediumItalic.ttf
-│      ├── 📄 NunitoSans_7pt-Regular.ttf
-│      ├── 📄 NunitoSans_7pt-SemiBold.ttf
-│      ├── 📄 NunitoSans_7pt-SemiBoldItalic.ttf
-│      ├── 📄 NunitoSans_7pt_Condensed-Black.ttf
-│      ├── 📄 NunitoSans_7pt_Condensed-BlackItalic.ttf
-│      ├── 📄 NunitoSans_7pt_Condensed-Bold.ttf
-│      ├── 📄 NunitoSans_7pt_Condensed-BoldItalic.ttf
-│      ├── 📄 NunitoSans_7pt_Condensed-ExtraBold.ttf
-│      ├── 📄 NunitoSans_7pt_Condensed-ExtraBoldItalic.ttf
-│      ├── 📄 NunitoSans_7pt_Condensed-ExtraLight.ttf
-│      ├── 📄 NunitoSans_7pt_Condensed-ExtraLightItalic.ttf
-│      ├── 📄 NunitoSans_7pt_Condensed-Italic.ttf
-│      ├── 📄 NunitoSans_7pt_Condensed-Light.ttf
-│      ├── 📄 NunitoSans_7pt_Condensed-LightItalic.ttf
-│      ├── 📄 NunitoSans_7pt_Condensed-Medium.ttf
-│      ├── 📄 NunitoSans_7pt_Condensed-MediumItalic.ttf
-│      ├── 📄 NunitoSans_7pt_Condensed-Regular.ttf
-│      ├── 📄 NunitoSans_7pt_Condensed-SemiBold.ttf
-│      ├── 📄 NunitoSans_7pt_Condensed-SemiBoldItalic.ttf
-│      ├── 📄 NunitoSans_7pt_Expanded-Black.ttf
-│      ├── 📄 NunitoSans_7pt_Expanded-BlackItalic.ttf
-│      ├── 📄 NunitoSans_7pt_Expanded-Bold.ttf
-│      ├── 📄 NunitoSans_7pt_Expanded-BoldItalic.ttf
-│      ├── 📄 NunitoSans_7pt_Expanded-ExtraBold.ttf
-│      ├── 📄 NunitoSans_7pt_Expanded-ExtraBoldItalic.ttf
-│      ├── 📄 NunitoSans_7pt_Expanded-ExtraLight.ttf
-│      ├── 📄 NunitoSans_7pt_Expanded-ExtraLightItalic.ttf
-│      ├── 📄 NunitoSans_7pt_Expanded-Italic.ttf
-│      ├── 📄 NunitoSans_7pt_Expanded-Light.ttf
-│      ├── 📄 NunitoSans_7pt_Expanded-LightItalic.ttf
-│      ├── 📄 NunitoSans_7pt_Expanded-Medium.ttf
-│      ├── 📄 NunitoSans_7pt_Expanded-MediumItalic.ttf
-│      ├── 📄 NunitoSans_7pt_Expanded-Regular.ttf
-│      ├── 📄 NunitoSans_7pt_Expanded-SemiBold.ttf
-│      ├── 📄 NunitoSans_7pt_Expanded-SemiBoldItalic.ttf
-│      ├── 📄 NunitoSans_7pt_SemiCondensed-Black.ttf
-│      ├── 📄 NunitoSans_7pt_SemiCondensed-BlackItalic.ttf
-│      ├── 📄 NunitoSans_7pt_SemiCondensed-Bold.ttf
-│      ├── 📄 NunitoSans_7pt_SemiCondensed-BoldItalic.ttf
-│      ├── 📄 NunitoSans_7pt_SemiCondensed-ExtraBold.ttf
-│      ├── 📄 NunitoSans_7pt_SemiCondensed-ExtraBoldItalic.ttf
-│      ├── 📄 NunitoSans_7pt_SemiCondensed-ExtraLight.ttf
-│      ├── 📄 NunitoSans_7pt_SemiCondensed-ExtraLightItalic.ttf
-│      ├── 📄 NunitoSans_7pt_SemiCondensed-Italic.ttf
-│      ├── 📄 NunitoSans_7pt_SemiCondensed-Light.ttf
-│      ├── 📄 NunitoSans_7pt_SemiCondensed-LightItalic.ttf
-│      ├── 📄 NunitoSans_7pt_SemiCondensed-Medium.ttf
-│      ├── 📄 NunitoSans_7pt_SemiCondensed-MediumItalic.ttf
-│      ├── 📄 NunitoSans_7pt_SemiCondensed-Regular.ttf
-│      ├── 📄 NunitoSans_7pt_SemiCondensed-SemiBold.ttf
-│      ├── 📄 NunitoSans_7pt_SemiCondensed-SemiBoldItalic.ttf
-│      ├── 📄 NunitoSans_7pt_SemiExpanded-Black.ttf
-│      ├── 📄 NunitoSans_7pt_SemiExpanded-BlackItalic.ttf
-│      ├── 📄 NunitoSans_7pt_SemiExpanded-Bold.ttf
-│      ├── 📄 NunitoSans_7pt_SemiExpanded-BoldItalic.ttf
-│      ├── 📄 NunitoSans_7pt_SemiExpanded-ExtraBold.ttf
-│      ├── 📄 NunitoSans_7pt_SemiExpanded-ExtraBoldItalic.ttf
-│      ├── 📄 NunitoSans_7pt_SemiExpanded-ExtraLight.ttf
-│      ├── 📄 NunitoSans_7pt_SemiExpanded-ExtraLightItalic.ttf
-│      ├── 📄 NunitoSans_7pt_SemiExpanded-Italic.ttf
-│      ├── 📄 NunitoSans_7pt_SemiExpanded-Light.ttf
-│      ├── 📄 NunitoSans_7pt_SemiExpanded-LightItalic.ttf
-│      ├── 📄 NunitoSans_7pt_SemiExpanded-Medium.ttf
-│      ├── 📄 NunitoSans_7pt_SemiExpanded-MediumItalic.ttf
-│      ├── 📄 NunitoSans_7pt_SemiExpanded-Regular.ttf
-│      ├── 📄 NunitoSans_7pt_SemiExpanded-SemiBold.ttf
-│      ├── 📄 NunitoSans_7pt_SemiExpanded-SemiBoldItalic.ttf
+│      └── [160 fichiers de police TTF]
 │  └── 📂 images/
 │    ├── 📄 banner.jpg
 │    ├── 📄 hero-bg.jpg
 │    ├── 📄 john-doe-about.jpg
 │    └── 📂 portfolio/
-│      ├── 📄 Thumbs.db
 │      ├── 📄 coder.jpg
 │      ├── 📄 espace-bien-etre.jpg
 │      ├── 📄 fresh-food.jpg
 │      ├── 📄 restaurant-japonais.jpg
 │      ├── 📄 screens.jpg
-│      ├── 📄 seo.jpg
-└── 📂 components/
-│  └── 📂 FormSection/
-│    ├── 📄 FormSection.jsx
-│  └── 📂 MapSection/
-│    ├── 📄 MapSection.jsx
-│  └── 📂 common/
-│    └── 📂 Accordion/
-│      ├── 📄 Accordion.jsx
-│      ├── 📄 Accordion.scss
-│    └── 📂 BackgroundImage/
-│      ├── 📄 BackgroundImage.jsx
-│    └── 📂 Presentation/
-│      ├── 📄 Presentation.jsx
-│    └── 📂 TitleLayout/
-│      ├── 📄 TitleLayout.jsx
-│    └── 📂 TitleSection/
-│      ├── 📄 TitleSection.jsx
-│    └── 📂 socialLink/
-│      └── 📂 SocialLink/
-│        ├── 📄 SocialLink.jsx
-│      └── 📂 SocialLinksList/
-│        ├── 📄 SocialLinksList.jsx
-│  └── 📂 contact/
-│    └── 📂 ContactCard/
-│      ├── 📄 ContactCard.jsx
-│    └── 📂 ContactCardsList/
-│      ├── 📄 ContactCardsList.jsx
-│  └── 📂 layout/
-│    └── 📂 Footer/
-│      ├── 📄 Footer.jsx
-│      ├── 📄 Footer.scss
-│    └── 📂 Header/
-│      ├── 📄 Header.jsx
-│      ├── 📄 Header.scss
-│    └── 📂 PageLayout/
-│      ├── 📄 PageLayout.jsx
-│    └── 📂 UserProfilModal/
-│      ├── 📄 UserProfilModal.jsx
-│  └── 📂 navbar/
-│    └── 📂 Navbar/
-│      ├── 📄 Navbar.jsx
-│      ├── 📄 Navbar.scss
-│    └── 📂 NavbarLinksList/
-│      ├── 📄 NavbarLinksList.jsx
-│  └── 📂 portfolio/
-│    └── 📂 PortfolioCard/
-│      ├── 📄 PortfolioCard.jsx
-│    └── 📂 PortfolioCardsList/
-│      ├── 📄 PortfolioCardsList.jsx
-│  └── 📂 progressbar/
-│    └── 📂 Progressbar/
-│      ├── 📄 Progressbar.jsx
-│    └── 📂 ProgressbarsList/
-│      ├── 📄 ProgressbarsList.jsx
+│      └── 📄 seo.jpg
+├── 📂 components/
+│  ├── 📂 common/
+│  │  ├── 📂 Accordion/
+│  │  │  ├── 📄 Accordion.jsx
+│  │  │  └── 📄 Accordion.scss
+│  │  ├── 📂 BackgroundImage/
+│  │  │  └── 📄 BackgroundImage.jsx
+│  │  ├── 📂 Presentation/
+│  │  │  └── 📄 Presentation.jsx
+│  │  ├── 📂 TitleLayout/
+│  │  │  └── 📄 TitleLayout.jsx
+│  │  ├── 📂 TitleSection/
+│  │  │  └── 📄 TitleSection.jsx
+│  │  └── 📂 socialLink/
+│  │     ├── 📂 SocialLink/
+│  │     │  └── 📄 SocialLink.jsx
+│  │     └── 📂 SocialLinksList/
+│  │        └── 📄 SocialLinksList.jsx
+│  ├── 📂 contact/
+│  │  ├── 📂 ContactCard/
+│  │  │  └── 📄 ContactCard.jsx
+│  │  └── 📂 ContactCardsList/
+│  │     └── 📄 ContactCardsList.jsx
+│  ├── 📂 FormSection/
+│  │  └── 📄 FormSection.jsx
+│  ├── 📂 layout/
+│  │  ├── 📂 Footer/
+│  │  │  ├── 📄 Footer.jsx
+│  │  │  ├── 📄 Footer.scss
+│  │  │  └── 📂 FooterItems/
+│  │  │     └── 📄 FooterPortfolioLinks.jsx
+│  │  ├── 📂 Header/
+│  │  │  ├── 📄 Header.jsx
+│  │  │  └── 📄 Header.scss
+│  │  ├── 📂 PageLayout/
+│  │  │  └── 📄 PageLayout.jsx
+│  │  └── 📂 UserProfilModal/
+│  │     └── 📄 UserProfilModal.jsx
+│  ├── 📂 MapSection/
+│  │  └── 📄 MapSection.jsx
+│  ├── 📂 navbar/
+│  │  ├── 📂 Navbar/
+│  │  │  ├── 📄 Navbar.jsx
+│  │  │  └── 📄 Navbar.scss
+│  │  └── 📂 NavbarLinksList/
+│  │     └── 📄 NavbarLinksList.jsx
+│  ├── 📂 portfolio/
+│  │  ├── 📂 PortfolioCard/
+│  │  │  ├── 📄 PortfolioCard.jsx
+│  │  │  └── 📄 PortfolioCard.scss
+│  │  └── 📂 PortfolioCardsList/
+│  │     └── 📄 PortfolioCardsList.jsx
+│  ├── 📂 progressbar/
+│  │  ├── 📂 Progressbar/
+│  │  │  └── 📄 Progressbar.jsx
+│  │  └── 📂 ProgressbarsList/
+│  │     └── 📄 ProgressbarsList.jsx
 │  └── 📂 services/
-│    └── 📂 ServiceCard/
-│      ├── 📄 Servicecard.jsx
-│    └── 📂 ServiceCardsList/
-│      ├── 📄 ServiceCardsList.jsx
-└── 📂 contexts/
-│  ├── 📄 FooterContext.js
-└── 📂 data/
+│     ├── 📂 ServiceCard/
+│     │  └── 📄 Servicecard.jsx
+│     └── 📂 ServiceCardsList/
+│        └── 📄 ServiceCardsList.jsx
+├── 📂 contexts/
+│  └── 📄 FooterContext.js
+├── 📂 data/
 │  ├── 📄 contactData.js
 │  ├── 📄 countryCode.js
 │  ├── 📄 navBarLinks.js
@@ -299,42 +140,46 @@ Ce projet est un portfolio professionnel développé en React pour présenter le
 │  ├── 📄 portfolioImages.js
 │  ├── 📄 progressBarsData.js
 │  ├── 📄 servicesData.js
-│  ├── 📄 socialLinksData.js
-└── 📂 hooks/
+│  └── 📄 socialLinksData.js
+├── 📂 hooks/
 │  ├── 📄 useContextualStyle.js
 │  ├── 📄 useFilteredData.js
-│  ├── 📄 useScrollToTop.js
+│  ├── 📄 useHashScroll.js
+│  └── 📄 useScrollToTop.js
 ├── 📄 main.jsx
-└── 📂 pages/
-│  └── 📂 ContactPage/
-│    ├── 📄 ContactPage.jsx
-│  └── 📂 HomePage/
-│    ├── 📄 HomePage.jsx
-│    └── 📂 components/
-│      └── 📂 ProfilSection/
-│        ├── 📄 ProfilSection.jsx
-│      └── 📂 SkillsSection/
-│        ├── 📄 SkillsSection.jsx
-│  └── 📂 LegalNoticePage/
-│    └── 📂 CreditText/
-│      ├── 📄 CreditText.jsx
-│    ├── 📄 LegalNoticePage.jsx
-│  └── 📂 PortfolioPage/
-│    ├── 📄 PortfolioPage.jsx
+├── 📂 pages/
+│  ├── 📂 ContactPage/
+│  │  └── 📄 ContactPage.jsx
+│  ├── 📂 HomePage/
+│  │  ├── 📄 HomePage.jsx
+│  │  └── 📂 components/
+│  │     ├── 📂 ProfilPart/
+│  │     │  └── 📄 ProfilPart.jsx
+│  │     └── 📂 SkillsPart/
+│  │        └── 📄 SkillsPart.jsx
+│  ├── 📂 LegalNoticePage/
+│  │  ├── 📂 CreditText/
+│  │  │  └── 📄 CreditText.jsx
+│  │  └── 📄 LegalNoticePage.jsx
+│  ├── 📂 PortfolioPage/
+│  │  └── 📄 PortfolioPage.jsx
 │  └── 📂 ServicesPage/
-│    ├── 📄 ServicesPage.jsx
-└── 📂 styles/
+│     └── 📄 ServicesPage.jsx
+├── 📂 styles/
 │  ├── 📄 _base.scss
 │  ├── 📄 _bootstrap-overrides.scss
 │  ├── 📄 _utilities.scss
-│  ├── 📄 main.scss
+│  └── 📄 main.scss
 └── 📂 utils/
-│  ├── 📄 domainExtractor.js
-│  ├── 📄 phoneFormatter.js
-│  └── 📂 validation/
-│    ├── 📄 emailValidator.js
-│    ├── 📄 phoneNumberValidator.js
-│    └── 📄 urlValidator.js
+    ├── 📄 domainExtractor.js
+    ├── 📄 phoneFormatter.js
+    └── 📂 validation/
+        ├── 📄 emailValidator.js
+        ├── 📄 fieldValidator.js
+        ├── 📄 idValidator.js
+        ├── 📄 phoneNumberValidator.js
+        ├── 📄 portfolioImageValidator.js
+        └── 📄 urlValidator.js
 ```
 
 ## 🚀 Installation et démarrage
@@ -397,12 +242,6 @@ npm install
 
 ```bash
 yarn install
-```
-
-**Avec npm**
-
-```bash
-npm install
 ```
 
 **Avec pnpm**
@@ -560,7 +399,7 @@ Ajoutez ces paramètres à votre `settings.json` VSCode :
 
 ### Typographie
 
-- **Police principale** : Nunito Sans (variable font)
+- **Police principale** : Nunito Sans (variable font avec 160 variantes)
 
 ## 📱 Responsive Design
 
@@ -580,6 +419,8 @@ Les données du portfolio sont centralisées dans le dossier `src/data/` :
 - `progressbarsData.js` - Compétences techniques
 - `socialLinksData.js` - Liens vers les réseaux sociaux
 - `navBarLinks.js` - Liens de navigation
+- `portfolioImages.js` - Images du portfolio
+- `countryCode.js` - Codes pays pour la validation
 
 ## 🔧 Architecture
 
@@ -587,6 +428,7 @@ Les données du portfolio sont centralisées dans le dossier `src/data/` :
 
 - `useContextualStyle` : Gestion des styles selon le contexte (footer/page normale)
 - `useFilteredData` : Filtrage de données avec validation
+- `useHashScroll` : Gestion du scroll avec ancres
 - `useScrollToTop` : Scroll automatique lors du changement de page
 
 ### Système de styles
@@ -594,6 +436,13 @@ Les données du portfolio sont centralisées dans le dossier `src/data/` :
 - **SCSS** : Préprocesseur CSS avec variables et mixins
 - **Bootstrap 5** : Framework CSS avec surcharges personnalisées
 - **Classes utilitaires** : Génération automatique de classes responsive
+
+### Utilitaires et validation
+
+- **Validation des emails** : Vérification du format et du domaine
+- **Validation des téléphones** : Formatage et validation internationale
+- **Validation des URLs** : Vérification des liens externes
+- **Extraction de domaines** : Utilitaires pour la gestion des liens
 
 ## 📄 Licence
 
