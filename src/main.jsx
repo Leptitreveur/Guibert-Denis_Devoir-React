@@ -15,6 +15,11 @@ import LegalNoticePage from 'src/pages/LegalNoticePage/LegalNoticePage.jsx';
 
 import { useScrollToTop } from 'src/hooks/useScrollToTop';
 
+/**
+ * Wrapper pour le scroll automatique en haut de page
+ *
+ * @returns {null} Aucun rendu visible
+ */
 export const ScrollToTopWrapper = () => {
   useScrollToTop();
   return null;
@@ -22,6 +27,9 @@ export const ScrollToTopWrapper = () => {
 
 const head = createHead();
 
+/**
+ * Point d'entrée principal de l'application React
+ */
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <UnheadProvider head={head}>

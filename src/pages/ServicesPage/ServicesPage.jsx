@@ -5,8 +5,11 @@ import { BgBanner } from 'src/components/common/BackgroundImage/BackgroundImage'
 import { TitleLayout } from 'src/components/common/TitleLayout/TitleLayout';
 import { ServiceCardsList } from 'src/components/services/ServiceCardsList/ServiceCardsList';
 
-/**Services proposés avec bannière et liste des prestations.*/
-
+/**
+ * Page des services proposés avec bannière et liste des prestations
+ *
+ * @returns {JSX.Element} Page des services avec liste des prestations
+ */
 export default function ServicesPage() {
   return (
     <>

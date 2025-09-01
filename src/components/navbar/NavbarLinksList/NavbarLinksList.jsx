@@ -8,11 +8,15 @@ import { useFilteredData } from 'src/hooks/useFilteredData';
 
 import { Navbar } from 'src/components/navbar/Navbar/Navbar';
 
-/**  Liste de liens de navigation avec filtrage et adaptation selon le contexte.
- * @param {string[]} selectedIds - IDs des liens à afficher
- * @param {React.Ref} ref - Référence pour le collapse Bootstrap
+/**
+ * Liste de liens de navigation avec filtrage et adaptation selon le contexte
+ *
+ * @param {Object} props - Propriétés du composant
+ * @param {string[]} [props.selectedIds] - IDs des liens à afficher (optionnel, affiche tout si non renseigné)
+ * @param {React.Ref} ref - Référence pour le collapse Bootstrap (utilisée dans la navbar)
+ * @returns {JSX.Element} Liste des liens de navigation adaptée au contexte
  */
-export const InnerNavbarLinkList = ({ selectedIds }, ref) => {
+export const InnerNavbarLinkList = ({ selectedIds = [] }, ref) => {
   const filteredCards = useFilteredData(allNavbarLinks, selectedIds, 'Navbar');
   const { getClassProps } = useContextualStyle();
   const isInFooter = useContext(FooterStyle);
@@ -37,6 +41,9 @@ InnerNavbarLinkList.propTypes = {
   selectedIds: PropTypes.arrayOf(PropTypes.string),
 };
 
+/**
+ * Composant NavbarLinksList avec forwardRef pour la gestion des références
+ */
 export const NavbarLinksList = forwardRef(InnerNavbarLinkList);
 
 NavbarLinksList.displayName = 'NavbarLinksList';

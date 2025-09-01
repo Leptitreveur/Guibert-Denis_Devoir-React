@@ -6,19 +6,19 @@ import { useContextualStyle } from 'src/hooks/useContextualStyle';
 
 import { SocialLink } from 'src/components/common/socialLink/SocialLink/SocialLink';
 
-/** Composant SocialLinksList
- * Filtre et affiche une liste de liens sociaux à partir des IDs.
- * @param {string[]} selectedIds
+/**
+ * Liste de liens sociaux avec filtrage et adaptation contextuelle
+ *
+ * @param {Object} props - Propriétés du composant
+ * @param {string[]} [props.selectedIds] - IDs des liens sociaux à afficher (optionnel, affiche tout si non renseigné)
+ * @returns {JSX.Element} Liste des liens sociaux filtrés et stylés
  */
-export function SocialLinksList({ selectedIds }) {
-  // Filtrage des données avec le hook
+export function SocialLinksList({ selectedIds = [] }) {
   const filteredCards = useFilteredData(allSocialLinks, selectedIds, 'SocialLink');
   const { getClassProps } = useContextualStyle();
 
   return (
-    // Conteneur stylé via contexte
     <div {...getClassProps('box', 'social')}>
-      {/* Rendu des liens sociaux filtrés */}
       {filteredCards.map((data) => (
         <SocialLink key={data.id} linkData={data} />
       ))}

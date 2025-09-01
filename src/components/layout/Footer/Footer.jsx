@@ -3,10 +3,12 @@ import { PropTypes } from 'prop-types';
 import { FooterStyle } from 'src/contexts/FooterContext';
 import { ContactCardsList } from 'src/components/contact/ContactCardsList/ContactCardsList';
 import { NavbarLinksList } from 'src/components/navbar/NavbarLinksList/navbarLinksList';
-import { PortfolioLinksList } from 'src/FooterItems/FooterPortfolioLinks';
+import { PortfolioLinksList } from 'src/components/layout/Footer/FooterItems/FooterPortfolioLinks';
 
-/**Pied de page: contacts, navigation, liens de portfolio.
- * Utilise FooterStyle.Provider pour styles contextuels.
+/**
+ * Pied de page avec contacts, navigation et liens de portfolio
+ *
+ * @returns {JSX.Element} Pied de page avec contenu structuré
  */
 export default function Footer() {
   return (

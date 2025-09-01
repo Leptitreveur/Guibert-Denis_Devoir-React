@@ -1,8 +1,11 @@
 import { TitleSection } from 'src/components/common/TitleSection/TitleSection';
 import { ContactCardsList } from 'src/components/contact/ContactCardsList/ContactCardsList';
 
-/**Section contact avec coordonnées et carte Google Maps intégrée.*/
-
+/**
+ * Section contact avec coordonnées et carte Google Maps intégrée
+ *
+ * @returns {JSX.Element} Section contact avec carte Maps
+ */
 export function MapSection() {
   return (
     <section>

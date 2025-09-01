@@ -1,5 +1,8 @@
-/**Crédits et attributions: liens sources (images, favicon, etc.).*/
-
+/**
+ * Composant des crédits et attributions
+ *
+ * @returns {JSX.Element} Section des crédits avec liens d'attribution
+ */
 export function CreditText() {
   const text = [
     <>
@@ -28,6 +31,7 @@ export function CreditText() {
       .
     </>,
   ];
+
   return (
     <div>
       <h3 className="fw-bold fs-4">Crédits</h3>

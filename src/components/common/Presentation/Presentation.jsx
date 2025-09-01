@@ -1,7 +1,11 @@
 import { UserProfilModal } from 'src/components/layout/UserProfilModal/UserProfilModal';
 import { BgHero } from 'src/components/common/BackgroundImage/BackgroundImage';
 
-/** Bannière d'accueil avec titre, sous-titre et modal de profil GitHub.*/
+/**
+ * Bannière d'accueil avec titre, sous-titre et modal de profil GitHub.
+ *
+ * @returns {JSX.Element} Bannière d'accueil avec titre, sous-titre, bouton d'action et modal
+ */
 
 export function Presentation() {
   return (
