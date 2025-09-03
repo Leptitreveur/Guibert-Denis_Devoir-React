@@ -24,7 +24,7 @@ export const Progressbar = ({ barData }) => {
         {title} {percent}%
       </h4>
       <div className="progress mb-3">
-        <div id={id} className={`progress-bar bg-${color}`} style={{ width: `${percent}%` }} aria-valuenow={percent} aria-valuemin="0" aria-valuemax="100"></div>
+        <div id={id} className={`progress-bar bg-${color}`} style={{ width: `${percent}%` }} aria-orientation="horizontal" aria-valuenow={percent} aria-valuemin="0" aria-valuemax="100"></div>
       </div>
     </div>
   );
