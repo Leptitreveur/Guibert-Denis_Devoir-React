@@ -1,10 +1,10 @@
 /* Styles pour la navigation */
 
-/* État actif des liens de navigation */
 .nav-item {
-  .active {
-    color: $white !important;
+  /* État actif des liens de navigation */
+  .nav-link.active{
     @extend .fw-bold;
+    color: $white !important;
     text-decoration: underline !important;
     text-decoration-thickness: 2px !important;
     text-underline-offset: 2px !important;

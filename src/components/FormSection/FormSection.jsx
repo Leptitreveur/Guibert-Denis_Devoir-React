@@ -44,7 +44,7 @@ export function FormSection() {
         <input id="subject" className="form-control" type="text" placeholder="Sujet" required />
 
         <label htmlFor="text" className="form-label visually-hidden"></label>
-        <textarea id="text" className="form-control app-h-25rem" type="text" placeholder="Votre message" required />
+        <textarea id="text" className="form-control app-h-25rem" placeholder="Votre message" required />
 
         <div className="m-2">
           <button type="submit" className="btn btn-primary">

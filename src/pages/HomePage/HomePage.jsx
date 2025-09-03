@@ -14,7 +14,7 @@ export default function HomePage() {
   return (
     <>
       <Head>
-        <title>Accueil</title>
+        <title>Home</title>
         <meta name="description" content="Jhon Doe vous propose ses services en qualité de Dév Web Full Stack. Page de présentation." />
       </Head>
 

@@ -18,8 +18,8 @@ export const Navbar = ({ navData }) => {
   const { getClassProps } = useContextualStyle();
 
   return (
-    <li id={id} {...getClassProps('lign', 'nav')}>
-      <NavLink to={path} {...getClassProps('link', 'nav')}>
+    <li data-id={id} {...getClassProps('lign', 'nav')}>
+      <NavLink to={path} end={path === '/'} {...getClassProps('link', 'nav')}>
         <strong>{name}</strong>
       </NavLink>
     </li>

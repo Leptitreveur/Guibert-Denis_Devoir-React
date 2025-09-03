@@ -48,7 +48,7 @@ export const ContactCard = ({ contactData, toMap = false }) => {
   const toMapAttributes = toMap ? { target: '_blank', rel: 'noreferrer noopener' } : {};
 
   return (
-    <fieldset id={id.replace(/\s+/g, '-').toLowerCase()} {...getClassProps('field', 'card')}>
+    <fieldset data-id={id.replace(/\s+/g, '-').toLowerCase()} {...getClassProps('field', 'card')}>
       <legend {...getClassProps('legend', 'card')}>{name}</legend>
       <ul {...getClassProps('list', 'card')}>
         {address && (
