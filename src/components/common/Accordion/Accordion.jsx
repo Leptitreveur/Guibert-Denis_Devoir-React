@@ -35,7 +35,7 @@ export function AccordionItem({ title, text, id }) {
           </button>
         </h2>
         <div id={`collapse${id}`} ref={collapseRef} className="accordion-collapse collapse">
-          <div className="accordion-body">{text}</div>
+          <div className="accordion-body mb-2">{text}</div>
         </div>
       </div>
     </div>
