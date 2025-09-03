@@ -14,6 +14,7 @@ export default defineConfig({
     },
   },
   css: {
+    postcss: './postcss.config.js',
     preprocessorOptions: {
       scss: {
         // additionalData: `@use "bootstrap/scss/bootstrap" as *;`,
