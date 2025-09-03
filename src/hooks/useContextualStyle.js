@@ -26,7 +26,7 @@ const commonStyles = {
  */
 const specificStyles = {
   field: {
-    card: { footer: null, default: null },
+    card: { footer: null, default: 'mb-2' },
     nav: { footer: null, default: 'collapse navbar-collapse' },
     portfolio: { footer: null, default: null },
   },

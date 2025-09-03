@@ -6,6 +6,7 @@ import { FooterStyle } from 'src/contexts/FooterContext';
 import { useContextualStyle } from 'src/hooks/useContextualStyle';
 
 import { formatPhoneNumber } from 'src/utils/phoneFormatter';
+import { usablePhoneLink } from 'src/utils/usablePhoneLink';
 import { extractDomain } from 'src/utils/domainExtractor';
 import { SocialLinksList } from 'src/components/common/socialLink/SocialLinksList/SocialLinksList';
 
@@ -47,7 +48,7 @@ export const ContactCard = ({ contactData, toMap = false }) => {
   const toMapAttributes = toMap ? { target: '_blank', rel: 'noreferrer noopener' } : {};
 
   return (
-    <fieldset id={id.replace(/\s+/g, '-').toLowerCase()} {...getClassProps('field', 'card')}>
+    <fieldset data-id={id.replace(/\s+/g, '-').toLowerCase()} {...getClassProps('field', 'card')}>
       <legend {...getClassProps('legend', 'card')}>{name}</legend>
       <ul {...getClassProps('list', 'card')}>
         {address && (
@@ -70,7 +71,7 @@ export const ContactCard = ({ contactData, toMap = false }) => {
 
         {formattedPhone && (
           <li {...getClassProps('lign', 'card')}>
-            <Link to={`tel:${formattedPhone}`} {...getClassProps('link', 'card')}>
+            <Link to={`tel:${usablePhoneLink(formattedPhone)}`} {...getClassProps('link', 'card')}>
               {isNotInFooter && <i className="bi bi-phone pe-2"></i>}
               {formattedPhone}
             </Link>
