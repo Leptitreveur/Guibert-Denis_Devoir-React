@@ -1,7 +1,15 @@
 import { PropTypes } from 'prop-types';
 
-/**Carte de service avec icône, titre et description.
- * @param {Object} cardData - { id, icon, title, text }
+/**
+ * Carte de service avec icône, titre et description
+ *
+ * @param {Object} props - Propriétés du composant
+ * @param {Object} props.cardData - Données du service à afficher
+ * @param {string} props.cardData.id - Identifiant unique du service
+ * @param {string} props.cardData.icon - Classe CSS de l'icône Bootstrap
+ * @param {string} props.cardData.title - Titre du service
+ * @param {string} props.cardData.text - Description du service
+ * @returns {JSX.Element|null} Carte de service ou null si pas de données
  */
 export const ServiceCard = ({ cardData }) => {
   if (!cardData) {

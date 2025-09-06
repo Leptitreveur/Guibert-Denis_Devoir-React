@@ -3,17 +3,23 @@ import { Link } from 'react-router-dom';
 
 import Modal from 'bootstrap/js/dist/modal';
 
-/** Modal Bootstrap affichant les informations du profil GitHub.
- * Récupère les données via l'API GitHub et gère les états de chargement/erreur.
+/**
+ * Modal Bootstrap affichant les informations du profil GitHub
+ *
+ * @returns {JSX.Element} Modal avec informations du profil GitHub
  */
 export function UserProfilModal() {
   const [user, setUser] = useState(null);
+
   const [loading, setLoading] = useState(true);
+
   const [error, setError] = useState(null);
 
   const modalRef = useRef(null);
 
-  // Récupération des données GitHub et initialisation du modal Bootstrap
+  /**
+   * Effet pour récupérer les données GitHub et initialiser le modal
+   */
   useEffect(() => {
     fetch('https://api.github.com/users/github-john-doe')
       .then((response) => {
@@ -39,7 +45,6 @@ export function UserProfilModal() {
   if (loading) return <p>Chargement...</p>;
   if (error) return <p>Erreur : {error}</p>;
 
-  // Configuration des éléments d'information du profil
   const paragraphItem = [
     {
       key: '1',

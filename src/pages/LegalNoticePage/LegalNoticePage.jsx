@@ -6,8 +6,11 @@ import { TitleLayout } from 'src/components/common/TitleLayout/TitleLayout';
 import { AccordionItem } from 'src/components/common/Accordion/Accordion';
 import { ContactCardsList } from 'src/components/contact/ContactCardsList/ContactCardsList';
 
-/**Mentions légales avec sections en accordéon. Noindex/nofollow.*/
-
+/**
+ * Page des mentions légales avec sections en accordéon
+ *
+ * @returns {JSX.Element} Page des mentions légales avec accordéon
+ */
 export default function LegalNoticePage() {
   return (
     <>

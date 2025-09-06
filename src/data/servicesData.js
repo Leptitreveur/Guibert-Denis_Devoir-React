@@ -1,35 +1,30 @@
-/** Gestion des données de services
- * Permet d'ajouter des services avec validation des champs requis
- */
-
 const serviceCard = [];
 
 const requiredFields = ['id', 'icon', 'title', 'text'];
 
-/**Ajoute un service avec validation des données
+/**
+ * Ajoute un service proposé avec validation des données
+ *
  * @param {Object} data - Données du service à ajouter
+ * @param {string} data.id - Identifiant unique du service
+ * @param {string} data.icon - Classe CSS de l'icône Bootstrap
+ * @param {string} data.title - Titre du service
+ * @param {string} data.text - Description du service
  */
 const addService = (data) => {
   const serviceData = {};
 
-  // * Début de validation des données ==================================================================================
-
-  // Validation des champs requis
   for (const field of requiredFields) {
     if (data[field] === undefined || data[field] === null) {
       console.warn(`Incomplete data value passed to add service. Missed value: "${field}"`);
       return;
     }
 
-    // * Fin de validation ================================================================================================
-
     serviceData[field] = data[field];
   }
 
   serviceCard.push(serviceData);
 };
-
-//* AJOUT DYNAMIQUE ==============================================================================================
 
 addService({
   id: 'uxdesign',
@@ -50,13 +45,12 @@ addService({
   text: "Le référencement naturel (SEO) est une technique qui consiste à optimiser un site web pour le faire remonter dans les résultats des moteurs de recherche (Google, Bing, Yahoo, etc.). L'objectif est d'attiré un maximum de visiteurs qualifiés sur le site.",
 });
 
-// *FIN D'AJOUT DYNAMIQUE ===================================================================================================
-
-/**Récupère un service par son ID
+/**
+ * Récupère un service par son ID
+ *
  * @param {string} id - ID du service à récupérer
- * @returns {Object|null} Le service trouvé ou null
+ * @returns {Object|null} Le service trouvé ou null si non trouvé
  */
 export const getServices = (id) => serviceCard.find((data) => data.id === id);
 
-//* exportation faite du tableau une fois rempli
 export default serviceCard;

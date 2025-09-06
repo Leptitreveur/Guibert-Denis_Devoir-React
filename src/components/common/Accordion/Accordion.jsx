@@ -3,15 +3,21 @@ import { useEffect, useRef } from 'react';
 
 import Collapse from 'bootstrap/js/dist/collapse';
 
-/**Élément d'accordéon Bootstrap avec titre et contenu collapsible.
- * @param {string} title - Titre de l'accordéon
- * @param {ReactNode} text - Contenu de l'accordéon
- * @param {string} id - Identifiant unique
+/**
+ * Élément d'accordéon Bootstrap avec titre et contenu collapsible
+ *
+ * @param {Object} props - Propriétés du composant
+ * @param {string} props.title - Titre de l'accordéon
+ * @param {ReactNode} props.text - Contenu de l'accordéon
+ * @param {string} props.id - Identifiant unique pour l'accordéon
+ * @returns {JSX.Element} Élément d'accordéon avec titre et contenu collapsible
  */
 export function AccordionItem({ title, text, id }) {
   const collapseRef = useRef(null);
 
-  // Initialisation du collapse Bootstrap
+  /**
+   * Effet pour initialiser le collapse Bootstrap
+   */
   useEffect(() => {
     if (collapseRef.current) {
       new Collapse(collapseRef.current, {
@@ -28,14 +34,14 @@ export function AccordionItem({ title, text, id }) {
             {title}
           </button>
         </h2>
-        {/* Contenu collapsible de l'accordéon */}
         <div id={`collapse${id}`} ref={collapseRef} className="accordion-collapse collapse">
-          <div className="accordion-body">{text}</div>
+          <div className="accordion-body mb-2">{text}</div>
         </div>
       </div>
     </div>
   );
 }
+
 AccordionItem.propTypes = {
   title: PropTypes.string.isRequired,
   text: PropTypes.node.isRequired,

@@ -1,14 +1,15 @@
-/**Test de validation de l'URL du site web
- * @param {string} site web à valider
- * @return {boolean} résultat de validation  
+/**
+ * Validateur de format d'URL
+ *
+ * @param {string} website - L'URL du site web à valider
+ * @returns {Object} Objet contenant isValid (boolean)
  */
-
 export const validateUrlFormat = (website) => {
-  if (typeof website !== 'string' || website.trim() === '') return false;
+  if (typeof website !== 'string' || website.trim() === '') return { isValid: false };
   try {
     new URL(website);
-    return true;
+    return { isValid: true };
   } catch {
-    return false;
+    return { isValid: false };
   }
-}
+};

@@ -2,14 +2,19 @@ import { PropTypes } from 'prop-types';
 
 import { useContextualStyle } from 'src/hooks/useContextualStyle';
 
-/* Affiche un lien vers un profil social avec icône et styles contextuels.
-  @param {Object} linkData - { id, link, icon }
-  @returns {JSX.Element|null}
+/**
+ * Lien vers un profil social avec icône et styles contextuels
+ *
+ * @param {Object} props - Propriétés du composant
+ * @param {Object} props.linkData - Données du lien social
+ * @param {string} props.linkData.id - Identifiant unique du lien
+ * @param {string} props.linkData.link - URL du profil social
+ * @param {string} props.linkData.icon - Classe CSS de l'icône
+ * @returns {JSX.Element|null} Lien social avec icône ou null si pas de données
  */
 export const SocialLink = ({ linkData }) => {
   const { getClassProps } = useContextualStyle();
 
-  // Garde-fou: aucun rendu si aucunes données
   if (!linkData) {
     return null;
   }

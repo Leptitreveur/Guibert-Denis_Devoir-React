@@ -1,17 +1,31 @@
-/**Hook useScrollToTop
- * Remonte automatiquement en haut de page lors du changement de route
- */
-
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 
+/**
+ * Hook pour remonter automatiquement en haut de page lors des changements de route
+ */
 export const useScrollToTop = () => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
+  const scrollTimeoutRef = useRef(null);
 
-  // Remonte en haut de page à chaque changement de route
+  const scrollToTopDelay = 50;
+
+  /**
+   * Effet pour remonter en haut de page lors des changements de route
+   */
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    if (!hash) {
+      scrollTimeoutRef.current = setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, scrollToTopDelay);
+    }
+
+    return () => {
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
+  }, [pathname, hash]);
 
   return;
 };

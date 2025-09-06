@@ -1,59 +1,59 @@
-/**Gestion des données du portfolio avec validation
- * Permet d'ajouter des réalisations avec validation des champs et des images
- * 
+/**
+ * Gestion des données du portfolio avec validation
+ *
  * IMPORTANT : MODIFICATION DES IDs
- *  
+ *
+ * RAPPEL : La portfolioCard et son image partagent la meme ID.
+ *          Les IDs doivent être en minuscules sans caractères spéciaux
+ *
  * 1. Modifier la clé correspondante dans src/data/portfolioImages.js
  * 2. Mettre à jour le tableau selectedIds dans src/pages/PortfolioPage/PortfolioPage.jsx si choix personaliser
- * 
- * RAPPEL : Les IDs doivent être en minuscules sans caractères spéciaux
  */
 
 import PortfolioImages from 'src/data/portfolioImages';
+import { validateIdFormat } from 'src/utils/validation/idValidator';
+import { validateImageById } from 'src/utils/validation/portfolioImageValidator';
+import { validateField } from 'src/utils/validation/fieldValidator';
 
 const portfolioCards = [];
 
-const requiredFields = ['id', 'alt', 'title', 'description', 'tools', 'link'];
-
-/**Ajoute une réalisation au portfolio avec validation complète
+/**
+ * Ajoute une réalisation au portfolio avec validation complète
+ *
  * @param {Object} data - Données de la réalisation à ajouter
+ * @param {string} data.id - Identifiant unique de la réalisation
+ * @param {string} data.alt - Texte alternatif de l'image
+ * @param {string} data.title - Titre de la réalisation
+ * @param {string} data.description - Description du projet
+ * @param {string} data.tools - Outils/technologies utilisés
+ * @param {string} [data.link] - URL du projet (optionnel)
  */
 const addPortfolio = (data) => {
-  const { id } = data;
+  if (data.id) {
+    const idValidation = validateIdFormat(data.id);
+    const imageValidation = validateImageById(data.id);
+    const errors = [];
 
-  // * Début de validation des données ============================================================================================
-  let idErrors = [];
+    if (!idValidation.isValid) {
+      errors.push(...idValidation.errors);
+    }
 
-  // Validation de l'ID
-  if (!id || typeof id !== 'string') {
-    console.warn(`Validation échouée: L'ID est manquant ou n'est pas une chaîne de caractères.`);
-    return;
-  }
+    if (!imageValidation.isValid) {
+      errors.push(`Aucune image trouvée pour l'ID "${data.id}". Vérifiez que l'ID existe dans portfolioImages.js.`);
+    }
 
-  // Validation du format de l'ID (minuscules, pas de caractères spéciaux)
-  if (!/^[a-z0-9]+$/.test(id)) {
-    idErrors.push('doit être en minuscules et sans caractères spéciaux (snake_case ou kebab-case non autorisés ici pour simplifier).');
-  }
-
-  if (idErrors.length > 0) {
-    console.warn(`ID invalide ("${id}"):\n- ${idErrors.join('\n- ')}`);
-    return;
-  }
-
-  // Vérification de l'existence de l'image correspondante
-  if (!PortfolioImages[id]) {
-    console.warn(`Validation échouée: Aucune image trouvée pour l'ID "${id}". Vérifiez que l'ID existe dans portfolioImages.js.`);
-    return;
-  }
-
-  // Validation des champs requis
-  for (const field of requiredFields) {
-    if (data[field] === undefined || data[field] === null) {
-      console.warn(`Validation échouée: Le champ requis "${field}" est manquant pour le projet ID "${id}".`);
+    if (errors.length > 0) {
+      console.error(`PortfolioData Validation échouée : \n- ${errors.join('\n- ')}`);
       return;
     }
   }
-  // * Fin de validation ==========================================================================================================
+
+  if (data) {
+    const { isValid, field } = validateField(data);
+    if (!isValid) {
+      console.warn(`PortfolioData Validation échouée: Le champ requis, "${field}", est manquant pour le projet ID "${data.id}".`);
+    }
+  }
 
   // Formatage des données avec l'image correspondante
   const formattedData = {
@@ -63,13 +63,12 @@ const addPortfolio = (data) => {
     title: data.title,
     description: data.description,
     tools: data.tools,
-    link: data.link,
+    link: data.link || '',
   };
 
   portfolioCards.push(formattedData);
 };
 
-//* AJOUT DYNAMIQUE DE REALISATIONS =================================================================================================
 addPortfolio({
   id: 'freshfood',
   alt: 'Freshfood background',
@@ -118,13 +117,13 @@ addPortfolio({
   tools: 'Réaliser avec FIGMA',
   link: 'https://www.figma.com/fr-fr/',
 });
-// *FIN D'AJOUT DYNAMIQUE #######################################################################################################
 
-/**Récupère une réalisation par son ID
+/**
+ * Récupère une réalisation par son ID
+ *
  * @param {string} id - ID de la réalisation à récupérer
- * @returns {Object|null} La réalisation trouvée ou null
+ * @returns {Object|null} La réalisation trouvée ou null si non trouvée
  */
 export const getPortfolioCards = (id) => portfolioCards.find((data) => data.id === id);
 
-//* exportation faite du tableau une fois rempli
 export default portfolioCards;

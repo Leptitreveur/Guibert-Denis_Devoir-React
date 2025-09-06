@@ -5,8 +5,11 @@ import { TitleLayout } from 'src/components/common/TitleLayout/TitleLayout';
 import { MapSection } from 'src/components/MapSection/MapSection';
 import { FormSection } from 'src/components/FormSection/FormSection';
 
-/** Page de contact avec formulaire et carte Google Maps.*/
-
+/**
+ * Page de contact avec formulaire et carte Google Maps
+ *
+ * @returns {JSX.Element} Page de contact avec formulaire et carte
+ */
 export default function ContactPage() {
   return (
     <>

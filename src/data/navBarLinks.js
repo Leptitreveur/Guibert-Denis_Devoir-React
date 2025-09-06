@@ -1,18 +1,18 @@
-/** Gestion des liens de navigation
- * Permet d'ajouter des liens avec validation des champs requis
- */
-
 const navbarLinks = [];
 
 const requiredFields = ['id', 'path', 'name'];
 
-/** Ajoute un lien de navigation avec validation
+/**
+ * Ajoute un lien de navigation avec validation
+ *
  * @param {Object} data - Données du lien à ajouter
+ * @param {string} data.id - Identifiant unique du lien
+ * @param {string} data.path - Chemin de la route
+ * @param {string} data.name - Nom affiché du lien
  */
 function addLink(data) {
   const linkData = {};
 
-  // Validation des champs requis
   for (const field of requiredFields) {
     if (data[field] === undefined || data[field] === null) {
       console.warn(`Incomplete value passed to navbarLinks. Missing value: "${field}"`);
@@ -23,8 +23,6 @@ function addLink(data) {
   navbarLinks.push(linkData);
 }
 
-//* AJOUT DYNAMIQUE DE LIEN DE NAVIGATION ##################################################################################
-// ! Mettre le nom avec la premiere lettre en majuscule
 addLink({
   id: 'HomePage',
   path: '/',
@@ -50,11 +48,12 @@ addLink({
   path: '/LegalNoticePage',
   name: 'Mentions légales',
 });
-//* FIN D'AJOUT DYNAMIQUE ##################################################################################################
 
-/** Récupère un lien par son ID
+/**
+ * Récupère un lien par son ID
+ *
  * @param {string} id - ID du lien à récupérer
- * @returns {Object|null} Le lien trouvé ou null
+ * @returns {Object|null} Le lien trouvé ou null si non trouvé
  */
 export const getNavbarLinks = (id) => navbarLinks.find((data) => data.id === id);
 

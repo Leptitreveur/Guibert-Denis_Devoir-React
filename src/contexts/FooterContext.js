@@ -1,6 +1,8 @@
 import { createContext } from 'react';
 
-/** Contexte FooterStyle
- * Permet de déterminer si un composant est utilisé dans le footer pour appliquer des styles spécifiques
+/**
+ * Contexte FooterStyle - Gestion du contexte d'affichage footer
+ *
+ * @type {React.Context<boolean>} Contexte avec valeur booléenne (true si dans footer)
  */
 export const FooterStyle = createContext();

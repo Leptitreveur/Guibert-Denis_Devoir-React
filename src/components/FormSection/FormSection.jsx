@@ -1,13 +1,18 @@
 import { useRef } from 'react';
 import { TitleSection } from 'src/components/common/TitleSection/TitleSection';
 
-/** Formulaire de contact avec validation Bootstrap et réinitialisation.*/
-
+/**
+ * Formulaire de contact avec validation Bootstrap et réinitialisation
+ *
+ * @returns {JSX.Element} Formulaire de contact avec validation
+ */
 export function FormSection() {
-  // Référence au formulaire pour la validation
   const formRef = useRef(null);
 
-  // handleSubmit: empêche envoi, ajoute was-validated, réinitialise si valide
+  /**
+   * Gestionnaire de soumission du formulaire
+   * @param {Event} event - Événement de soumission du formulaire
+   */
   const handleSubmit = (event) => {
     const form = formRef.current;
     event.preventDefault();
@@ -39,7 +44,7 @@ export function FormSection() {
         <input id="subject" className="form-control" type="text" placeholder="Sujet" required />
 
         <label htmlFor="text" className="form-label visually-hidden"></label>
-        <textarea id="text" className="form-control app-h-25rem" type="text" placeholder="Votre message" required />
+        <textarea id="text" className="form-control app-h-25rem" placeholder="Votre message" required />
 
         <div className="m-2">
           <button type="submit" className="btn btn-primary">

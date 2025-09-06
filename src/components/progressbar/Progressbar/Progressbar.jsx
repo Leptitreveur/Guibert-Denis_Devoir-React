@@ -1,7 +1,15 @@
 import { PropTypes } from 'prop-types';
 
-/** Barre de progression Bootstrap avec titre et pourcentage.
- * @param {Object} barData - { id, title, percent, color }
+/**
+ * Barre de progression Bootstrap avec titre et pourcentage
+ *
+ * @param {Object} props - Propriétés du composant
+ * @param {Object} props.barData - Données de la barre de progression
+ * @param {string} props.barData.id - Identifiant unique de la barre
+ * @param {string} props.barData.title - Titre de la compétence
+ * @param {number} props.barData.percent - Pourcentage de maîtrise (0-100)
+ * @param {string} props.barData.color - Couleur Bootstrap de la barre
+ * @returns {JSX.Element|null} Barre de progression ou null si pas de données
  */
 export const Progressbar = ({ barData }) => {
   if (!barData) {
@@ -16,7 +24,7 @@ export const Progressbar = ({ barData }) => {
         {title} {percent}%
       </h4>
       <div className="progress mb-3">
-        <div id={id} className={`progress-bar bg-${color}`} style={{ width: `${percent}%` }} aria-valuenow={percent} aria-valuemin="0" aria-valuemax="100"></div>
+        <div id={id} className={`progress-bar bg-${color}`} style={{ width: `${percent}%` }} role="progressbar" aria-valuenow={percent} aria-valuemin="0" aria-valuemax="100"></div>
       </div>
     </div>
   );
